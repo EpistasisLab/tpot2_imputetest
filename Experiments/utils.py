@@ -17,6 +17,9 @@ import numpy as np
 import time
 import random
 import sklearn.model_selection
+import torch
+from scipy import optimize
+import pandas as pd
 
 def score(est, X, y):
 
@@ -94,7 +97,7 @@ def load_task(task_id, preprocess=True):
 
 def loop_through_tasks(experiments, task_id_lists, base_save_folder):
     for taskid in task_id_lists:
-        for level in [1, 10, 30, 50]:
+        for level in [0.01, 0.1, 0.3, 0.5, 0.9]:
             for type in ['MCAR', 'MNAR', 'MAR']:
                 for exp in experiments:
                     save_folder = f"{base_save_folder}/{exp['exp_name']}_{taskid}_{level}_{type}"
@@ -108,9 +111,13 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder):
                     print(save_folder)
 
                     try: 
-
                         print("loading data")
                         X_train, y_train, X_test, y_test = load_task(taskid, preprocess=True)
+                        
+                        print("adding missingness")
+                        missing_train, mask_train = add_missing(X=X_train, add_missing=level, missing_type=type)
+                        missing_test, mask_test = add_missing(X=X_train, add_missing=level, missing_type=type)
+
                         
 
                         print("starting ml")
@@ -168,3 +175,145 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder):
                         return
     
     print("all finished")
+
+def add_missing(X, add_missing = 0.05, missing_type = 'MAR'):
+    X = pd.DataFrame(X)
+    missing_mask = X
+    missing_mask = missing_mask.mask(missing_mask.isna(), True)
+    missing_mask = missing_mask.mask(missing_mask.notna(), False)
+    X = X.mask(X.isna(), 0)
+    T = torch.tensor(X.to_numpy())
+
+    match missing_type:
+        case 'MAR':
+            out = MAR(T, [add_missing])
+        case 'MCAR':
+            out = MCAR(T, [add_missing])
+        case 'MNAR':
+            out = MNAR_mask_logistic(T, [add_missing])
+
+    masked_set = pd.DataFrame(out['Mask'].numpy())
+    masked_set = masked_set.mask((missing_mask | masked_set), True)
+    masked_set.columns = X.columns.values
+    masked_set = masked_set.to_numpy()
+
+    missing_set = pd.DataFrame(out['Missing'].numpy())
+    missing_set.columns = X.columns.values
+    missing_set = missing_set.to_numpy()
+
+    return missing_set, masked_set
+
+"""BEYOND THIS POINT WRITTEN BY Aude Sportisse, Marine Le Morvan and Boris Muzellec - https://rmisstastic.netlify.app/how-to/python/generate_html/how%20to%20generate%20missing%20values"""
+
+def MCAR(X, p_miss):
+    out = {'X': X.double()}
+    for p in p_miss: 
+        mask = (torch.rand(X.shape) < p).double()
+        X_nas = X.clone()
+        X_nas[mask.bool()] = np.nan
+        model_name = 'Missing'
+        mask_name = 'Mask'
+        out[model_name] = X_nas
+        out[mask_name] = mask
+    return out
+
+def MAR(X,p_miss,p_obs=0.5):
+    out = {'X': X.double()}
+    for p in p_miss:
+        n, d = X.shape
+        mask = torch.zeros(n, d).bool()
+        num_no_missing = max(int(p_obs * d), 1)
+        num_missing = d - num_no_missing
+        obs_samples = np.random.choice(d, num_no_missing, replace=False)
+        copy_samples = np.array([i for i in range(d) if i not in obs_samples])
+        len_obs = len(obs_samples)
+        len_na = len(copy_samples)
+        coeffs = torch.randn(len_obs, len_na).double()
+        Wx = X[:, obs_samples].mm(coeffs)
+        coeffs /= torch.std(Wx, 0, keepdim=True)
+        coeffs.double()
+        len_obs, len_na = coeffs.shape
+        intercepts = torch.zeros(len_na)
+        for j in range(len_na):
+            def f(x):
+                return torch.sigmoid(X[:, obs_samples].mv(coeffs[:, j]) + x).mean().item() - p
+            intercepts[j] = optimize.bisect(f, -50, 50)
+        ps = torch.sigmoid(X[:, obs_samples].mm(coeffs) + intercepts)
+        ber = torch.rand(n, len_na)
+        mask[:, copy_samples] = ber < ps
+        X_nas = X.clone()
+        X_nas[mask.bool()] = np.nan
+        model_name = 'Missing'
+        mask_name = 'Mask'
+        out[model_name] = X_nas
+        out[mask_name] = mask
+    return out
+
+def MNAR_mask_logistic(X, p_miss, p_params =.5, exclude_inputs=True):
+    """
+    Missing not at random mechanism with a logistic masking model. It implements two mechanisms:
+    (i) Missing probabilities are selected with a logistic model, taking all variables as inputs. Hence, values that are
+    inputs can also be missing.
+    (ii) Variables are split into a set of intputs for a logistic model, and a set whose missing probabilities are
+    determined by the logistic model. Then inputs are then masked MCAR (hence, missing values from the second set will
+    depend on masked values.
+    In either case, weights are random and the intercept is selected to attain the desired proportion of missing values.
+    Parameters
+    ----------
+    X : torch.DoubleTensor or np.ndarray, shape (n, d)
+        Data for which missing values will be simulated.
+        If a numpy array is provided, it will be converted to a pytorch tensor.
+    p : float
+        Proportion of missing values to generate for variables which will have missing values.
+    p_params : float
+        Proportion of variables that will be used for the logistic masking model (only if exclude_inputs).
+    exclude_inputs : boolean, default=True
+        True: mechanism (ii) is used, False: (i)
+    Returns
+    -------
+    mask : torch.BoolTensor or np.ndarray (depending on type of X)
+        Mask of generated missing values (True if the value is missing).
+    """
+    out = {'X_init_MNAR': X.double()}
+    for p in p_miss: 
+        n, d = X.shape
+        to_torch = torch.is_tensor(X) ## output a pytorch tensor, or a numpy array
+        if not to_torch:
+            X = torch.from_numpy(X)
+        mask = torch.zeros(n, d).bool() if to_torch else np.zeros((n, d)).astype(bool)
+        d_params = max(int(p_params * d), 1) if exclude_inputs else d ## number of variables used as inputs (at least 1)
+        d_na = d - d_params if exclude_inputs else d ## number of variables masked with the logistic model
+        ### Sample variables that will be parameters for the logistic regression:
+        idxs_params = np.random.choice(d, d_params, replace=False) if exclude_inputs else np.arange(d)
+        idxs_nas = np.array([i for i in range(d) if i not in idxs_params]) if exclude_inputs else np.arange(d)
+        ### Other variables will have NA proportions selected by a logistic model
+        ### The parameters of this logistic model are random.
+        ### Pick coefficients so that W^Tx has unit variance (avoids shrinking)
+        len_obs = len(idxs_params)
+        len_na = len(idxs_nas)
+        coeffs = torch.randn(len_obs, len_na).double()
+        Wx = X[:, idxs_params].mm(coeffs)
+        coeffs /= torch.std(Wx, 0, keepdim=True)
+        coeffs.double()
+        ### Pick the intercepts to have a desired amount of missing values
+        len_obs, len_na = coeffs.shape
+        intercepts = torch.zeros(len_na)
+        for j in range(len_na):
+            def f(x):
+                return torch.sigmoid(X[:, idxs_params].mv(coeffs[:, j]) + x).mean().item() - p
+            intercepts[j] = optimize.bisect(f, -50, 50)
+        ps = torch.sigmoid(X[:, idxs_params].mm(coeffs) + intercepts)
+        ber = torch.rand(n, d_na)
+        mask[:, idxs_nas] = ber < ps
+        ## If the inputs of the logistic model are excluded from MNAR missingness,
+        ## mask some values used in the logistic model at random.
+        ## This makes the missingness of other variables potentially dependent on masked values
+        if exclude_inputs:
+            mask[:, idxs_params] = torch.rand(n, d_params) < p
+        X_nas = X.clone()
+        X_nas[mask.bool()] = np.nan
+        model_name = 'Missing'
+        mask_name = 'Mask'
+        out[model_name] = X_nas
+        out[mask_name] = mask
+    return out
