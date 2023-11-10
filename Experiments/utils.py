@@ -447,32 +447,6 @@ def GAINSuggest(trial, model_name):
       'iterations': iterations
       }
     return my_params
-
-def OptSvmSuggest(trial, model_name, random_state):
-    svm_gamma = trial.suggest_float('svm_gamma', 0.001, 10, log = True)
-    svm_epsilon = trial.suggest_float('svm_epsilon', 0.001, 1, log=True)
-    max_iter = trial.suggest_int('max_iter', 1, 200, log=True)
-    cluster = trial.suggest_categorical('cluster', [True, False])
-    my_params = {
-        'model_name': model_name,
-        'svm_gamma': svm_gamma,
-        'svm_epsilon': svm_epsilon,
-        'max_iter': max_iter,
-        'cluster': cluster,
-        'random_state': random_state
-    }
-    return my_params
-  
-def OptTreesSuggest(trial, model_name, random_state):
-    max_iter = trial.suggest_int('max_iter', 1, 200, log = True)
-    cluster = trial.suggest_categorical('cluster', [True, False])
-    my_params = {
-        'model_name': model_name,
-        'max_iter': max_iter,
-        'cluster' : cluster,
-        'random_state': random_state
-    }
-    return my_params
   
 def rmse_loss(ori_data, imputed_data, data_m):
     '''Compute RMSE loss between ori_data and imputed_data
