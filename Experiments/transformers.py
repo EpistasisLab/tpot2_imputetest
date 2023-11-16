@@ -5,6 +5,10 @@
 import warnings
 
 import numpy as np
+
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
+
 from scipy.stats import mode
 
 from sklearn.base import BaseEstimator, TransformerMixin
@@ -293,7 +297,6 @@ class MissForest(BaseEstimator, TransformerMixin):
                 n_estimators=self.n_estimators,
                 criterion=reg_criterion,
                 max_depth=self.max_depth,
-                min_samples_split=self.min_samples_split,
                 min_samples_leaf=self.min_samples_leaf,
                 min_weight_fraction_leaf=self.min_weight_fraction_leaf,
                 max_features=self.max_features,
@@ -555,499 +558,302 @@ class MissForest(BaseEstimator, TransformerMixin):
         """
         return self.fit(X, **fit_params).transform(X)
     
-class GAINImputer(_BaseImputer):
+class GAINImputer(BaseEstimator, TransformerMixin):
     """Imputer for completing missing values with random forest strategies.
 
     Replace missing values using sklearn's built in random forest regressor function along each column.
 
     Written by Gabriel Ketron Nov 16th, 2023
+    Adapted from Jinsung Yoon
     Contact: Gabriel.Ketron@cshs.org
 
     Parameters
     ----------
-    max_iter : int, optional (default = 10)
-        The maximum iterations of the imputation process. Each column with a
-        missing value is imputed exactly once in a given iteration.
-
-    decreasing : boolean, optional (default = False)
-    If set to True, columns are sorted according to decreasing number of
-    missing values. In other words, imputation will move from imputing
-    columns with the largest number of missing values to columns with
-    fewest number of missing values.
-        
-    missing_values : np.nan, integer, optional (default = np.nan)
-    The placeholder for the missing values. All occurrences of
-    `missing_values` will be imputed.
-
-    copy : boolean, optional (default = True)
-    If True, a copy of X will be created. If False, imputation will
-    be done in-place whenever possible.
-
-criterion : tuple, optional (default = ('mse', 'gini'))
-    The function to measure the quality of a split.The first element of
-    the tuple is for the Random Forest Regressor (for imputing numerical
-    variables) while the second element is for the Random Forest
-    Classifier (for imputing categorical variables).
-
-n_estimators : integer, optional (default=100)
-    The number of trees in the forest.
-
-max_depth : integer or None, optional (default=None)
-    The maximum depth of the tree. If None, then nodes are expanded until
-    all leaves are pure or until all leaves contain less than
-    min_samples_split samples.
-
-min_samples_split : int, float, optional (default=2)
-    The minimum number of samples required to split an internal node:
-    - If int, then consider `min_samples_split` as the minimum number.
-    - If float, then `min_samples_split` is a fraction and
-      `ceil(min_samples_split * n_samples)` are the minimum
-      number of samples for each split.
-
-min_samples_leaf : int, float, optional (default=1)
-    The minimum number of samples required to be at a leaf node.
-    A split point at any depth will only be considered if it leaves at
-    least ``min_samples_leaf`` training samples in each of the left and
-    right branches.  This may have the effect of smoothing the model,
-    especially in regression.
-    - If int, then consider `min_samples_leaf` as the minimum number.
-    - If float, then `min_samples_leaf` is a fraction and
-      `ceil(min_samples_leaf * n_samples)` are the minimum
-      number of samples for each node.
-
-min_weight_fraction_leaf : float, optional (default=0.)
-    The minimum weighted fraction of the sum total of weights (of all
-    the input samples) required to be at a leaf node. Samples have
-    equal weight when sample_weight is not provided.
-
-max_features : int, float, string or None, optional (default="auto")
-    The number of features to consider when looking for the best split:
-    - If int, then consider `max_features` features at each split.
-    - If float, then `max_features` is a fraction and
-      `int(max_features * n_features)` features are considered at each
-      split.
-    - If "auto", then `max_features=sqrt(n_features)`.
-    - If "sqrt", then `max_features=sqrt(n_features)` (same as "auto").
-    - If "log2", then `max_features=log2(n_features)`.
-    - If None, then `max_features=n_features`.
-    Note: the search for a split does not stop until at least one
-    valid partition of the node samples is found, even if it requires to
-    effectively inspect more than ``max_features`` features.
-
-max_leaf_nodes : int or None, optional (default=None)
-    Grow trees with ``max_leaf_nodes`` in best-first fashion.
-    Best nodes are defined as relative reduction in impurity.
-    If None then unlimited number of leaf nodes.
-
-min_impurity_decrease : float, optional (default=0.)
-    A node will be split if this split induces a decrease of the impurity
-    greater than or equal to this value.
-    The weighted impurity decrease equation is the following::
-        N_t / N * (impurity - N_t_R / N_t * right_impurity
-                            - N_t_L / N_t * left_impurity)
-    where ``N`` is the total number of samples, ``N_t`` is the number of
-    samples at the current node, ``N_t_L`` is the number of samples in the
-    left child, and ``N_t_R`` is the number of samples in the right child.
-    ``N``, ``N_t``, ``N_t_R`` and ``N_t_L`` all refer to the weighted sum,
-    if ``sample_weight`` is passed.
-
-bootstrap : boolean, optional (default=True)
-    Whether bootstrap samples are used when building trees.
-
-oob_score : bool (default=False)
-    Whether to use out-of-bag samples to estimate
-    the generalization accuracy.
-
-n_jobs : int or None, optional (default=-1)
-    The number of jobs to run in parallel for both `fit` and `predict`.
-    ``None`` means 1 unless in a :obj:`joblib.parallel_backend` context.
-    ``-1`` means using all processors.
-
-random_state : int, RandomState instance or None, optional (default=None)
-    If int, random_state is the seed used by the random number generator;
-    If RandomState instance, random_state is the random number generator;
-    If None, the random number generator is the RandomState instance used
-    by `np.random`.
-
-verbose : int, optional (default=0)
-    Controls the verbosity when fitting and predicting.
-
-warm_start : bool, optional (default=False)
-    When set to ``True``, reuse the solution of the previous call to fit
-    and add more estimators to the ensemble, otherwise, just fit a whole
-    new forest. See :term:`the Glossary <warm_start>`.
-
-class_weight : dict, list of dicts, "balanced", "balanced_subsample" or \
-None, optional (default=None)
-    Weights associated with classes in the form ``{class_label: weight}``.
-    If not given, all classes are supposed to have weight one. For
-    multi-output problems, a list of dicts can be provided in the same
-    order as the columns of y.
-    Note that for multioutput (including multilabel) weights should be
-    defined for each class of every column in its own dict. For example,
-    for four-class multilabel classification weights should be
-    [{0: 1, 1: 1}, {0: 1, 1: 5}, {0: 1, 1: 1}, {0: 1, 1: 1}] instead of
-    [{1:1}, {2:5}, {3:1}, {4:1}].
-    The "balanced" mode uses the values of y to automatically adjust
-    weights inversely proportional to class frequencies in the input data
-    as ``n_samples / (n_classes * np.bincount(y))``
-    The "balanced_subsample" mode is the same as "balanced" except that
-    weights are computed based on the bootstrap sample for every tree
-    grown.
-    For multi-output, the weights of each column of y will be multiplied.
-    Note that these weights will be multiplied with sample_weight (passed
-    through the fit method) if sample_weight is specified.
-    NOTE: This parameter is only applicable for Random Forest Classifier
-    objects (i.e., for categorical variables).
-
+    'batch_size': batch_size,
+    'hint_rate': hint_rate,
+    'alpha': alpha,
+    'iterations': iterations
     Attributes
     ----------
-    statistics_ : Dictionary of length two
-    The first element is an array with the mean of each numerical feature
-    being imputed while the second element is an array of modes of
-    categorical features being imputed (if available, otherwise it
-    will be None).
 
-    Methods
-    -------
-    fit(self, X, y=None, cat_vars=None):
-        Fit the imputer on X.
+    References
+    ----------
 
-        Parameters
-        ----------
-        X : {array-like}, shape (n_samples, n_features)
-            Input data, where ``n_samples`` is the number of samples and
-            ``n_features`` is the number of features.
-
-        cat_vars : int or array of ints, optional (default = None)
-            An int or an array containing column indices of categorical
-            variable(s)/feature(s) present in the dataset X.
-            ``None`` if there are no categorical variables in the dataset.
-
-        Returns
-        -------
-        self : object
-            Returns self.
-        
-            
-    transform(X):
-        Impute all missing values in X.
-
-        Parameters
-        ----------
-        X : {array-like}, shape = [n_samples, n_features]
-            The input data to complete.
-
-        Returns
-        -------
-        X : {array-like}, shape = [n_samples, n_features]
-            The imputed dataset.
-        
-
-    fit_transform(X, y=None, **fit_params):
-        Fit MissForest and impute all missing values in X.
-
-        Parameters
-        ----------
-        X : {array-like}, shape (n_samples, n_features)
-            Input data, where ``n_samples`` is the number of samples and
-            ``n_features`` is the number of features.
-
-        Returns
-        -------
-        X : {array-like}, shape (n_samples, n_features)
-            Returns imputed dataset.
-    
-    get_feature_names_out(self, input_features=None):
-        Get output feature names for transformation.
-
-        Parameters
-        ----------
-        input_features : array-like of str or None, default=None
-            Input features.
-
-            - If `input_features` is `None`, then `feature_names_in_` is
-              used as feature names in. If `feature_names_in_` is not defined,
-              then the following input feature names are generated:
-              `["x0", "x1", ..., "x(n_features_in_ - 1)"]`.
-            - If `input_features` is an array-like, then `input_features` must
-              match `feature_names_in_` if `feature_names_in_` is defined.
-
-        Returns
-        -------
-        feature_names_out : ndarray of str objects
-            Transformed feature names.
     """
-
-    _parameter_constraints: dict = {
-        **_BaseImputer._parameter_constraints,
-        "n_neighbors": [Interval(Integral, 1, None, closed="left")],
-        "weights": [StrOptions({"uniform", "distance"}), callable, Hidden(None)],
-        "metric": [StrOptions(set(_NAN_METRICS)), callable],  # any object is valid
-        "copy": ["boolean"],
-    }
-
-    def __init__(
-        self,
-        *,
-        missing_values=np.nan,
-        strategy="mean",
-        fill_value=None,
-        copy=True,
-        add_indicator=False,
-        keep_empty_features=False,
-    ):
-        super().__init__(
-            missing_values=missing_values,
-            add_indicator=add_indicator,
-            keep_empty_features=keep_empty_features,
-        )
-        self.strategy = strategy
-        self.fill_value = fill_value
-        self.copy = copy
-
-    def _calc_impute(self, dist_pot_donors, n_neighbors, fit_X_col, mask_fit_X_col):
-        """Helper function to impute a single column.
-
-        Parameters
-        ----------
-        dist_pot_donors : ndarray of shape (n_receivers, n_potential_donors)
-            Distance matrix between the receivers and potential donors from
-            training set. There must be at least one non-nan distance between
-            a receiver and a potential donor.
-
-        n_neighbors : int
-            Number of neighbors to consider.
-
-        fit_X_col : ndarray of shape (n_potential_donors,)
-            Column of potential donors from training set.
-
-        mask_fit_X_col : ndarray of shape (n_potential_donors,)
-            Missing mask for fit_X_col.
-
-        Returns
-        -------
-        imputed_values: ndarray of shape (n_receivers,)
-            Imputed values for receiver.
-        """
-        # Get donors
-        donors_idx = np.argpartition(dist_pot_donors, n_neighbors - 1, axis=1)[
-            :, :n_neighbors
-        ]
-
-        # Get weight matrix from distance matrix
-        donors_dist = dist_pot_donors[
-            np.arange(donors_idx.shape[0])[:, None], donors_idx
-        ]
-
-        weight_matrix = _get_weights(donors_dist, self.weights)
-
-        # fill nans with zeros
-        if weight_matrix is not None:
-            weight_matrix[np.isnan(weight_matrix)] = 0.0
-
-        # Retrieve donor values and calculate kNN average
-        donors = fit_X_col.take(donors_idx)
-        donors_mask = mask_fit_X_col.take(donors_idx)
-        donors = np.ma.array(donors, mask=donors_mask)
-
-        return np.ma.average(donors, axis=1, weights=weight_matrix).data
-    
-    @_fit_context(prefer_skip_nested_validation=True)
+    def __init__(self, batch_size, hint_rate, alpha, iterations):
+        self.batch_size = batch_size,
+        self.hint_rate = hint_rate, 
+        self.alpha = alpha
+        self.iterations = iterations
+        self.params = {  
+        'batch_size': batch_size,
+        'hint_rate': hint_rate,
+        'alpha': alpha,
+        'iterations': iterations
+        }
+            
     def fit(self, X, y=None):
-        """Fit the imputer on X. 
-        
-        Parameters
-        -----------
-        X : array-like shape of (n_samples, n_features)
-            Input data, where 'n_samples' is the number of samples and
-            'n_features is the number of features. 
-        
-        y: Ignored
-            Not used, present here for API consitency by convention. 
-        
-        Returns
-        -------
-        self: : object
-            The fitted 'RandomForestImputer' class instance.
-        """
-        # Check data integrity and calling arguments
-        if not is_scalar_nan(self.missing_values):
-            force_all_finite = True
-        else:
-            force_all_finite = "allow-nan"
-
-        X = self._validate_data(
-            X,
-            accept_sparse=False,
-            dtype=FLOAT_DTYPES,
-            force_all_finite=force_all_finite,
-            copy=self.copy,
-        )
-
-        self._fit_X = X
-        self._mask_fit_X = _get_mask(self._fit_X, self.missing_values)
-        self._valid_mask = ~np.all(self._mask_fit_X, axis=0)
-
-        super()._fit_indicator(self._mask_fit_X)
-
         return self
 
-
     def transform(self, X):
-        """Impute all missing values in `X`.
+        return self.gain(X, self.params)
 
-        Parameters
-        ----------
-        X : array-like shape of (n_samples, n_features)
-            The input data to complete.
+    def fit_transform(self, X, y=None, **fit_params):
+        self.params = fit_params
+        return self.fit(X, **fit_params).transform(X)
+    
+    
+    def gain(self, data_x, gain_parameters):
+        '''Impute missing values in data_x
+        Args:
+            - data_x: original data with missing values
+            - gain_parameters: GAIN network parameters:
+            - batch_size: Batch size
+            - hint_rate: Hint rate
+            - alpha: Hyperparameter
+            - iterations: Iterations
+        Returns:
+            - imputed_data: imputed data
+        '''
+        # Define mask matrix
+        data_m = 1-np.isnan(data_x)
+        # System parameters
+        batch_size = gain_parameters['batch_size']
+        hint_rate = gain_parameters['hint_rate']
+        alpha = gain_parameters['alpha']
+        iterations = gain_parameters['iterations']
+        # Other parameters
+        no, dim = data_x.shape
+        # Hidden state dimensions
+        h_dim = int(dim)
+        # Normalization
+        norm_data, norm_parameters = self.normalization(data_x)
+        norm_data_x = np.nan_to_num(norm_data, 0)
+        ## GAIN architecture   
+        # Input placeholders
+        # Data vector
+        X = tf.placeholder(tf.float32, shape = [None, dim])
+        # Mask vector 
+        M = tf.placeholder(tf.float32, shape = [None, dim])
+        # Hint vector
+        H = tf.placeholder(tf.float32, shape = [None, dim])
+        # Discriminator variables
+        D_W1 = tf.Variable(self.xavier_init([dim*2, h_dim])) # Data + Hint as inputs
+        D_b1 = tf.Variable(tf.zeros(shape = [h_dim]))
+        D_W2 = tf.Variable(self.xavier_init([h_dim, h_dim]))
+        D_b2 = tf.Variable(tf.zeros(shape = [h_dim]))
+        D_W3 = tf.Variable(self.xavier_init([h_dim, dim]))
+        D_b3 = tf.Variable(tf.zeros(shape = [dim]))  # Multi-variate outputs
+        theta_D = [D_W1, D_W2, D_W3, D_b1, D_b2, D_b3]
+        #Generator variables
+        # Data + Mask as inputs (Random noise is in missing components)
+        G_W1 = tf.Variable(self.xavier_init([dim*2, h_dim]))  
+        G_b1 = tf.Variable(tf.zeros(shape = [h_dim]))
+        G_W2 = tf.Variable(self.xavier_init([h_dim, h_dim]))
+        G_b2 = tf.Variable(tf.zeros(shape = [h_dim]))
+        G_W3 = tf.Variable(self.xavier_init([h_dim, dim]))
+        G_b3 = tf.Variable(tf.zeros(shape = [dim]))
+        theta_G = [G_W1, G_W2, G_W3, G_b1, G_b2, G_b3]
+        ## GAIN functions
+        # Generator
+        def generator(x,m):
+            # Concatenate Mask and Data
+            inputs = tf.concat(values = [x, m], axis = 1) 
+            G_h1 = tf.nn.relu(tf.matmul(inputs, G_W1) + G_b1)
+            G_h2 = tf.nn.relu(tf.matmul(G_h1, G_W2) + G_b2)   
+            # MinMax normalized output
+            G_prob = tf.nn.sigmoid(tf.matmul(G_h2, G_W3) + G_b3) 
+            return G_prob
+        # Discriminator
+        def discriminator(x, h):
+            # Concatenate Data and Hint
+            inputs = tf.concat(values = [x, h], axis = 1) 
+            D_h1 = tf.nn.relu(tf.matmul(inputs, D_W1) + D_b1)  
+            D_h2 = tf.nn.relu(tf.matmul(D_h1, D_W2) + D_b2)
+            D_logit = tf.matmul(D_h2, D_W3) + D_b3
+            D_prob = tf.nn.sigmoid(D_logit)
+            return D_prob
+        ## GAIN structure
+        # Generator
+        G_sample = generator(X, M)
+        # Combine with observed data
+        Hat_X = X * M + G_sample * (1-M)
+        # Discriminator
+        D_prob = discriminator(Hat_X, H)
+        ## GAIN loss
+        D_loss_temp = -tf.reduce_mean(M * tf.log(D_prob + 1e-8) \
+                                        + (1-M) * tf.log(1. - D_prob + 1e-8)) 
+        G_loss_temp = -tf.reduce_mean((1-M) * tf.log(D_prob + 1e-8))
+        MSE_loss = \
+        tf.reduce_mean((M * X - M * G_sample)**2) / tf.reduce_mean(M)
+        D_loss = D_loss_temp
+        G_loss = G_loss_temp + alpha * MSE_loss 
+        ## GAIN solver
+        D_solver = tf.train.AdamOptimizer().minimize(D_loss, var_list=theta_D)
+        G_solver = tf.train.AdamOptimizer().minimize(G_loss, var_list=theta_G)
+        ## Iterations
+        sess = tf.Session()
+        sess.run(tf.global_variables_initializer())
+        # Start Iterations
+        for it in range(iterations):    
+            # Sample batch
+            batch_idx = self.sample_batch_index(no, batch_size)
+            X_mb = norm_data_x[batch_idx, :]  
+            M_mb = data_m[batch_idx, :]  
+            # Sample random vectors  
+            Z_mb = self.uniform_sampler(0, 0.01, batch_size, dim) 
+            # Sample hint vectors
+            H_mb_temp = self.binary_sampler(hint_rate, batch_size, dim)
+            H_mb = M_mb * H_mb_temp
+            # Combine random vectors with observed vectors
+            X_mb = M_mb * X_mb + (1-M_mb) * Z_mb 
+            _, D_loss_curr = sess.run([D_solver, D_loss_temp], 
+                                    feed_dict = {M: M_mb, X: X_mb, H: H_mb})
+            _, G_loss_curr, MSE_loss_curr = \
+            sess.run([G_solver, G_loss_temp, MSE_loss],
+                    feed_dict = {X: X_mb, M: M_mb, H: H_mb})      
+        ## Return imputed data      
+        Z_mb = self.uniform_sampler(0, 0.01, no, dim) 
+        M_mb = data_m
+        X_mb = norm_data_x          
+        X_mb = M_mb * X_mb + (1-M_mb) * Z_mb 
+        imputed_data = sess.run([G_sample], feed_dict = {X: X_mb, M: M_mb})[0]
+        imputed_data = data_m * norm_data_x + (1-data_m) * imputed_data
+        # Renormalization
+        imputed_data = self.renormalization(imputed_data, norm_parameters)  
+        # Rounding
+        imputed_data = self.rounding(imputed_data, data_x)       
+        return imputed_data
 
-        Returns
-        -------
-        X : array-like of shape (n_samples, n_output_features)
-            The imputed dataset. `n_output_features` is the number of features
-            that is not always missing during `fit`.
-        """
+    def normalization(self, data, parameters=None):
+        '''Normalize data in [0, 1] range.
+        Args:
+            - data: original data
+        Returns:
+            - norm_data: normalized data
+            - norm_parameters: min_val, max_val for each feature for renormalization
+        '''
+        # Parameters
+        _, dim = data.shape
+        norm_data = data.copy()
+        if parameters is None:
+            # MixMax normalization
+            min_val = np.zeros(dim)
+            max_val = np.zeros(dim)
+            # For each dimension
+            for i in range(dim):
+                min_val[i] = np.nanmin(norm_data[:,i])
+                norm_data[:,i] = norm_data[:,i] - np.nanmin(norm_data[:,i])
+                max_val[i] = np.nanmax(norm_data[:,i])
+                norm_data[:,i] = norm_data[:,i] / (np.nanmax(norm_data[:,i]) + 1e-6)   
+            # Return norm_parameters for renormalization
+            norm_parameters = {'min_val': min_val,
+                            'max_val': max_val}
+        else:
+            min_val = parameters['min_val']
+            max_val = parameters['max_val']
+            # For each dimension
+            for i in range(dim):
+                norm_data[:,i] = norm_data[:,i] - min_val[i]
+                norm_data[:,i] = norm_data[:,i] / (max_val[i] + 1e-6)  
+            norm_parameters = parameters    
+        return norm_data, norm_parameters
+
+    def renormalization(self, norm_data, norm_parameters):
+        '''Renormalize data from [0, 1] range to the original range.
+        Args:
+            - norm_data: normalized data
+            - norm_parameters: min_val, max_val for each feature for renormalization
+        Returns:
+            - renorm_data: renormalized original data
+        '''
+        min_val = norm_parameters['min_val']
+        max_val = norm_parameters['max_val']
+        _, dim = norm_data.shape
+        renorm_data = norm_data.copy()
+        for i in range(dim):
+            renorm_data[:,i] = renorm_data[:,i] * (max_val[i] + 1e-6)   
+            renorm_data[:,i] = renorm_data[:,i] + min_val[i]
+        return renorm_data
+
+    def rounding(self, imputed_data, data_x):
+        '''Round imputed data for categorical variables.
+        Args:
+            - imputed_data: imputed data
+            - data_x: original data with missing values 
+        Returns:
+            - rounded_data: rounded imputed data
+        '''
+        _, dim = data_x.shape
+        rounded_data = imputed_data.copy()
+        for i in range(dim):
+            temp = data_x[~np.isnan(data_x[:, i]), i]
+            # Only for the categorical variable
+            if len(np.unique(temp)) < 20:
+                rounded_data[:, i] = np.round(rounded_data[:, i])
+        return rounded_data
+
+    def rmse_loss(self, ori_data, imputed_data, data_m):
+        '''Compute RMSE loss between ori_data and imputed_data
+        Args:
+            - ori_data: original data without missing values
+            - imputed_data: imputed data
+            - data_m: indicator matrix for missingness
+        Returns:
+            - rmse: Root Mean Squared Error
+        '''
+        #ori_data, norm_parameters = normalization(ori_data)
+        #imputed_data, _ = normalization(imputed_data, norm_parameters)
+        # Only for missing values
+        nominator = np.sum(((1-data_m) * ori_data - (1-data_m) * imputed_data)**2)
+        denominator = np.sum(1-data_m)
+        rmse = np.sqrt(nominator/float(denominator))
+        return rmse
+
+    def xavier_init(self, size):
+        '''Xavier initialization.
+        Args:
+            - size: vector size
+        Returns:
+            - initialized random vector.
+        '''
+        in_dim = size[0]
+        xavier_stddev = 1. / tf.sqrt(in_dim / 2.)
+        return tf.random_normal(shape = size, stddev = xavier_stddev)
         
-        check_is_fitted(self)
-        if not is_scalar_nan(self.missing_values):
-            force_all_finite = True
-        else:
-            force_all_finite = "allow-nan"
-        X = self._validate_data(
-            X,
-            accept_sparse=False,
-            dtype=FLOAT_DTYPES,
-            force_all_finite=force_all_finite,
-            copy=self.copy,
-            reset=False,
-        )
+    def binary_sampler(self, p, rows, cols):
+        '''Sample binary random variables.
+        Args:
+            - p: probability of 1
+            - rows: the number of rows
+            - cols: the number of columns
+        Returns:
+            - binary_random_matrix: generated binary random matrix.
+        '''
+        unif_random_matrix = np.random.uniform(0., 1., size = [rows, cols])
+        binary_random_matrix = 1*(unif_random_matrix < p)
+        return binary_random_matrix
 
-        mask = _get_mask(X, self.missing_values)
-        mask_fit_X = self._mask_fit_X
-        valid_mask = self._valid_mask
+    def uniform_sampler(self, low, high, rows, cols):
+        '''Sample uniform random variables.
+        Args:
+            - low: low limit
+            - high: high limit
+            - rows: the number of rows
+            - cols: the number of columns
+        Returns:
+            - uniform_random_matrix: generated uniform random matrix.
+        '''
+        return np.random.uniform(low, high, size = [rows, cols])       
 
-        X_indicator = super()._transform_indicator(mask)
-
-        # Removes columns where the training data is all nan
-        if not np.any(mask):
-            # No missing values in X
-            if self.keep_empty_features:
-                Xc = X
-                Xc[:, ~valid_mask] = 0
-            else:
-                Xc = X[:, valid_mask]
-
-            # Even if there are no missing values in X, we still concatenate Xc
-            # with the missing value indicator matrix, X_indicator.
-            # This is to ensure that the output maintains consistency in terms
-            # of columns, regardless of whether missing values exist in X or not.
-            return super()._concatenate_indicator(Xc, X_indicator)
-
-        row_missing_idx = np.flatnonzero(mask.any(axis=1))
-
-        non_missing_fix_X = np.logical_not(mask_fit_X)
-
-        # Maps from indices from X to indices in dist matrix
-        dist_idx_map = np.zeros(X.shape[0], dtype=int)
-        dist_idx_map[row_missing_idx] = np.arange(row_missing_idx.shape[0])
-
-        def process_chunk(dist_chunk, start):
-            row_missing_chunk = row_missing_idx[start : start + len(dist_chunk)]
-
-            # Find and impute missing by column
-            for col in range(X.shape[1]):
-                if not valid_mask[col]:
-                    # column was all missing during training
-                    continue
-
-                col_mask = mask[row_missing_chunk, col]
-                if not np.any(col_mask):
-                    # column has no missing values
-                    continue
-
-                (potential_donors_idx,) = np.nonzero(non_missing_fix_X[:, col])
-
-                # receivers_idx are indices in X
-                receivers_idx = row_missing_chunk[np.flatnonzero(col_mask)]
-
-                # distances for samples that needed imputation for column
-                dist_subset = dist_chunk[dist_idx_map[receivers_idx] - start][
-                    :, potential_donors_idx
-                ]
-
-                # receivers with all nan distances impute with mean
-                all_nan_dist_mask = np.isnan(dist_subset).all(axis=1)
-                all_nan_receivers_idx = receivers_idx[all_nan_dist_mask]
-
-                if all_nan_receivers_idx.size:
-                    col_mean = np.ma.array(
-                        self._fit_X[:, col], mask=mask_fit_X[:, col]
-                    ).mean()
-                    X[all_nan_receivers_idx, col] = col_mean
-
-                    if len(all_nan_receivers_idx) == len(receivers_idx):
-                        # all receivers imputed with mean
-                        continue
-
-                    # receivers with at least one defined distance
-                    receivers_idx = receivers_idx[~all_nan_dist_mask]
-                    dist_subset = dist_chunk[dist_idx_map[receivers_idx] - start][
-                        :, potential_donors_idx
-                    ]
-
-                n_neighbors = min(self.n_neighbors, len(potential_donors_idx))
-                value = self._calc_impute(
-                    dist_subset,
-                    n_neighbors,
-                    self._fit_X[potential_donors_idx, col],
-                    mask_fit_X[potential_donors_idx, col],
-                )
-                X[receivers_idx, col] = value
-
-        # process in fixed-memory chunks
-        gen = pairwise_distances_chunked(
-            X[row_missing_idx, :],
-            self._fit_X,
-            metric=self.metric,
-            missing_values=self.missing_values,
-            force_all_finite=force_all_finite,
-            reduce_func=process_chunk,
-        )
-        for chunk in gen:
-            # process_chunk modifies X in place. No return value.
-            pass
-
-        if self.keep_empty_features:
-            Xc = X
-            Xc[:, ~valid_mask] = 0
-        else:
-            Xc = X[:, valid_mask]
-
-        return super()._concatenate_indicator(Xc, X_indicator)
-
-    def get_feature_names_out(self, input_features=None):
-        """Get output feature names for transformation.
-
-        Parameters
-        ----------
-        input_features : array-like of str or None, default=None
-            Input features.
-
-            - If `input_features` is `None`, then `feature_names_in_` is
-              used as feature names in. If `feature_names_in_` is not defined,
-              then the following input feature names are generated:
-              `["x0", "x1", ..., "x(n_features_in_ - 1)"]`.
-            - If `input_features` is an array-like, then `input_features` must
-              match `feature_names_in_` if `feature_names_in_` is defined.
-
-        Returns
-        -------
-        feature_names_out : ndarray of str objects
-            Transformed feature names.
-        """
-        check_is_fitted(self, "n_features_in_")
-        input_features = _check_feature_names_in(self, input_features)
-        non_missing_mask = np.logical_not(_get_mask(self.statistics_, np.nan))
-        names = input_features[non_missing_mask]
-        return self._concatenate_indicator_feature_names_out(names, input_features)
+    def sample_batch_index(self, total, batch_size):
+        '''Sample index of the mini-batch.
+        Args:
+            - total: total number of samples
+            - batch_size: batch size
+        Returns:
+            - batch_idx: batch index
+        '''
+        total_idx = np.random.permutation(total)
+        batch_idx = total_idx[:batch_size]
+        return batch_idx
