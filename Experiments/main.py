@@ -4,7 +4,7 @@ import sklearn
 import argparse
 import utils
 import sklearn.datasets
-
+from .config_dictionary import imputation_params_and_normal_params, normal_params
 
 def main():
     # Read in arguements
@@ -25,7 +25,7 @@ def main():
 
     total_duration = 360000
 
-    
+
 
     experiments = [
                         
@@ -95,154 +95,7 @@ def main():
                                         },
                             },
 
-
-                        #                             {
-                        # 'automl': tpot2.TPOTEstimator,
-                        # 'exp_name' : 'tpot2_SH',
-                        # 'params': {
-                    
-                        #                 'scorers':['neg_log_loss' , 'balanced_accuracy', 'roc_auc_ovr_weighted'],
-                        #                 'scorers_weights':[1,0,0],
-                        #                 'scorers_weights':[1,],
-                        #                 'other_objective_functions':[],
-                        #                 'other_objective_functions_weights':[],
-                                        
-                        #                 'population_size' : 48,
-                        #                 'survival_percentage':3, 
-                        #                 'initial_population_size' : 48*3,
-                        #                 'population_scaling': .35,
-                        #                 'generations_until_end_population':100,
-
-                        #                 'budget_range': [.1, 1.0],
-                        #                 'generations_until_end_budget':100,
-                        #                 'budget_scaling'    : .65,  
-                        #                 'stepwise_steps' : 4,
-
-                        #                 'generations' : None, 
-
-                        #                 'n_jobs':n_jobs,
-                        #                 'cv': sklearn.model_selection.StratifiedKFold(n_splits=10, shuffle=True),
-                        #                 'verbose':1, 
-                        #                 'max_time_seconds': total_duration,
-                        #                 'max_eval_time_seconds':60*5, 
-
-                        #                 'crossover_probability':.10,
-                        #                 'mutate_probability':.90,
-                        #                 'mutate_then_crossover_probability':0,
-                        #                 'crossover_then_mutate_probability':0,
-
-
-                        #                 'memory_limit':None, 
-                        #                 'preprocessing':False,
-                        #                 'classification' : True,
-                        #                 'scatter' : False,
-                        #                 },
-                        #     },
-
-                            {'automl': tpot2.TPOTEstimatorSteadyState,
-                                'exp_name' : 'tpot2_steady_state',
-                                'params': {
-                                    'scorers':['neg_log_loss', tpot2.objectives.complexity_scorer],
-                                    'scorers_weights':[1,-1],
-                                    'other_objective_functions':[],
-                                    'other_objective_functions_weights':[],
-                                        
-
-                                    'population_size':n_jobs,
-                                    'initial_population_size' : n_jobs,
-                                    'max_evaluated_individuals' : None,
-                                    
-                                    
-
-                                    'n_jobs':n_jobs,
-                                    'cv': sklearn.model_selection.StratifiedKFold(n_splits=10, shuffle=True, random_state=42),
-                                    'verbose':5, 
-                                    'max_time_seconds': total_duration,
-                                    'max_eval_time_seconds':60*10, 
-
-                                    'crossover_probability':.10,
-                                    'mutate_probability':.90,
-                                    'mutate_then_crossover_probability':0,
-                                    'crossover_then_mutate_probability':0,
-
-
-                                    'memory_limit':None, 
-                                    'preprocessing':False,
-                                    'classification' : True,
-                                }
-            },
-
-
-                    {'automl': tpot2.TPOTEstimatorSteadyState,
-                                'exp_name' : 'tpot2_steady_state_bigpop',
-                                'params': {
-                                    'scorers':['neg_log_loss', tpot2.objectives.complexity_scorer],
-                                    'scorers_weights':[1,-1],
-                                    'other_objective_functions':[],
-                                    'other_objective_functions_weights':[],
-                                        
-
-                                    'population_size':300,
-                                    'initial_population_size' : n_jobs,
-                                    'max_evaluated_individuals' : None,
-                                    
-                                    
-
-                                    'n_jobs':n_jobs,
-                                    'cv': sklearn.model_selection.StratifiedKFold(n_splits=10, shuffle=True, random_state=42),
-                                    'verbose':5, 
-                                    'max_time_seconds': total_duration,
-                                    'max_eval_time_seconds':60*10, 
-
-                                    'crossover_probability':.10,
-                                    'mutate_probability':.90,
-                                    'mutate_then_crossover_probability':0,
-                                    'crossover_then_mutate_probability':0,
-
-
-                                    'memory_limit':None, 
-                                    'preprocessing':False,
-                                    'classification' : True,
-                                }
-            },
-
-                                        {'automl': tpot2.TPOTEstimatorSteadyState,
-                                'exp_name' : 'tpot2_steady_state_ensemble',
-                                'params': {
-                                    'scorers':['neg_log_loss', tpot2.objectives.complexity_scorer],
-                                    'scorers_weights':[1,-1],
-                                    'other_objective_functions':[],
-                                    'other_objective_functions_weights':[],
-                                        
-                                    'inner_config_dict':["selectors", "transformers",'classifiers'],
-
-                                    'population_size':n_jobs,
-                                    'initial_population_size' : n_jobs,
-                                    'max_evaluated_individuals' : None,
-                                    
-                                    
-
-                                    'n_jobs':n_jobs,
-                                    'cv': sklearn.model_selection.StratifiedKFold(n_splits=10, shuffle=True, random_state=42),
-                                    'verbose':5, 
-                                    'max_time_seconds': total_duration,
-                                    'max_eval_time_seconds':60*10, 
-
-                                    'crossover_probability':.10,
-                                    'mutate_probability':.90,
-                                    'mutate_then_crossover_probability':0,
-                                    'crossover_then_mutate_probability':0,
-
-
-                                    'memory_limit':None, 
-                                    'preprocessing':False,
-                                    'classification' : True,
-                                }
-            },
-
-
     ]
-        
     #task_id_lists = [75097, 167161, 168796, 189866]
     # task_id_lists = [273,359990, 189354,
     #                  189843,359960, 189836, 360112, 7593,
