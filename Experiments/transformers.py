@@ -22,7 +22,7 @@ __all__ = [
 ]
 
 
-class MissForest(BaseEstimator, TransformerMixin):
+class RandomForestImputer(BaseEstimator, TransformerMixin):
     """Missing value imputation using Random Forests.
 
     MissForest imputes missing values using Random Forests in an iterative
@@ -564,7 +564,7 @@ class GAINImputer(BaseEstimator, TransformerMixin):
     Replace missing values using sklearn's built in random forest regressor function along each column.
 
     Written by Gabriel Ketron Nov 16th, 2023
-    Adapted from Jinsung Yoon
+    Adapted from Jinsung Yoon's gain function.
     Contact: Gabriel.Ketron@cshs.org
 
     Parameters
