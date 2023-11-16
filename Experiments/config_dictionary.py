@@ -22,14 +22,14 @@ imputation_params =  {
 
 normal_params =  {
                 'root_config_dict':["classifiers"],
-                'leaf_config_dict':["selectors"],
-                'inner_config_dict': ["transformers"],
+                'leaf_config_dict': None,
+                'inner_config_dict': ["selectors", "transformers"],
                 'max_size' : np.max,
                 'linear_pipeline' : True
                 }
 
 imputation_params_and_normal_params = {
-               'root_config_dict': {"Recursive" :normal_params},
+               'root_config_dict': {"Recursive" : normal_params},
                'leaf_config_dict': {"Recursive" : imputation_params},
                'inner_config_dict': None,
                'max_size' : np.max,
