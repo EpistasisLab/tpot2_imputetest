@@ -20,14 +20,7 @@ import sklearn.model_selection
 import torch
 from scipy import optimize
 import pandas as pd
-import optuna
-from sklearn.impute import SimpleImputer
-from sklearn.experimental import enable_iterative_imputer
-from sklearn.impute import IterativeImputer
-from sklearn.impute import KNNImputer
-from sklearn.impute import SimpleImputer
-from sklearn.ensemble import RandomForestRegressor
-from IPython.display import clear_output
+
 
 def score(est, X, y):
 
@@ -103,86 +96,88 @@ def load_task(task_id, preprocess=True):
     return X_train, y_train, X_test, y_test
 
 
-def loop_through_tasks(experiments, task_id_lists, base_save_folder):
+def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
     for taskid in task_id_lists:
-        for level in [0.01, 0.1, 0.3, 0.5, 0.9]:
-            for type in ['MCAR', 'MNAR', 'MAR']:
-                for exp in experiments:
-                    save_folder = f"{base_save_folder}/{exp['exp_name']}_{taskid}_{level}_{type}"
-                    time.sleep(random.random()*5)
-                    if not os.path.exists(save_folder):
-                        os.makedirs(save_folder)
-                    else:
-                        continue
+        for run in range(num_runs):
+            for level in [0.01, 0.1, 0.3, 0.5, 0.9]:
+                for type in ['MCAR', 'MNAR', 'MAR']:
+                    for exp in experiments:
+                        save_folder = f"{base_save_folder}/{exp['exp_name']}_{taskid}_{level}_{type}_{run}"
+                        time.sleep(random.random()*5)
+                        if not os.path.exists(save_folder):
+                            os.makedirs(save_folder)
+                        else:
+                            continue
 
-                    print("working on ")
-                    print(save_folder)
-
-                    try: 
-                        print("loading data")
-                        X_train, y_train, X_test, y_test = load_task(taskid, preprocess=True)
-                        
-                        print("adding missingness")
-                        missing_train, mask_train = add_missing(X=X_train, add_missing=level, missing_type=type)
-                        missing_test, mask_test = add_missing(X=X_train, add_missing=level, missing_type=type)
-
-
-
-                        print("starting ml")
-                        exp['params']['cv'] = sklearn.model_selection.StratifiedKFold(n_splits=10, shuffle=True, random_state=run)
-                        exp['params']['periodic_checkpoint_folder'] = f"/home/ribeirop/common/Projects/tpot_digen_paper1/tpot2_paper_1/checkpoint/{exp['exp_name']}_{taskid}_{run}"
-                        est = exp['automl'](**exp['params'])
-
-                        start = time.time()
-                        est.fit(X_train, y_train)
-                        duration = time.time() - start
-                        
-                        if type(est) is tpot.TPOTClassifier:
-                            est.classes_ = est.fitted_pipeline_.classes_
-
-                        train_score = score(est, X_train, y_train)
-                        test_score = score(est, X_test, y_test)
-
-                        all_scores = {}
-                        train_score = {f"train_{k}": v for k, v in train_score.items()}
-                        all_scores.update(train_score)
-                        all_scores.update(test_score)
-
-                        
-                        all_scores["start"] = start
-                        all_scores["taskid"] = taskid
-                        all_scores["exp_name"] = exp['exp_name']
-                        #all_scores["name"] = openml.datasets.get_dataset(openml.tasks.get_task(taskid).dataset_id).name
-                        all_scores["duration"] = duration
-                        all_scores["run"] = run
-
-                        if type(est) is tpot2.TPOTClassifier or type(est) is tpot2.TPOTEstimator or type(est) is  tpot2.TPOTEstimatorSteadyState:
-                            with open(f"{save_folder}/evaluated_individuals.pkl", "wb") as f:
-                                pickle.dump(est.evaluated_individuals, f)
-
-                        
-                        with open(f"{save_folder}/fitted_pipeline.pkl", "wb") as f:
-                            pickle.dump(est.fitted_pipeline_, f)
-
-
-                        with open(f"{save_folder}/scores.pkl", "wb") as f:
-                            pickle.dump(all_scores, f)
-
-                        return
-                    except Exception as e:
-                        trace =  traceback.format_exc() 
-                        pipeline_failure_dict = {"taskid": taskid, "exp_name": exp['exp_name'], "run": run, "error": str(e), "trace": trace}
-                        print("failed on ")
+                        print("working on ")
                         print(save_folder)
-                        print(e)
-                        print(trace)
 
-                        with open(f"{save_folder}/failed.pkl", "wb") as f:
-                            pickle.dump(pipeline_failure_dict, f)
+                        try: 
+                            print("loading data")
+                            X_train, y_train, X_test, y_test = load_task(taskid, preprocess=True)
+                            
+                            print("adding missingness")
+                            missing_train, mask_train = add_missing(X=X_train, add_missing=level, missing_type=type)
+                            missing_test, mask_test = add_missing(X=X_train, add_missing=level, missing_type=type)
 
-                        return
-    
-    print("all finished")
+
+
+
+                            print("starting ml")
+                            exp['params']['cv'] = sklearn.model_selection.StratifiedKFold(n_splits=10, shuffle=True, random_state=run)
+                            exp['params']['periodic_checkpoint_folder'] = f"/home/ribeirop/common/Projects/tpot_digen_paper1/tpot2_paper_1/checkpoint/{exp['exp_name']}_{taskid}_{run}"
+                            est = exp['automl'](**exp['params'])
+
+                            start = time.time()
+                            est.fit(X_train, y_train)
+                            duration = time.time() - start
+                            
+                            if type(est) is tpot.TPOTClassifier:
+                                est.classes_ = est.fitted_pipeline_.classes_
+
+                            train_score = score(est, X_train, y_train)
+                            test_score = score(est, X_test, y_test)
+
+                            all_scores = {}
+                            train_score = {f"train_{k}": v for k, v in train_score.items()}
+                            all_scores.update(train_score)
+                            all_scores.update(test_score)
+
+                            
+                            all_scores["start"] = start
+                            all_scores["taskid"] = taskid
+                            all_scores["exp_name"] = exp['exp_name']
+                            #all_scores["name"] = openml.datasets.get_dataset(openml.tasks.get_task(taskid).dataset_id).name
+                            all_scores["duration"] = duration
+                            all_scores["run"] = run
+
+                            if type(est) is tpot2.TPOTClassifier or type(est) is tpot2.TPOTEstimator or type(est) is  tpot2.TPOTEstimatorSteadyState:
+                                with open(f"{save_folder}/evaluated_individuals.pkl", "wb") as f:
+                                    pickle.dump(est.evaluated_individuals, f)
+
+                            
+                            with open(f"{save_folder}/fitted_pipeline.pkl", "wb") as f:
+                                pickle.dump(est.fitted_pipeline_, f)
+
+
+                            with open(f"{save_folder}/scores.pkl", "wb") as f:
+                                pickle.dump(all_scores, f)
+
+                            return
+                        except Exception as e:
+                            trace =  traceback.format_exc() 
+                            pipeline_failure_dict = {"taskid": taskid, "exp_name": exp['exp_name'], "run": run, "error": str(e), "trace": trace}
+                            print("failed on ")
+                            print(save_folder)
+                            print(e)
+                            print(trace)
+
+                            with open(f"{save_folder}/failed.pkl", "wb") as f:
+                                pickle.dump(pipeline_failure_dict, f)
+
+                            return
+        
+        print("all finished")
 
 
 ### Additional Stuff GKetron Added
@@ -327,4 +322,3 @@ def MNAR_mask_logistic(X, p_miss, p_params =.5, exclude_inputs=True):
         out[model_name] = X_nas
         out[mask_name] = mask
     return out
-
