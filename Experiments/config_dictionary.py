@@ -2,11 +2,14 @@ import tpot2
 import numpy as np
 from sklearn.impute import SimpleImputer, IterativeImputer, KNNImputer
 from .transformers import RandomForestImputer, GAINImputer
-from .param_grids import params_SimpleImpute, params_IterativeImpute
+from .param_grids import params_SimpleImpute, params_IterativeImpute, params_KNNImpute, params_RandomForestImpute, params_GAINImpute
 
 imputation_config_dict = {
                 SimpleImputer: params_SimpleImpute, 
-                IterativeImputer: params_IterativeImpute
+                IterativeImputer: params_IterativeImpute,
+                KNNImputer: params_KNNImpute,
+                RandomForestImputer: params_RandomForestImpute,
+                GAINImputer: params_GAINImpute
 }
 
 imputation_params =  {
