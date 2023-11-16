@@ -28,83 +28,17 @@ def main():
 
 
     experiments = [
-                        
-                        {
-                        'automl': tpot2.TPOTEstimator,
-                        'exp_name' : 'tpot2_base',
-                        'params': {
-                    
-                                        'scorers':['neg_log_loss', tpot2.objectives.complexity_scorer],
-                                        'scorers_weights':[1,-1],
-                                        'other_objective_functions':[],
-                                        'other_objective_functions_weights':[],
-                                        
-                                        'population_size' : n_jobs,
-                                        'survival_percentage':1, 
-                                        'initial_population_size' : n_jobs,
-                                        'generations' : None, 
-                                        'n_jobs':n_jobs,
-                                        'cv': sklearn.model_selection.StratifiedKFold(n_splits=10, shuffle=True, random_state=42),
-                                        'verbose':5, 
-                                        'max_time_seconds': total_duration,
-                                        'max_eval_time_seconds':60*10, 
-
-                                        'crossover_probability':.10,
-                                        'mutate_probability':.90,
-                                        'mutate_then_crossover_probability':0,
-                                        'crossover_then_mutate_probability':0,
-
-
-                                        'memory_limit':None,  
-                                        'preprocessing':False,
-                                        'classification' : True,
-                                        },
-                            },
-
-                                                    {
-                        'automl': tpot2.TPOTEstimator,
-                        'exp_name' : 'tpot2_base_ensemble',
-                        'params': {
-                    
-                                        'scorers':['neg_log_loss', tpot2.objectives.complexity_scorer],
-                                        'scorers_weights':[1,-1],
-                                        'other_objective_functions':[],
-                                        'other_objective_functions_weights':[],
-
-                                        'inner_config_dict':["selectors", "transformers",'classifiers'],
-                                        
-                                        'population_size' : n_jobs,
-                                        'survival_percentage':1, 
-                                        'initial_population_size' : n_jobs,
-                                        'generations' : None, 
-                                        'n_jobs':n_jobs,
-                                        'cv': sklearn.model_selection.StratifiedKFold(n_splits=10, shuffle=True, random_state=42),
-                                        'verbose':5, 
-                                        'max_time_seconds': total_duration,
-                                        'max_eval_time_seconds':60*10, 
-
-                                        'crossover_probability':.10,
-                                        'mutate_probability':.90,
-                                        'mutate_then_crossover_probability':0,
-                                        'crossover_then_mutate_probability':0,
-
-
-                                        'memory_limit':None,  
-                                        'preprocessing':False,
-                                        'classification' : True,
-                                        },
-                            },
-
-    ]
-    #task_id_lists = [75097, 167161, 168796, 189866]
-    # task_id_lists = [273,359990, 189354,
-    #                  189843,359960, 189836, 360112, 7593,
-    #                 ]
-
-    #task_id_lists = [189843,273,359960,189836,359990,360112,189354,7593 ]
-    #task_id_lists = [273,359960,359990,189354,7593]
-
-    #todo 360112 Number of classes in y_true not equal to the number of columns in 'y_score'
+            {
+            'automl': tpot2.TPOTEstimator,
+            'exp_name' : 'tpot2_base_normal',
+            'params': normal_params,
+            },
+            {
+            'automl': tpot2.TPOTEstimator,
+            'exp_name' : 'tpot2_base_imputation',
+            'params': imputation_params_and_normal_params,
+            },
+            ]
 
     task_id_lists = [
                     6, 26, 30, 32, 137, 151, 183, 184, 189, 197, 198, 215, 216, 218, 
