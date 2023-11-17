@@ -139,9 +139,16 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
                 for type in ['MCAR', 'MNAR', 'MAR']:
                     for exp in experiments:
                         save_folder = f"{base_save_folder}/{exp['exp_name']}_{taskid}_{level}_{type}_{run}"
+                        checkpoint_folder = f"{base_save_folder}/checkpoint/{exp['exp_name']}_{taskid}_{level}_{type}_{run}"
                         time.sleep(random.random()*5)
                         if not os.path.exists(save_folder):
                             os.makedirs(save_folder)
+                        else:
+                            continue
+
+                        time.sleep(random.random()*5)
+                        if not os.path.exists(checkpoint_folder):
+                            os.makedirs(checkpoint_folder)
                         else:
                             continue
 
@@ -163,18 +170,54 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
                             simple_impute = SimpleImputeSpace.transform(X_test_pandas)
                             simple_rmse = SimpleImputeSpace.study.best_trial.value
                             simple_space = SimpleImputeSpace.study.best_trial.params
-
+                            simple_impute = simple_impute.to_numpy()
                             #Auto Impute 
                             AutoImputeSpace = autoimpute.AutoImputer(added_missing=level, missing_type=type, n_jobs=48, show_progress=False, random_state=run)
                             AutoImputeSpace.fit(X_train_pandas)
                             auto_impute = AutoImputeSpace.transform(X_test_pandas)
                             auto_rmse = AutoImputeSpace.study.best_trial.value
                             auto_space = AutoImputeSpace.study.best_trial.params
+                            auto_impute = auto_impute.to_numpy()
 
-                            print("running experiment 2/3 - Does reconstruction give good automl predictions")
                             all_scores = {}
                             all_scores['simple_impute_rmse'] = simple_rmse
                             all_scores['auto_impute_rmse'] = auto_rmse
+
+                            print("running experiment 2/3 - Does reconstruction give good automl predictions")
+                            #this section trains off of original train data, and then tests on the original, the simpleimputed,
+                            #  and the autoimpute test data. This section uses the normal params since it is checking just for predictive preformance, 
+                            # not the role of various imputers in the tpot optimization space. 
+
+                            exp['params']['cv'] = sklearn.model_selection.StratifiedKFold(n_splits=10, shuffle=True, random_state=run)
+                            exp['params']['periodic_checkpoint_folder'] = checkpoint_folder
+                            est = exp['automl'](**normal_params)
+
+                            start = time.time()
+                            est.fit(X_train, y_train)
+                            duration = time.time() - start
+                            
+                            if type(est) is tpot.TPOTClassifier:
+                                est.classes_ = est.fitted_pipeline_.classes_
+
+                            train_score = score(est, X_train, y_train)
+                            ori_test_score = score(est, X_test, y_test)
+                            simple_test_score = score(est, simple_impute, y_test)
+                            auto_test_score = score(est, auto_impute, y_test)
+                            
+                            train_score = {f"train_{k}": v for k, v in train_score.items()}
+                            all_scores.update(train_score)
+                            all_scores.update(ori_test_score)
+                            all_scores.update(simple_test_score)
+                            all_scores.update(auto_test_score)
+                            
+                            all_scores["start"] = start
+                            all_scores["taskid"] = taskid
+                            all_scores["level"] = level
+                            all_scores["type"] = type
+                            all_scores["exp_name"] = 'Imputed_Predictive_Capacity'
+                            #all_scores["name"] = openml.datasets.get_dataset(openml.tasks.get_task(taskid).dataset_id).name
+                            all_scores["duration"] = duration
+                            all_scores["run"] = run
 
                             print("starting ml")
                             exp['params']['cv'] = sklearn.model_selection.StratifiedKFold(n_splits=10, shuffle=True, random_state=run)
