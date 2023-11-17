@@ -29,5 +29,5 @@ echo RunStart
 
 srun -u /home/ketrong/miniconda3/envs/tpot2env/bin/python main.py \
 --n_jobs 48 \
---savepath results/ \
+--savepath tpot2_imputetest/Impute Experiments/logs/ \
 --num_runs 5 \
