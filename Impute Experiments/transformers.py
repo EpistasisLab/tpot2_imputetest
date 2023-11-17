@@ -15,7 +15,8 @@ from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.utils.validation import check_is_fitted, check_array
 from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
 
-from .pairwise_external import _get_mask
+from .utils import _get_mask
+
 
 __all__ = [
     'MissForest',

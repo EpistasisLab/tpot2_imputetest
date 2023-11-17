@@ -217,52 +217,66 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
                             all_scores["exp_name"] = 'Imputed_Predictive_Capacity'
                             #all_scores["name"] = openml.datasets.get_dataset(openml.tasks.get_task(taskid).dataset_id).name
                             all_scores["duration"] = duration
-                            all_scores["run"] = run
+                            tpot_space_scores["run"] = run
 
-                            print("starting ml")
+                            print("starting impute modules")
+                            X_train_missing = add_missing(X_train_pandas, add_missing=level, missing_type=type)
+                            X_test_missing = add_missing(X_test_pandas, add_missing=level, missing_type=type)
+                            X_train_missing = X_train_missing.to_numpy()
+                            X_test_missing = X_test_missing.to_numpy()
+
+
                             exp['params']['cv'] = sklearn.model_selection.StratifiedKFold(n_splits=10, shuffle=True, random_state=run)
                             exp['params']['periodic_checkpoint_folder'] = f"/home/ribeirop/common/Projects/tpot_digen_paper1/tpot2_paper_1/checkpoint/{exp['exp_name']}_{taskid}_{run}"
-                            est = exp['automl'](**exp['params'])
+                            tpot_space = exp['automl'](**exp['params'])
 
                             start = time.time()
-                            est.fit(X_train, y_train)
+                            tpot_space.fit(X_train_missing, y_train)
                             duration = time.time() - start
                             
-                            if type(est) is tpot.TPOTClassifier:
-                                est.classes_ = est.fitted_pipeline_.classes_
+                            if type(tpot_space) is tpot.TPOTClassifier:
+                                tpot_space.classes_ = tpot_space.fitted_pipeline_.classes_
 
-                            train_score = score(est, X_train, y_train)
-                            test_score = score(est, X_test, y_test)
+                            train_score = score(tpot_space, X_train_missing, y_train)
+                            test_score = score(tpot_space, X_test_missing, y_test)
 
-                            
+                            tpot_space_scores = {}
                             train_score = {f"train_{k}": v for k, v in train_score.items()}
-                            all_scores.update(train_score)
-                            all_scores.update(test_score)
+                            tpot_space_scores.update(train_score)
+                            tpot_space_scores.update(test_score)
 
                             
-                            all_scores["start"] = start
-                            all_scores["taskid"] = taskid
-                            all_scores["exp_name"] = exp['exp_name']
-                            #all_scores["name"] = openml.datasets.get_dataset(openml.tasks.get_task(taskid).dataset_id).name
-                            all_scores["duration"] = duration
-                            all_scores["run"] = run
+                            tpot_space_scores["start"] = start
+                            tpot_space_scores["taskid"] = taskid
+                            tpot_space_scores["exp_name"] = exp['exp_name']
+                            #tpot_space_scores["name"] = openml.datasets.get_dataset(openml.tasks.get_task(taskid).dataset_id).name
+                            tpot_space_scores["duration"] = duration
+                            tpot_space_scores["run"] = run
 
                             if type(est) is tpot2.TPOTClassifier or type(est) is tpot2.TPOTEstimator or type(est) is  tpot2.TPOTEstimatorSteadyState:
                                 with open(f"{save_folder}/evaluated_individuals.pkl", "wb") as f:
                                     pickle.dump(est.evaluated_individuals, f)
 
-                            
                             with open(f"{save_folder}/fitted_pipeline.pkl", "wb") as f:
                                 pickle.dump(est.fitted_pipeline_, f)
 
-
-                            with open(f"{save_folder}/scores.pkl", "wb") as f:
+                            with open(f"{save_folder}/all_scores.pkl", "wb") as f:
                                 pickle.dump(all_scores, f)
+
+                            if type(tpot_space) is tpot2.TPOTClassifier or type(tpot_space) is tpot2.TPOTEstimator or type(tpot_space) is  tpot2.TPOTEstimatorSteadyState:
+                                with open(f"{save_folder}/tpot_space_evaluated_individuals.pkl", "wb") as f:
+                                    pickle.dump(tpot_space.evaluated_individuals, f)
+
+                            with open(f"{save_folder}/tpot_space_fitted_pipeline.pkl", "wb") as f:
+                                pickle.dump(tpot_space.fitted_pipeline_, f)
+
+                            with open(f"{save_folder}/tpot_space_scores.pkl", "wb") as f:
+                                pickle.dump(tpot_space_scores, f)
 
                             return
                         except Exception as e:
                             trace =  traceback.format_exc() 
-                            pipeline_failure_dict = {"taskid": taskid, "exp_name": exp['exp_name'], "run": run, "error": str(e), "trace": trace}
+                            pipeline_failure_dict = {"taskid": taskid, "exp_name": exp['exp_name'], "run": run, "error": str(e), "trace": trace, "level": level, "type": type}
                             print("failed on ")
                             print(save_folder)
                             print(e)
@@ -417,3 +431,10 @@ def MNAR_mask_logistic(X, p_miss, p_params =.5, exclude_inputs=True):
         out[model_name] = X_nas
         out[mask_name] = mask
     return out
+
+def _get_mask(X, value_to_mask):
+    """Compute the boolean mask X == missing_values."""
+    if value_to_mask == "NaN" or np.isnan(value_to_mask):
+        return np.isnan(X)
+    else:
+        return X == value_to_mask

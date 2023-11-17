@@ -1,5 +1,4 @@
 import tpot2
-import numpy as np
 import optuna
 import sklearn
 

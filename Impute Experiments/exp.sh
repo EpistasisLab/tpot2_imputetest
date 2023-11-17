@@ -21,7 +21,7 @@ conda deactivate myenv12
 conda remove --name myenv12 --all
 conda create --name myenv12 -c conda-forge python=3.10
 '''
-conda activate myenv13
+conda activate tpot2env
 
 pip install -r requirements.txt
 

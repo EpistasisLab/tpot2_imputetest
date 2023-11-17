@@ -1,9 +1,6 @@
-import os
-import sys
 import numpy as np
 import pandas as pd
 import optuna
-import sklearn
 from sklearn.impute import SimpleImputer
 from sklearn.experimental import enable_iterative_imputer
 from sklearn.impute import IterativeImputer
@@ -11,9 +8,7 @@ from sklearn.impute import KNNImputer
 from sklearn.impute import SimpleImputer
 from .param_grids import params_SimpleImpute, params_IterativeImpute, params_KNNImpute, params_RandomForestImpute, params_GAINImpute
 from .transformers import RandomForestImputer, GAINImputer
-import warnings
-warnings.filterwarnings("ignore")
-from IPython.display import clear_output
+
 
 def trial_suggestion(trial: optuna.trial.Trial, model_names,column_len,random_state):
     model_name = trial.suggest_categorical('model_name', model_names)# Model names set up to run on multiple or individual models. Options include: 'SimpleImputer' , 'IterativeImputer','KNNImputer', 'VAEImputer', 'GAIN', 'Opt.SVM', 'Opt.Trees'.  Not yet working: 'DLImputer', Random Forest Imputer 

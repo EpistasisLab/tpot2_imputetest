@@ -48,6 +48,8 @@ A Python tool that automatically creates and optimizes machine learning pipeline
                       'dask-ml>=2022.5.27',
                       'dask-jobqueue>=0.8.1',
                       'func_timeout>=4.3.5',
+                      'torch',
+                      'tensorflow'
                      ],
     extras_require={
         'skrebate': ['skrebate>=0.3.4'],
