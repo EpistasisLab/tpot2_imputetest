@@ -16,12 +16,9 @@
 
 source /common/ketrong/minconda3/etc/profile.d/conda.sh
 
+conda create --name tpot2devenv python=3.10
 
-conda deactivate tpot2env
-conda remove --name tpot2env --all
-conda create --name tpot2env python=3.10
-
-conda activate tpot2env
+conda activate tpot2devenv
 
 pip install -r tpot2_imputetest/Impute_Experiments/requirements.txt
 
