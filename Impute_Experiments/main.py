@@ -160,7 +160,7 @@ def main():
             {
             'automl': tpot2.TPOTEstimator,
             'exp_name' : 'tpot2_base_normal',
-            'params': simple_and_normal_parmas,
+            'params': simple_and_normal_params,
             },
             {
             'automl': tpot2.TPOTEstimator,

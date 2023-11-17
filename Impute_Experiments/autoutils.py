@@ -69,7 +69,6 @@ def score(trial: optuna.trial.Trial, splitting, my_model, X: pd.DataFrame, missi
     except:
         cv_rmse = np.inf
     trial.set_user_attr('cv_rmse', cv_rmse)
-    clear_output()
     return cv_rmse
 
 def rmse_loss(ori_data, imputed_data, data_m):
