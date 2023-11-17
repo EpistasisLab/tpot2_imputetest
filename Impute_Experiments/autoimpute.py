@@ -7,6 +7,7 @@ from sklearn.model_selection import ShuffleSplit
 from sklearn.model_selection import KFold
 import time
 import utils
+import autoutils
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -52,12 +53,12 @@ class AutoImputer():
     else:
       splitting = KFold(n_splits=self.internal_folds, random_state=self.random_state, shuffle=True)
     def obj(trial):
-      my_params = utils.trial_suggestion(trial, self.model_names, column_len=len(X.columns), random_state=self.random_state)
-      my_model = utils.MyModel(random_state = self.random_state, **my_params)
-      return utils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+      my_params = autoutils.trial_suggestion(trial, self.model_names, column_len=len(X.columns), random_state=self.random_state)
+      my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+      return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
     self.study = optuna.create_study(sampler=self.sampler, direction=self.direction)
     self.study.optimize(obj, n_trials=self.n_trials, n_jobs=self.n_jobs, show_progress_bar=self.show_progress, gc_after_trial=self.garbage_collect)
-    self.best_model = utils.MyModel(random_state = self.random_state, **self.study.best_trial.params) 
+    self.best_model = autoutils.MyModel(random_state = self.random_state, **self.study.best_trial.params) 
     self.best_model.fit(X)
     stop_time = time.time()
     self.fit_time = stop_time - start_time

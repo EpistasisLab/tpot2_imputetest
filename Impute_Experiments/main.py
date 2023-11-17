@@ -5,9 +5,11 @@ import sklearn
 import argparse
 import utils
 import sklearn.datasets
+from sklearn.experimental import enable_iterative_imputer
 from sklearn.impute import SimpleImputer, IterativeImputer, KNNImputer
-from .transformers import RandomForestImputer, GAINImputer
-from .param_grids import params_SimpleImpute, params_IterativeImpute, params_KNNImpute, params_RandomForestImpute, params_GAINImpute
+from transformers import RandomForestImputer, GAINImputer
+from param_grids import params_SimpleImpute, params_IterativeImpute, params_KNNImpute, params_RandomForestImpute, params_GAINImpute
+
 
 def main():
     # Read in arguements

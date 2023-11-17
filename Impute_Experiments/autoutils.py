@@ -6,8 +6,8 @@ from sklearn.experimental import enable_iterative_imputer
 from sklearn.impute import IterativeImputer
 from sklearn.impute import KNNImputer
 from sklearn.impute import SimpleImputer
-from .param_grids import params_SimpleImpute, params_IterativeImpute, params_KNNImpute, params_RandomForestImpute, params_GAINImpute
-from .transformers import RandomForestImputer, GAINImputer
+from param_grids import params_SimpleImpute, params_IterativeImpute, params_KNNImpute, params_RandomForestImpute, params_GAINImpute
+from transformers import RandomForestImputer, GAINImputer
 
 
 def trial_suggestion(trial: optuna.trial.Trial, model_names,column_len,random_state):

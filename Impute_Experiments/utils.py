@@ -89,7 +89,7 @@ def score(est, X, y):
 #https://github.com/automl/ASKL2.0_experiments/blob/84a9c0b3af8f7ac6e2a003d4dea5e6dce97d4315/experiment_scripts/utils.py
 def load_task(task_id, preprocess=True):
     
-    cached_data_path = f"data/{task_id}_{preprocess}.pkl"
+    cached_data_path = f"tpot2_imputetest/Impute_Experiments/data/{task_id}_{preprocess}.pkl"
     print(cached_data_path)
     if os.path.exists(cached_data_path):
         d = pickle.load(open(cached_data_path, "rb"))
@@ -124,8 +124,8 @@ def load_task(task_id, preprocess=True):
                 X_train = np.append(X_train, X_train[indices], axis=0)
 
             d = {"X_train": X_train, "y_train": y_train, "X_test": X_test, "y_test": y_test}
-            if not os.path.exists("data"):
-                os.makedirs("data")
+            if not os.path.exists("tpot2_imputetest/Impute_Experiments/data"):
+                os.makedirs("tpot2_imputetest/Impute_Experiments/data")
             with open(cached_data_path, "wb") as f:
                 pickle.dump(d, f)
 
@@ -182,6 +182,8 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
                             all_scores = {}
                             all_scores['simple_impute_rmse'] = simple_rmse
                             all_scores['auto_impute_rmse'] = auto_rmse
+                            all_scores['simple_impute_space'] = simple_space
+                            all_scores['auto_impute_space'] = auto_space
 
                             print("running experiment 2/3 - Does reconstruction give good automl predictions")
                             #this section trains off of original train data, and then tests on the original, the simpleimputed,
@@ -432,9 +434,3 @@ def MNAR_mask_logistic(X, p_miss, p_params =.5, exclude_inputs=True):
         out[mask_name] = mask
     return out
 
-def _get_mask(X, value_to_mask):
-    """Compute the boolean mask X == missing_values."""
-    if value_to_mask == "NaN" or np.isnan(value_to_mask):
-        return np.isnan(X)
-    else:
-        return X == value_to_mask
