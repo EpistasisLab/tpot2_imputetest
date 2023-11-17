@@ -16,14 +16,14 @@
 
 source /common/ketrong/minconda3/etc/profile.d/conda.sh
 
-'''
-conda deactivate myenv12
-conda remove --name myenv12 --all
-conda create --name myenv12 -c conda-forge python=3.10
-'''
+
+conda deactivate tpot2env
+conda remove --name tpot2env --all
+conda create --name tpot2env python=3.10
+
 conda activate tpot2env
 
-pip install -r requirements.txt
+pip install -r tpot2_imputetest/Impute Experiments/requirements.txt
 
 echo RunStart
 
