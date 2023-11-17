@@ -22,6 +22,41 @@ from scipy import optimize
 import pandas as pd
 import autoimpute
 
+n_jobs = 48
+total_duration = 360000
+normal_params =  {
+                    'root_config_dict':["classifiers"],
+                    'leaf_config_dict': None,
+                    'inner_config_dict': ["selectors", "transformers"],
+                    'max_size' : np.max,
+                    'linear_pipeline' : True,
+
+                    'scorers':['neg_log_loss', tpot2.objectives.complexity_scorer],
+                    'scorers_weights':[1,-1],
+                    'other_objective_functions':[],
+                    'other_objective_functions_weights':[],
+                    
+                    'population_size' : n_jobs,
+                    'survival_percentage':1, 
+                    'initial_population_size' : n_jobs,
+                    'generations' : None, 
+                    'n_jobs':n_jobs,
+                    'cv': sklearn.model_selection.StratifiedKFold(n_splits=10, shuffle=True, random_state=42),
+                    'verbose':5, 
+                    'max_time_seconds': total_duration,
+                    'max_eval_time_seconds':60*10, 
+
+                    'crossover_probability':.10,
+                    'mutate_probability':.90,
+                    'mutate_then_crossover_probability':0,
+                    'crossover_then_mutate_probability':0,
+
+
+                    'memory_limit':None,  
+                    'preprocessing':False,
+                    'classification' : True,
+                    }
+
 
 def score(est, X, y):
 
@@ -117,17 +152,29 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
                             print("loading data")
                             X_train, y_train, X_test, y_test = load_task(taskid, preprocess=True)
                             
-                            print("adding missingness")
-                            missing_train, mask_train = add_missing(X=X_train, add_missing=level, missing_type=type)
-                            missing_test, mask_test = add_missing(X=X_train, add_missing=level, missing_type=type)
 
-                            print("experiment 1/3 - Does large hyperparameter space improve reconstruction accuracy over simple")
+                            print("running experiment 1/3 - Does large hyperparameter space improve reconstruction accuracy over simple")
                             X_train_pandas = pd.DataFrame(X_train)
                             X_test_pandas = pd.DataFrame(X_test)
                             
-                            #Simple Impute AutoImpute
-                            SimpleImputeSpace = autoimpute.AutoImputer()
+                            #Simple Impute 
+                            SimpleImputeSpace = autoimpute.AutoImputer(added_missing=level, missing_type=type, model_names=['SimpleImputer'], n_jobs=48, show_progress=False, random_state=run)
+                            SimpleImputeSpace.fit(X_train_pandas)
+                            simple_impute = SimpleImputeSpace.transform(X_test_pandas)
+                            simple_rmse = SimpleImputeSpace.study.best_trial.value
+                            simple_space = SimpleImputeSpace.study.best_trial.params
 
+                            #Auto Impute 
+                            AutoImputeSpace = autoimpute.AutoImputer(added_missing=level, missing_type=type, n_jobs=48, show_progress=False, random_state=run)
+                            AutoImputeSpace.fit(X_train_pandas)
+                            auto_impute = AutoImputeSpace.transform(X_test_pandas)
+                            auto_rmse = AutoImputeSpace.study.best_trial.value
+                            auto_space = AutoImputeSpace.study.best_trial.params
+
+                            print("running experiment 2/3 - Does reconstruction give good automl predictions")
+                            all_scores = {}
+                            all_scores['simple_impute_rmse'] = simple_rmse
+                            all_scores['auto_impute_rmse'] = auto_rmse
 
                             print("starting ml")
                             exp['params']['cv'] = sklearn.model_selection.StratifiedKFold(n_splits=10, shuffle=True, random_state=run)
@@ -144,7 +191,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
                             train_score = score(est, X_train, y_train)
                             test_score = score(est, X_test, y_test)
 
-                            all_scores = {}
+                            
                             train_score = {f"train_{k}": v for k, v in train_score.items()}
                             all_scores.update(train_score)
                             all_scores.update(test_score)
@@ -187,8 +234,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
 
 
 ### Additional Stuff GKetron Added
-def add_missing(X, add_missing = 0.05, missing_type = 'MAR'):
-    X = pd.DataFrame(X)
+def add_missing(X: pd.DataFrame, add_missing = 0.05, missing_type = 'MAR'):
     missing_mask = X
     missing_mask = missing_mask.mask(missing_mask.isna(), True)
     missing_mask = missing_mask.mask(missing_mask.notna(), False)
