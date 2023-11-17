@@ -20,6 +20,7 @@ import sklearn.model_selection
 import torch
 from scipy import optimize
 import pandas as pd
+import autoimpute
 
 
 def score(est, X, y):
@@ -120,7 +121,12 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
                             missing_train, mask_train = add_missing(X=X_train, add_missing=level, missing_type=type)
                             missing_test, mask_test = add_missing(X=X_train, add_missing=level, missing_type=type)
 
-
+                            print("experiment 1/3 - Does large hyperparameter space improve reconstruction accuracy over simple")
+                            X_train_pandas = pd.DataFrame(X_train)
+                            X_test_pandas = pd.DataFrame(X_test)
+                            
+                            #Simple Impute AutoImpute
+                            SimpleImputeSpace = autoimpute.AutoImputer()
 
 
                             print("starting ml")
@@ -200,11 +206,11 @@ def add_missing(X, add_missing = 0.05, missing_type = 'MAR'):
     masked_set = pd.DataFrame(out['Mask'].numpy())
     masked_set = masked_set.mask((missing_mask | masked_set), True)
     masked_set.columns = X.columns.values
-    masked_set = masked_set.to_numpy()
+    #masked_set = masked_set.to_numpy()
 
     missing_set = pd.DataFrame(out['Missing'].numpy())
     missing_set.columns = X.columns.values
-    missing_set = missing_set.to_numpy()
+    #missing_set = missing_set.to_numpy()
 
     return missing_set, masked_set
 
