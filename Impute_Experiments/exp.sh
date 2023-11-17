@@ -23,11 +23,11 @@ conda create --name tpot2env python=3.10
 
 conda activate tpot2env
 
-pip install -r tpot2_imputetest/Impute Experiments/requirements.txt
+pip install -r tpot2_imputetest/Impute_Experiments/requirements.txt
 
 echo RunStart
 
 srun -u /home/ketrong/miniconda3/envs/tpot2env/bin/python main.py \
 --n_jobs 48 \
---savepath tpot2_imputetest/Impute Experiments/logs/ \
+--savepath tpot2_imputetest/Impute_Experiments/logs/ \
 --num_runs 5 \
