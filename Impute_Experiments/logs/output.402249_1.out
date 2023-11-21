@@ -1,24 +1,24 @@
-/cm/local/apps/slurm/var/spool/job402234/slurm_script: line 19: /common/ketrong/minconda3/etc/profile.d/conda.sh: No such file or directory
-/cm/local/apps/slurm/var/spool/job402234/slurm_script: line 22: $'\nconda create --name tpot2devenv -c conda-forge python=3.10\n': command not found
-/cm/local/apps/slurm/var/spool/job402234/slurm_script: line 27: $'\npip install -r requirements.txt\n': command not found
+/cm/local/apps/slurm/var/spool/job402249/slurm_script: line 19: /common/ketrong/minconda3/etc/profile.d/conda.sh: No such file or directory
+/cm/local/apps/slurm/var/spool/job402249/slurm_script: line 22: $'\nconda create --name tpot2devenv -c conda-forge python=3.10\n': command not found
+/cm/local/apps/slurm/var/spool/job402249/slurm_script: line 27: $'\npip install -r requirements.txt\n': command not found
 RunStart
-2023-11-21 09:45:59.494587: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
-2023-11-21 09:45:59.530493: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-2023-11-21 09:45:59.530519: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
-2023-11-21 09:45:59.531891: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
-2023-11-21 09:45:59.538093: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+2023-11-21 09:49:45.021750: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2023-11-21 09:49:45.057040: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2023-11-21 09:49:45.057066: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2023-11-21 09:49:45.058206: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2023-11-21 09:49:45.063715: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
 To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2023-11-21 09:46:15.100902: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2023-11-21 09:49:47.392359: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
 WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
 Instructions for updating:
 non-resource variables are not supported in the long term
 working on 
-tpot2_imputetest/Impute_Experiments/logs//tpot2_base_normal_6_0.5_MCAR_0
+tpot2_imputetest/Impute_Experiments/logs//tpot2_base_normal_6_0.5_MNAR_0
 loading data
 tpot2_imputetest/Impute_Experiments/data/6_True.pkl
 running experiment 1/3 - Does large hyperparameter space improve reconstruction accuracy over simple
-[I 2023-11-21 09:47:29,195] A new study created in memory with name: no-name-57045b2f-514d-4905-a52f-99536723dfb5
-[W 2023-11-21 09:47:29,199] Trial 0 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+[I 2023-11-21 09:50:38,170] A new study created in memory with name: no-name-547bb11b-9214-4fcf-a2c7-23709e73b992
+[W 2023-11-21 09:50:38,172] Trial 1 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -26,9 +26,8 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:29,215] Trial 0 failed with value None.
-[W 2023-11-21 09:47:29,200] Trial 1 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:38,173] Trial 2 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -36,9 +35,8 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:29,402] Trial 1 failed with value None.
-[W 2023-11-21 09:47:29,201] Trial 3 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:38,174] Trial 0 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -46,9 +44,9 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:29,548] Trial 3 failed with value None.
-[W 2023-11-21 09:47:29,202] Trial 5 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:38,298] Trial 0 failed with value None.
+[W 2023-11-21 09:50:38,174] Trial 3 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -56,9 +54,9 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:29,692] Trial 5 failed with value None.
-[W 2023-11-21 09:47:29,205] Trial 7 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:38,503] Trial 3 failed with value None.
+[W 2023-11-21 09:50:38,176] Trial 5 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -66,9 +64,9 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:29,837] Trial 7 failed with value None.
-[W 2023-11-21 09:47:29,207] Trial 9 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:38,648] Trial 5 failed with value None.
+[W 2023-11-21 09:50:38,177] Trial 7 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -76,9 +74,9 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:29,981] Trial 9 failed with value None.
-[W 2023-11-21 09:47:29,210] Trial 10 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:38,790] Trial 7 failed with value None.
+[W 2023-11-21 09:50:38,180] Trial 10 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -86,9 +84,8 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:30,126] Trial 10 failed with value None.
-[W 2023-11-21 09:47:29,211] Trial 13 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:38,181] Trial 11 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -96,9 +93,9 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:30,270] Trial 13 failed with value None.
-[W 2023-11-21 09:47:29,202] Trial 4 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:38,934] Trial 11 failed with value None.
+[W 2023-11-21 09:50:38,182] Trial 12 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -106,9 +103,9 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:30,412] Trial 4 failed with value None.
-[W 2023-11-21 09:47:29,204] Trial 6 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:39,077] Trial 12 failed with value None.
+[W 2023-11-21 09:50:38,183] Trial 14 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -116,9 +113,9 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:30,554] Trial 6 failed with value None.
-[W 2023-11-21 09:47:29,692] Trial 16 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:39,220] Trial 14 failed with value None.
+[W 2023-11-21 09:50:38,185] Trial 16 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -126,9 +123,9 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:30,698] Trial 16 failed with value None.
-[W 2023-11-21 09:47:29,210] Trial 11 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:39,360] Trial 16 failed with value None.
+[W 2023-11-21 09:50:38,186] Trial 18 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -136,9 +133,9 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:30,843] Trial 11 failed with value None.
-[W 2023-11-21 09:47:29,981] Trial 18 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:39,500] Trial 18 failed with value None.
+[W 2023-11-21 09:50:38,188] Trial 20 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -146,9 +143,9 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:30,989] Trial 18 failed with value None.
-[W 2023-11-21 09:47:30,126] Trial 19 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:39,643] Trial 20 failed with value None.
+[W 2023-11-21 09:50:38,190] Trial 22 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -156,9 +153,9 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:31,131] Trial 19 failed with value None.
-[W 2023-11-21 09:47:29,691] Trial 15 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:39,785] Trial 22 failed with value None.
+[W 2023-11-21 09:50:38,191] Trial 24 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -166,9 +163,9 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:31,279] Trial 15 failed with value None.
-[W 2023-11-21 09:47:29,205] Trial 8 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:39,928] Trial 24 failed with value None.
+[W 2023-11-21 09:50:38,193] Trial 26 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -176,9 +173,9 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:31,420] Trial 8 failed with value None.
-[W 2023-11-21 09:47:30,988] Trial 20 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:40,072] Trial 26 failed with value None.
+[W 2023-11-21 09:50:38,195] Trial 28 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -186,9 +183,9 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:31,564] Trial 20 failed with value None.
-[W 2023-11-21 09:47:29,213] Trial 14 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:40,212] Trial 28 failed with value None.
+[W 2023-11-21 09:50:38,196] Trial 30 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -196,9 +193,9 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:31,709] Trial 14 failed with value None.
-[W 2023-11-21 09:47:29,836] Trial 17 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:40,353] Trial 30 failed with value None.
+[W 2023-11-21 09:50:38,198] Trial 32 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -206,9 +203,9 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:31,853] Trial 17 failed with value None.
-[W 2023-11-21 09:47:29,211] Trial 12 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:40,496] Trial 32 failed with value None.
+[W 2023-11-21 09:50:38,199] Trial 34 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -216,9 +213,9 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:31,996] Trial 12 failed with value None.
-[W 2023-11-21 09:47:31,709] Trial 22 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:40,637] Trial 34 failed with value None.
+[W 2023-11-21 09:50:38,201] Trial 36 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -226,9 +223,9 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:32,137] Trial 22 failed with value None.
-[W 2023-11-21 09:47:31,710] Trial 23 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:40,780] Trial 36 failed with value None.
+[W 2023-11-21 09:50:38,202] Trial 38 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -236,9 +233,9 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:32,279] Trial 23 failed with value None.
-[W 2023-11-21 09:47:29,200] Trial 2 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:40,923] Trial 38 failed with value None.
+[W 2023-11-21 09:50:38,204] Trial 40 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -246,9 +243,9 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:32,424] Trial 2 failed with value None.
-[W 2023-11-21 09:47:31,131] Trial 21 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:41,067] Trial 40 failed with value None.
+[W 2023-11-21 09:50:38,206] Trial 43 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -256,9 +253,9 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:32,567] Trial 21 failed with value None.
-[W 2023-11-21 09:47:32,424] Trial 26 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:41,210] Trial 43 failed with value None.
+[W 2023-11-21 09:50:38,207] Trial 44 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -266,9 +263,9 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:32,708] Trial 26 failed with value None.
-[W 2023-11-21 09:47:31,996] Trial 24 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:41,351] Trial 44 failed with value None.
+[W 2023-11-21 09:50:38,209] Trial 46 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -276,9 +273,10 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:32,853] Trial 24 failed with value None.
-[W 2023-11-21 09:47:32,422] Trial 25 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:41,495] Trial 46 failed with value None.
+[W 2023-11-21 09:50:38,297] Trial 1 failed with value None.
+[W 2023-11-21 09:50:38,175] Trial 4 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -286,9 +284,9 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:32,994] Trial 25 failed with value None.
-[W 2023-11-21 09:47:33,136] Trial 27 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:41,778] Trial 4 failed with value None.
+[W 2023-11-21 09:50:38,177] Trial 6 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -296,9 +294,9 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:33,137] Trial 27 failed with value None.
-[W 2023-11-21 09:47:33,280] Trial 28 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:41,923] Trial 6 failed with value None.
+[W 2023-11-21 09:50:38,179] Trial 9 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -306,9 +304,9 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:33,280] Trial 28 failed with value None.
-[W 2023-11-21 09:47:33,423] Trial 29 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:42,066] Trial 9 failed with value None.
+[W 2023-11-21 09:50:38,184] Trial 15 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -316,9 +314,9 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:33,424] Trial 29 failed with value None.
-[W 2023-11-21 09:47:33,566] Trial 30 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:42,209] Trial 15 failed with value None.
+[W 2023-11-21 09:50:38,186] Trial 17 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -326,9 +324,9 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:33,566] Trial 30 failed with value None.
-[W 2023-11-21 09:47:33,708] Trial 31 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:42,349] Trial 17 failed with value None.
+[W 2023-11-21 09:50:38,189] Trial 21 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -336,9 +334,9 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:33,708] Trial 31 failed with value None.
-[W 2023-11-21 09:47:33,708] Trial 32 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:42,492] Trial 21 failed with value None.
+[W 2023-11-21 09:50:38,192] Trial 25 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -346,9 +344,9 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:33,851] Trial 32 failed with value None.
-[W 2023-11-21 09:47:33,850] Trial 33 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:42,634] Trial 25 failed with value None.
+[W 2023-11-21 09:50:38,195] Trial 29 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -356,9 +354,9 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:33,994] Trial 33 failed with value None.
-[W 2023-11-21 09:47:33,850] Trial 34 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:42,775] Trial 29 failed with value None.
+[W 2023-11-21 09:50:38,199] Trial 33 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -366,9 +364,9 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:34,137] Trial 34 failed with value None.
-[W 2023-11-21 09:47:33,850] Trial 35 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:42,918] Trial 33 failed with value None.
+[W 2023-11-21 09:50:38,202] Trial 37 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -376,9 +374,9 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:34,282] Trial 35 failed with value None.
-[W 2023-11-21 09:47:34,136] Trial 36 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:43,058] Trial 37 failed with value None.
+[W 2023-11-21 09:50:38,206] Trial 42 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -386,9 +384,9 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:34,423] Trial 36 failed with value None.
-[W 2023-11-21 09:47:34,282] Trial 37 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:43,201] Trial 42 failed with value None.
+[W 2023-11-21 09:50:38,208] Trial 45 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -396,9 +394,11 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:34,568] Trial 37 failed with value None.
-[W 2023-11-21 09:47:34,282] Trial 38 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:43,343] Trial 45 failed with value None.
+[W 2023-11-21 09:50:38,297] Trial 2 failed with value None.
+[W 2023-11-21 09:50:38,934] Trial 10 failed with value None.
+[W 2023-11-21 09:50:38,182] Trial 13 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -406,9 +406,9 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:34,710] Trial 38 failed with value None.
-[W 2023-11-21 09:47:34,568] Trial 40 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:43,767] Trial 13 failed with value None.
+[W 2023-11-21 09:50:38,187] Trial 19 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -416,8 +416,9 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:34,710] Trial 41 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:43,908] Trial 19 failed with value None.
+[W 2023-11-21 09:50:38,197] Trial 31 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -425,9 +426,9 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:34,853] Trial 41 failed with value None.
-[W 2023-11-21 09:47:34,567] Trial 39 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:44,051] Trial 31 failed with value None.
+[W 2023-11-21 09:50:38,200] Trial 35 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -435,9 +436,9 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:34,995] Trial 39 failed with value None.
-[W 2023-11-21 09:47:34,853] Trial 43 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:44,191] Trial 35 failed with value None.
+[W 2023-11-21 09:50:38,205] Trial 41 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -445,9 +446,9 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:35,137] Trial 43 failed with value None.
-[W 2023-11-21 09:47:34,994] Trial 44 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:44,334] Trial 41 failed with value None.
+[W 2023-11-21 09:50:38,178] Trial 8 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -455,9 +456,9 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:35,278] Trial 44 failed with value None.
-[W 2023-11-21 09:47:34,995] Trial 45 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:44,475] Trial 8 failed with value None.
+[W 2023-11-21 09:50:38,194] Trial 27 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -465,9 +466,9 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:35,420] Trial 45 failed with value None.
-[W 2023-11-21 09:47:34,852] Trial 42 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:44,617] Trial 27 failed with value None.
+[W 2023-11-21 09:50:38,210] Trial 47 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -475,9 +476,9 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:35,563] Trial 42 failed with value None.
-[W 2023-11-21 09:47:35,278] Trial 47 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:44,757] Trial 47 failed with value None.
+[W 2023-11-21 09:50:38,203] Trial 39 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -485,10 +486,9 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:35,706] Trial 47 failed with value None.
-[W 2023-11-21 09:47:34,853] Trial 40 failed with value None.
-[W 2023-11-21 09:47:35,277] Trial 46 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'random_state'").
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:44,898] Trial 39 failed with value None.
+[W 2023-11-21 09:50:38,190] Trial 23 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'} because of the following error: TypeError("SimpleImputer.__init__() got an unexpected keyword argument 'model_name'").
 Traceback (most recent call last):
   File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
     value_or_values = func(trial)
@@ -496,11 +496,11 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
-[W 2023-11-21 09:47:35,989] Trial 46 failed with value None.
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
+[W 2023-11-21 09:50:45,038] Trial 23 failed with value None.
 failed on 
-tpot2_imputetest/Impute_Experiments/logs//tpot2_base_normal_6_0.5_MCAR_0
-SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
+tpot2_imputetest/Impute_Experiments/logs//tpot2_base_normal_6_0.5_MNAR_0
+SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
 Traceback (most recent call last):
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/utils.py", line 169, in loop_through_tasks
     SimpleImputeSpace.fit(X_train_pandas)
@@ -526,6 +526,6 @@ Traceback (most recent call last):
     my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
   File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 35, in MyModel
     my_model = SimpleImputer(
-TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'random_state'
+TypeError: SimpleImputer.__init__() got an unexpected keyword argument 'model_name'
 
 DONE
