@@ -12,17 +12,20 @@ from transformers import RandomForestImputer, GAINImputer
 
 def trial_suggestion(trial: optuna.trial.Trial, model_names,column_len,random_state):
     model_name = trial.suggest_categorical('model_name', model_names)# Model names set up to run on multiple or individual models. Options include: 'SimpleImputer' , 'IterativeImputer','KNNImputer', 'VAEImputer', 'GAIN', 'Opt.SVM', 'Opt.Trees'.  Not yet working: 'DLImputer', Random Forest Imputer 
+    
     match model_name:
       case 'SimpleImputer':
         my_params = params_SimpleImpute(trial, model_name)  #Takes data from each column to input a value for all missing data. 
       case 'IterativeImputer':
-        my_params = params_IterativeImpute(trial,model_name, column_len, random_state) #Uses the dependence between columns in the data set to predict for the one column. Predictions occur through a variety of strategies.
+        my_params = params_IterativeImpute(trial,model_name) #Uses the dependence between columns in the data set to predict for the one column. Predictions occur through a variety of strategies.
       case 'KNNImputer':
-        my_params = params_KNNImpute(trial,model_name, column_len) #uses nearest neighbors to predict missing values with k-neighbors in n-dimensional space with known values.
+        my_params = params_KNNImpute(trial,model_name) #uses nearest neighbors to predict missing values with k-neighbors in n-dimensional space with known values.
       case 'GAIN':
         my_params = params_GAINImpute(trial,model_name) #Uses a generative adversarial network model to predict values. 
       case 'RandomForestImputer': #uses a hyperparameter optimized SVM model to predict values to impute.
-        my_params = params_RandomForestImpute
+        my_params = params_RandomForestImpute(trial, model_name)
+
+    my_params['model_name'] = model_name
     return my_params
   
 def MyModel(random_state, **params):
