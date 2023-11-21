@@ -52,7 +52,7 @@ def MyModel(random_state, **params):
             my_model = RandomForestImputer(
                 **params
             )
-    model_name = params['model_name']
+    params['model_name'] = model_name
     return my_model
 
 def score(trial: optuna.trial.Trial, splitting, my_model, X: pd.DataFrame, missing_set: pd.DataFrame, masked_set:pd.DataFrame):

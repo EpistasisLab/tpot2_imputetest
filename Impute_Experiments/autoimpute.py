@@ -13,7 +13,7 @@ warnings.filterwarnings("ignore")
 
 
 class AutoImputer():
-  def __init__(self, fname = None, internal_folds=10, n_trials=200, random_state = 42, CV_state = True, added_missing = 0.05, missing_type: str = 'MAR', model_names: list = ['SimpleImputer' , 'IterativeImputer','KNNImputer', 'GAIN'], sampler = TPESampler(), direction ='minimize', n_jobs = 1, show_progress = True, garbage_collect=True):
+  def __init__(self, fname = None, internal_folds=10, n_trials=200, random_state = 42, CV_state = True, added_missing = 0.05, missing_type: str = 'MAR', model_names: list = ['SimpleImputer' , 'IterativeImputer','KNNImputer', 'GAIN', 'RandomForestImputer'], sampler = optuna.samplers.TPESampler(), direction ='minimize', n_jobs = 1, show_progress = True, garbage_collect=True):
     '''
     Loads in meta-parameters. 
 
