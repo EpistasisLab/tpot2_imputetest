@@ -8,6 +8,7 @@ def params_SimpleImpute(trial, name=None):
     param_grid = {
         'strategy': params['strategy']
     }
+
     return param_grid
 
 def params_IterativeImpute(trial, name=None):
@@ -41,10 +42,10 @@ def params_KNNImpute(trial, name=None):
     params['weights'] = trial.suggest_categorical('weights', ['uniform', 'distance'])
     params['keep_empty_features'] = trial.suggest_categorical('keep_empty_features', [True, False])
     param_grid = {
-      'n_neighbors': params['n_nearest_features'],
-      'weights': params['weights'],
-      'add_indicator': False,
-      'keep_empty_features': params['keep_empty_features'],
+        'n_neighbors': params['n_nearest_features'],
+        'weights': params['weights'],
+        'add_indicator': False,
+        'keep_empty_features': params['keep_empty_features'],
     }
     return param_grid
 

@@ -1,0 +1,531 @@
+/cm/local/apps/slurm/var/spool/job403170/slurm_script: line 19: /common/ketrong/minconda3/etc/profile.d/conda.sh: No such file or directory
+/cm/local/apps/slurm/var/spool/job403170/slurm_script: line 22: $'\nconda create --name tpot2devenv -c conda-forge python=3.10\n': command not found
+/cm/local/apps/slurm/var/spool/job403170/slurm_script: line 27: $'\npip install -r requirements.txt\n': command not found
+RunStart
+2023-11-21 15:51:29.909308: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2023-11-21 15:51:29.945564: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2023-11-21 15:51:29.945590: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2023-11-21 15:51:29.946950: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2023-11-21 15:51:29.953251: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-11-21 15:51:31.986025: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+working on 
+tpot2_imputetest/Impute_Experiments/logs//tpot2_base_normal_6_0.01_MNAR_2
+loading data
+tpot2_imputetest/Impute_Experiments/data/6_True.pkl
+running experiment 1/3 - Does large hyperparameter space improve reconstruction accuracy over simple
+[I 2023-11-21 15:54:07,736] A new study created in memory with name: no-name-bc54a6af-ba17-4454-94dd-d380c8ef0df1
+[W 2023-11-21 15:54:07,738] Trial 0 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:07,751] Trial 0 failed with value None.
+[W 2023-11-21 15:54:07,739] Trial 1 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:08,048] Trial 1 failed with value None.
+[W 2023-11-21 15:54:07,740] Trial 3 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:08,208] Trial 3 failed with value None.
+[W 2023-11-21 15:54:07,742] Trial 5 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:08,359] Trial 5 failed with value None.
+[W 2023-11-21 15:54:07,745] Trial 7 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:08,505] Trial 7 failed with value None.
+[W 2023-11-21 15:54:07,746] Trial 9 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:08,655] Trial 9 failed with value None.
+[W 2023-11-21 15:54:07,749] Trial 12 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:08,813] Trial 12 failed with value None.
+[W 2023-11-21 15:54:07,751] Trial 14 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:08,961] Trial 14 failed with value None.
+[W 2023-11-21 15:54:07,740] Trial 2 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:08,207] Trial 15 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:09,111] Trial 15 failed with value None.
+[W 2023-11-21 15:54:07,743] Trial 6 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:09,258] Trial 6 failed with value None.
+[W 2023-11-21 15:54:07,745] Trial 8 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:09,403] Trial 8 failed with value None.
+[W 2023-11-21 15:54:08,653] Trial 17 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:09,554] Trial 17 failed with value None.
+[W 2023-11-21 15:54:08,960] Trial 18 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:09,702] Trial 18 failed with value None.
+[W 2023-11-21 15:54:07,741] Trial 4 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:09,846] Trial 4 failed with value None.
+[W 2023-11-21 15:54:08,208] Trial 16 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:09,992] Trial 16 failed with value None.
+[W 2023-11-21 15:54:07,748] Trial 11 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:10,138] Trial 11 failed with value None.
+[W 2023-11-21 15:54:07,750] Trial 13 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:10,285] Trial 13 failed with value None.
+[W 2023-11-21 15:54:09,109] Trial 2 failed with value None.
+[W 2023-11-21 15:54:09,989] Trial 21 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:10,657] Trial 21 failed with value None.
+[W 2023-11-21 15:54:10,137] Trial 22 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:10,819] Trial 22 failed with value None.
+[W 2023-11-21 15:54:10,138] Trial 23 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:10,970] Trial 23 failed with value None.
+[W 2023-11-21 15:54:09,109] Trial 19 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:11,119] Trial 19 failed with value None.
+[W 2023-11-21 15:54:09,553] Trial 20 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:11,270] Trial 20 failed with value None.
+[W 2023-11-21 15:54:07,747] Trial 10 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:11,417] Trial 10 failed with value None.
+[W 2023-11-21 15:54:11,269] Trial 25 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:11,567] Trial 25 failed with value None.
+[W 2023-11-21 15:54:10,819] Trial 24 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:11,714] Trial 24 failed with value None.
+[W 2023-11-21 15:54:11,862] Trial 26 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:11,863] Trial 26 failed with value None.
+[W 2023-11-21 15:54:11,863] Trial 27 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:12,012] Trial 27 failed with value None.
+[W 2023-11-21 15:54:12,163] Trial 28 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:12,163] Trial 28 failed with value None.
+[W 2023-11-21 15:54:12,309] Trial 29 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:12,310] Trial 29 failed with value None.
+[W 2023-11-21 15:54:12,459] Trial 30 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:12,459] Trial 30 failed with value None.
+[W 2023-11-21 15:54:12,607] Trial 31 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:12,607] Trial 31 failed with value None.
+[W 2023-11-21 15:54:12,754] Trial 32 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:12,754] Trial 32 failed with value None.
+[W 2023-11-21 15:54:12,900] Trial 33 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:12,901] Trial 33 failed with value None.
+[W 2023-11-21 15:54:12,901] Trial 34 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:13,050] Trial 34 failed with value None.
+[W 2023-11-21 15:54:13,049] Trial 35 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:13,197] Trial 35 failed with value None.
+[W 2023-11-21 15:54:13,050] Trial 36 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:13,346] Trial 36 failed with value None.
+[W 2023-11-21 15:54:13,345] Trial 37 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:13,494] Trial 37 failed with value None.
+[W 2023-11-21 15:54:13,346] Trial 38 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:13,641] Trial 38 failed with value None.
+[W 2023-11-21 15:54:13,641] Trial 40 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:13,788] Trial 40 failed with value None.
+[W 2023-11-21 15:54:13,493] Trial 39 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:13,936] Trial 39 failed with value None.
+[W 2023-11-21 15:54:13,788] Trial 43 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:14,087] Trial 43 failed with value None.
+[W 2023-11-21 15:54:13,788] Trial 42 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:14,236] Trial 42 failed with value None.
+[W 2023-11-21 15:54:14,086] Trial 44 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:14,384] Trial 44 failed with value None.
+[W 2023-11-21 15:54:14,235] Trial 45 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:14,531] Trial 45 failed with value None.
+[W 2023-11-21 15:54:14,384] Trial 46 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:14,677] Trial 46 failed with value None.
+[W 2023-11-21 15:54:13,787] Trial 41 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:14,826] Trial 41 failed with value None.
+[W 2023-11-21 15:54:14,384] Trial 47 failed with parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'} because of the following error: KeyError('model_name').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+[W 2023-11-21 15:54:14,974] Trial 47 failed with value None.
+failed on 
+tpot2_imputetest/Impute_Experiments/logs//tpot2_base_normal_6_0.01_MNAR_2
+'model_name'
+Traceback (most recent call last):
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/utils.py", line 169, in loop_through_tasks
+    SimpleImputeSpace.fit(X_train_pandas)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 60, in fit
+    self.study.optimize(obj, n_trials=self.n_trials, n_jobs=self.n_jobs, show_progress_bar=self.show_progress, gc_after_trial=self.garbage_collect)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/study.py", line 451, in optimize
+    _optimize(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 103, in _optimize
+    f.result()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 163, in _optimize_sequential
+    frozen_trial = _run_trial(study, func, catch)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 251, in _run_trial
+    raise func_err
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 57, in obj
+    my_model = autoutils.MyModel(random_state = self.random_state, **my_params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 31, in MyModel
+    model_name = params['model_name']
+KeyError: 'model_name'
+
+DONE

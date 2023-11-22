@@ -12,7 +12,7 @@ from transformers import RandomForestImputer, GAINImputer
 
 def trial_suggestion(trial: optuna.trial.Trial, model_names,column_len,random_state):
     model_name = trial.suggest_categorical('model_name', model_names)# Model names set up to run on multiple or individual models. Options include: 'SimpleImputer' , 'IterativeImputer','KNNImputer', 'VAEImputer', 'GAIN', 'Opt.SVM', 'Opt.Trees'.  Not yet working: 'DLImputer', Random Forest Imputer 
-    
+    my_params = {}
     match model_name:
       case 'SimpleImputer':
         my_params = params_SimpleImpute(trial, model_name)  #Takes data from each column to input a value for all missing data. 
@@ -24,7 +24,6 @@ def trial_suggestion(trial: optuna.trial.Trial, model_names,column_len,random_st
         my_params = params_GAINImpute(trial,model_name) #Uses a generative adversarial network model to predict values. 
       case 'RandomForestImputer': #uses a hyperparameter optimized SVM model to predict values to impute.
         my_params = params_RandomForestImpute(trial, model_name)
-
     my_params['model_name'] = model_name
     return my_params
   
