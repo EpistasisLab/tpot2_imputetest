@@ -31,28 +31,32 @@ def MyModel(random_state, **params):
     these_params = params
     model_name = these_params['model_name']
     del these_params['model_name']
+    this_model = SimpleImputer(
+                **these_params
+                )
+    
     match model_name:
         case 'SimpleImputer':
-            my_model = SimpleImputer(
+            this_model = SimpleImputer(
                 **these_params
                 )
         case 'IterativeImputer':
-            my_model = IterativeImputer(
+            this_model = IterativeImputer(
                 **these_params
                 )
         case 'KNNImputer':
-            my_model = KNNImputer( 
+            this_model = KNNImputer( 
                 **these_params
                 )
         case 'GAIN':
-            my_model = GAINImputer(
+            this_model = GAINImputer(
                 **these_params
                 )
         case 'RandomForestImputer': #uses a hyperparameter optimized SVM model to predict values to impute.
-            my_model = RandomForestImputer(
+            this_model = RandomForestImputer(
                 **these_params
             )
-    return my_model
+    return this_model
 
 def score(trial: optuna.trial.Trial, splitting, my_model, X: pd.DataFrame, missing_set: pd.DataFrame, masked_set:pd.DataFrame):
     avg_cv_rmse = []
