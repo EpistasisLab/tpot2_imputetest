@@ -28,30 +28,30 @@ def trial_suggestion(trial: optuna.trial.Trial, model_names,column_len,random_st
     return my_params
   
 def MyModel(random_state, **params):
-    model_name = params['model_name']
-    del params['model_name']
+    these_params = params
+    model_name = these_params['model_name']
+    del these_params['model_name']
     match model_name:
         case 'SimpleImputer':
             my_model = SimpleImputer(
-                **params
+                **these_params
                 )
         case 'IterativeImputer':
             my_model = IterativeImputer(
-                **params
+                **these_params
                 )
         case 'KNNImputer':
             my_model = KNNImputer( 
-                **params
+                **these_params
                 )
         case 'GAIN':
             my_model = GAINImputer(
-                **params
+                **these_params
                 )
         case 'RandomForestImputer': #uses a hyperparameter optimized SVM model to predict values to impute.
             my_model = RandomForestImputer(
-                **params
+                **these_params
             )
-    params['model_name'] = model_name
     return my_model
 
 def score(trial: optuna.trial.Trial, splitting, my_model, X: pd.DataFrame, missing_set: pd.DataFrame, masked_set:pd.DataFrame):
