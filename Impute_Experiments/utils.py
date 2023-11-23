@@ -174,7 +174,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
                             simple_space = SimpleImputeSpace.study.best_trial.params
                             simple_impute = simple_impute.to_numpy()
                             #Auto Impute 
-                            AutoImputeSpace = autoimpute.AutoImputer(added_missing=level, missing_type=type, model_names=['SimpleImputer'], n_jobs=48, show_progress=True, random_state=run)
+                            AutoImputeSpace = autoimpute.AutoImputer(added_missing=level, missing_type=type, model_names=['SimpleImputer', 'IterativeImputer', 'KNNImputer', 'GAIN', 'RandomForestImputer'], n_jobs=48, show_progress=True, random_state=run)
                             AutoImputeSpace.fit(X_train_pandas)
                             print('auto fit')
                             auto_impute = AutoImputeSpace.transform(X_test_pandas)
