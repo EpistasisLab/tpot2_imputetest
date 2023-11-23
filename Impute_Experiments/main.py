@@ -62,7 +62,7 @@ def main():
                     'root_config_dict':["classifiers"],
                     'leaf_config_dict': None,
                     'inner_config_dict': ["selectors", "transformers"],
-                    'max_size' : np.max,
+                    'max_size' : np.inf,
                     'linear_pipeline' : True,
 
                     'scorers':['neg_log_loss', tpot2.objectives.complexity_scorer],
@@ -95,7 +95,7 @@ def main():
                     'root_config_dict': {"Recursive" : normal_params},
                     'leaf_config_dict': {"Recursive" : imputation_params},
                     'inner_config_dict': None,
-                    'max_size' : np.max,
+                    'max_size' : np.inf,
                     'linear_pipeline' : True,
 
                     'scorers':['neg_log_loss', tpot2.objectives.complexity_scorer],
@@ -128,7 +128,7 @@ def main():
                     'root_config_dict': {"Recursive" : normal_params},
                     'leaf_config_dict': {"Recursive" : simple_params},
                     'inner_config_dict': None,
-                    'max_size' : np.max,
+                    'max_size' : np.inf,
                     'linear_pipeline' : True,
 
                     'scorers':['neg_log_loss', tpot2.objectives.complexity_scorer],
