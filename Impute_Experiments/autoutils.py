@@ -31,10 +31,7 @@ def MyModel(random_state, **params):
     these_params = params
     model_name = these_params['model_name']
     del these_params['model_name']
-    this_model = SimpleImputer(
-                **these_params
-                )
-    
+
     match model_name:
         case 'SimpleImputer':
             this_model = SimpleImputer(
