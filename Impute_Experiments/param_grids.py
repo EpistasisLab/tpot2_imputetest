@@ -44,7 +44,7 @@ def params_KNNImpute(trial, name=None):
     params = {}
     params['n_nearest_features'] = None
     params['weights'] = trial.suggest_categorical('weights', ['uniform', 'distance'])
-    params['keep_empty_features'] = trial.suggest_categorical('keep_empty_features', [True, False])
+    params['keep_empty_features'] = trial.suggest_categorical('keep_empty_features', [False])
     param_grid = {
         'n_neighbors': params['n_nearest_features'],
         'weights': params['weights'],
