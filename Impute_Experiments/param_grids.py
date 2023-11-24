@@ -13,11 +13,7 @@ def params_SimpleImpute(trial, name=None):
 
 def params_IterativeImpute(trial, name=None):
     params = {}
-    KNN = sklearn.neighbors.KNeighborsRegressor()
-    Ridge = sklearn.linear_model.Ridge()
-    RFR = sklearn.ensemble.RandomForestRegressor()
-    Bayes = sklearn.linear_model.BayesianRidge()
-    params['estimator'] = trial.suggest_categorical('estimator', [Bayes, RFR, Ridge, KNN])
+    params['estimator'] = trial.suggest_categorical('estimator', ['Bayesian', 'RFR', 'Ridge', 'KNN'])
     params['sample_posterior'] = trial.suggest_categorical('sample_posterior', [True, False])
     params['initial_strategy'] = trial.suggest_categorical('initial_strategy', ['mean', 'median', 'most_frequent', 'constant'])
     params['n_nearest_features'] = None
