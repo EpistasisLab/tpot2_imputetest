@@ -65,7 +65,7 @@ def main():
 
     print("running experiment 1/3 - Does large hyperparameter space improve reconstruction accuracy over simple")
 
-    gainmodel = GAINImputer(batch_size=128, hint_rate=0.9, alpha=100, iterations=10000)
+    gainmodel = GAINImputer(batch_size=2, hint_rate=0.32, alpha=34, iterations=5767)
     gainmodel.fit(X=X_train_missing)
     gain_test_missing = gainmodel.transform(X=X_test_missing)
 
