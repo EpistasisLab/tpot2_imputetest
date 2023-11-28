@@ -39,7 +39,7 @@ normal_params =  {
                     'population_size' : n_jobs,
                     'survival_percentage':1, 
                     'initial_population_size' : n_jobs,
-                    'generations' : 100, 
+                    'generations' : 200, 
                     'n_jobs':n_jobs,
                     'cv': sklearn.model_selection.StratifiedKFold(n_splits=10, shuffle=True, random_state=42),
                     'verbose':5, 
