@@ -197,19 +197,19 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
                             exp['params']['cv'] = sklearn.model_selection.StratifiedKFold(n_splits=10, shuffle=True, random_state=run)
                             exp['params']['periodic_checkpoint_folder'] = checkpoint_folder
                             est = exp['automl'](**normal_params)
-
+                            print('Start est fit')
                             start = time.time()
                             est.fit(X_train, y_train)
                             duration = time.time() - start
-                            
+                            print('Fitted')
                             if type(est) is tpot.TPOTClassifier:
                                 est.classes_ = est.fitted_pipeline_.classes_
-
+                            print('score start')
                             train_score = score(est, X_train, y_train)
                             ori_test_score = score(est, X_test, y_test)
                             simple_test_score = score(est, simple_impute, y_test)
                             auto_test_score = score(est, auto_impute, y_test)
-                            
+                            print('score end')
                             train_score = {f"train_{k}": v for k, v in train_score.items()}
                             all_scores.update(train_score)
                             all_scores.update(ori_test_score)
@@ -235,17 +235,17 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
                             exp['params']['cv'] = sklearn.model_selection.StratifiedKFold(n_splits=10, shuffle=True, random_state=run)
                             exp['params']['periodic_checkpoint_folder'] = f"/home/ribeirop/common/Projects/tpot_digen_paper1/tpot2_paper_1/checkpoint/{exp['exp_name']}_{taskid}_{run}"
                             tpot_space = exp['automl'](**exp['params'])
-
+                            print('Start exp fit')
                             start = time.time()
                             tpot_space.fit(X_train_missing, y_train)
                             duration = time.time() - start
-                            
+                            print('Fitted')
                             if type(tpot_space) is tpot.TPOTClassifier:
                                 tpot_space.classes_ = tpot_space.fitted_pipeline_.classes_
-
+                            print('score start')
                             train_score = score(tpot_space, X_train_missing, y_train)
                             test_score = score(tpot_space, X_test_missing, y_test)
-
+                            print('score end')
                             tpot_space_scores = {}
                             train_score = {f"train_{k}": v for k, v in train_score.items()}
                             tpot_space_scores.update(train_score)
