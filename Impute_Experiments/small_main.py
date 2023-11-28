@@ -79,6 +79,6 @@ def main():
     rand_rmse = autoutils.rmse_loss(ori_data=X_test, imputed_data=rand_test_missing, data_m=X_test_mask)
     print(rand_rmse)
 
-if __name__ == '__small_main__':
-    main()
-    print("DONE")
+print('start')
+main()
+print("DONE")

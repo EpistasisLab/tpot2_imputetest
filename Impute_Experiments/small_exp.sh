@@ -29,6 +29,4 @@ pip install -r requirements.txt
 echo RunStart
 
 srun -u /home/ketrong/miniconda3/envs/tpot2devenv/bin/python small_main.py \
---n_jobs 48 \
 --savepath tpot2_imputetest/Impute_Experiments/logs/ \
---num_runs 5 \
