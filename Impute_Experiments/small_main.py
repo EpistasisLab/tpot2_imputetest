@@ -70,6 +70,7 @@ def main():
     gain_test_missing = gainmodel.transform(X=X_test_missing)
 
     gain_rmse = autoutils.rmse_loss(ori_data=X_test, imputed_data=gain_test_missing, data_m=X_test_mask)
+    print('gain')
     print(gain_rmse)
 
     randmodel = RandomForestImputer()
@@ -77,6 +78,7 @@ def main():
     rand_test_missing = randmodel.transform(X=X_test_missing)
 
     rand_rmse = autoutils.rmse_loss(ori_data=X_test, imputed_data=rand_test_missing, data_m=X_test_mask)
+    print('rand')
     print(rand_rmse)
 
 print('start')
