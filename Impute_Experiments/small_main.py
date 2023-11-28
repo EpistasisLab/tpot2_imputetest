@@ -65,6 +65,28 @@ def main():
 
     print("running experiment 1/3 - Does large hyperparameter space improve reconstruction accuracy over simple")
 
+    automodel = autoimpute.AutoImputer(added_missing=0.05, missing_type='MNAR', model_names=['GAIN'], n_jobs=48, show_progress=False, random_state=42)
+    automodel.fit(X=X_train_missing)
+    auto_test_missing = automodel.transform(X=X_test_missing)
+    auto_gain_rmse = autoutils.rmse_loss(ori_data=X_test, imputed_data=auto_test_missing, data_m=X_test_mask)
+    print('auto-gain')
+    print(auto_gain_rmse)
+
+    automodel = autoimpute.AutoImputer(added_missing=0.05, missing_type='MNAR', model_names=['RandomForestImputer'], n_jobs=48, show_progress=False, random_state=42)
+    automodel.fit(X=X_train_missing)
+    auto_test_missing = automodel.transform(X=X_test_missing)
+    auto_rand_rmse = autoutils.rmse_loss(ori_data=X_test, imputed_data=auto_test_missing, data_m=X_test_mask)
+    print('auto-ran')
+    print(auto_rand_rmse)
+
+    automodel = autoimpute.AutoImputer(added_missing=0.05, missing_type='MNAR', model_names=['KNNImputer'], n_jobs=48, show_progress=False, random_state=42)
+    automodel.fit(X=X_train_missing)
+    auto_test_missing = automodel.transform(X=X_test_missing)
+    auto_knn_rmse = autoutils.rmse_loss(ori_data=X_test, imputed_data=auto_test_missing, data_m=X_test_mask)
+    print('auto-knn')
+    print(auto_knn_rmse)
+
+
     gainmodel = GAINImputer(batch_size=2, hint_rate=0.32, alpha=34, iterations=5767)
     gainmodel.fit(X=X_train_missing)
     gain_test_missing = gainmodel.transform(X=X_test_missing)
@@ -73,7 +95,7 @@ def main():
     print('gain')
     print(gain_rmse)
 
-    randmodel = RandomForestImputer()
+    randmodel = RandomForestImputer(max_iter=1, decreasing=False, min_samples_split=0.0, min_samples_leaf=0.7, max_features=0.2, bootstrap=True, oob_score=False, warm_start=False )
     randmodel.fit(X=X_train_missing)
     rand_test_missing = randmodel.transform(X=X_test_missing)
 

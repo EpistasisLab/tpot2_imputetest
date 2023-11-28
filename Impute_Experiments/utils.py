@@ -301,8 +301,10 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
 
 
 ### Additional Stuff GKetron Added
-def add_missing(X: pd.DataFrame, add_missing = 0.05, missing_type = 'MAR'):
+def add_missing(X, add_missing = 0.05, missing_type = 'MAR'):
     missing_mask = X
+    if isinstance(X,np.ndarray):
+        missing_mask = pd.DataFrame(X)
     missing_mask = missing_mask.mask(missing_mask.isna(), True)
     missing_mask = missing_mask.mask(missing_mask.notna(), False)
     X = X.mask(X.isna(), 0)
