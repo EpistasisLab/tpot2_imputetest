@@ -1,0 +1,1658 @@
+/cm/local/apps/slurm/var/spool/job417861/slurm_script: line 19: /common/ketrong/minconda3/etc/profile.d/conda.sh: No such file or directory
+/cm/local/apps/slurm/var/spool/job417861/slurm_script: line 22: $'\nconda create --name tpot2devenv -c conda-forge python=3.10\n': command not found
+/cm/local/apps/slurm/var/spool/job417861/slurm_script: line 27: $'\npip install -r requirements.txt\n': command not found
+RunStart
+2023-11-28 16:11:12.760246: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2023-11-28 16:11:12.793300: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2023-11-28 16:11:12.793321: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2023-11-28 16:11:12.794142: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2023-11-28 16:11:12.799062: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-11-28 16:11:14.676725: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+start
+working on 
+tpot2_imputetest/Impute_Experiments/logs//small_run
+loading data
+tpot2_imputetest/Impute_Experiments/data/26_True.pkl
+starting impute modules
+running experiment 1/3 - Does large hyperparameter space improve reconstruction accuracy over simple
+[I 2023-11-28 16:11:33,370] A new study created in memory with name: no-name-e5c36e4a-3e11-41d2-808d-599f2d8efe92
+[W 2023-11-28 16:11:33,392] Trial 0 failed with parameters: {'model_name': 'GAIN', 'batch_size': 368, 'hint_rate': 0.43, 'alpha': 10, 'iterations': 40564} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:33,444] Trial 0 failed with value None.
+[W 2023-11-28 16:11:33,400] Trial 1 failed with parameters: {'model_name': 'GAIN', 'batch_size': 2, 'hint_rate': 0.62, 'alpha': 31, 'iterations': 52} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:33,651] Trial 1 failed with value None.
+[W 2023-11-28 16:11:33,413] Trial 4 failed with parameters: {'model_name': 'GAIN', 'batch_size': 1, 'hint_rate': 0.31, 'alpha': 67, 'iterations': 10} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:33,797] Trial 4 failed with value None.
+[W 2023-11-28 16:11:33,426] Trial 7 failed with parameters: {'model_name': 'GAIN', 'batch_size': 44, 'hint_rate': 0.45, 'alpha': 9, 'iterations': 5} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:33,944] Trial 7 failed with value None.
+[W 2023-11-28 16:11:33,406] Trial 2 failed with parameters: {'model_name': 'GAIN', 'batch_size': 349, 'hint_rate': 0.31, 'alpha': 92, 'iterations': 7} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:34,089] Trial 2 failed with value None.
+[W 2023-11-28 16:11:33,426] Trial 5 failed with parameters: {'model_name': 'GAIN', 'batch_size': 1, 'hint_rate': 0.61, 'alpha': 52, 'iterations': 19} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:34,235] Trial 5 failed with value None.
+[W 2023-11-28 16:11:33,431] Trial 3 failed with parameters: {'model_name': 'GAIN', 'batch_size': 49, 'hint_rate': 0.5700000000000001, 'alpha': 48, 'iterations': 44} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:34,380] Trial 3 failed with value None.
+[W 2023-11-28 16:11:33,413] Trial 6 failed with parameters: {'model_name': 'GAIN', 'batch_size': 2, 'hint_rate': 0.05, 'alpha': 46, 'iterations': 78} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:34,524] Trial 6 failed with value None.
+[W 2023-11-28 16:11:34,682] Trial 8 failed with parameters: {'model_name': 'GAIN', 'batch_size': 8, 'hint_rate': 0.77, 'alpha': 66, 'iterations': 462} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:34,682] Trial 8 failed with value None.
+[W 2023-11-28 16:11:34,836] Trial 9 failed with parameters: {'model_name': 'GAIN', 'batch_size': 373, 'hint_rate': 0.6, 'alpha': 52, 'iterations': 500} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:34,836] Trial 9 failed with value None.
+[W 2023-11-28 16:11:34,986] Trial 10 failed with parameters: {'model_name': 'GAIN', 'batch_size': 4, 'hint_rate': 0.48000000000000004, 'alpha': 45, 'iterations': 1} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:34,990] Trial 10 failed with value None.
+[W 2023-11-28 16:11:34,989] Trial 11 failed with parameters: {'model_name': 'GAIN', 'batch_size': 1, 'hint_rate': 0.49, 'alpha': 9, 'iterations': 2} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:35,134] Trial 11 failed with value None.
+[W 2023-11-28 16:11:35,287] Trial 12 failed with parameters: {'model_name': 'GAIN', 'batch_size': 3, 'hint_rate': 0.35000000000000003, 'alpha': 77, 'iterations': 12} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:35,288] Trial 12 failed with value None.
+[W 2023-11-28 16:11:35,436] Trial 13 failed with parameters: {'model_name': 'GAIN', 'batch_size': 29, 'hint_rate': 0.78, 'alpha': 73, 'iterations': 5794} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:35,436] Trial 13 failed with value None.
+[W 2023-11-28 16:11:35,583] Trial 14 failed with parameters: {'model_name': 'GAIN', 'batch_size': 904, 'hint_rate': 0.56, 'alpha': 26, 'iterations': 9} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:35,583] Trial 14 failed with value None.
+[W 2023-11-28 16:11:35,732] Trial 15 failed with parameters: {'model_name': 'GAIN', 'batch_size': 1, 'hint_rate': 0.26, 'alpha': 34, 'iterations': 21} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:35,733] Trial 15 failed with value None.
+[W 2023-11-28 16:11:35,884] Trial 16 failed with parameters: {'model_name': 'GAIN', 'batch_size': 112, 'hint_rate': 0.88, 'alpha': 79, 'iterations': 3} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:35,884] Trial 16 failed with value None.
+[W 2023-11-28 16:11:36,041] Trial 17 failed with parameters: {'model_name': 'GAIN', 'batch_size': 2, 'hint_rate': 0.12, 'alpha': 98, 'iterations': 8} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:36,045] Trial 17 failed with value None.
+[W 2023-11-28 16:11:36,043] Trial 19 failed with parameters: {'model_name': 'GAIN', 'batch_size': 57, 'hint_rate': 0.88, 'alpha': 14, 'iterations': 2} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:36,197] Trial 19 failed with value None.
+[W 2023-11-28 16:11:36,044] Trial 20 failed with parameters: {'model_name': 'GAIN', 'batch_size': 3, 'hint_rate': 0.23, 'alpha': 70, 'iterations': 7305} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:36,342] Trial 20 failed with value None.
+[W 2023-11-28 16:11:36,490] Trial 21 failed with parameters: {'model_name': 'GAIN', 'batch_size': 44, 'hint_rate': 0.18000000000000002, 'alpha': 91, 'iterations': 3} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:36,491] Trial 21 failed with value None.
+[W 2023-11-28 16:11:36,633] Trial 18 failed with parameters: {'model_name': 'GAIN', 'batch_size': 1, 'hint_rate': 0.53, 'alpha': 17, 'iterations': 32} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:36,633] Trial 18 failed with value None.
+[W 2023-11-28 16:11:36,783] Trial 22 failed with parameters: {'model_name': 'GAIN', 'batch_size': 567, 'hint_rate': 0.85, 'alpha': 62, 'iterations': 1} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:36,783] Trial 22 failed with value None.
+[W 2023-11-28 16:11:36,939] Trial 23 failed with parameters: {'model_name': 'GAIN', 'batch_size': 8, 'hint_rate': 0.5800000000000001, 'alpha': 98, 'iterations': 6} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:36,958] Trial 23 failed with value None.
+[W 2023-11-28 16:11:36,943] Trial 24 failed with parameters: {'model_name': 'GAIN', 'batch_size': 4, 'hint_rate': 0.8200000000000001, 'alpha': 76, 'iterations': 219} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:37,145] Trial 24 failed with value None.
+[W 2023-11-28 16:11:36,956] Trial 29 failed with parameters: {'model_name': 'GAIN', 'batch_size': 3, 'hint_rate': 0.47000000000000003, 'alpha': 13, 'iterations': 32048} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:37,302] Trial 29 failed with value None.
+[W 2023-11-28 16:11:37,123] Trial 34 failed with parameters: {'model_name': 'GAIN', 'batch_size': 2, 'hint_rate': 0.48000000000000004, 'alpha': 17, 'iterations': 43908} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:37,456] Trial 34 failed with value None.
+[W 2023-11-28 16:11:37,138] Trial 28 failed with parameters: {'model_name': 'GAIN', 'batch_size': 41, 'hint_rate': 0.52, 'alpha': 64, 'iterations': 34} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:37,610] Trial 28 failed with value None.
+[W 2023-11-28 16:11:37,141] Trial 35 failed with parameters: {'model_name': 'GAIN', 'batch_size': 1, 'hint_rate': 0.9, 'alpha': 1, 'iterations': 20} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:37,763] Trial 35 failed with value None.
+[W 2023-11-28 16:11:37,145] Trial 30 failed with parameters: {'model_name': 'GAIN', 'batch_size': 85, 'hint_rate': 0.13, 'alpha': 49, 'iterations': 61754} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:37,936] Trial 30 failed with value None.
+[W 2023-11-28 16:11:37,301] Trial 31 failed with parameters: {'model_name': 'GAIN', 'batch_size': 701, 'hint_rate': 0.78, 'alpha': 63, 'iterations': 537} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:38,085] Trial 31 failed with value None.
+[W 2023-11-28 16:11:37,129] Trial 26 failed with parameters: {'model_name': 'GAIN', 'batch_size': 1, 'hint_rate': 0.61, 'alpha': 76, 'iterations': 2} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:38,228] Trial 26 failed with value None.
+[W 2023-11-28 16:11:37,140] Trial 36 failed with parameters: {'model_name': 'GAIN', 'batch_size': 12, 'hint_rate': 0.5800000000000001, 'alpha': 83, 'iterations': 20540} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:38,371] Trial 36 failed with value None.
+[W 2023-11-28 16:11:37,141] Trial 32 failed with parameters: {'model_name': 'GAIN', 'batch_size': 16, 'hint_rate': 0.8400000000000001, 'alpha': 3, 'iterations': 2152} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:38,514] Trial 32 failed with value None.
+[W 2023-11-28 16:11:37,115] Trial 25 failed with parameters: {'model_name': 'GAIN', 'batch_size': 1, 'hint_rate': 1.0, 'alpha': 3, 'iterations': 1} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:38,660] Trial 25 failed with value None.
+[W 2023-11-28 16:11:37,916] Trial 40 failed with parameters: {'model_name': 'GAIN', 'batch_size': 226, 'hint_rate': 0.09999999999999999, 'alpha': 50, 'iterations': 3913} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:38,804] Trial 40 failed with value None.
+[W 2023-11-28 16:11:37,932] Trial 46 failed with parameters: {'model_name': 'GAIN', 'batch_size': 3, 'hint_rate': 0.2, 'alpha': 51, 'iterations': 6} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:38,950] Trial 46 failed with value None.
+[W 2023-11-28 16:11:37,933] Trial 43 failed with parameters: {'model_name': 'GAIN', 'batch_size': 866, 'hint_rate': 0.67, 'alpha': 28, 'iterations': 5} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:39,092] Trial 43 failed with value None.
+[W 2023-11-28 16:11:37,935] Trial 41 failed with parameters: {'model_name': 'GAIN', 'batch_size': 1, 'hint_rate': 0.46, 'alpha': 70, 'iterations': 84} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:39,237] Trial 41 failed with value None.
+[W 2023-11-28 16:11:37,451] Trial 27 failed with parameters: {'model_name': 'GAIN', 'batch_size': 4, 'hint_rate': 0.79, 'alpha': 48, 'iterations': 35} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:39,379] Trial 27 failed with value None.
+[W 2023-11-28 16:11:37,605] Trial 37 failed with parameters: {'model_name': 'GAIN', 'batch_size': 4, 'hint_rate': 0.92, 'alpha': 19, 'iterations': 1} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:39,524] Trial 37 failed with value None.
+[W 2023-11-28 16:11:37,915] Trial 42 failed with parameters: {'model_name': 'GAIN', 'batch_size': 527, 'hint_rate': 1.0, 'alpha': 18, 'iterations': 189} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:39,668] Trial 42 failed with value None.
+[W 2023-11-28 16:11:37,933] Trial 47 failed with parameters: {'model_name': 'GAIN', 'batch_size': 1, 'hint_rate': 0.76, 'alpha': 25, 'iterations': 66438} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:39,812] Trial 47 failed with value None.
+[W 2023-11-28 16:11:37,302] Trial 38 failed with parameters: {'model_name': 'GAIN', 'batch_size': 8, 'hint_rate': 0.8, 'alpha': 42, 'iterations': 16} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:39,957] Trial 38 failed with value None.
+[W 2023-11-28 16:11:38,372] Trial 45 failed with parameters: {'model_name': 'GAIN', 'batch_size': 129, 'hint_rate': 0.09, 'alpha': 57, 'iterations': 1} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:40,100] Trial 45 failed with value None.
+[W 2023-11-28 16:11:37,934] Trial 39 failed with parameters: {'model_name': 'GAIN', 'batch_size': 11, 'hint_rate': 0.81, 'alpha': 67, 'iterations': 2} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:40,243] Trial 39 failed with value None.
+[W 2023-11-28 16:11:37,925] Trial 44 failed with parameters: {'model_name': 'GAIN', 'batch_size': 10, 'hint_rate': 0.48000000000000004, 'alpha': 20, 'iterations': 11260} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:40,388] Trial 44 failed with value None.
+[W 2023-11-28 16:11:37,452] Trial 33 failed with parameters: {'model_name': 'GAIN', 'batch_size': 438, 'hint_rate': 0.21000000000000002, 'alpha': 97, 'iterations': 256} because of the following error: InvalidIndexError((slice(None, None, None), 0)).
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+[W 2023-11-28 16:11:40,530] Trial 33 failed with value None.
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 144, in pandas._libs.index.IndexEngine.get_loc
+TypeError: '(slice(None, None, None), 0)' is an invalid key
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/small_main.py", line 110, in <module>
+    main()
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/small_main.py", line 69, in main
+    automodel.fit(X=X_train_missing)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 61, in fit
+    self.study.optimize(obj, n_trials=self.n_trials, n_jobs=self.n_jobs, show_progress_bar=self.show_progress, gc_after_trial=self.garbage_collect)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/study.py", line 451, in optimize
+    _optimize(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 103, in _optimize
+    f.result()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 163, in _optimize_sequential
+    frozen_trial = _run_trial(study, func, catch)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 251, in _run_trial
+    raise func_err
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 64, in score
+    imputed = my_model.transform(missing_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 605, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 636, in gain
+    norm_data, norm_parameters = self.normalization(data_x)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 751, in normalization
+    min_val[i] = np.nanmin(norm_data[:,i])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    self._check_indexing_error(key)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5925, in _check_indexing_error
+    raise InvalidIndexError(key)
+pandas.errors.InvalidIndexError: (slice(None, None, None), 0)
+srun: error: esplhpc-cp002: task 0: Exited with exit code 1

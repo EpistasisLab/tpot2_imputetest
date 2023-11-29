@@ -1,0 +1,923 @@
+/cm/local/apps/slurm/var/spool/job417880/slurm_script: line 19: /common/ketrong/minconda3/etc/profile.d/conda.sh: No such file or directory
+/cm/local/apps/slurm/var/spool/job417880/slurm_script: line 22: $'\nconda create --name tpot2devenv -c conda-forge python=3.10\n': command not found
+/cm/local/apps/slurm/var/spool/job417880/slurm_script: line 27: $'\npip install -r requirements.txt\n': command not found
+RunStart
+2023-11-28 16:24:39.087616: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2023-11-28 16:24:39.120929: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2023-11-28 16:24:39.120950: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2023-11-28 16:24:39.121761: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2023-11-28 16:24:39.126841: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-11-28 16:24:40.579389: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+start
+working on 
+tpot2_imputetest/Impute_Experiments/logs//small_run
+loading data
+tpot2_imputetest/Impute_Experiments/data/26_True.pkl
+starting impute modules
+running experiment 1/3 - Does large hyperparameter space improve reconstruction accuracy over simple
+[I 2023-11-28 16:24:58,804] A new study created in memory with name: no-name-dc071bde-276e-48c1-a2de-e12700197c6f
+[W 2023-11-28 16:24:58,806] Trial 0 failed with parameters: {'model_name': 'GAIN', 'batch_size': 42, 'hint_rate': 0.79, 'alpha': 79, 'iterations': 45} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:24:58,817] Trial 0 failed with value None.
+[W 2023-11-28 16:24:59,025] Trial 1 failed with parameters: {'model_name': 'GAIN', 'batch_size': 77, 'hint_rate': 0.54, 'alpha': 11, 'iterations': 49289} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:24:59,025] Trial 1 failed with value None.
+[W 2023-11-28 16:24:59,175] Trial 2 failed with parameters: {'model_name': 'GAIN', 'batch_size': 912, 'hint_rate': 0.99, 'alpha': 21, 'iterations': 1} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:24:59,175] Trial 2 failed with value None.
+[W 2023-11-28 16:24:59,352] Trial 3 failed with parameters: {'model_name': 'GAIN', 'batch_size': 7, 'hint_rate': 0.16, 'alpha': 56, 'iterations': 58710} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:24:59,353] Trial 3 failed with value None.
+[W 2023-11-28 16:24:59,496] Trial 4 failed with parameters: {'model_name': 'GAIN', 'batch_size': 118, 'hint_rate': 0.04, 'alpha': 66, 'iterations': 72791} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:24:59,496] Trial 4 failed with value None.
+[W 2023-11-28 16:24:59,645] Trial 5 failed with parameters: {'model_name': 'GAIN', 'batch_size': 193, 'hint_rate': 0.93, 'alpha': 27, 'iterations': 1} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:24:59,646] Trial 5 failed with value None.
+[W 2023-11-28 16:24:59,791] Trial 6 failed with parameters: {'model_name': 'GAIN', 'batch_size': 15, 'hint_rate': 0.26, 'alpha': 97, 'iterations': 20} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:24:59,792] Trial 6 failed with value None.
+[W 2023-11-28 16:24:59,934] Trial 7 failed with parameters: {'model_name': 'GAIN', 'batch_size': 2, 'hint_rate': 0.66, 'alpha': 57, 'iterations': 281} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:24:59,934] Trial 7 failed with value None.
+[W 2023-11-28 16:25:00,076] Trial 8 failed with parameters: {'model_name': 'GAIN', 'batch_size': 85, 'hint_rate': 0.24000000000000002, 'alpha': 24, 'iterations': 14494} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:25:00,077] Trial 8 failed with value None.
+[W 2023-11-28 16:25:00,222] Trial 9 failed with parameters: {'model_name': 'GAIN', 'batch_size': 37, 'hint_rate': 0.49, 'alpha': 27, 'iterations': 82765} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:25:00,222] Trial 9 failed with value None.
+[W 2023-11-28 16:25:00,366] Trial 10 failed with parameters: {'model_name': 'GAIN', 'batch_size': 1, 'hint_rate': 0.36000000000000004, 'alpha': 81, 'iterations': 1} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:25:00,366] Trial 10 failed with value None.
+[W 2023-11-28 16:25:00,507] Trial 11 failed with parameters: {'model_name': 'GAIN', 'batch_size': 36, 'hint_rate': 0.86, 'alpha': 91, 'iterations': 2} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:25:00,507] Trial 11 failed with value None.
+[W 2023-11-28 16:25:00,649] Trial 12 failed with parameters: {'model_name': 'GAIN', 'batch_size': 4, 'hint_rate': 0.23, 'alpha': 95, 'iterations': 2} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:25:00,649] Trial 12 failed with value None.
+[W 2023-11-28 16:25:00,793] Trial 13 failed with parameters: {'model_name': 'GAIN', 'batch_size': 1, 'hint_rate': 0.26, 'alpha': 47, 'iterations': 4} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:25:00,793] Trial 13 failed with value None.
+[W 2023-11-28 16:25:00,935] Trial 14 failed with parameters: {'model_name': 'GAIN', 'batch_size': 96, 'hint_rate': 0.56, 'alpha': 99, 'iterations': 186} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:25:00,935] Trial 14 failed with value None.
+[W 2023-11-28 16:25:01,077] Trial 15 failed with parameters: {'model_name': 'GAIN', 'batch_size': 6, 'hint_rate': 0.5800000000000001, 'alpha': 31, 'iterations': 34076} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:25:01,078] Trial 15 failed with value None.
+[W 2023-11-28 16:25:01,220] Trial 16 failed with parameters: {'model_name': 'GAIN', 'batch_size': 2, 'hint_rate': 0.19, 'alpha': 85, 'iterations': 15881} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:25:01,221] Trial 17 failed with parameters: {'model_name': 'GAIN', 'batch_size': 72, 'hint_rate': 0.18000000000000002, 'alpha': 30, 'iterations': 7798} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:25:01,222] Trial 17 failed with value None.
+[W 2023-11-28 16:25:01,221] Trial 16 failed with value None.
+[W 2023-11-28 16:25:01,505] Trial 18 failed with parameters: {'model_name': 'GAIN', 'batch_size': 1, 'hint_rate': 0.35000000000000003, 'alpha': 6, 'iterations': 15668} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:25:01,506] Trial 18 failed with value None.
+[W 2023-11-28 16:25:01,650] Trial 19 failed with parameters: {'model_name': 'GAIN', 'batch_size': 7, 'hint_rate': 0.61, 'alpha': 64, 'iterations': 1} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:25:01,650] Trial 19 failed with value None.
+[W 2023-11-28 16:25:01,793] Trial 20 failed with parameters: {'model_name': 'GAIN', 'batch_size': 2, 'hint_rate': 0.17, 'alpha': 74, 'iterations': 9} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:25:01,793] Trial 20 failed with value None.
+[W 2023-11-28 16:25:01,939] Trial 21 failed with parameters: {'model_name': 'GAIN', 'batch_size': 2, 'hint_rate': 0.88, 'alpha': 12, 'iterations': 11} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:25:01,939] Trial 21 failed with value None.
+[W 2023-11-28 16:25:02,082] Trial 22 failed with parameters: {'model_name': 'GAIN', 'batch_size': 1, 'hint_rate': 0.03, 'alpha': 22, 'iterations': 1} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:25:02,083] Trial 22 failed with value None.
+[W 2023-11-28 16:25:02,224] Trial 23 failed with parameters: {'model_name': 'GAIN', 'batch_size': 5, 'hint_rate': 0.72, 'alpha': 41, 'iterations': 19} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:25:02,224] Trial 23 failed with value None.
+[W 2023-11-28 16:25:02,365] Trial 24 failed with parameters: {'model_name': 'GAIN', 'batch_size': 62, 'hint_rate': 0.56, 'alpha': 56, 'iterations': 57} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:25:02,365] Trial 24 failed with value None.
+[W 2023-11-28 16:25:02,508] Trial 25 failed with parameters: {'model_name': 'GAIN', 'batch_size': 410, 'hint_rate': 0.3, 'alpha': 29, 'iterations': 47846} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:25:02,509] Trial 25 failed with value None.
+[W 2023-11-28 16:25:02,509] Trial 26 failed with parameters: {'model_name': 'GAIN', 'batch_size': 12, 'hint_rate': 0.93, 'alpha': 41, 'iterations': 22} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:25:02,651] Trial 26 failed with value None.
+[W 2023-11-28 16:25:02,794] Trial 27 failed with parameters: {'model_name': 'GAIN', 'batch_size': 1, 'hint_rate': 0.8400000000000001, 'alpha': 91, 'iterations': 397} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:25:02,794] Trial 27 failed with value None.
+[W 2023-11-28 16:25:02,936] Trial 28 failed with parameters: {'model_name': 'GAIN', 'batch_size': 221, 'hint_rate': 0.74, 'alpha': 91, 'iterations': 9} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:25:02,937] Trial 28 failed with value None.
+[W 2023-11-28 16:25:03,082] Trial 29 failed with parameters: {'model_name': 'GAIN', 'batch_size': 3, 'hint_rate': 0.22, 'alpha': 49, 'iterations': 5084} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:25:03,082] Trial 29 failed with value None.
+[W 2023-11-28 16:25:03,225] Trial 30 failed with parameters: {'model_name': 'GAIN', 'batch_size': 15, 'hint_rate': 0.54, 'alpha': 85, 'iterations': 3} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:25:03,225] Trial 30 failed with value None.
+[W 2023-11-28 16:25:03,367] Trial 31 failed with parameters: {'model_name': 'GAIN', 'batch_size': 3, 'hint_rate': 0.97, 'alpha': 8, 'iterations': 18586} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:25:03,367] Trial 31 failed with value None.
+[W 2023-11-28 16:25:03,508] Trial 32 failed with parameters: {'model_name': 'GAIN', 'batch_size': 175, 'hint_rate': 0.85, 'alpha': 5, 'iterations': 4} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:25:03,508] Trial 32 failed with value None.
+[W 2023-11-28 16:25:03,652] Trial 33 failed with parameters: {'model_name': 'GAIN', 'batch_size': 27, 'hint_rate': 0.65, 'alpha': 58, 'iterations': 21} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:25:03,652] Trial 33 failed with value None.
+[W 2023-11-28 16:25:03,797] Trial 34 failed with parameters: {'model_name': 'GAIN', 'batch_size': 11, 'hint_rate': 0.56, 'alpha': 2, 'iterations': 33889} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:25:03,798] Trial 34 failed with value None.
+[W 2023-11-28 16:25:03,940] Trial 35 failed with parameters: {'model_name': 'GAIN', 'batch_size': 1, 'hint_rate': 0.7100000000000001, 'alpha': 61, 'iterations': 18344} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:25:03,940] Trial 35 failed with value None.
+[W 2023-11-28 16:25:04,082] Trial 36 failed with parameters: {'model_name': 'GAIN', 'batch_size': 14, 'hint_rate': 0.12, 'alpha': 93, 'iterations': 52331} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:25:04,082] Trial 36 failed with value None.
+[W 2023-11-28 16:25:04,226] Trial 37 failed with parameters: {'model_name': 'GAIN', 'batch_size': 8, 'hint_rate': 0.64, 'alpha': 73, 'iterations': 3} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:25:04,227] Trial 37 failed with value None.
+[W 2023-11-28 16:25:04,372] Trial 38 failed with parameters: {'model_name': 'GAIN', 'batch_size': 72, 'hint_rate': 0.59, 'alpha': 31, 'iterations': 9175} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:25:04,372] Trial 38 failed with value None.
+[W 2023-11-28 16:25:04,513] Trial 39 failed with parameters: {'model_name': 'GAIN', 'batch_size': 15, 'hint_rate': 0.73, 'alpha': 29, 'iterations': 59577} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:25:04,513] Trial 39 failed with value None.
+[W 2023-11-28 16:25:04,656] Trial 40 failed with parameters: {'model_name': 'GAIN', 'batch_size': 33, 'hint_rate': 0.46, 'alpha': 74, 'iterations': 13005} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:25:04,656] Trial 40 failed with value None.
+[W 2023-11-28 16:25:04,801] Trial 41 failed with parameters: {'model_name': 'GAIN', 'batch_size': 4, 'hint_rate': 0.22, 'alpha': 97, 'iterations': 8} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:25:04,801] Trial 41 failed with value None.
+[W 2023-11-28 16:25:04,946] Trial 42 failed with parameters: {'model_name': 'GAIN', 'batch_size': 22, 'hint_rate': 0.59, 'alpha': 93, 'iterations': 1} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:25:04,948] Trial 42 failed with value None.
+[W 2023-11-28 16:25:04,947] Trial 43 failed with parameters: {'model_name': 'GAIN', 'batch_size': 1, 'hint_rate': 0.37, 'alpha': 38, 'iterations': 589} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:25:05,091] Trial 43 failed with value None.
+[W 2023-11-28 16:25:04,948] Trial 45 failed with parameters: {'model_name': 'GAIN', 'batch_size': 30, 'hint_rate': 0.9500000000000001, 'alpha': 7, 'iterations': 89} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:25:05,232] Trial 45 failed with value None.
+[W 2023-11-28 16:25:04,947] Trial 44 failed with parameters: {'model_name': 'GAIN', 'batch_size': 196, 'hint_rate': 0.8200000000000001, 'alpha': 8, 'iterations': 1635} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:25:05,375] Trial 44 failed with value None.
+[W 2023-11-28 16:25:05,516] Trial 46 failed with parameters: {'model_name': 'GAIN', 'batch_size': 1, 'hint_rate': 0.2, 'alpha': 53, 'iterations': 921} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:25:05,517] Trial 46 failed with value None.
+[W 2023-11-28 16:25:05,517] Trial 47 failed with parameters: {'model_name': 'GAIN', 'batch_size': 146, 'hint_rate': 0.01, 'alpha': 65, 'iterations': 10} because of the following error: AttributeError("module 'pandas' has no attribute 'Dataframe'").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'
+[W 2023-11-28 16:25:05,659] Trial 47 failed with value None.
+Traceback (most recent call last):
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/small_main.py", line 110, in <module>
+    main()
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/small_main.py", line 69, in main
+    automodel.fit(X=X_train_missing)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 61, in fit
+    self.study.optimize(obj, n_trials=self.n_trials, n_jobs=self.n_jobs, show_progress_bar=self.show_progress, gc_after_trial=self.garbage_collect)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/study.py", line 451, in optimize
+    _optimize(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 103, in _optimize
+    f.result()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 163, in _optimize_sequential
+    frozen_trial = _run_trial(study, func, catch)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 251, in _run_trial
+    raise func_err
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 625, in gain
+    if type(data_x) == type(pd.Dataframe({'A' : []})):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/__init__.py", line 264, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'Dataframe'. Did you mean: 'DataFrame'?
+srun: error: esplhpc-cp002: task 0: Exited with exit code 1

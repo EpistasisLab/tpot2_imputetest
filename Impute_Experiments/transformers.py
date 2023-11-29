@@ -10,6 +10,7 @@ import tensorflow.compat.v1 as tf
 tf.disable_v2_behavior()
 
 from scipy.stats import mode
+import pandas as pd
 
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.utils.validation import check_is_fitted, check_array
@@ -621,6 +622,8 @@ class GAINImputer(BaseEstimator, TransformerMixin):
         Returns:
             - imputed_data: imputed data
         '''
+        if hasattr(data_x, 'dtypes'):
+            data_x = data_x.to_numpy()
         # Define mask matrix
         data_m = 1-np.isnan(data_x)
         # System parameters

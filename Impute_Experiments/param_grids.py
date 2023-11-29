@@ -82,7 +82,7 @@ def params_RandomForestImpute(trial, name=None):
 def params_GAINImpute(trial, name=None):
     params = {}
     params['batch_size'] = trial.suggest_int('batch_size', 1, 1000, log=True)
-    params['hint_rate'] = trial.suggest_float('hint_rate', 0.001, 1, log=True)
+    params['hint_rate'] = trial.suggest_float('hint_rate', 0.01, 0.99, step = 0.01)
     params['alpha'] = trial.suggest_int('alpha', 0, 100, step = 1)
     params['iterations'] = trial.suggest_int('iterations', 1, 100000, log=True)
     param_grid = { 

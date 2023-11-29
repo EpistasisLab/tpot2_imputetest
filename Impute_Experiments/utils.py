@@ -43,8 +43,8 @@ normal_params =  {
                     'n_jobs':n_jobs,
                     'cv': sklearn.model_selection.StratifiedKFold(n_splits=10, shuffle=True, random_state=42),
                     'verbose':5, 
-                    'max_time_seconds': total_duration,
-                    'max_eval_time_seconds':60*10, 
+                    'max_time_seconds': 360000,
+                    'max_eval_time_seconds':600, 
 
                     'crossover_probability':.10,
                     'mutate_probability':.90,
@@ -302,9 +302,9 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
 
 ### Additional Stuff GKetron Added
 def add_missing(X, add_missing = 0.05, missing_type = 'MAR'):
-    missing_mask = X
     if isinstance(X,np.ndarray):
-        missing_mask = pd.DataFrame(X)
+        X = pd.DataFrame(X)
+    missing_mask = X
     missing_mask = missing_mask.mask(missing_mask.isna(), True)
     missing_mask = missing_mask.mask(missing_mask.notna(), False)
     X = X.mask(X.isna(), 0)

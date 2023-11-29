@@ -57,20 +57,17 @@ def MyModel(random_state, **params):
 
 def score(trial: optuna.trial.Trial, splitting, my_model, X: pd.DataFrame, missing_set: pd.DataFrame, masked_set:pd.DataFrame):
     avg_cv_rmse = []
-    try: 
-        for i, (train_index, test_index) in enumerate(splitting.split(X)): ## Creates test and train splits based on rows selected for the most recent cv split. Splits start as pandas data frames and may switch to numpy depending on imputer model inputs.
-            missing_train, missing_test, X_test, masked_test = missing_set.iloc[train_index], missing_set.iloc[test_index], X.iloc[test_index], masked_set.iloc[test_index]
-            my_model.fit(missing_train)
-            imputed = my_model.transform(missing_test)
-            if 'numpy' in str(type(imputed)):
-                imputed = pd.DataFrame(imputed, columns=missing_set.columns.values)
-            rmse_val = rmse_loss(ori_data=X_test.to_numpy(), imputed_data=imputed.to_numpy(), data_m=np.multiply(masked_test.to_numpy(),1))
-            avg_cv_rmse.append(rmse_val)
-        cv_rmse = sum(avg_cv_rmse)/float(len(avg_cv_rmse))
-    except:
-        cv_rmse = np.inf
-    trial.set_user_attr('cv_rmse', cv_rmse)
-    return cv_rmse
+    #try: 
+    my_model.fit(missing_set)
+    imputed = my_model.transform(missing_set)
+    if 'numpy' in str(type(imputed)):
+        imputed = pd.DataFrame(imputed, columns=missing_set.columns.values)
+    rmse_val = rmse_loss(ori_data=X.to_numpy(), imputed_data=imputed.to_numpy(), data_m=np.multiply(masked_set.to_numpy(),1))
+        
+    #except:
+    #    cv_rmse = np.inf
+    trial.set_user_attr('rmse', rmse_val)
+    return rmse_val
 
 def rmse_loss(ori_data, imputed_data, data_m):
     '''Compute RMSE loss between ori_data and imputed_data

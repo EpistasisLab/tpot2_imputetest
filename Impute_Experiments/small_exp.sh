@@ -12,7 +12,7 @@
 #SBATCH --mail-user=Gabriel.Ketron@cshs.org
 #SBATCH --mail-user=gketron@uci.edu
 #SBATCH -o ./logs/output.%j_%a.out # STDOUT
-#SBATCH --array=1-5
+#SBATCH --array=1
 
 module load git/2.33.1
 
