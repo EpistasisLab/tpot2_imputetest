@@ -71,7 +71,7 @@ def main():
     auto_test_missing = auto_test_missing.to_numpy()
     print(auto_test_missing)
     print('auto-gain')
-    auto_gain_rmse = autoutils.rmse_loss(ori_data=X_test, imputed_data=auto_test_missing.to_numpy(), data_m=X_test_mask)
+    auto_gain_rmse = autoutils.rmse_loss(ori_data=X_test, imputed_data=auto_test_missing, data_m=X_test_mask)
     print(auto_gain_rmse)
 
     automodel = autoimpute.AutoImputer(added_missing=0.05, missing_type='MNAR', model_names=['RandomForestImputer'], n_jobs=48, show_progress=False, random_state=42)

@@ -222,3 +222,18 @@ running experiment 1/3 - Does large hyperparameter space improve reconstruction 
 [I 2023-11-28 17:29:03,366] Trial 17 finished with value: 0.371065810239085 and parameters: {'model_name': 'GAIN', 'batch_size': 1, 'hint_rate': 0.39, 'alpha': 71, 'iterations': 81633}. Best is trial 42 with value: 0.3685951345045328.
 [I 2023-11-28 17:29:12,244] Trial 20 finished with value: 0.3880825992624175 and parameters: {'model_name': 'GAIN', 'batch_size': 84, 'hint_rate': 0.45, 'alpha': 55, 'iterations': 66727}. Best is trial 42 with value: 0.3685951345045328.
 [I 2023-11-28 17:30:41,945] Trial 46 finished with value: 0.0 and parameters: {'model_name': 'GAIN', 'batch_size': 741, 'hint_rate': 0.77, 'alpha': 24, 'iterations': 61084}. Best is trial 46 with value: 0.0.
+[[nan nan nan ... nan nan nan]
+ [nan nan nan ... nan nan nan]
+ [nan nan nan ... nan nan nan]
+ ...
+ [nan nan nan ... nan nan nan]
+ [nan nan nan ... nan nan nan]
+ [nan nan nan ... nan nan nan]]
+auto-gain
+Traceback (most recent call last):
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/small_main.py", line 111, in <module>
+    main()
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/small_main.py", line 74, in main
+    auto_gain_rmse = autoutils.rmse_loss(ori_data=X_test, imputed_data=auto_test_missing.to_numpy(), data_m=X_test_mask)
+AttributeError: 'numpy.ndarray' object has no attribute 'to_numpy'
+srun: error: esplhpc-cp002: task 0: Exited with exit code 1

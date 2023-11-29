@@ -60,10 +60,10 @@ def score(trial: optuna.trial.Trial, splitting, my_model, X: pd.DataFrame, missi
     #try: 
     my_model.fit(missing_set)
     imputed = my_model.transform(missing_set)
+    print(imputed)
     if 'numpy' in str(type(imputed)):
         imputed = pd.DataFrame(imputed, columns=missing_set.columns.values)
     rmse_val = rmse_loss(ori_data=X.to_numpy(), imputed_data=imputed.to_numpy(), data_m=np.multiply(masked_set.to_numpy(),1))
-        
     #except:
     #    cv_rmse = np.inf
     trial.set_user_attr('rmse', rmse_val)
