@@ -948,4 +948,360 @@ non-resource variables are not supported in the long term
 WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
 Instructions for updating:
 non-resource variables are not supported in the long term
-  0%|          | 0/200 [00:00<?, ?it/s]Generation:   0%|          | 0/200 [00:00<?, ?it/s]
+  0%|          | 0/200 [00:00<?, ?it/s]Generation:   0%|          | 0/200 [00:00<?, ?it/s]WARNING AN INDIVIDUAL TIMED OUT: 
+ ['GradientBoostingClassifier_1'] 
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ ['SVC_1'] 
+
+Generation:  1
+Best log_loss score: -0.2659089874207335
+Best complexity_scorer score: 1.0
+Generation:   0%|          | 1/200 [10:00<33:12:06, 600.63s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ ['GradientBoostingClassifier_1'] 
+ ExponentialLoss requires 2 classes; got 26 class(es) 
+ Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/estimator.py", line 702, in objective_function
+    return objective_function_generator(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/estimator_utils.py", line 117, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 354, in fit
+    fit_sklearn_digraph(   graph=self.graph,
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 153, in fit_sklearn_digraph
+    transformed, instance = estimator_fit_transform_override_cross_val_predict_cached(instance, this_X, y, cv=cross_val_predict_cv, method=method,subset_indexes=subset_indexes)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/joblib/memory.py", line 353, in __call__
+    return self.func(*args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 77, in estimator_fit_transform_override_cross_val_predict
+    estimator.fit(X,y, **fit_params)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 1152, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/ensemble/_gb.py", line 431, in fit
+    self._check_params()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/ensemble/_gb.py", line 276, in _check_params
+    self._loss = loss_class(self.n_classes_)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/ensemble/_gb_losses.py", line 889, in __init__
+    raise ValueError(
+ValueError: ExponentialLoss requires 2 classes; got 26 class(es)
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ ['GradientBoostingClassifier_1'] 
+ ExponentialLoss requires 2 classes; got 26 class(es) 
+ Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/estimator.py", line 702, in objective_function
+    return objective_function_generator(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/estimator_utils.py", line 117, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 354, in fit
+    fit_sklearn_digraph(   graph=self.graph,
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 153, in fit_sklearn_digraph
+    transformed, instance = estimator_fit_transform_override_cross_val_predict_cached(instance, this_X, y, cv=cross_val_predict_cv, method=method,subset_indexes=subset_indexes)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/joblib/memory.py", line 353, in __call__
+    return self.func(*args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 77, in estimator_fit_transform_override_cross_val_predict
+    estimator.fit(X,y, **fit_params)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 1152, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/ensemble/_gb.py", line 431, in fit
+    self._check_params()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/ensemble/_gb.py", line 276, in _check_params
+    self._loss = loss_class(self.n_classes_)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/ensemble/_gb_losses.py", line 889, in __init__
+    raise ValueError(
+ValueError: ExponentialLoss requires 2 classes; got 26 class(es)
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ ['SVC_1'] 
+
+Generation:  2
+Best log_loss score: -0.15211660560465007
+Best complexity_scorer score: 1.0
+Generation:   1%|          | 2/200 [20:01<33:02:12, 600.67s/it]Generation:  3
+Best log_loss score: -0.15211660560465007
+Best complexity_scorer score: 1.0
+Generation:   2%|▏         | 3/200 [26:04<26:55:57, 492.17s/it]Generation:  4
+Best log_loss score: -0.15211660560465007
+Best complexity_scorer score: 1.0
+Generation:   2%|▏         | 4/200 [27:09<17:37:22, 323.69s/it]Generation:  5
+Best log_loss score: -0.15211660560465007
+Best complexity_scorer score: 1.0
+Generation:   2%|▎         | 5/200 [29:02<13:24:51, 247.65s/it]Generation:  6
+Best log_loss score: -0.15211660560465007
+Best complexity_scorer score: 1.0
+Generation:   3%|▎         | 6/200 [30:47<10:43:47, 199.11s/it]Generation:  7
+Best log_loss score: -0.15211660560465007
+Best complexity_scorer score: 1.0
+Generation:   4%|▎         | 7/200 [31:40<8:06:26, 151.22s/it] Generation:  8
+Best log_loss score: -0.15211660560465007
+Best complexity_scorer score: 1.0
+Generation:   4%|▍         | 8/200 [32:38<6:29:26, 121.70s/it]Generation:  9
+Best log_loss score: -0.15211660560465007
+Best complexity_scorer score: 1.0
+Generation:   4%|▍         | 9/200 [34:30<6:17:54, 118.71s/it]Generation:  10
+Best log_loss score: -0.15211660560465007
+Best complexity_scorer score: 1.0
+Generation:   5%|▌         | 10/200 [35:22<5:10:03, 97.91s/it]Generation:  11
+Best log_loss score: -0.15211660560465007
+Best complexity_scorer score: 1.0
+Generation:   6%|▌         | 11/200 [36:19<4:28:58, 85.39s/it]Generation:  12
+Best log_loss score: -0.15211660560465007
+Best complexity_scorer score: 1.0
+Generation:   6%|▌         | 12/200 [38:04<4:46:29, 91.43s/it]Generation:  13
+Best log_loss score: -0.15211660560465007
+Best complexity_scorer score: 1.0
+Generation:   6%|▋         | 13/200 [38:55<4:06:56, 79.23s/it]Generation:  14
+Best log_loss score: -0.15211660560465007
+Best complexity_scorer score: 1.0
+Generation:   7%|▋         | 14/200 [39:44<3:37:33, 70.18s/it]Generation:  15
+Best log_loss score: -0.15211660560465007
+Best complexity_scorer score: 1.0
+Generation:   8%|▊         | 15/200 [40:35<3:18:20, 64.33s/it]Generation:  16
+Best log_loss score: -0.15211660560465007
+Best complexity_scorer score: 1.0
+Generation:   8%|▊         | 16/200 [41:25<3:04:16, 60.09s/it]Generation:  17
+Best log_loss score: -0.12837836189935095
+Best complexity_scorer score: 1.0
+Generation:   8%|▊         | 17/200 [42:16<2:54:26, 57.19s/it]Generation:  18
+Best log_loss score: -0.12837836189935095
+Best complexity_scorer score: 1.0
+Generation:   9%|▉         | 18/200 [43:07<2:48:16, 55.48s/it]Generation:  19
+Best log_loss score: -0.12837836189935095
+Best complexity_scorer score: 1.0
+Generation:  10%|▉         | 19/200 [43:57<2:42:07, 53.74s/it]Generation:  20
+Best log_loss score: -0.12837836189935095
+Best complexity_scorer score: 1.0
+Generation:  10%|█         | 20/200 [44:48<2:38:31, 52.84s/it]Generation:  21
+Best log_loss score: -0.12837836189935095
+Best complexity_scorer score: 1.0
+Generation:  10%|█         | 21/200 [45:42<2:38:40, 53.18s/it]Generation:  22
+Best log_loss score: -0.12837836189935095
+Best complexity_scorer score: 1.0
+Generation:  11%|█         | 22/200 [46:38<2:40:20, 54.05s/it]Generation:  23
+Best log_loss score: -0.12837836189935095
+Best complexity_scorer score: 1.0
+Generation:  12%|█▏        | 23/200 [47:29<2:36:41, 53.12s/it]Generation:  24
+Best log_loss score: -0.12837836189935095
+Best complexity_scorer score: 1.0
+Generation:  12%|█▏        | 24/200 [48:19<2:33:35, 52.36s/it]Generation:  25
+Best log_loss score: -0.12837836189935095
+Best complexity_scorer score: 1.0
+Generation:  12%|█▎        | 25/200 [49:11<2:32:00, 52.12s/it]Generation:  26
+Best log_loss score: -0.12837836189935095
+Best complexity_scorer score: 1.0
+Generation:  13%|█▎        | 26/200 [50:01<2:29:17, 51.48s/it]Generation:  27
+Best log_loss score: -0.12837836189935095
+Best complexity_scorer score: 1.0
+Generation:  14%|█▎        | 27/200 [50:53<2:29:17, 51.78s/it]Generation:  28
+Best log_loss score: -0.12837836189935095
+Best complexity_scorer score: 1.0
+Generation:  14%|█▍        | 28/200 [51:49<2:31:53, 52.99s/it]Generation:  29
+Best log_loss score: -0.12837836189935095
+Best complexity_scorer score: 1.0
+Generation:  14%|█▍        | 29/200 [52:41<2:29:57, 52.62s/it]Generation:  30
+Best log_loss score: -0.12837836189935095
+Best complexity_scorer score: 1.0
+Generation:  15%|█▌        | 30/200 [54:05<2:56:13, 62.20s/it]Generation:  31
+Best log_loss score: -0.12837836189935095
+Best complexity_scorer score: 1.0
+Generation:  16%|█▌        | 31/200 [54:57<2:45:50, 58.88s/it]Generation:  32
+Best log_loss score: -0.12837836189935095
+Best complexity_scorer score: 1.0
+Generation:  16%|█▌        | 32/200 [55:48<2:38:18, 56.54s/it]Generation:  33
+Best log_loss score: -0.12837836189935095
+Best complexity_scorer score: 1.0
+Generation:  16%|█▋        | 33/200 [56:36<2:30:55, 54.22s/it]Generation:  34
+Best log_loss score: -0.12837836189935095
+Best complexity_scorer score: 1.0
+Generation:  17%|█▋        | 34/200 [57:44<2:41:10, 58.26s/it]Generation:  35
+Best log_loss score: -0.12837836189935095
+Best complexity_scorer score: 1.0
+Generation:  18%|█▊        | 35/200 [59:35<3:23:43, 74.08s/it]Generation:  36
+Best log_loss score: -0.12837836189935095
+Best complexity_scorer score: 1.0
+Generation:  18%|█▊        | 36/200 [1:00:26<3:03:27, 67.12s/it]Generation:  37
+Best log_loss score: -0.12837836189935095
+Best complexity_scorer score: 1.0
+Generation:  18%|█▊        | 37/200 [1:01:10<2:43:11, 60.07s/it]Generation:  38
+Best log_loss score: -0.12837836189935095
+Best complexity_scorer score: 1.0
+Generation:  19%|█▉        | 38/200 [1:02:11<2:43:30, 60.56s/it]Generation:  39
+Best log_loss score: -0.12837836189935095
+Best complexity_scorer score: 1.0
+Generation:  20%|█▉        | 39/200 [1:03:02<2:34:39, 57.64s/it]Generation:  40
+Best log_loss score: -0.12837836189935095
+Best complexity_scorer score: 1.0
+Generation:  20%|██        | 40/200 [1:03:59<2:33:08, 57.43s/it]Generation:  41
+Best log_loss score: -0.12837836189935095
+Best complexity_scorer score: 1.0
+Generation:  20%|██        | 41/200 [1:04:44<2:22:36, 53.82s/it]Generation:  42
+Best log_loss score: -0.1275936808943997
+Best complexity_scorer score: 1.0
+Generation:  21%|██        | 42/200 [1:05:35<2:18:58, 52.78s/it]Generation:  43
+Best log_loss score: -0.1275936808943997
+Best complexity_scorer score: 1.0
+Generation:  22%|██▏       | 43/200 [1:06:38<2:26:16, 55.90s/it]Generation:  44
+Best log_loss score: -0.1275936808943997
+Best complexity_scorer score: 1.0
+Generation:  22%|██▏       | 44/200 [1:07:38<2:28:48, 57.24s/it]Generation:  45
+Best log_loss score: -0.1275936808943997
+Best complexity_scorer score: 1.0
+Generation:  22%|██▎       | 45/200 [1:08:35<2:27:10, 56.97s/it]Generation:  46
+Best log_loss score: -0.1275936808943997
+Best complexity_scorer score: 1.0
+Generation:  23%|██▎       | 46/200 [1:10:24<3:06:18, 72.58s/it]Generation:  47
+Best log_loss score: -0.1275936808943997
+Best complexity_scorer score: 1.0
+Generation:  24%|██▎       | 47/200 [1:11:13<2:47:09, 65.55s/it]Generation:  48
+Best log_loss score: -0.1275936808943997
+Best complexity_scorer score: 1.0
+Generation:  24%|██▍       | 48/200 [1:12:12<2:41:09, 63.61s/it]Generation:  49
+Best log_loss score: -0.1275936808943997
+Best complexity_scorer score: 1.0
+Generation:  24%|██▍       | 49/200 [1:13:13<2:37:52, 62.73s/it]Generation:  50
+Best log_loss score: -0.1275936808943997
+Best complexity_scorer score: 1.0
+Generation:  25%|██▌       | 50/200 [1:15:08<3:15:57, 78.38s/it]Generation:  51
+Best log_loss score: -0.1275936808943997
+Best complexity_scorer score: 1.0
+Generation:  26%|██▌       | 51/200 [1:16:04<2:57:58, 71.67s/it]Generation:  52
+Best log_loss score: -0.1275936808943997
+Best complexity_scorer score: 1.0
+Generation:  26%|██▌       | 52/200 [1:17:06<2:50:03, 68.95s/it]Generation:  53
+Best log_loss score: -0.1275936808943997
+Best complexity_scorer score: 1.0
+Generation:  26%|██▋       | 53/200 [1:17:54<2:33:40, 62.72s/it]Generation:  54
+Best log_loss score: -0.1275936808943997
+Best complexity_scorer score: 1.0
+Generation:  27%|██▋       | 54/200 [1:19:11<2:42:58, 66.97s/it]Generation:  55
+Best log_loss score: -0.1275936808943997
+Best complexity_scorer score: 1.0
+Generation:  28%|██▊       | 55/200 [1:20:02<2:30:09, 62.13s/it]Generation:  56
+Best log_loss score: -0.12679358655444473
+Best complexity_scorer score: 1.0
+Generation:  28%|██▊       | 56/200 [1:21:05<2:29:46, 62.41s/it]Generation:  57
+Best log_loss score: -0.12679358655444473
+Best complexity_scorer score: 1.0
+Generation:  28%|██▊       | 57/200 [1:22:09<2:30:07, 62.99s/it]Generation:  58
+Best log_loss score: -0.12679358655444473
+Best complexity_scorer score: 1.0
+Generation:  29%|██▉       | 58/200 [1:23:06<2:24:27, 61.04s/it]Generation:  59
+Best log_loss score: -0.12679358655444473
+Best complexity_scorer score: 1.0
+Generation:  30%|██▉       | 59/200 [1:24:05<2:22:02, 60.44s/it]Generation:  60
+Best log_loss score: -0.12679358655444473
+Best complexity_scorer score: 1.0
+Generation:  30%|███       | 60/200 [1:24:56<2:14:41, 57.73s/it]Generation:  61
+Best log_loss score: -0.12679358655444473
+Best complexity_scorer score: 1.0
+Generation:  30%|███       | 61/200 [1:25:55<2:14:01, 57.85s/it]Generation:  62
+Best log_loss score: -0.12679358655444473
+Best complexity_scorer score: 1.0
+Generation:  31%|███       | 62/200 [1:26:52<2:12:31, 57.62s/it]Generation:  63
+Best log_loss score: -0.12679358655444473
+Best complexity_scorer score: 1.0
+Generation:  32%|███▏      | 63/200 [1:27:43<2:07:23, 55.79s/it]Generation:  64
+Best log_loss score: -0.12679358655444473
+Best complexity_scorer score: 1.0
+Generation:  32%|███▏      | 64/200 [1:28:39<2:06:48, 55.95s/it]Generation:  65
+Best log_loss score: -0.12679358655444473
+Best complexity_scorer score: 1.0
+Generation:  32%|███▎      | 65/200 [1:29:47<2:13:58, 59.54s/it]Generation:  66
+Best log_loss score: -0.12679358655444473
+Best complexity_scorer score: 1.0
+Generation:  33%|███▎      | 66/200 [1:30:32<2:02:53, 55.03s/it]Generation:  67
+Best log_loss score: -0.12679358655444473
+Best complexity_scorer score: 1.0
+Generation:  34%|███▎      | 67/200 [1:31:25<2:00:26, 54.34s/it]Generation:  68
+Best log_loss score: -0.12679358655444473
+Best complexity_scorer score: 1.0
+Generation:  34%|███▍      | 68/200 [1:32:33<2:08:32, 58.43s/it]Generation:  69
+Best log_loss score: -0.12679358655444473
+Best complexity_scorer score: 1.0
+Generation:  34%|███▍      | 69/200 [1:33:24<2:03:10, 56.42s/it]Generation:  70
+Best log_loss score: -0.12679358655444473
+Best complexity_scorer score: 1.0
+Generation:  35%|███▌      | 70/200 [1:34:26<2:06:00, 58.15s/it]Generation:  71
+Best log_loss score: -0.12679358655444473
+Best complexity_scorer score: 1.0
+Generation:  36%|███▌      | 71/200 [1:35:16<1:59:12, 55.45s/it]Generation:  72
+Best log_loss score: -0.12679358655444473
+Best complexity_scorer score: 1.0
+Generation:  36%|███▌      | 72/200 [1:36:38<2:15:40, 63.60s/it]Generation:  73
+Best log_loss score: -0.12679358655444473
+Best complexity_scorer score: 1.0
+Generation:  36%|███▋      | 73/200 [1:37:32<2:08:23, 60.66s/it]Generation:  74
+Best log_loss score: -0.12679358655444473
+Best complexity_scorer score: 1.0
+Generation:  37%|███▋      | 74/200 [1:38:43<2:13:50, 63.73s/it]Generation:  75
+Best log_loss score: -0.12679358655444473
+Best complexity_scorer score: 1.0
+Generation:  38%|███▊      | 75/200 [1:39:30<2:02:20, 58.72s/it]Generation:  76
+Best log_loss score: -0.12679358655444473
+Best complexity_scorer score: 1.0
+Generation:  38%|███▊      | 76/200 [1:40:22<1:57:05, 56.65s/it]Generation:  77
+Best log_loss score: -0.12679358655444473
+Best complexity_scorer score: 1.0
+Generation:  38%|███▊      | 77/200 [1:41:16<1:54:43, 55.96s/it]Generation:  78
+Best log_loss score: -0.12679358655444473
+Best complexity_scorer score: 1.0
+Generation:  39%|███▉      | 78/200 [1:42:21<1:59:23, 58.72s/it]Generation:  79
+Best log_loss score: -0.12679358655444473
+Best complexity_scorer score: 1.0
+Generation:  40%|███▉      | 79/200 [1:43:13<1:53:57, 56.51s/it]Generation:  80
+Best log_loss score: -0.12679358655444473
+Best complexity_scorer score: 1.0
+Generation:  40%|████      | 80/200 [1:44:04<1:50:01, 55.01s/it]Generation:  81
+Best log_loss score: -0.12679358655444473
+Best complexity_scorer score: 1.0
+Generation:  40%|████      | 81/200 [1:45:04<1:52:05, 56.52s/it]Generation:  82
+Best log_loss score: -0.12679358655444473
+Best complexity_scorer score: 1.0
+Generation:  41%|████      | 82/200 [1:45:56<1:48:19, 55.08s/it]Generation:  83
+Best log_loss score: -0.12679358655444473
+Best complexity_scorer score: 1.0
+Generation:  42%|████▏     | 83/200 [1:46:47<1:44:53, 53.79s/it]Generation:  84
+Best log_loss score: -0.12679358655444473
+Best complexity_scorer score: 1.0
+Generation:  42%|████▏     | 84/200 [1:47:39<1:42:59, 53.27s/it]Generation:  85
+Best log_loss score: -0.12679358655444473
+Best complexity_scorer score: 1.0
+Generation:  42%|████▎     | 85/200 [1:48:44<1:48:57, 56.85s/it]Generation:  86
+Best log_loss score: -0.12679358655444473
+Best complexity_scorer score: 1.0
+Generation:  43%|████▎     | 86/200 [1:49:33<1:43:48, 54.63s/it]Generation:  87
+Best log_loss score: -0.12679358655444473
+Best complexity_scorer score: 1.0
+Generation:  44%|████▎     | 87/200 [1:50:36<1:47:23, 57.02s/it]Generation:  88
+Best log_loss score: -0.12679358655444473
+Best complexity_scorer score: 1.0
+Generation:  44%|████▍     | 88/200 [1:51:25<1:42:08, 54.72s/it]Generation:  89
+Best log_loss score: -0.12679358655444473
+Best complexity_scorer score: 1.0
+Generation:  44%|████▍     | 89/200 [1:52:11<1:35:59, 51.89s/it]Generation:  90
+Best log_loss score: -0.12679358655444473
+Best complexity_scorer score: 1.0
+Generation:  45%|████▌     | 90/200 [1:53:06<1:37:01, 52.92s/it]Generation:  91
+Best log_loss score: -0.12679358655444473
+Best complexity_scorer score: 1.0
+Generation:  46%|████▌     | 91/200 [1:54:00<1:36:56, 53.37s/it]Generation:  92
+Best log_loss score: -0.12679358655444473
+Best complexity_scorer score: 1.0
+Generation:  46%|████▌     | 92/200 [1:54:53<1:35:49, 53.23s/it]Generation:  93
+Best log_loss score: -0.12679358655444473
+Best complexity_scorer score: 1.0
+Generation:  46%|████▋     | 93/200 [1:55:50<1:37:00, 54.40s/it]
