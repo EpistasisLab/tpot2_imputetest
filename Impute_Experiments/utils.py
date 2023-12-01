@@ -39,7 +39,7 @@ normal_params =  {
                     'population_size' : n_jobs,
                     'survival_percentage':1, 
                     'initial_population_size' : n_jobs,
-                    'generations' : 200, 
+                    'generations' : 75, 
                     'n_jobs':n_jobs,
                     'cv': sklearn.model_selection.StratifiedKFold(n_splits=10, shuffle=True, random_state=42),
                     'verbose':5, 
@@ -168,7 +168,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
                             print("running experiment 1/3 - Does large hyperparameter space improve reconstruction accuracy over simple")
                             X_train_pandas = pd.DataFrame(X_train)
                             X_test_pandas = pd.DataFrame(X_test)
-                            
+                            '''
                             #Simple Impute 
                             SimpleImputeSpace = autoimpute.AutoImputer(added_missing=level, missing_type=type, model_names=['SimpleImputer'], n_jobs=48, show_progress=False, random_state=run)
                             SimpleImputeSpace.fit(X_train_pandas)
@@ -181,7 +181,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
                             print(simple_rmse)
                             print(simple_rmse)
                             #Auto Impute 
-                            AutoImputeSpace = autoimpute.AutoImputer(added_missing=level, missing_type=type, model_names=['SimpleImputer', 'IterativeImputer', 'KNNImputer', 'GAIN', 'RandomForestImputer'], n_jobs=48, show_progress=True, random_state=run)
+                            AutoImputeSpace = autoimpute.AutoImputer(added_missing=level, missing_type=type, model_names=['SimpleImputer', 'IterativeImputer', 'KNNImputer', 'GAIN', 'RandomForestImputer'], n_jobs=48, show_progress=False, random_state=run)
                             AutoImputeSpace.fit(X_train_pandas)
                             print('auto fit')
                             auto_impute = AutoImputeSpace.transform(X_test_pandas)
@@ -206,7 +206,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
                             exp['params']['cv'] = sklearn.model_selection.StratifiedKFold(n_splits=10, shuffle=True, random_state=run)
                             exp['params']['periodic_checkpoint_folder'] = checkpoint_folder
                             est = exp['automl'](**normal_params)
-                            
+
                             print('Start est fit')
                             start = time.time()
                             est.fit(X_train, y_train)
@@ -233,8 +233,8 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
                             all_scores["exp_name"] = 'Imputed_Predictive_Capacity'
                             #all_scores["name"] = openml.datasets.get_dataset(openml.tasks.get_task(taskid).dataset_id).name
                             all_scores["duration"] = duration
-                            tpot_space_scores["run"] = run
-
+                            all_scores["run"] = run
+                            '''
                             print("starting impute modules")
                             X_train_missing = add_missing(X_train_pandas, add_missing=level, missing_type=type)
                             X_test_missing = add_missing(X_test_pandas, add_missing=level, missing_type=type)
