@@ -154,10 +154,12 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
 
                         print("working on ")
                         print(save_folder)
+
                         start = time.time()
                         time.sleep(random.random()*5)
                         duration = time.time() - start
                         print(duration)
+
                         try: 
                             print("loading data")
                             X_train, y_train, X_test, y_test = load_task(taskid, preprocess=True)
@@ -204,6 +206,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
                             exp['params']['cv'] = sklearn.model_selection.StratifiedKFold(n_splits=10, shuffle=True, random_state=run)
                             exp['params']['periodic_checkpoint_folder'] = checkpoint_folder
                             est = exp['automl'](**normal_params)
+                            
                             print('Start est fit')
                             start = time.time()
                             est.fit(X_train, y_train)

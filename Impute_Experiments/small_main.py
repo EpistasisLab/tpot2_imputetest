@@ -64,29 +64,29 @@ def main():
 
 
     print("running experiment 1/3 - Does large hyperparameter space improve reconstruction accuracy over simple")
-
+    
     automodel = autoimpute.AutoImputer(added_missing=0.05, missing_type='MNAR', model_names=['GAIN'], n_jobs=48, show_progress=False, random_state=42)
     automodel.fit(X=X_train_missing)
     auto_test_missing = automodel.transform(X=X_test_missing)
     auto_test_missing = auto_test_missing.to_numpy()
     print(auto_test_missing)
     print('auto-gain')
-    auto_gain_rmse = autoutils.rmse_loss(ori_data=X_test, imputed_data=auto_test_missing, data_m=X_test_mask)
+    auto_gain_rmse = autoutils.rmse_loss(ori_data=X_test, imputed_data=auto_test_missing, data_m=X_test_mask_n)
     print(auto_gain_rmse)
-
+    
     automodel = autoimpute.AutoImputer(added_missing=0.05, missing_type='MNAR', model_names=['RandomForestImputer'], n_jobs=48, show_progress=False, random_state=42)
     automodel.fit(X=X_train_missing)
     auto_test_missing = automodel.transform(X=X_test_missing)
     auto_test_missing = auto_test_missing.to_numpy()
-    auto_rand_rmse = autoutils.rmse_loss(ori_data=X_test, imputed_data=auto_test_missing, data_m=X_test_mask)
+    auto_rand_rmse = autoutils.rmse_loss(ori_data=X_test, imputed_data=auto_test_missing, data_m=X_test_mask_n)
     print('auto-ran')
     print(auto_rand_rmse)
-
+    
     automodel = autoimpute.AutoImputer(added_missing=0.05, missing_type='MNAR', model_names=['KNNImputer'], n_jobs=48, show_progress=False, random_state=42)
     automodel.fit(X=X_train_missing)
     auto_test_missing = automodel.transform(X=X_test_missing)
     auto_test_missing = auto_test_missing.to_numpy()
-    auto_knn_rmse = autoutils.rmse_loss(ori_data=X_test, imputed_data=auto_test_missing, data_m=X_test_mask)
+    auto_knn_rmse = autoutils.rmse_loss(ori_data=X_test, imputed_data=auto_test_missing, data_m=X_test_mask_n)
     print('auto-knn')
     print(auto_knn_rmse)
 
@@ -95,7 +95,7 @@ def main():
     gainmodel.fit(X=X_train_missing_n)
     gain_test_missing = gainmodel.transform(X=X_test_missing_n)
 
-    gain_rmse = autoutils.rmse_loss(ori_data=X_test, imputed_data=gain_test_missing, data_m=X_test_mask)
+    gain_rmse = autoutils.rmse_loss(ori_data=X_test, imputed_data=gain_test_missing, data_m=X_test_mask_n)
     print('gain')
     print(gain_rmse)
 
@@ -103,7 +103,7 @@ def main():
     randmodel.fit(X=X_train_missing)
     rand_test_missing = randmodel.transform(X=X_test_missing)
 
-    rand_rmse = autoutils.rmse_loss(ori_data=X_test, imputed_data=rand_test_missing, data_m=X_test_mask)
+    rand_rmse = autoutils.rmse_loss(ori_data=X_test, imputed_data=rand_test_missing, data_m=X_test_mask_n)
     print('rand')
     print(rand_rmse)
 

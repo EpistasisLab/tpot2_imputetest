@@ -1,0 +1,753 @@
+/cm/local/apps/slurm/var/spool/job423684/slurm_script: line 19: /common/ketrong/minconda3/etc/profile.d/conda.sh: No such file or directory
+/cm/local/apps/slurm/var/spool/job423684/slurm_script: line 22: $'\nconda create --name tpot2devenv -c conda-forge python=3.10\n': command not found
+/cm/local/apps/slurm/var/spool/job423684/slurm_script: line 27: $'\npip install -r requirements.txt\n': command not found
+RunStart
+2023-12-01 11:02:58.996631: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2023-12-01 11:02:59.029513: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2023-12-01 11:02:59.029536: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2023-12-01 11:02:59.030356: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2023-12-01 11:02:59.035280: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-12-01 11:03:00.521218: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+start
+working on 
+tpot2_imputetest/Impute_Experiments/logs//small_run
+loading data
+tpot2_imputetest/Impute_Experiments/data/26_True.pkl
+starting impute modules
+running experiment 1/3 - Does large hyperparameter space improve reconstruction accuracy over simple
+[I 2023-12-01 11:03:21,077] A new study created in memory with name: no-name-19f891da-ae65-4b06-85ce-fc42b977c8da
+[W 2023-12-01 11:03:21,129] Trial 0 failed with parameters: {'model_name': 'RandomForestImputer', 'max_iter': 25, 'decreasing': False, 'min_samples_split': 0.9, 'min_samples_leaf': 1.0, 'max_features': 0.4, 'bootstrap': True, 'oob_score': True, 'warm_start': True} because of the following error: InvalidParameterError("The 'min_samples_leaf' parameter of RandomForestRegressor must be an int in the range [1, inf) or a float in the range (0.0, 1.0). Got 1.0 instead.").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 547, in transform
+    X = self._miss_forest(X, mask)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 408, in _miss_forest
+    rf_regressor.fit(X=xobs, y=yobs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 1145, in wrapper
+    estimator._validate_params()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 638, in _validate_params
+    validate_parameter_constraints(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 96, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'min_samples_leaf' parameter of RandomForestRegressor must be an int in the range [1, inf) or a float in the range (0.0, 1.0). Got 1.0 instead.
+[W 2023-12-01 11:03:21,149] Trial 0 failed with value None.
+[W 2023-12-01 11:03:21,366] Trial 4 failed with parameters: {'model_name': 'RandomForestImputer', 'max_iter': 84, 'decreasing': True, 'min_samples_split': 0.1, 'min_samples_leaf': 0.1, 'max_features': 0.4, 'bootstrap': False, 'oob_score': True, 'warm_start': True} because of the following error: ValueError('Out of bag estimation only available if bootstrap=True').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 547, in transform
+    X = self._miss_forest(X, mask)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 408, in _miss_forest
+    rf_regressor.fit(X=xobs, y=yobs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 1152, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/ensemble/_forest.py", line 417, in fit
+    raise ValueError("Out of bag estimation only available if bootstrap=True")
+ValueError: Out of bag estimation only available if bootstrap=True
+[W 2023-12-01 11:03:21,371] Trial 4 failed with value None.
+[W 2023-12-01 11:03:21,753] Trial 9 failed with parameters: {'model_name': 'RandomForestImputer', 'max_iter': 19, 'decreasing': True, 'min_samples_split': 0.8, 'min_samples_leaf': 0.7000000000000001, 'max_features': 0.0, 'bootstrap': False, 'oob_score': True, 'warm_start': True} because of the following error: InvalidParameterError("The 'max_features' parameter of RandomForestRegressor must be an int in the range [1, inf), a float in the range (0.0, 1.0], a str among {'log2', 'sqrt'} or None. Got 0.0 instead.").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 547, in transform
+    X = self._miss_forest(X, mask)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 408, in _miss_forest
+    rf_regressor.fit(X=xobs, y=yobs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 1145, in wrapper
+    estimator._validate_params()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 638, in _validate_params
+    validate_parameter_constraints(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 96, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'max_features' parameter of RandomForestRegressor must be an int in the range [1, inf), a float in the range (0.0, 1.0], a str among {'log2', 'sqrt'} or None. Got 0.0 instead.
+[W 2023-12-01 11:03:21,757] Trial 9 failed with value None.
+[W 2023-12-01 11:03:22,231] Trial 10 failed with parameters: {'model_name': 'RandomForestImputer', 'max_iter': 3, 'decreasing': False, 'min_samples_split': 0.6000000000000001, 'min_samples_leaf': 0.9, 'max_features': 0.2, 'bootstrap': False, 'oob_score': True, 'warm_start': False} because of the following error: ValueError('Out of bag estimation only available if bootstrap=True').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 547, in transform
+    X = self._miss_forest(X, mask)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 408, in _miss_forest
+    rf_regressor.fit(X=xobs, y=yobs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 1152, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/ensemble/_forest.py", line 417, in fit
+    raise ValueError("Out of bag estimation only available if bootstrap=True")
+ValueError: Out of bag estimation only available if bootstrap=True
+[W 2023-12-01 11:03:22,241] Trial 10 failed with value None.
+[W 2023-12-01 11:03:22,424] Trial 14 failed with parameters: {'model_name': 'RandomForestImputer', 'max_iter': 8, 'decreasing': False, 'min_samples_split': 0.8, 'min_samples_leaf': 0.4, 'max_features': 0.4, 'bootstrap': False, 'oob_score': True, 'warm_start': True} because of the following error: ValueError('Out of bag estimation only available if bootstrap=True').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 547, in transform
+    X = self._miss_forest(X, mask)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 408, in _miss_forest
+    rf_regressor.fit(X=xobs, y=yobs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 1152, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/ensemble/_forest.py", line 417, in fit
+    raise ValueError("Out of bag estimation only available if bootstrap=True")
+ValueError: Out of bag estimation only available if bootstrap=True
+[W 2023-12-01 11:03:22,426] Trial 14 failed with value None.
+[W 2023-12-01 11:03:22,582] Trial 18 failed with parameters: {'model_name': 'RandomForestImputer', 'max_iter': 39, 'decreasing': True, 'min_samples_split': 0.9, 'min_samples_leaf': 0.6, 'max_features': 0.0, 'bootstrap': False, 'oob_score': False, 'warm_start': True} because of the following error: InvalidParameterError("The 'max_features' parameter of RandomForestRegressor must be an int in the range [1, inf), a float in the range (0.0, 1.0], a str among {'log2', 'sqrt'} or None. Got 0.0 instead.").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 547, in transform
+    X = self._miss_forest(X, mask)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 408, in _miss_forest
+    rf_regressor.fit(X=xobs, y=yobs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 1145, in wrapper
+    estimator._validate_params()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 638, in _validate_params
+    validate_parameter_constraints(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 96, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'max_features' parameter of RandomForestRegressor must be an int in the range [1, inf), a float in the range (0.0, 1.0], a str among {'log2', 'sqrt'} or None. Got 0.0 instead.
+[W 2023-12-01 11:03:22,583] Trial 18 failed with value None.
+[W 2023-12-01 11:03:22,795] Trial 16 failed with parameters: {'model_name': 'RandomForestImputer', 'max_iter': 8, 'decreasing': False, 'min_samples_split': 0.4, 'min_samples_leaf': 0.4, 'max_features': 0.0, 'bootstrap': False, 'oob_score': False, 'warm_start': False} because of the following error: InvalidParameterError("The 'max_features' parameter of RandomForestRegressor must be an int in the range [1, inf), a float in the range (0.0, 1.0], a str among {'log2', 'sqrt'} or None. Got 0.0 instead.").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 547, in transform
+    X = self._miss_forest(X, mask)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 408, in _miss_forest
+    rf_regressor.fit(X=xobs, y=yobs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 1145, in wrapper
+    estimator._validate_params()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 638, in _validate_params
+    validate_parameter_constraints(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 96, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'max_features' parameter of RandomForestRegressor must be an int in the range [1, inf), a float in the range (0.0, 1.0], a str among {'log2', 'sqrt'} or None. Got 0.0 instead.
+[W 2023-12-01 11:03:22,801] Trial 16 failed with value None.
+[W 2023-12-01 11:03:22,800] Trial 42 failed with parameters: {'model_name': 'RandomForestImputer', 'max_iter': 17, 'decreasing': True, 'min_samples_split': 0.1, 'min_samples_leaf': 0.7000000000000001, 'max_features': 0.5, 'bootstrap': False, 'oob_score': True, 'warm_start': False} because of the following error: ValueError('Out of bag estimation only available if bootstrap=True').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 547, in transform
+    X = self._miss_forest(X, mask)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 408, in _miss_forest
+    rf_regressor.fit(X=xobs, y=yobs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 1152, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/ensemble/_forest.py", line 417, in fit
+    raise ValueError("Out of bag estimation only available if bootstrap=True")
+ValueError: Out of bag estimation only available if bootstrap=True
+[W 2023-12-01 11:03:22,956] Trial 42 failed with value None.
+[W 2023-12-01 11:03:23,249] Trial 29 failed with parameters: {'model_name': 'RandomForestImputer', 'max_iter': 22, 'decreasing': False, 'min_samples_split': 0.30000000000000004, 'min_samples_leaf': 1.0, 'max_features': 0.0, 'bootstrap': False, 'oob_score': True, 'warm_start': True} because of the following error: InvalidParameterError("The 'max_features' parameter of RandomForestRegressor must be an int in the range [1, inf), a float in the range (0.0, 1.0], a str among {'log2', 'sqrt'} or None. Got 0.0 instead.").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 547, in transform
+    X = self._miss_forest(X, mask)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 408, in _miss_forest
+    rf_regressor.fit(X=xobs, y=yobs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 1145, in wrapper
+    estimator._validate_params()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 638, in _validate_params
+    validate_parameter_constraints(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 96, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'max_features' parameter of RandomForestRegressor must be an int in the range [1, inf), a float in the range (0.0, 1.0], a str among {'log2', 'sqrt'} or None. Got 0.0 instead.
+[W 2023-12-01 11:03:23,250] Trial 29 failed with value None.
+[W 2023-12-01 11:03:23,460] Trial 22 failed with parameters: {'model_name': 'RandomForestImputer', 'max_iter': 4, 'decreasing': False, 'min_samples_split': 0.1, 'min_samples_leaf': 0.9, 'max_features': 0.30000000000000004, 'bootstrap': False, 'oob_score': True, 'warm_start': False} because of the following error: ValueError('Out of bag estimation only available if bootstrap=True').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 547, in transform
+    X = self._miss_forest(X, mask)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 408, in _miss_forest
+    rf_regressor.fit(X=xobs, y=yobs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 1152, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/ensemble/_forest.py", line 417, in fit
+    raise ValueError("Out of bag estimation only available if bootstrap=True")
+ValueError: Out of bag estimation only available if bootstrap=True
+[W 2023-12-01 11:03:23,461] Trial 22 failed with value None.
+[W 2023-12-01 11:03:23,815] Trial 47 failed with parameters: {'model_name': 'RandomForestImputer', 'max_iter': 6, 'decreasing': True, 'min_samples_split': 0.0, 'min_samples_leaf': 0.5, 'max_features': 0.2, 'bootstrap': False, 'oob_score': True, 'warm_start': False} because of the following error: ValueError('Out of bag estimation only available if bootstrap=True').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 547, in transform
+    X = self._miss_forest(X, mask)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 408, in _miss_forest
+    rf_regressor.fit(X=xobs, y=yobs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 1152, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/ensemble/_forest.py", line 417, in fit
+    raise ValueError("Out of bag estimation only available if bootstrap=True")
+ValueError: Out of bag estimation only available if bootstrap=True
+[W 2023-12-01 11:03:23,816] Trial 47 failed with value None.
+[W 2023-12-01 11:03:23,981] Trial 23 failed with parameters: {'model_name': 'RandomForestImputer', 'max_iter': 66, 'decreasing': True, 'min_samples_split': 0.0, 'min_samples_leaf': 1.0, 'max_features': 0.1, 'bootstrap': True, 'oob_score': False, 'warm_start': True} because of the following error: InvalidParameterError("The 'min_samples_leaf' parameter of RandomForestRegressor must be an int in the range [1, inf) or a float in the range (0.0, 1.0). Got 1.0 instead.").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 547, in transform
+    X = self._miss_forest(X, mask)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 408, in _miss_forest
+    rf_regressor.fit(X=xobs, y=yobs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 1145, in wrapper
+    estimator._validate_params()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 638, in _validate_params
+    validate_parameter_constraints(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 96, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'min_samples_leaf' parameter of RandomForestRegressor must be an int in the range [1, inf) or a float in the range (0.0, 1.0). Got 1.0 instead.
+[W 2023-12-01 11:03:23,981] Trial 23 failed with value None.
+[W 2023-12-01 11:03:24,145] Trial 25 failed with parameters: {'model_name': 'RandomForestImputer', 'max_iter': 87, 'decreasing': False, 'min_samples_split': 0.8, 'min_samples_leaf': 0.4, 'max_features': 0.1, 'bootstrap': False, 'oob_score': True, 'warm_start': True} because of the following error: ValueError('Out of bag estimation only available if bootstrap=True').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 547, in transform
+    X = self._miss_forest(X, mask)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 408, in _miss_forest
+    rf_regressor.fit(X=xobs, y=yobs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 1152, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/ensemble/_forest.py", line 417, in fit
+    raise ValueError("Out of bag estimation only available if bootstrap=True")
+ValueError: Out of bag estimation only available if bootstrap=True
+[W 2023-12-01 11:03:24,145] Trial 25 failed with value None.
+[W 2023-12-01 11:03:24,331] Trial 33 failed with parameters: {'model_name': 'RandomForestImputer', 'max_iter': 2, 'decreasing': False, 'min_samples_split': 0.9, 'min_samples_leaf': 0.4, 'max_features': 0.0, 'bootstrap': False, 'oob_score': True, 'warm_start': True} because of the following error: InvalidParameterError("The 'max_features' parameter of RandomForestRegressor must be an int in the range [1, inf), a float in the range (0.0, 1.0], a str among {'log2', 'sqrt'} or None. Got 0.0 instead.").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 547, in transform
+    X = self._miss_forest(X, mask)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 408, in _miss_forest
+    rf_regressor.fit(X=xobs, y=yobs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 1145, in wrapper
+    estimator._validate_params()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 638, in _validate_params
+    validate_parameter_constraints(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 96, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'max_features' parameter of RandomForestRegressor must be an int in the range [1, inf), a float in the range (0.0, 1.0], a str among {'log2', 'sqrt'} or None. Got 0.0 instead.
+[W 2023-12-01 11:03:24,332] Trial 33 failed with value None.
+[W 2023-12-01 11:03:24,572] Trial 27 failed with parameters: {'model_name': 'RandomForestImputer', 'max_iter': 8, 'decreasing': True, 'min_samples_split': 0.9, 'min_samples_leaf': 0.6, 'max_features': 0.1, 'bootstrap': False, 'oob_score': True, 'warm_start': False} because of the following error: ValueError('Out of bag estimation only available if bootstrap=True').
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 547, in transform
+    X = self._miss_forest(X, mask)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 408, in _miss_forest
+    rf_regressor.fit(X=xobs, y=yobs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 1152, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/ensemble/_forest.py", line 417, in fit
+    raise ValueError("Out of bag estimation only available if bootstrap=True")
+ValueError: Out of bag estimation only available if bootstrap=True
+[W 2023-12-01 11:03:24,576] Trial 27 failed with value None.
+[W 2023-12-01 11:03:24,753] Trial 43 failed with parameters: {'model_name': 'RandomForestImputer', 'max_iter': 20, 'decreasing': True, 'min_samples_split': 0.5, 'min_samples_leaf': 1.0, 'max_features': 0.4, 'bootstrap': False, 'oob_score': False, 'warm_start': False} because of the following error: InvalidParameterError("The 'min_samples_leaf' parameter of RandomForestRegressor must be an int in the range [1, inf) or a float in the range (0.0, 1.0). Got 1.0 instead.").
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 547, in transform
+    X = self._miss_forest(X, mask)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 408, in _miss_forest
+    rf_regressor.fit(X=xobs, y=yobs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 1145, in wrapper
+    estimator._validate_params()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 638, in _validate_params
+    validate_parameter_constraints(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 96, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'min_samples_leaf' parameter of RandomForestRegressor must be an int in the range [1, inf) or a float in the range (0.0, 1.0). Got 1.0 instead.
+[W 2023-12-01 11:03:24,754] Trial 43 failed with value None.
+Iteration: 0
+[[0.         0.         1.         ... 0.         1.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ ...
+ [0.         0.         0.         ... 0.         0.         0.14283127]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]]
+[I 2023-12-01 11:03:27,885] Trial 28 finished with value: 0.33315811543278656 and parameters: {'model_name': 'RandomForestImputer', 'max_iter': 1, 'decreasing': False, 'min_samples_split': 0.7000000000000001, 'min_samples_leaf': 0.30000000000000004, 'max_features': 0.1, 'bootstrap': True, 'oob_score': False, 'warm_start': True}. Best is trial 28 with value: 0.33315811543278656.
+Iteration: 0
+Iteration: 0
+Iteration: 0
+Iteration: 0
+Iteration: 1
+Iteration: 0
+Iteration: 1
+[[0.         0.         1.         ... 0.         1.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ ...
+ [0.         0.         0.         ... 0.         0.         0.14811124]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]]
+[I 2023-12-01 11:03:37,456] Trial 21 finished with value: 0.33614988312700644 and parameters: {'model_name': 'RandomForestImputer', 'max_iter': 2, 'decreasing': True, 'min_samples_split': 0.5, 'min_samples_leaf': 0.6, 'max_features': 0.9, 'bootstrap': False, 'oob_score': False, 'warm_start': True}. Best is trial 28 with value: 0.33315811543278656.
+Iteration: 0
+Iteration: 2
+[[0.         0.         1.         ... 0.         1.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ ...
+ [0.         0.         0.         ... 0.         0.         0.19057974]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]]
+[I 2023-12-01 11:03:41,434] Trial 3 finished with value: 0.3359107406157652 and parameters: {'model_name': 'RandomForestImputer', 'max_iter': 3, 'decreasing': True, 'min_samples_split': 0.0, 'min_samples_leaf': 0.1, 'max_features': 0.4, 'bootstrap': True, 'oob_score': True, 'warm_start': True}. Best is trial 28 with value: 0.33315811543278656.
+Iteration: 1
+Iteration: 1
+Iteration: 0
+Iteration: 0
+Iteration: 1
+Iteration: 0
+Iteration: 0
+[[0.         0.         1.         ... 0.         1.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ ...
+ [0.         0.         0.         ... 0.         0.         0.14283127]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]]
+[I 2023-12-01 11:03:46,659] Trial 38 finished with value: 0.33315811543278656 and parameters: {'model_name': 'RandomForestImputer', 'max_iter': 1, 'decreasing': True, 'min_samples_split': 0.9, 'min_samples_leaf': 0.6, 'max_features': 0.2, 'bootstrap': True, 'oob_score': False, 'warm_start': False}. Best is trial 28 with value: 0.33315811543278656.
+Iteration: 0
+Iteration: 0
+Iteration: 0
+Iteration: 0
+Iteration: 0
+Iteration: 2
+Iteration: 0
+Iteration: 1
+Iteration: 2
+[[0.         0.         1.         ... 0.         1.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ ...
+ [0.         0.         0.         ... 0.         0.         0.14811124]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]]
+[I 2023-12-01 11:03:54,289] Trial 6 finished with value: 0.33614988312700644 and parameters: {'model_name': 'RandomForestImputer', 'max_iter': 13, 'decreasing': True, 'min_samples_split': 0.1, 'min_samples_leaf': 0.5, 'max_features': 0.6000000000000001, 'bootstrap': False, 'oob_score': False, 'warm_start': True}. Best is trial 28 with value: 0.33315811543278656.
+Iteration: 0
+Iteration: 0
+Iteration: 0
+Iteration: 2
+[[0.       0.       1.       ... 0.       1.       0.      ]
+ [0.       0.       1.       ... 0.       0.       0.      ]
+ [0.       0.       0.       ... 0.       0.       0.      ]
+ ...
+ [0.       0.       0.       ... 0.       0.       0.147944]
+ [0.       0.       0.       ... 0.       0.       0.      ]
+ [0.       0.       1.       ... 0.       0.       0.      ]]
+[I 2023-12-01 11:03:55,542] Trial 24 finished with value: 0.3361853696319963 and parameters: {'model_name': 'RandomForestImputer', 'max_iter': 13, 'decreasing': True, 'min_samples_split': 0.7000000000000001, 'min_samples_leaf': 0.4, 'max_features': 0.1, 'bootstrap': True, 'oob_score': False, 'warm_start': True}. Best is trial 28 with value: 0.33315811543278656.
+Iteration: 0
+Iteration: 0
+Iteration: 0
+Iteration: 0
+Iteration: 1
+Iteration: 3
+Iteration: 1
+Iteration: 1
+Iteration: 0
+Iteration: 2
+Iteration: 1
+Iteration: 0
+Iteration: 4
+Iteration: 0
+Iteration: 0
+Iteration: 1
+[[0.         0.         1.         ... 0.         1.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ ...
+ [0.         0.         0.         ... 0.         0.         0.14563898]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]]
+[I 2023-12-01 11:04:14,506] Trial 31 finished with value: 0.3329985854536589 and parameters: {'model_name': 'RandomForestImputer', 'max_iter': 3, 'decreasing': True, 'min_samples_split': 1.0, 'min_samples_leaf': 0.7000000000000001, 'max_features': 0.30000000000000004, 'bootstrap': True, 'oob_score': False, 'warm_start': False}. Best is trial 31 with value: 0.3329985854536589.
+Iteration: 0
+Iteration: 2
+Iteration: 1
+Iteration: 1
+Iteration: 2
+[[0.         0.         1.         ... 0.         1.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ ...
+ [0.         0.         0.         ... 0.         0.         0.14811124]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]]
+[I 2023-12-01 11:04:18,406] Trial 41 finished with value: 0.3361498831270065 and parameters: {'model_name': 'RandomForestImputer', 'max_iter': 33, 'decreasing': True, 'min_samples_split': 0.2, 'min_samples_leaf': 0.9, 'max_features': 0.9, 'bootstrap': False, 'oob_score': False, 'warm_start': True}. Best is trial 31 with value: 0.3329985854536589.
+Iteration: 1
+Iteration: 1
+Iteration: 5
+[[0.         0.         1.         ... 0.         1.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ ...
+ [0.         0.         0.         ... 0.         0.         0.12634094]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]]
+[I 2023-12-01 11:04:19,511] Trial 2 finished with value: 0.34108170699660195 and parameters: {'model_name': 'RandomForestImputer', 'max_iter': 12, 'decreasing': False, 'min_samples_split': 0.1, 'min_samples_leaf': 0.9, 'max_features': 0.1, 'bootstrap': True, 'oob_score': True, 'warm_start': True}. Best is trial 31 with value: 0.3329985854536589.
+Iteration: 3
+Iteration: 0
+Iteration: 2
+[[0.         0.         1.         ... 0.         1.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ ...
+ [0.         0.         0.         ... 0.         0.         0.12691914]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]]
+[I 2023-12-01 11:04:21,431] Trial 30 finished with value: 0.3409426986248281 and parameters: {'model_name': 'RandomForestImputer', 'max_iter': 33, 'decreasing': False, 'min_samples_split': 0.7000000000000001, 'min_samples_leaf': 0.2, 'max_features': 0.2, 'bootstrap': True, 'oob_score': True, 'warm_start': True}. Best is trial 31 with value: 0.3329985854536589.
+Iteration: 0
+Iteration: 1
+Iteration: 1
+[[0.         0.         1.         ... 0.         1.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ ...
+ [0.         0.         0.         ... 0.         0.         0.14396341]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]]
+[[0.         0.         1.         ... 0.         1.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ ...
+ [0.         0.         0.         ... 0.         0.         0.15137836]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]]
+[I 2023-12-01 11:04:23,007] Trial 34 finished with value: 0.3329996094044921 and parameters: {'model_name': 'RandomForestImputer', 'max_iter': 2, 'decreasing': True, 'min_samples_split': 1.0, 'min_samples_leaf': 0.30000000000000004, 'max_features': 0.9, 'bootstrap': True, 'oob_score': True, 'warm_start': False}. Best is trial 31 with value: 0.3329985854536589.
+[I 2023-12-01 11:04:23,336] Trial 12 finished with value: 0.3303720041966382 and parameters: {'model_name': 'RandomForestImputer', 'max_iter': 2, 'decreasing': False, 'min_samples_split': 0.7000000000000001, 'min_samples_leaf': 0.1, 'max_features': 0.1, 'bootstrap': True, 'oob_score': True, 'warm_start': False}. Best is trial 12 with value: 0.3303720041966382.
+Iteration: 1
+[[0.        0.        1.        ... 0.        1.        0.       ]
+ [0.        0.        1.        ... 0.        0.        0.       ]
+ [0.        0.        0.        ... 0.        0.        0.       ]
+ ...
+ [0.        0.        0.        ... 0.        0.        0.1439785]
+ [0.        0.        0.        ... 0.        0.        0.       ]
+ [0.        0.        1.        ... 0.        0.        0.       ]]
+[I 2023-12-01 11:04:24,501] Trial 7 finished with value: 0.3330999351098532 and parameters: {'model_name': 'RandomForestImputer', 'max_iter': 3, 'decreasing': True, 'min_samples_split': 0.1, 'min_samples_leaf': 0.7000000000000001, 'max_features': 0.8, 'bootstrap': True, 'oob_score': True, 'warm_start': False}. Best is trial 12 with value: 0.3303720041966382.
+Iteration: 1
+[[0.         0.         1.         ... 0.         1.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ ...
+ [0.         0.         0.         ... 0.         0.         0.14077831]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]]
+[I 2023-12-01 11:04:25,214] Trial 44 finished with value: 0.33306686045162714 and parameters: {'model_name': 'RandomForestImputer', 'max_iter': 3, 'decreasing': True, 'min_samples_split': 0.6000000000000001, 'min_samples_leaf': 0.8, 'max_features': 0.7000000000000001, 'bootstrap': True, 'oob_score': True, 'warm_start': False}. Best is trial 12 with value: 0.3303720041966382.
+Iteration: 1
+Iteration: 2
+Iteration: 1
+Iteration: 3
+Iteration: 1
+[[0.         0.         1.         ... 0.         1.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ ...
+ [0.         0.         0.         ... 0.         0.         0.14339281]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]]
+[I 2023-12-01 11:04:31,169] Trial 8 finished with value: 0.33313877344225884 and parameters: {'model_name': 'RandomForestImputer', 'max_iter': 5, 'decreasing': False, 'min_samples_split': 0.30000000000000004, 'min_samples_leaf': 0.30000000000000004, 'max_features': 0.2, 'bootstrap': True, 'oob_score': True, 'warm_start': False}. Best is trial 12 with value: 0.3303720041966382.
+Iteration: 4
+Iteration: 0
+Iteration: 2
+[[0.         0.         1.         ... 0.         1.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ ...
+ [0.         0.         0.         ... 0.         0.         0.14811124]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]]
+[I 2023-12-01 11:04:38,844] Trial 17 finished with value: 0.33614988312700644 and parameters: {'model_name': 'RandomForestImputer', 'max_iter': 63, 'decreasing': True, 'min_samples_split': 0.0, 'min_samples_leaf': 0.6, 'max_features': 0.4, 'bootstrap': False, 'oob_score': False, 'warm_start': True}. Best is trial 12 with value: 0.3303720041966382.
+Iteration: 2
+[[0.         0.         1.         ... 0.         1.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ ...
+ [0.         0.         0.         ... 0.         0.         0.15632242]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]]
+[I 2023-12-01 11:04:39,951] Trial 19 finished with value: 0.3301767756609877 and parameters: {'model_name': 'RandomForestImputer', 'max_iter': 6, 'decreasing': True, 'min_samples_split': 0.30000000000000004, 'min_samples_leaf': 0.2, 'max_features': 0.2, 'bootstrap': False, 'oob_score': False, 'warm_start': False}. Best is trial 19 with value: 0.3301767756609877.
+Iteration: 1
+Iteration: 2
+[[0.         0.         1.         ... 0.         1.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ ...
+ [0.         0.         0.         ... 0.         0.         0.14283127]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]]
+[I 2023-12-01 11:04:41,374] Trial 35 finished with value: 0.33315811543278656 and parameters: {'model_name': 'RandomForestImputer', 'max_iter': 8, 'decreasing': False, 'min_samples_split': 0.5, 'min_samples_leaf': 0.5, 'max_features': 0.7000000000000001, 'bootstrap': False, 'oob_score': False, 'warm_start': False}. Best is trial 19 with value: 0.3301767756609877.
+Iteration: 2
+[[0.         0.         1.         ... 0.         1.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ ...
+ [0.         0.         0.         ... 0.         0.         0.14283127]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]]
+[I 2023-12-01 11:04:41,741] Trial 45 finished with value: 0.33315811543278656 and parameters: {'model_name': 'RandomForestImputer', 'max_iter': 10, 'decreasing': True, 'min_samples_split': 0.0, 'min_samples_leaf': 0.8, 'max_features': 0.9, 'bootstrap': False, 'oob_score': False, 'warm_start': False}. Best is trial 19 with value: 0.3301767756609877.
+Iteration: 5
+[[0.         0.         1.         ... 0.         1.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ ...
+ [0.         0.         0.         ... 0.         0.         0.12656194]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]]
+[I 2023-12-01 11:04:42,443] Trial 5 finished with value: 0.341028525061759 and parameters: {'model_name': 'RandomForestImputer', 'max_iter': 24, 'decreasing': False, 'min_samples_split': 1.0, 'min_samples_leaf': 0.4, 'max_features': 1.0, 'bootstrap': True, 'oob_score': True, 'warm_start': True}. Best is trial 19 with value: 0.3301767756609877.
+Iteration: 4
+Iteration: 3
+Iteration: 2
+[[0.         0.         1.         ... 0.         1.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ ...
+ [0.         0.         0.         ... 0.         0.         0.12684286]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]]
+[I 2023-12-01 11:04:46,058] Trial 40 finished with value: 0.34096101188742906 and parameters: {'model_name': 'RandomForestImputer', 'max_iter': 89, 'decreasing': False, 'min_samples_split': 0.4, 'min_samples_leaf': 0.30000000000000004, 'max_features': 0.5, 'bootstrap': False, 'oob_score': False, 'warm_start': True}. Best is trial 19 with value: 0.3301767756609877.
+Iteration: 1
+[[0.         0.         1.         ... 0.         1.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ ...
+ [0.         0.         0.         ... 0.         0.         0.14256778]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]]
+[I 2023-12-01 11:04:46,666] Trial 32 finished with value: 0.33320555356008796 and parameters: {'model_name': 'RandomForestImputer', 'max_iter': 11, 'decreasing': True, 'min_samples_split': 0.7000000000000001, 'min_samples_leaf': 0.2, 'max_features': 0.2, 'bootstrap': True, 'oob_score': True, 'warm_start': False}. Best is trial 19 with value: 0.3301767756609877.
+Iteration: 1
+Iteration: 1
+[[0.         0.         1.         ... 0.         1.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ ...
+ [0.         0.         0.         ... 0.         0.         0.14222961]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]]
+[I 2023-12-01 11:04:51,183] Trial 11 finished with value: 0.333187993186181 and parameters: {'model_name': 'RandomForestImputer', 'max_iter': 14, 'decreasing': True, 'min_samples_split': 0.8, 'min_samples_leaf': 0.8, 'max_features': 0.7000000000000001, 'bootstrap': True, 'oob_score': True, 'warm_start': False}. Best is trial 19 with value: 0.3301767756609877.
+Iteration: 1
+[[0.         0.         1.         ... 0.         1.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ ...
+ [0.         0.         0.         ... 0.         0.         0.14264136]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]]
+[I 2023-12-01 11:04:51,536] Trial 46 finished with value: 0.33318441828673484 and parameters: {'model_name': 'RandomForestImputer', 'max_iter': 62, 'decreasing': True, 'min_samples_split': 0.6000000000000001, 'min_samples_leaf': 0.2, 'max_features': 0.1, 'bootstrap': True, 'oob_score': False, 'warm_start': False}. Best is trial 19 with value: 0.3301767756609877.
+Iteration: 5
+[[0.         0.         1.         ... 0.         1.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ ...
+ [0.         0.         0.         ... 0.         0.         0.03439754]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]]
+[I 2023-12-01 11:04:52,464] Trial 20 finished with value: 0.34161523547830036 and parameters: {'model_name': 'RandomForestImputer', 'max_iter': 29, 'decreasing': False, 'min_samples_split': 0.30000000000000004, 'min_samples_leaf': 0.1, 'max_features': 0.9, 'bootstrap': True, 'oob_score': True, 'warm_start': True}. Best is trial 19 with value: 0.3301767756609877.
+Iteration: 2
+Iteration: 4
+[[0.        0.        1.        ... 0.        1.        0.       ]
+ [0.        0.        1.        ... 0.        0.        0.       ]
+ [0.        0.        0.        ... 0.        0.        0.       ]
+ ...
+ [0.        0.        0.        ... 0.        0.        0.1261906]
+ [0.        0.        0.        ... 0.        0.        0.       ]
+ [0.        0.        1.        ... 0.        0.        0.       ]]
+[I 2023-12-01 11:04:56,379] Trial 13 finished with value: 0.34111792432889 and parameters: {'model_name': 'RandomForestImputer', 'max_iter': 43, 'decreasing': False, 'min_samples_split': 0.8, 'min_samples_leaf': 0.8, 'max_features': 1.0, 'bootstrap': True, 'oob_score': False, 'warm_start': True}. Best is trial 19 with value: 0.3301767756609877.
+Iteration: 1
+Iteration: 1
+Iteration: 2
+Iteration: 3
+[[0.         0.         1.         ... 0.         1.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ ...
+ [0.         0.         0.         ... 0.         0.         0.14830746]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]]
+[I 2023-12-01 11:05:04,971] Trial 1 finished with value: 0.3298959629308829 and parameters: {'model_name': 'RandomForestImputer', 'max_iter': 17, 'decreasing': False, 'min_samples_split': 0.6000000000000001, 'min_samples_leaf': 0.1, 'max_features': 0.1, 'bootstrap': True, 'oob_score': False, 'warm_start': False}. Best is trial 1 with value: 0.3298959629308829.
+Iteration: 2
+[[0.         0.         1.         ... 0.         1.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ ...
+ [0.         0.         0.         ... 0.         0.         0.14283127]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]]
+[I 2023-12-01 11:05:06,339] Trial 37 finished with value: 0.33315811543278656 and parameters: {'model_name': 'RandomForestImputer', 'max_iter': 62, 'decreasing': True, 'min_samples_split': 0.9, 'min_samples_leaf': 0.9, 'max_features': 0.30000000000000004, 'bootstrap': False, 'oob_score': False, 'warm_start': False}. Best is trial 1 with value: 0.3298959629308829.
+Iteration: 1
+[[0.         0.         1.         ... 0.         1.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ ...
+ [0.         0.         0.         ... 0.         0.         0.14301912]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]]
+[I 2023-12-01 11:05:06,855] Trial 39 finished with value: 0.3331821560141743 and parameters: {'model_name': 'RandomForestImputer', 'max_iter': 27, 'decreasing': True, 'min_samples_split': 0.6000000000000001, 'min_samples_leaf': 0.8, 'max_features': 0.5, 'bootstrap': True, 'oob_score': True, 'warm_start': False}. Best is trial 1 with value: 0.3298959629308829.
+Iteration: 3
+[[0.         0.         1.         ... 0.         1.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ ...
+ [0.         0.         0.         ... 0.         0.         0.16091016]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]]
+[I 2023-12-01 11:05:11,437] Trial 26 finished with value: 0.324894705456324 and parameters: {'model_name': 'RandomForestImputer', 'max_iter': 34, 'decreasing': False, 'min_samples_split': 0.8, 'min_samples_leaf': 0.2, 'max_features': 0.7000000000000001, 'bootstrap': False, 'oob_score': False, 'warm_start': False}. Best is trial 26 with value: 0.324894705456324.
+Iteration: 2
+Iteration: 2
+Iteration: 3
+[[0.         0.         1.         ... 0.         1.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ ...
+ [0.         0.         0.         ... 0.         0.         0.16905184]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]]
+[I 2023-12-01 11:05:18,047] Trial 36 finished with value: 0.3237331482009362 and parameters: {'model_name': 'RandomForestImputer', 'max_iter': 16, 'decreasing': False, 'min_samples_split': 0.1, 'min_samples_leaf': 0.1, 'max_features': 0.30000000000000004, 'bootstrap': True, 'oob_score': True, 'warm_start': False}. Best is trial 36 with value: 0.3237331482009362.
+Iteration: 3
+Iteration: 4
+Iteration: 5
+Iteration: 6
+Iteration: 7
+[[0.         0.         1.         ... 0.         1.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ ...
+ [0.         0.         0.         ... 0.         0.         0.16071695]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ [0.         0.         1.         ... 0.         0.         0.        ]]
+[I 2023-12-01 11:05:37,002] Trial 15 finished with value: 0.3250492815960283 and parameters: {'model_name': 'RandomForestImputer', 'max_iter': 93, 'decreasing': False, 'min_samples_split': 0.1, 'min_samples_leaf': 0.2, 'max_features': 0.7000000000000001, 'bootstrap': False, 'oob_score': False, 'warm_start': False}. Best is trial 36 with value: 0.3237331482009362.
+Traceback (most recent call last):
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/small_main.py", line 111, in <module>
+    main()
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/small_main.py", line 78, in main
+    automodel.fit(X=X_train_missing)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 61, in fit
+    self.study.optimize(obj, n_trials=self.n_trials, n_jobs=self.n_jobs, show_progress_bar=self.show_progress, gc_after_trial=self.garbage_collect)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/study.py", line 451, in optimize
+    _optimize(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 103, in _optimize
+    f.result()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 163, in _optimize_sequential
+    frozen_trial = _run_trial(study, func, catch)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 251, in _run_trial
+    raise func_err
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoimpute.py", line 59, in obj
+    return autoutils.score(trial, splitting, my_model, X, self.missing_set_train, self.masked_set_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 62, in score
+    imputed = my_model.transform(missing_set)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 547, in transform
+    X = self._miss_forest(X, mask)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 408, in _miss_forest
+    rf_regressor.fit(X=xobs, y=yobs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 1152, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/ensemble/_forest.py", line 417, in fit
+    raise ValueError("Out of bag estimation only available if bootstrap=True")
+ValueError: Out of bag estimation only available if bootstrap=True
+srun: error: esplhpc-cp002: task 0: Exited with exit code 1

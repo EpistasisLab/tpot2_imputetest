@@ -31,4 +31,4 @@ echo RunStart
 srun -u /home/ketrong/miniconda3/envs/tpot2devenv/bin/python main.py \
 --n_jobs 48 \
 --savepath tpot2_imputetest/Impute_Experiments/logs/ \
---num_runs 1 \
+--num_runs 5 \

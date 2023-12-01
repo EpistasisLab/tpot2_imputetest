@@ -38,11 +38,11 @@ def params_IterativeImpute(trial, name=None):
 
 def params_KNNImpute(trial, name=None):
     params = {}
-    params['n_nearest_features'] = None
+    #params['n_nearest_features'] = None
     params['weights'] = trial.suggest_categorical('weights', ['uniform', 'distance'])
     params['keep_empty_features'] = trial.suggest_categorical('keep_empty_features', [False])
     param_grid = {
-        'n_neighbors': params['n_nearest_features'],
+        #'n_neighbors': params['n_nearest_features'],
         'weights': params['weights'],
         'add_indicator': False,
         'keep_empty_features': params['keep_empty_features'],
@@ -56,11 +56,11 @@ def params_RandomForestImpute(trial, name=None):
     params['n_estimators'] = trial.suggest_int('max_iter', 50, 200, step = 1, log=True)
     params['max_depth'] = None
     params['min_samples_split'] = trial.suggest_float('min_samples_split', 0.0, 1.0, step = 0.1)
-    params['min_samples_leaf'] = trial.suggest_float('min_samples_leaf', 0.0, 1.0, step = 0.1)
-    params['max_features'] = trial.suggest_float('max_features', 0.0, 1.0, step = 0.1)
+    params['min_samples_leaf'] = trial.suggest_float('min_samples_leaf', 0.1, 0.9, step = 0.1)
+    params['max_features'] = trial.suggest_float('max_features', 0.1, 0.9, step = 0.1)
     params['max_leaf_nodes'] = None
-    params['bootstrap'] = trial.suggest_categorical('bootstrap', [True, False])
-    params['oob_score'] = trial.suggest_categorical('oob_score', [True, False])
+    #params['bootstrap'] = trial.suggest_categorical('bootstrap', [True, False])
+    #params['oob_score'] = trial.suggest_categorical('oob_score', [True, False])
     params['warm_start'] = trial.suggest_categorical('warm_start', [True, False])
     params['class_weight'] = None
     param_grid = {
@@ -72,8 +72,8 @@ def params_RandomForestImpute(trial, name=None):
         'min_samples_leaf': params['min_samples_leaf'],
         'max_features': params['max_features'], 
         'max_leaf_nodes': params['max_leaf_nodes'],
-        'bootstrap': params['bootstrap'],
-        'oob_score': params['oob_score'],
+        #'bootstrap': params['bootstrap'],
+        #'oob_score': params['oob_score'],
         'warm_start': params['warm_start'],
         'class_weight': params['class_weight']
     }
