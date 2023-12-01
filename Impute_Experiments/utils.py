@@ -236,16 +236,16 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
                             all_scores["run"] = run
                             '''
                             print("starting impute modules")
-                            X_train_missing = add_missing(X_train_pandas, add_missing=level, missing_type=type)
-                            X_test_missing = add_missing(X_test_pandas, add_missing=level, missing_type=type)
+                            X_train_missing, mask_train = add_missing(X_train_pandas, add_missing=level, missing_type=type)
+                            X_test_missing, mask_test = add_missing(X_test_pandas, add_missing=level, missing_type=type)
                             X_train_missing = X_train_missing.to_numpy()
                             X_test_missing = X_test_missing.to_numpy()
 
 
                             exp['params']['cv'] = sklearn.model_selection.StratifiedKFold(n_splits=10, shuffle=True, random_state=run)
-                            exp['params']['periodic_checkpoint_folder'] = f"/home/ribeirop/common/Projects/tpot_digen_paper1/tpot2_paper_1/checkpoint/{exp['exp_name']}_{taskid}_{run}"
+                            exp['params']['periodic_checkpoint_folder'] = checkpoint_folder
                             tpot_space = exp['automl'](**exp['params'])
-                            print('Start exp fit')
+                            print('Start tpot fit')
                             start = time.time()
                             tpot_space.fit(X_train_missing, y_train)
                             duration = time.time() - start
