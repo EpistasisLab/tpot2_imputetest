@@ -28,6 +28,7 @@ from param_grids import params_SimpleImpute, params_IterativeImpute, params_KNNI
 
 n_jobs = 48
 total_duration = 360000
+'''
 imputation_config_dict = {
                 SimpleImputer: params_SimpleImpute, 
                 IterativeImputer: params_IterativeImpute,
@@ -54,7 +55,7 @@ imputation_params =  {
             'max_size' : 1,
             'linear_pipeline' : True
             }
-
+'''
 normal_params =  {
                 'root_config_dict':["classifiers"],
                 'leaf_config_dict': None,
@@ -87,7 +88,7 @@ normal_params =  {
                 'preprocessing':False,
                 'classification' : True,
                 }
-
+'''
 imputation_params_and_normal_params = {
                 'root_config_dict': {"Recursive" : normal_params},
                 'leaf_config_dict': {"Recursive" : imputation_params},
@@ -95,7 +96,7 @@ imputation_params_and_normal_params = {
                 'max_size' : np.inf,
                 'linear_pipeline' : True,
 
-                'scorers':['neg_log_loss', tpot2.objectives.complexity_scorer],
+                #'scorers':['neg_log_loss', tpot2.objectives.complexity_scorer],
                 'scorers_weights':[1,-1],
                 'other_objective_functions':[],
                 'other_objective_functions_weights':[],
@@ -154,6 +155,7 @@ simple_and_normal_params = {
                 'classification' : True,
 
 }
+'''
 
 
 def score(est, X, y):
@@ -342,7 +344,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
 
                             exp['params']['cv'] = sklearn.model_selection.StratifiedKFold(n_splits=10, shuffle=True, random_state=run)
                             exp['params']['periodic_checkpoint_folder'] = checkpoint_folder
-                            tpot_space = exp['automl'](**imputation_params_and_normal_params)
+                            tpot_space = exp['automl'](**exp['params'])
                             print('Start tpot fit')
                             start = time.time()
                             tpot_space.fit(X_train_missing, y_train)
