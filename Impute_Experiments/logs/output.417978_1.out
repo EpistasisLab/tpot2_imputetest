@@ -1614,3 +1614,30 @@ running experiment 1/3 - Does large hyperparameter space improve reconstruction 
  [0. 0. 1. ... 0. 0. 0.]
  [0. 0. 1. ... 0. 0. 0.]]
 [I 2023-11-28 18:01:49,476] Trial 40 finished with value: 0.4202066698078695 and parameters: {'model_name': 'GAIN', 'batch_size': 96, 'hint_rate': 0.060000000000000005, 'alpha': 0, 'iterations': 77953}. Best is trial 29 with value: 0.0.
+[[nan nan nan ... nan nan nan]
+ [nan nan nan ... nan nan nan]
+ [nan nan nan ... nan nan nan]
+ ...
+ [nan nan nan ... nan nan nan]
+ [nan nan nan ... nan nan nan]
+ [nan nan nan ... nan nan nan]]
+[I 2023-11-28 18:02:38,544] Trial 38 finished with value: 0.0 and parameters: {'model_name': 'GAIN', 'batch_size': 105, 'hint_rate': 0.8300000000000001, 'alpha': 64, 'iterations': 91241}. Best is trial 29 with value: 0.0.
+[[nan nan nan ... nan nan nan]
+ [nan nan nan ... nan nan nan]
+ [nan nan nan ... nan nan nan]
+ ...
+ [nan nan nan ... nan nan nan]
+ [nan nan nan ... nan nan nan]
+ [nan nan nan ... nan nan nan]]
+auto-gain
+Traceback (most recent call last):
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/small_main.py", line 111, in <module>
+    main()
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/small_main.py", line 74, in main
+    auto_gain_rmse = autoutils.rmse_loss(ori_data=X_test, imputed_data=auto_test_missing, data_m=X_test_mask)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/autoutils.py", line 88, in rmse_loss
+    return rmse
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/core/series.py", line 206, in wrapper
+    raise TypeError(f"cannot convert the series to {converter}")
+TypeError: cannot convert the series to <class 'float'>
+srun: error: esplhpc-cp002: task 0: Exited with exit code 1

@@ -154,7 +154,10 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
 
                         print("working on ")
                         print(save_folder)
-
+                        start = time.time()
+                        time.sleep(random.random()*5)
+                        duration = time.time() - start
+                        print(duration)
                         try: 
                             print("loading data")
                             X_train, y_train, X_test, y_test = load_task(taskid, preprocess=True)
