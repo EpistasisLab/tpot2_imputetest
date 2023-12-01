@@ -139,11 +139,13 @@ def main():
             'exp_name' : 'tpot2_base_normal',
             'params': simple_and_normal_params,
             },
+            '''
             {
             'automl': tpot2.TPOTEstimator,
             'exp_name' : 'tpot2_base_imputation',
             'params': imputation_params_and_normal_params,
             },
+            '''
             ]
     #try with 67 / 69 benchmark sets
     '''
