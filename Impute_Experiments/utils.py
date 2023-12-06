@@ -312,9 +312,9 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
                 print("running experiment 1/3 - Does large hyperparameter space improve reconstruction accuracy over simple")
                 X_train_pandas = pd.DataFrame(X_train)
                 X_test_pandas = pd.DataFrame(X_test)
-                '''
+                
                 #Simple Impute 
-                SimpleImputeSpace = autoimpute.AutoImputer(added_missing=level, missing_type=type, model_names=['SimpleImputer'], n_jobs=48, show_progress=False, random_state=run)
+                SimpleImputeSpace = autoimpute.AutoImputer(added_missing=level, missing_type=type, model_names=['SimpleImputer'], n_jobs=48, show_progress=False, random_state=num_runs)
                 SimpleImputeSpace.fit(X_train_pandas)
                 print('simple fit')
                 simple_impute = SimpleImputeSpace.transform(X_test_pandas)
@@ -325,7 +325,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
                 print(simple_rmse)
                 print(simple_rmse)
                 #Auto Impute 
-                AutoImputeSpace = autoimpute.AutoImputer(added_missing=level, missing_type=type, model_names=['SimpleImputer', 'IterativeImputer', 'KNNImputer', 'GAIN', 'RandomForestImputer'], n_jobs=48, show_progress=False, random_state=run)
+                AutoImputeSpace = autoimpute.AutoImputer(added_missing=level, missing_type=type, model_names=['SimpleImputer', 'IterativeImputer', 'KNNImputer', 'GAIN', 'RandomForestImputer'], n_jobs=48, show_progress=False, random_state=num_runs)
                 AutoImputeSpace.fit(X_train_pandas)
                 print('auto fit')
                 auto_impute = AutoImputeSpace.transform(X_test_pandas)
@@ -347,7 +347,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
                 #  and the autoimpute test data. This section uses the normal params since it is checking just for predictive preformance, 
                 # not the role of various imputers in the tpot optimization space. 
 
-                exp['params']['cv'] = sklearn.model_selection.StratifiedKFold(n_splits=10, shuffle=True, random_state=run)
+                exp['params']['cv'] = sklearn.model_selection.StratifiedKFold(n_splits=10, shuffle=True, random_state=num_runs)
                 exp['params']['periodic_checkpoint_folder'] = checkpoint_folder
                 est = exp['automl'](**normal_params)
 
@@ -377,7 +377,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
                 all_scores["exp_name"] = 'Imputed_Predictive_Capacity'
                 #all_scores["name"] = openml.datasets.get_dataset(openml.tasks.get_task(taskid).dataset_id).name
                 all_scores["duration"] = duration
-                all_scores["run"] = run
+                all_scores["run"] = num_runs
                 '''
                 print("starting impute modules")
                 X_train_missing, mask_train = add_missing(X_train_pandas, add_missing=level, missing_type=type)
@@ -386,7 +386,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
                 X_test_missing = X_test_missing.to_numpy()
 
 
-                exp['params']['cv'] = sklearn.model_selection.StratifiedKFold(n_splits=10, shuffle=True, random_state=run)
+                exp['params']['cv'] = sklearn.model_selection.StratifiedKFold(n_splits=10, shuffle=True, random_state=num_runs)
                 exp['params']['periodic_checkpoint_folder'] = checkpoint_folder
                 tpot_space = exp['automl'](**exp['params'])
                 print('Start tpot fit')
@@ -411,7 +411,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
                 tpot_space_scores["exp_name"] = exp['exp_name']
                 #tpot_space_scores["name"] = openml.datasets.get_dataset(openml.tasks.get_task(taskid).dataset_id).name
                 tpot_space_scores["duration"] = duration
-                tpot_space_scores["run"] = run
+                tpot_space_scores["run"] = num_runs
 
                 if type(est) is tpot2.TPOTClassifier or type(est) is tpot2.TPOTEstimator or type(est) is  tpot2.TPOTEstimatorSteadyState:
                     with open(f"{save_folder}/evaluated_individuals.pkl", "wb") as f:
@@ -432,11 +432,11 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
 
                 with open(f"{save_folder}/tpot_space_scores.pkl", "wb") as f:
                     pickle.dump(tpot_space_scores, f)
-
+                '''
                 return
             except Exception as e:
                 trace =  traceback.format_exc() 
-                pipeline_failure_dict = {"taskid": taskid, "exp_name": exp['exp_name'], "run": run, "error": str(e), "trace": trace, "level": level, "type": type}
+                pipeline_failure_dict = {"taskid": taskid, "exp_name": exp['exp_name'], "run": num_runs, "error": str(e), "trace": trace, "level": level, "type": type}
                 print("failed on ")
                 print(save_folder)
                 print(e)
