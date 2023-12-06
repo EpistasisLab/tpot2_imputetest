@@ -282,8 +282,8 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
 
     for taskid in task_id_lists:
         for exp in experiments:
-            save_folder = f"{base_save_folder}/{exp['exp_name']}_{taskid}_{level}_{type}_{num_runs}"
-            checkpoint_folder = f"{base_save_folder}/checkpoint/{exp['exp_name']}_{taskid}_{level}_{type}_{num_runs}"
+            save_folder = f"{base_save_folder}/{exp['exp_name']}_{taskid}_{level}_{type}"
+            checkpoint_folder = f"{base_save_folder}/checkpoint/{exp['exp_name']}_{taskid}_{level}_{type}"
             time.sleep(random.random()*5)
             if not os.path.exists(save_folder):
                 os.makedirs(save_folder)
@@ -312,7 +312,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
                 print("running experiment 1/3 - Does large hyperparameter space improve reconstruction accuracy over simple")
                 X_train_pandas = pd.DataFrame(X_train)
                 X_test_pandas = pd.DataFrame(X_test)
-                #'''
+                '''
                 #Simple Impute 
                 SimpleImputeSpace = autoimpute.AutoImputer(added_missing=level, missing_type=type, model_names=['SimpleImputer'], n_jobs=48, show_progress=False, random_state=num_runs)
                 SimpleImputeSpace.fit(X_train_pandas)
