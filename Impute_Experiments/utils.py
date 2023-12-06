@@ -282,8 +282,9 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
 
     for taskid in task_id_lists:
         for exp in experiments:
-            save_folder = f"{base_save_folder}/{exp['exp_name']}_{taskid}_{str(level)}_{type}"
-            checkpoint_folder = f"{base_save_folder}/checkpoint/{exp['exp_name']}_{taskid}_{str(level)}_{type}"
+            levelstr = str(level)
+            save_folder = f"{base_save_folder}/{exp['exp_name']}_{taskid}_{levelstr}_{type}"
+            checkpoint_folder = f"{base_save_folder}/checkpoint/{exp['exp_name']}_{taskid}_{levelstr}_{type}"
             time.sleep(random.random()*5)
             if not os.path.exists(save_folder):
                 os.makedirs(save_folder)
