@@ -319,6 +319,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
                 print('simple fit')
                 simple_impute = SimpleImputeSpace.transform(X_test_pandas)
                 print('simple transform')
+                print(simple_impute)
                 simple_rmse = SimpleImputeSpace.study.best_trial.value
                 simple_space = SimpleImputeSpace.study.best_trial.params
                 simple_impute = simple_impute.to_numpy()
@@ -330,6 +331,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
                 print('auto fit')
                 auto_impute = AutoImputeSpace.transform(X_test_pandas)
                 print('auto transform')
+                print(auto_impute)
                 auto_rmse = AutoImputeSpace.study.best_trial.value
                 auto_space = AutoImputeSpace.study.best_trial.params
                 auto_impute = auto_impute.to_numpy()
