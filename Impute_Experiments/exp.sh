@@ -12,7 +12,11 @@
 #SBATCH --mail-user=Gabriel.Ketron@cshs.org
 #SBATCH --mail-user=gketron@uci.edu
 #SBATCH -o ./logs/output.%j_%a.out # STDOUT
-#SBATCH --array=1-15
+#SBATCH --array=1-2
+
+RUN=${SLURM_ARRAY_TASK_ID:-1}
+
+echo "Run: ${RUN}"
 
 module load git/2.33.1
 
@@ -31,4 +35,4 @@ echo RunStart
 srun -u /home/ketrong/miniconda3/envs/tpot2devenv/bin/python main.py \
 --n_jobs 48 \
 --savepath tpot2_imputetest/Impute_Experiments/logs/ \
---num_runs 3 \
+--num_runs 15 \
