@@ -12,7 +12,7 @@
 #SBATCH --mail-user=Gabriel.Ketron@cshs.org
 #SBATCH --mail-user=gketron@uci.edu
 #SBATCH -o ./logs/output.%j_%a.out # STDOUT
-#SBATCH --array=3-4
+#SBATCH --array=5-6
 
 RUN=${SLURM_ARRAY_TASK_ID:-1}
 
