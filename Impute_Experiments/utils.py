@@ -233,69 +233,68 @@ def load_task(task_id, preprocess=True):
 
 
 def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
+    print('loc 1')
     match num_runs: 
-            case 1: 
-                level = 0.01
-                type = 'MCAR'
-            case 2: 
-                level = 0.1
-                type = 'MCAR'
-            case 3: 
-                level = 0.3
-                type = 'MCAR'
-            case 4: 
-                level = 0.5
-                type = 'MCAR'
-            case 5: 
-                level = 0.9
-                type = 'MCAR'
-            case 6: 
-                level = 0.01
-                type = 'MAR'
-            case 7: 
-                level = 0.1
-                type = 'MAR'
-            case 8: 
-                level = 0.3
-                type = 'MAR'
-            case 9: 
-                level = 0.5
-                type = 'MAR'
-            case 10: 
-                level = 0.9
-                type = 'MAR'
-            case 11: 
-                level = 0.01
-                type = 'MNAR'
-            case 12: 
-                level = 0.1
-                type = 'MNAR'
-            case 13: 
-                level = 0.3
-                type = 'MNAR'
-            case 14: 
-                level = 0.5
-                type = 'MNAR'
-            case 15: 
-                level = 0.9
-                type = 'MNAR'
-
+        case 1: 
+            level = 0.01
+            type = 'MCAR'
+        case 2: 
+            level = 0.1
+            type = 'MCAR'
+        case 3: 
+            level = 0.3
+            type = 'MCAR'
+        case 4: 
+            level = 0.5
+            type = 'MCAR'
+        case 5: 
+            level = 0.9
+            type = 'MCAR'
+        case 6: 
+            level = 0.01
+            type = 'MAR'
+        case 7: 
+            level = 0.1
+            type = 'MAR'
+        case 8: 
+            level = 0.3
+            type = 'MAR'
+        case 9: 
+            level = 0.5
+            type = 'MAR'
+        case 10: 
+            level = 0.9
+            type = 'MAR'
+        case 11: 
+            level = 0.01
+            type = 'MNAR'
+        case 12: 
+            level = 0.1
+            type = 'MNAR'
+        case 13: 
+            level = 0.3
+            type = 'MNAR'
+        case 14: 
+            level = 0.5
+            type = 'MNAR'
+        case 15: 
+            level = 0.9
+            type = 'MNAR'
+    print('loc2')
     for taskid in task_id_lists:
         for exp in experiments:
+            print('loc4')
             levelstr = str(level)
             save_folder = f"{base_save_folder}/{exp['exp_name']}_{taskid}_{levelstr}_{type}"
             checkpoint_folder = f"{base_save_folder}/checkpoint/{exp['exp_name']}_{taskid}_{levelstr}_{type}"
+            print('loc5')
             time.sleep(random.random()*5)
             if not os.path.exists(save_folder):
                 os.makedirs(save_folder)
-            else:
-                continue
-
+            print('loc6')
             time.sleep(random.random()*5)
             if not os.path.exists(checkpoint_folder):
                 os.makedirs(checkpoint_folder)
-            else:
-                continue
 
             print("working on ")
             print(save_folder)

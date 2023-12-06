@@ -157,7 +157,7 @@ def main():
                     42712]
     '''
     task_id_lists = [30]
-                    
+    print('starting loops')
     utils.loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs)
 
 
