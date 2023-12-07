@@ -643,3 +643,56 @@ WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION
     raise ValueError(msg_err)
 ValueError: Input contains NaN.
 
+WARNING AN INDIVIDUAL TIMED OUT: 
+ [('LogisticRegression_1', 'SimpleImputer_1'), ('LogisticRegression_1', 'SimpleImputer_2'), ('LogisticRegression_1', 'SimpleImputer_3'), ('LogisticRegression_1', 'SimpleImputer_4'), ('LogisticRegression_1', 'SimpleImputer_5'), ('LogisticRegression_1', 'SimpleImputer_6'), ('LogisticRegression_1', 'SimpleImputer_7'), ('LogisticRegression_1', 'SimpleImputer_8')] 
+
+Generation:  1
+Best log_loss score: -0.20281366967886574
+Best complexity_scorer score: 2.0
+Generation:  20%|██        | 1/5 [10:00<40:01, 600.36s/it]Generation:  2
+Best log_loss score: -0.20054024291549463
+Best complexity_scorer score: 2.0
+Generation:  40%|████      | 2/5 [11:58<15:49, 316.51s/it]Generation:  3
+Best log_loss score: -0.20054024291549463
+Best complexity_scorer score: 2.0
+Generation:  60%|██████    | 3/5 [12:21<06:05, 182.57s/it]Generation:  4
+Best log_loss score: -0.20054024291549463
+Best complexity_scorer score: 2.0
+Generation:  80%|████████  | 4/5 [13:19<02:13, 133.41s/it]Generation:  5
+Best log_loss score: -0.20054024291549463
+Best complexity_scorer score: 2.0
+Generation: 100%|██████████| 5/5 [13:29<00:00, 88.88s/it] Generation: 100%|██████████| 5/5 [13:29<00:00, 161.92s/it]
+2023-12-07 15:47:07,405 - distributed.worker - ERROR - Failed to communicate with scheduler during heartbeat.
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 225, in read
+    frames_nosplit_nbytes_bin = await stream.read_bytes(fmt_size)
+tornado.iostream.StreamClosedError: Stream is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/worker.py", line 1255, in heartbeat
+    response = await retry_operation(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/utils_comm.py", line 455, in retry_operation
+    return await retry(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/utils_comm.py", line 434, in retry
+    return await coro()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/core.py", line 1396, in send_recv_from_rpc
+    return await send_recv(comm=comm, op=key, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/core.py", line 1155, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 237, in read
+    convert_stream_closed_error(self, e)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 142, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed) ConnectionPool.heartbeat_worker local=tcp://127.0.0.1:56874 remote=tcp://127.0.0.1:39139>: Stream is closed
+Fitted
+failed on 
+tpot2_imputetest/Impute_Experiments/logs/tpot2_base_normal_30_0.9_MAR
+'TPOTEstimator' object is not subscriptable
+Traceback (most recent call last):
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/utils.py", line 402, in loop_through_tasks
+    if type(tpot_space['automl']) is tpot.TPOTClassifier:
+TypeError: 'TPOTEstimator' object is not subscriptable
+
+DONE

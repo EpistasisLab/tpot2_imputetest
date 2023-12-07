@@ -359,7 +359,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
                 stop = time.time()
                 duration = stop - start
                 print('Fitted')
-                if type(est['automl']) is tpot.TPOTClassifier:
+                if est['automl'] is tpot.TPOTClassifier:
                     est.classes_ = est.fitted_pipeline_.classes_
                 print('score start')
                 train_score = score(est, X_train, y_train)
@@ -399,7 +399,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
                 stop = time.time()
                 duration = stop - start
                 print('Fitted')
-                if type(tpot_space['automl']) is tpot.TPOTClassifier:
+                if tpot_space['automl'] is tpot.TPOTClassifier:
                     tpot_space.classes_ = tpot_space.fitted_pipeline_.classes_
                 print('score start')
                 train_score = score(tpot_space, X_train_missing, y_train)
