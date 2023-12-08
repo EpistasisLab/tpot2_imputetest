@@ -81,7 +81,7 @@ def main():
                     'population_size' : n_jobs,
                     'survival_percentage':1, 
                     'initial_population_size' : n_jobs,
-                    'generations' : 5, 
+                    'generations' : 50, 
                     'n_jobs':n_jobs,
                     'cv': sklearn.model_selection.StratifiedKFold(n_splits=10, shuffle=True, random_state=42),
                     'verbose':5, 
@@ -114,7 +114,7 @@ def main():
                     'population_size' : n_jobs,
                     'survival_percentage':1, 
                     'initial_population_size' : n_jobs,
-                    'generations' : 5, 
+                    'generations' : 50, 
                     'n_jobs':n_jobs,
                     'cv': sklearn.model_selection.StratifiedKFold(n_splits=10, shuffle=True, random_state=42),
                     'verbose':5, 
@@ -139,11 +139,11 @@ def main():
             'exp_name' : 'tpot2_base_normal',
             'params': simple_and_normal_params,
             },
-            #{
-            #'automl': tpot2.TPOTEstimator,
-            #'exp_name' : 'tpot2_base_imputation',
-            #'params': imputation_params_and_normal_params,
-            #},
+            {
+            'automl': tpot2.TPOTEstimator,
+            'exp_name' : 'tpot2_base_imputation',
+            'params': imputation_params_and_normal_params,
+            },
             ]
     #try with 67 / 69 benchmark sets
     '''
