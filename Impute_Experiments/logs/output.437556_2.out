@@ -4275,3 +4275,238 @@ WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION
     mus, sigmas = estimator.predict(X_test, return_std=True)
 TypeError: ForestRegressor.predict() got an unexpected keyword argument 'return_std'
 
+WARNING AN INDIVIDUAL TIMED OUT: 
+ [('RandomForestClassifier_1', 'KNNImputer_1'), ('RandomForestClassifier_1', 'IterativeImputer_1')] 
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ [('BernoulliNB_1', 'KNNImputer_1'), ('BernoulliNB_1', 'RandomForestImputer_1'), ('BernoulliNB_1', 'IterativeImputer_1'), ('BernoulliNB_1', 'KNNImputer_2')] 
+
+Generation:  1
+Best log_loss score: -0.09146083920180821
+Best complexity_scorer score: 11.0
+Generation:  20%|██        | 1/5 [10:01<40:04, 601.02s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ [('GradientBoostingClassifier_1', 'SimpleImputer_1')] 
+ ExponentialLoss requires 2 classes; got 5 class(es) 
+ Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/estimator.py", line 702, in objective_function
+    return objective_function_generator(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/estimator_utils.py", line 117, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 354, in fit
+    fit_sklearn_digraph(   graph=self.graph,
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 153, in fit_sklearn_digraph
+    transformed, instance = estimator_fit_transform_override_cross_val_predict_cached(instance, this_X, y, cv=cross_val_predict_cv, method=method,subset_indexes=subset_indexes)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/joblib/memory.py", line 353, in __call__
+    return self.func(*args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 77, in estimator_fit_transform_override_cross_val_predict
+    estimator.fit(X,y, **fit_params)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 1152, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/ensemble/_gb.py", line 431, in fit
+    self._check_params()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/ensemble/_gb.py", line 276, in _check_params
+    self._loss = loss_class(self.n_classes_)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/ensemble/_gb_losses.py", line 889, in __init__
+    raise ValueError(
+ValueError: ExponentialLoss requires 2 classes; got 5 class(es)
+
+Generation:  2
+Best log_loss score: -0.09146083920180821
+Best complexity_scorer score: 11.0
+Generation:  40%|████      | 2/5 [15:38<22:18, 446.18s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ [('GradientBoostingClassifier_1', 'KNNImputer_1')] 
+ ExponentialLoss requires 2 classes; got 5 class(es) 
+ Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/estimator.py", line 702, in objective_function
+    return objective_function_generator(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/estimator_utils.py", line 117, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 354, in fit
+    fit_sklearn_digraph(   graph=self.graph,
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 153, in fit_sklearn_digraph
+    transformed, instance = estimator_fit_transform_override_cross_val_predict_cached(instance, this_X, y, cv=cross_val_predict_cv, method=method,subset_indexes=subset_indexes)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/joblib/memory.py", line 353, in __call__
+    return self.func(*args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 77, in estimator_fit_transform_override_cross_val_predict
+    estimator.fit(X,y, **fit_params)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 1152, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/ensemble/_gb.py", line 431, in fit
+    self._check_params()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/ensemble/_gb.py", line 276, in _check_params
+    self._loss = loss_class(self.n_classes_)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/ensemble/_gb_losses.py", line 889, in __init__
+    raise ValueError(
+ValueError: ExponentialLoss requires 2 classes; got 5 class(es)
+
+Generation:  3
+Best log_loss score: -0.09146083920180821
+Best complexity_scorer score: 3.0
+Generation:  60%|██████    | 3/5 [20:11<12:13, 366.97s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ [('GradientBoostingClassifier_1', 'SimpleImputer_1')] 
+ ExponentialLoss requires 2 classes; got 5 class(es) 
+ Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/estimator.py", line 702, in objective_function
+    return objective_function_generator(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/estimator_utils.py", line 117, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 354, in fit
+    fit_sklearn_digraph(   graph=self.graph,
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 153, in fit_sklearn_digraph
+    transformed, instance = estimator_fit_transform_override_cross_val_predict_cached(instance, this_X, y, cv=cross_val_predict_cv, method=method,subset_indexes=subset_indexes)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/joblib/memory.py", line 353, in __call__
+    return self.func(*args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 77, in estimator_fit_transform_override_cross_val_predict
+    estimator.fit(X,y, **fit_params)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 1152, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/ensemble/_gb.py", line 431, in fit
+    self._check_params()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/ensemble/_gb.py", line 276, in _check_params
+    self._loss = loss_class(self.n_classes_)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/ensemble/_gb_losses.py", line 889, in __init__
+    raise ValueError(
+ValueError: ExponentialLoss requires 2 classes; got 5 class(es)
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ [('GradientBoostingClassifier_1', 'SimpleImputer_1')] 
+ ExponentialLoss requires 2 classes; got 5 class(es) 
+ Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/estimator.py", line 702, in objective_function
+    return objective_function_generator(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/estimator_utils.py", line 117, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 354, in fit
+    fit_sklearn_digraph(   graph=self.graph,
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 153, in fit_sklearn_digraph
+    transformed, instance = estimator_fit_transform_override_cross_val_predict_cached(instance, this_X, y, cv=cross_val_predict_cv, method=method,subset_indexes=subset_indexes)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/joblib/memory.py", line 353, in __call__
+    return self.func(*args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 77, in estimator_fit_transform_override_cross_val_predict
+    estimator.fit(X,y, **fit_params)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 1152, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/ensemble/_gb.py", line 431, in fit
+    self._check_params()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/ensemble/_gb.py", line 276, in _check_params
+    self._loss = loss_class(self.n_classes_)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/ensemble/_gb_losses.py", line 889, in __init__
+    raise ValueError(
+ValueError: ExponentialLoss requires 2 classes; got 5 class(es)
+
+Generation:  4
+Best log_loss score: -0.09146083920180821
+Best complexity_scorer score: 2.0
+Generation:  80%|████████  | 4/5 [24:25<05:22, 322.34s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ [('GradientBoostingClassifier_1', 'SimpleImputer_1')] 
+ ExponentialLoss requires 2 classes; got 5 class(es) 
+ Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/estimator.py", line 702, in objective_function
+    return objective_function_generator(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/estimator_utils.py", line 117, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 354, in fit
+    fit_sklearn_digraph(   graph=self.graph,
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 153, in fit_sklearn_digraph
+    transformed, instance = estimator_fit_transform_override_cross_val_predict_cached(instance, this_X, y, cv=cross_val_predict_cv, method=method,subset_indexes=subset_indexes)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/joblib/memory.py", line 353, in __call__
+    return self.func(*args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 77, in estimator_fit_transform_override_cross_val_predict
+    estimator.fit(X,y, **fit_params)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 1152, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/ensemble/_gb.py", line 431, in fit
+    self._check_params()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/ensemble/_gb.py", line 276, in _check_params
+    self._loss = loss_class(self.n_classes_)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/ensemble/_gb_losses.py", line 889, in __init__
+    raise ValueError(
+ValueError: ExponentialLoss requires 2 classes; got 5 class(es)
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ [('GradientBoostingClassifier_1', 'SimpleImputer_1')] 
+ ExponentialLoss requires 2 classes; got 5 class(es) 
+ Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/estimator.py", line 702, in objective_function
+    return objective_function_generator(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/estimator_utils.py", line 117, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 354, in fit
+    fit_sklearn_digraph(   graph=self.graph,
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 153, in fit_sklearn_digraph
+    transformed, instance = estimator_fit_transform_override_cross_val_predict_cached(instance, this_X, y, cv=cross_val_predict_cv, method=method,subset_indexes=subset_indexes)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/joblib/memory.py", line 353, in __call__
+    return self.func(*args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 77, in estimator_fit_transform_override_cross_val_predict
+    estimator.fit(X,y, **fit_params)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 1152, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/ensemble/_gb.py", line 431, in fit
+    self._check_params()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/ensemble/_gb.py", line 276, in _check_params
+    self._loss = loss_class(self.n_classes_)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/ensemble/_gb_losses.py", line 889, in __init__
+    raise ValueError(
+ValueError: ExponentialLoss requires 2 classes; got 5 class(es)
+
+Generation:  5
+Best log_loss score: -0.09146083920180821
+Best complexity_scorer score: 2.0
+Generation: 100%|██████████| 5/5 [28:09<00:00, 286.84s/it]Generation: 100%|██████████| 5/5 [28:09<00:00, 337.88s/it]
+Fitted
+score start
+score end
+estimator working as intended
+check intended
+30
+finished
+all finished
+DONE
