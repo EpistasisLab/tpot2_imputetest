@@ -4617,3 +4617,171 @@ WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION
     mus, sigmas = estimator.predict(X_test, return_std=True)
 TypeError: ForestRegressor.predict() got an unexpected keyword argument 'return_std'
 
+{}
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ [('BernoulliNB_1', 'IterativeImputer_1'), ('BernoulliNB_1', 'GAINImputer_1'), ('BernoulliNB_1', 'KNNImputer_1'), ('BernoulliNB_1', 'GAINImputer_2'), ('BernoulliNB_1', 'IterativeImputer_2')] 
+ 'batch_size' 
+ Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/estimator.py", line 702, in objective_function
+    return objective_function_generator(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/estimator_utils.py", line 117, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 354, in fit
+    fit_sklearn_digraph(   graph=self.graph,
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 155, in fit_sklearn_digraph
+    transformed, instance = fit_transform_one_cached(instance, this_X, y, subset_indexes=subset_indexes)#instance.fit_transform(this_X,y)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/joblib/memory.py", line 353, in __call__
+    return self.func(*args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 96, in _fit_transform_one
+    res = model.fit_transform(X, y, **fit_params)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 611, in fit_transform
+    return self.fit(X, **fit_params).transform(X)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 631, in gain
+    batch_size = gain_parameters['batch_size']
+KeyError: 'batch_size'
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ [('ExtraTreesClassifier_1', 'RandomForestImputer_1'), ('ExtraTreesClassifier_1', 'GAINImputer_1'), ('ExtraTreesClassifier_1', 'GAINImputer_2'), ('ExtraTreesClassifier_1', 'RandomForestImputer_2'), ('ExtraTreesClassifier_1', 'IterativeImputer_1'), ('ExtraTreesClassifier_1', 'KNNImputer_1'), ('ExtraTreesClassifier_1', 'IterativeImputer_2'), ('ExtraTreesClassifier_1', 'KNNImputer_2')] 
+ ForestRegressor.predict() got an unexpected keyword argument 'return_std' 
+ Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/estimator.py", line 702, in objective_function
+    return objective_function_generator(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/estimator_utils.py", line 117, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 354, in fit
+    fit_sklearn_digraph(   graph=self.graph,
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 155, in fit_sklearn_digraph
+    transformed, instance = fit_transform_one_cached(instance, this_X, y, subset_indexes=subset_indexes)#instance.fit_transform(this_X,y)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/joblib/memory.py", line 353, in __call__
+    return self.func(*args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 96, in _fit_transform_one
+    res = model.fit_transform(X, y, **fit_params)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 1152, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/impute/_iterative.py", line 765, in fit_transform
+    Xt, estimator = self._impute_one_feature(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/impute/_iterative.py", line 425, in _impute_one_feature
+    mus, sigmas = estimator.predict(X_test, return_std=True)
+TypeError: ForestRegressor.predict() got an unexpected keyword argument 'return_std'
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ [('SVC_1', 'IterativeImputer_1')] 
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ [('KNeighborsClassifier_1', 'KNNImputer_1'), ('KNeighborsClassifier_1', 'SimpleImputer_1'), ('KNeighborsClassifier_1', 'IterativeImputer_1')] 
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ [('MultinomialNB_1', 'IterativeImputer_1'), ('MultinomialNB_1', 'SimpleImputer_1')] 
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ [('KNeighborsClassifier_1', 'KNNImputer_1'), ('KNeighborsClassifier_1', 'IterativeImputer_1')] 
+
+Generation:  1
+Best log_loss score: -0.08644220545939335
+Best complexity_scorer score: 5.0
+Generation:  20%|██        | 1/5 [10:01<40:06, 601.59s/it]corrupted size vs. prev_size
+2023-12-07 17:37:30,224 - distributed.nanny - WARNING - Restarting worker
+2023-12-07 17:37:40.311273: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2023-12-07 17:37:40.348781: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2023-12-07 17:37:40.348812: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2023-12-07 17:37:40.349876: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2023-12-07 17:37:40.355747: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-12-07 17:37:42.172990: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+Generation:  2
+Best log_loss score: -0.0846137223509166
+Best complexity_scorer score: 3.0
+Generation:  40%|████      | 2/5 [15:32<22:07, 442.41s/it]Generation:  3
+Best log_loss score: -0.0846137223509166
+Best complexity_scorer score: 2.0
+Generation:  60%|██████    | 3/5 [16:55<09:16, 278.47s/it]Generation:  4
+Best log_loss score: -0.08078928939672042
+Best complexity_scorer score: 2.0
+Generation:  80%|████████  | 4/5 [19:56<03:59, 239.82s/it]Generation:  5
+Best log_loss score: -0.08078928939672042
+Best complexity_scorer score: 2.0
+Generation: 100%|██████████| 5/5 [22:10<00:00, 201.73s/it]Generation: 100%|██████████| 5/5 [22:10<00:00, 266.16s/it]
+2023-12-07 17:49:36,601 - distributed.nanny - WARNING - Worker process still alive after 3.1999995422363288 seconds, killing
+2023-12-07 17:49:36,601 - distributed.nanny - WARNING - Worker process still alive after 3.199999694824219 seconds, killing
+2023-12-07 17:49:36,601 - distributed.nanny - WARNING - Worker process still alive after 3.199999694824219 seconds, killing
+2023-12-07 17:49:36,602 - distributed.nanny - WARNING - Worker process still alive after 3.19999984741211 seconds, killing
+2023-12-07 17:49:36,602 - distributed.nanny - WARNING - Worker process still alive after 3.19999984741211 seconds, killing
+2023-12-07 17:49:36,602 - distributed.nanny - WARNING - Worker process still alive after 3.1999995422363288 seconds, killing
+2023-12-07 17:49:36,602 - distributed.nanny - WARNING - Worker process still alive after 3.199999694824219 seconds, killing
+2023-12-07 17:49:36,602 - distributed.nanny - WARNING - Worker process still alive after 3.199999694824219 seconds, killing
+2023-12-07 17:49:36,604 - distributed.nanny - WARNING - Worker process still alive after 3.199999694824219 seconds, killing
+2023-12-07 17:49:36,604 - distributed.nanny - WARNING - Worker process still alive after 3.199999694824219 seconds, killing
+2023-12-07 17:49:36,605 - distributed.nanny - WARNING - Worker process still alive after 3.1999995422363288 seconds, killing
+2023-12-07 17:49:36,605 - distributed.nanny - WARNING - Worker process still alive after 3.199999694824219 seconds, killing
+2023-12-07 17:49:36,606 - distributed.nanny - WARNING - Worker process still alive after 3.199999694824219 seconds, killing
+2023-12-07 17:49:36,606 - distributed.nanny - WARNING - Worker process still alive after 3.199999389648438 seconds, killing
+2023-12-07 17:49:36,607 - distributed.nanny - WARNING - Worker process still alive after 3.199999694824219 seconds, killing
+2023-12-07 17:49:36,607 - distributed.nanny - WARNING - Worker process still alive after 3.199999694824219 seconds, killing
+2023-12-07 17:49:36,607 - distributed.nanny - WARNING - Worker process still alive after 3.199999694824219 seconds, killing
+2023-12-07 17:49:36,610 - distributed.nanny - WARNING - Worker process still alive after 3.1999995422363288 seconds, killing
+2023-12-07 17:49:36,610 - distributed.nanny - WARNING - Worker process still alive after 3.1999992370605472 seconds, killing
+2023-12-07 17:49:36,612 - distributed.nanny - WARNING - Worker process still alive after 3.199999389648438 seconds, killing
+2023-12-07 17:49:36,612 - distributed.nanny - WARNING - Worker process still alive after 3.199999694824219 seconds, killing
+2023-12-07 17:49:36,612 - distributed.nanny - WARNING - Worker process still alive after 3.199999694824219 seconds, killing
+2023-12-07 17:49:36,614 - distributed.nanny - WARNING - Worker process still alive after 3.199999694824219 seconds, killing
+2023-12-07 17:49:36,614 - distributed.nanny - WARNING - Worker process still alive after 3.199999694824219 seconds, killing
+2023-12-07 17:49:36,614 - distributed.nanny - WARNING - Worker process still alive after 3.199999694824219 seconds, killing
+2023-12-07 17:49:36,614 - distributed.nanny - WARNING - Worker process still alive after 3.19999984741211 seconds, killing
+2023-12-07 17:49:36,614 - distributed.nanny - WARNING - Worker process still alive after 3.199999694824219 seconds, killing
+2023-12-07 17:49:36,615 - distributed.nanny - WARNING - Worker process still alive after 3.199999694824219 seconds, killing
+2023-12-07 17:49:36,615 - distributed.nanny - WARNING - Worker process still alive after 3.19999984741211 seconds, killing
+2023-12-07 17:49:36,615 - distributed.nanny - WARNING - Worker process still alive after 3.199999694824219 seconds, killing
+2023-12-07 17:49:36,618 - distributed.nanny - WARNING - Worker process still alive after 3.199999389648438 seconds, killing
+2023-12-07 17:49:36,618 - distributed.nanny - WARNING - Worker process still alive after 3.199999694824219 seconds, killing
+2023-12-07 17:49:36,618 - distributed.nanny - WARNING - Worker process still alive after 3.199999694824219 seconds, killing
+2023-12-07 17:49:36,618 - distributed.nanny - WARNING - Worker process still alive after 3.1999992370605472 seconds, killing
+2023-12-07 17:49:36,619 - distributed.nanny - WARNING - Worker process still alive after 3.199999694824219 seconds, killing
+2023-12-07 17:49:36,619 - distributed.nanny - WARNING - Worker process still alive after 3.199999389648438 seconds, killing
+2023-12-07 17:49:36,619 - distributed.nanny - WARNING - Worker process still alive after 3.199999389648438 seconds, killing
+2023-12-07 17:49:36,621 - distributed.nanny - WARNING - Worker process still alive after 3.199999694824219 seconds, killing
+2023-12-07 17:49:36,621 - distributed.nanny - WARNING - Worker process still alive after 3.199999694824219 seconds, killing
+2023-12-07 17:49:36,621 - distributed.nanny - WARNING - Worker process still alive after 3.1999995422363288 seconds, killing
+2023-12-07 17:49:36,621 - distributed.nanny - WARNING - Worker process still alive after 3.199999694824219 seconds, killing
+2023-12-07 17:49:36,622 - distributed.nanny - WARNING - Worker process still alive after 3.19999984741211 seconds, killing
+2023-12-07 17:49:36,622 - distributed.nanny - WARNING - Worker process still alive after 3.1999995422363288 seconds, killing
+2023-12-07 17:49:36,622 - distributed.nanny - WARNING - Worker process still alive after 3.1999995422363288 seconds, killing
+2023-12-07 17:49:36,623 - distributed.nanny - WARNING - Worker process still alive after 3.1999995422363288 seconds, killing
+2023-12-07 17:49:36,631 - distributed.nanny - WARNING - Worker process still alive after 3.199999389648438 seconds, killing
+2023-12-07 17:49:36,631 - distributed.nanny - WARNING - Worker process still alive after 3.199999694824219 seconds, killing
+2023-12-07 17:49:36,635 - distributed.nanny - WARNING - Worker process still alive after 3.1999995422363288 seconds, killing
+Fitted
+score start
+score end
+estimator working as intended
+check intended
+30
+finished
+all finished
+DONE

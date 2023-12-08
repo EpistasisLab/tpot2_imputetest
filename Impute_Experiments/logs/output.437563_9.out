@@ -4592,3 +4592,59 @@ Best complexity_scorer score: 11.0
     mus, sigmas = estimator.predict(X_test, return_std=True)
 TypeError: ForestRegressor.predict() got an unexpected keyword argument 'return_std'
 
+WARNING AN INDIVIDUAL TIMED OUT: 
+ [('ExtraTreesClassifier_1', 'SimpleImputer_1'), ('ExtraTreesClassifier_1', 'RandomForestImputer_1'), ('ExtraTreesClassifier_1', 'IterativeImputer_1')] 
+
+Generation:  3
+Best log_loss score: -0.1075273810686704
+Best complexity_scorer score: 11.0
+Generation:  60%|██████    | 3/5 [22:59<15:31, 465.75s/it]Generation:  4
+Best log_loss score: -0.1075273810686704
+Best complexity_scorer score: 11.0
+Generation:  80%|████████  | 4/5 [25:17<05:36, 336.57s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ [('LogisticRegression_1', 'IterativeImputer_1')] 
+ ForestRegressor.predict() got an unexpected keyword argument 'return_std' 
+ Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/estimator.py", line 702, in objective_function
+    return objective_function_generator(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/estimator_utils.py", line 117, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 354, in fit
+    fit_sklearn_digraph(   graph=self.graph,
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 155, in fit_sklearn_digraph
+    transformed, instance = fit_transform_one_cached(instance, this_X, y, subset_indexes=subset_indexes)#instance.fit_transform(this_X,y)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/joblib/memory.py", line 353, in __call__
+    return self.func(*args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 96, in _fit_transform_one
+    res = model.fit_transform(X, y, **fit_params)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 1152, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/impute/_iterative.py", line 765, in fit_transform
+    Xt, estimator = self._impute_one_feature(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/impute/_iterative.py", line 425, in _impute_one_feature
+    mus, sigmas = estimator.predict(X_test, return_std=True)
+TypeError: ForestRegressor.predict() got an unexpected keyword argument 'return_std'
+
+Generation:  5
+Best log_loss score: -0.1075273810686704
+Best complexity_scorer score: 11.0
+Generation: 100%|██████████| 5/5 [27:39<00:00, 266.30s/it]Generation: 100%|██████████| 5/5 [27:39<00:00, 331.95s/it]
+Fitted
+score start
+score end
+estimator working as intended
+check intended
+30
+finished
+all finished
+DONE
