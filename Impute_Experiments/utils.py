@@ -5,6 +5,7 @@ import sklearn
 from sklearn.metrics import (roc_auc_score, roc_curve, precision_score, auc, recall_score, precision_recall_curve, \
                              roc_auc_score, accuracy_score, balanced_accuracy_score, f1_score, log_loss,
                              f1_score)
+from sklearn.model_selection import train_test_split
 import traceback
 import dill as pickle
 import os
@@ -306,19 +307,23 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
             try: 
                 print("loading data")
                 X_train, y_train, X_test, y_test = load_task(taskid, preprocess=True)
-                
-
-                print("running experiment 1/3 - Does large hyperparameter space improve reconstruction accuracy over simple")
                 X_train_pandas = pd.DataFrame(X_train)
                 X_test_pandas = pd.DataFrame(X_test)
-                '''
+                X_train_missing_p, mask_train = add_missing(X_train_pandas, add_missing=level, missing_type=type)
+                X_test_missing_p, mask_test = add_missing(X_test_pandas, add_missing=level, missing_type=type)
+                X_train_missing_n = X_train_missing_p.to_numpy()
+                X_test_missing_n = X_test_missing_p.to_numpy()
+
+                print("running experiment 1/3 - Does large hyperparameter space improve reconstruction accuracy over simple")
+
+                #'''
                 #Simple Impute 
                 all_scores = {}
                 if exp['exp_name'] == 'tpot2_base_normal':
-                    SimpleImputeSpace = autoimpute.AutoImputer(added_missing=level, missing_type=type, model_names=['SimpleImputer'], n_jobs=48, show_progress=False, random_state=num_runs)
-                    SimpleImputeSpace.fit(X_train_pandas)
+                    SimpleImputeSpace = autoimpute.AutoImputer(added_missing=0.05, missing_type=type, model_names=['SimpleImputer'], n_jobs=48, show_progress=False, random_state=num_runs)
+                    SimpleImputeSpace.fit(X_train_missing_p)
                     print('simple fit')
-                    simple_impute = SimpleImputeSpace.transform(X_test_pandas)
+                    simple_impute = SimpleImputeSpace.transform(X_test_missing_p)
                     print('simple transform')
                     print(simple_impute)
                     simple_rmse = SimpleImputeSpace.study.best_trial.value
@@ -331,10 +336,10 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
                     imputed = simple_impute
                 else:
                     #Auto Impute 
-                    AutoImputeSpace = autoimpute.AutoImputer(added_missing=level, missing_type=type, model_names=['SimpleImputer', 'IterativeImputer', 'KNNImputer', 'GAIN', 'RandomForestImputer'], n_jobs=48, show_progress=False, random_state=num_runs)
-                    AutoImputeSpace.fit(X_train_pandas)
+                    AutoImputeSpace = autoimpute.AutoImputer(added_missing=0.05, missing_type=type, model_names=['SimpleImputer', 'IterativeImputer', 'KNNImputer', 'GAIN', 'RandomForestImputer'], n_jobs=48, show_progress=False, random_state=num_runs)
+                    AutoImputeSpace.fit(X_train_missing_p)
                     print('auto fit')
-                    auto_impute = AutoImputeSpace.transform(X_test_pandas)
+                    auto_impute = AutoImputeSpace.transform(X_test_missing_p)
                     print('auto transform')
                     print(auto_impute)
                     auto_rmse = AutoImputeSpace.study.best_trial.value
@@ -395,13 +400,8 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
 
                 print('EXP2 Finished')
 
-                '''
+                
                 print("running experiment 3/3 - What is the best automl settings?")
-                X_train_missing, mask_train = add_missing(X_train_pandas, add_missing=level, missing_type=type)
-                X_test_missing, mask_test = add_missing(X_test_pandas, add_missing=level, missing_type=type)
-                X_train_missing = X_train_missing.to_numpy()
-                X_test_missing = X_test_missing.to_numpy()
-
 
                 exp['params']['cv'] = sklearn.model_selection.StratifiedKFold(n_splits=10, shuffle=True, random_state=num_runs)
                 exp['params']['periodic_checkpoint_folder'] = checkpoint_folder
@@ -409,7 +409,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
                 print(exp['automl'])
                 print('Start tpot fit')
                 start = time.time()
-                tpot_space.fit(X_train_missing, y_train)
+                tpot_space.fit(X_train_missing_n, y_train)
                 stop = time.time()
                 duration = stop - start
                 print('Fitted')
@@ -417,8 +417,8 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
                     tpot_space.classes_ = tpot_space.fitted_pipeline_.classes_
                 print(tpot_space.fitted_pipeline_)
                 print('score start')
-                train_score = score(tpot_space, X_train_missing, y_train)
-                test_score = score(tpot_space, X_test_missing, y_test)
+                train_score = score(tpot_space, X_train_missing_n, y_train)
+                test_score = score(tpot_space, X_test_missing_n, y_test)
                 print('score end')
                 tpot_space_scores = {}
                 train_score = {f"train_{k}": v for k, v in train_score.items()}
@@ -441,7 +441,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
 
                 with open(f"{save_folder}/tpot_space_scores.pkl", "wb") as f:
                     pickle.dump(tpot_space_scores, f)
-                #'''
+                
                 #return
             except Exception as e:
                 trace =  traceback.format_exc() 

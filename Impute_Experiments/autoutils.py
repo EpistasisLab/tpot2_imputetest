@@ -57,22 +57,27 @@ def MyModel(random_state, **params):
 
 def score(trial: optuna.trial.Trial, splitting, my_model, X: pd.DataFrame, missing_set: pd.DataFrame, masked_set:pd.DataFrame):
     avg_cv_rmse = []
-    try: 
-        my_model.fit(missing_set)
-        imputed = my_model.transform(missing_set)
-    
-        if 'numpy' in str(type(imputed)):
-            imputed = pd.DataFrame(imputed, columns=missing_set.columns.values)
+    for i, (train_index, test_index) in enumerate(splitting.split(X)):
+        missing_train, missing_test, X_test, masked_test = missing_set.iloc[train_index], missing_set.iloc[test_index], X.iloc[test_index], masked_set.iloc[test_index]
+        try: 
+            my_model.fit(missing_train)
+            imputed = my_model.transform(missing_test)
 
-        if imputed.isnull().sum().sum() > 0: 
-           rmse_val = np.inf
-           return rmse_val
-        
-        rmse_val = rmse_loss(ori_data=X.to_numpy(), imputed_data=imputed.to_numpy(), data_m=np.multiply(masked_set.to_numpy(),1))
-    except:
-        rmse_val = np.inf
-    trial.set_user_attr('rmse', rmse_val)
-    return rmse_val
+            if 'numpy' in str(type(imputed)):
+                imputed = pd.DataFrame(imputed, columns=missing_set.columns.values)
+
+            if imputed.isnull().sum().sum() > 0: 
+                rmse_val = np.inf
+                return rmse_val
+            
+            rmse_val = rmse_loss(ori_data=X_test.to_numpy(), imputed_data=imputed.to_numpy(), data_m=np.multiply(masked_test.to_numpy(),1))
+            avg_cv_rmse.append(rmse_val)
+        except:
+            rmse_val = np.inf
+            return rmse_val
+    cv_rmse = sum(avg_cv_rmse)/float(len(avg_cv_rmse))
+    trial.set_user_attr('cv-rmse', cv_rmse)
+    return cv_rmse
 
 def rmse_loss(ori_data, imputed_data, data_m):
     '''Compute RMSE loss between ori_data and imputed_data
