@@ -63,7 +63,7 @@ def main():
                     'root_config_dict':["classifiers"],
                     'leaf_config_dict': None,
                     'inner_config_dict': ["selectors", "transformers"],
-                    'max_size' : 2,
+                    'max_size' : 1,
                     'linear_pipeline' : True,
                     }
 
