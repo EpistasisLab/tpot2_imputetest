@@ -320,7 +320,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
                 #Simple Impute 
                 all_scores = {}
                 if exp['exp_name'] == 'tpot2_base_normal':
-                    SimpleImputeSpace = autoimpute.AutoImputer(added_missing=0.05, missing_type=type, model_names=['SimpleImputer'], n_jobs=48, show_progress=False, random_state=num_runs)
+                    SimpleImputeSpace = autoimpute.AutoImputer(missing_type=type, model_names=['SimpleImputer'], n_jobs=48, show_progress=False, random_state=num_runs)
                     SimpleImputeSpace.fit(X_train_missing_p)
                     print('simple fit')
                     simple_impute = SimpleImputeSpace.transform(X_test_missing_p)
@@ -336,7 +336,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
                     imputed = simple_impute
                 else:
                     #Auto Impute 
-                    AutoImputeSpace = autoimpute.AutoImputer(added_missing=0.05, missing_type=type, model_names=['SimpleImputer', 'IterativeImputer', 'KNNImputer', 'GAIN', 'RandomForestImputer'], n_jobs=48, show_progress=False, random_state=num_runs)
+                    AutoImputeSpace = autoimpute.AutoImputer(missing_type=type, model_names=['SimpleImputer', 'IterativeImputer', 'KNNImputer', 'GAIN', 'RandomForestImputer'], n_jobs=48, show_progress=False, random_state=num_runs)
                     AutoImputeSpace.fit(X_train_missing_p)
                     print('auto fit')
                     auto_impute = AutoImputeSpace.transform(X_test_missing_p)
