@@ -478,9 +478,10 @@ def add_missing(X, add_missing = 0.05, missing_type = 'MAR'):
             out = MCAR(T, [add_missing])
         case 'MNAR':
             out = MNAR_mask_logistic(T, [add_missing])
-
+    
     masked_set = pd.DataFrame(out['Mask'].numpy())
-    masked_set = masked_set.mask((missing_mask or masked_set), True)
+    missing_combo = (missing_mask | masked_set.isna())
+    masked_set = masked_set.mask(missing_combo, True)
     masked_set.columns = X.columns.values
     #masked_set = masked_set.to_numpy()
 
