@@ -284,8 +284,8 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
         for exp in experiments:
             #print('loc4')
             levelstr = str(level)
-            save_folder = f"{base_save_folder}/{exp['exp_name']}_{taskid}_{levelstr}_{type}"
-            checkpoint_folder = f"{base_save_folder}/checkpoint/{exp['exp_name']}_{taskid}_{levelstr}_{type}"
+            save_folder = f"{base_save_folder}/{taskid}/{exp['exp_name']}_{type}_{levelstr}"
+            checkpoint_folder = f"{base_save_folder}/checkpoint/{taskid}/{exp['exp_name']}_{type}_{levelstr}"
             #print('loc5')
             time.sleep(random.random()*5)
             if not os.path.exists(save_folder):
