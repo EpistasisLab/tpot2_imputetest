@@ -69,7 +69,7 @@ class AutoImputer():
     #self.missing_set_test, self.masked_set_test = utils.add_missing(X, add_missing=self.added_missing, missing_type=self.missing_type)
     imputed = self.best_model.transform(X)
     if 'numpy' in str(type(imputed)):
-      imputed = pd.DataFrame(imputed, columns=self.X.columns.values)
+      imputed = pd.DataFrame(imputed, columns=X.columns.values)
     transstop_time = time.time()
     self.transform_time = transstop_time - transstart_time
     return imputed

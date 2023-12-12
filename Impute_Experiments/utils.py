@@ -330,7 +330,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
                     simple_space = SimpleImputeSpace.study.best_trial.params
                     simple_impute = simple_impute.to_numpy()
                     print(simple_rmse)
-                    print(simple_rmse)
+                    print(simple_space)
                     all_scores['impute_rmse'] = simple_rmse
                     all_scores['impute_space'] = simple_space
                     imputed = simple_impute
@@ -371,8 +371,11 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
                 print(est.fitted_pipeline_)
                 print('score start')
                 train_score = score(est, X_train, y_train)
+                print('train score:', train_score)
                 ori_test_score = score(est, X_test, y_test)
+                print('original test score:', ori_test_score)
                 imputed_test_score = score(est, imputed, y_test)
+                print('imputed test score:', imputed_test_score)
                 print('score end')
                 train_score = {f"train_{k}": v for k, v in train_score.items()}
                 all_scores['train_score'] = train_score
@@ -418,7 +421,9 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
                 print(tpot_space.fitted_pipeline_)
                 print('score start')
                 train_score = score(tpot_space, X_train_missing_n, y_train)
+                print('train score:', train_score)
                 test_score = score(tpot_space, X_test_missing_n, y_test)
+                print('test score:', test_score)
                 print('score end')
                 tpot_space_scores = {}
                 train_score = {f"train_{k}": v for k, v in train_score.items()}
