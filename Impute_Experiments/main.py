@@ -4,6 +4,7 @@ import sklearn.metrics
 import sklearn
 import argparse
 import utils
+import time
 import sklearn.datasets
 from sklearn.experimental import enable_iterative_imputer
 from sklearn.impute import SimpleImputer, IterativeImputer, KNNImputer
@@ -158,8 +159,13 @@ def main():
     '''
     task_id_lists = [30]
     print('starting loops')
+    start = time.time()
     utils.loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs)
-
+    stop = time.time()
+    duration = stop - start
+    print('one dataset takes')
+    print(duration/3600)
+    print('hours')
 
 
 if __name__ == '__main__':
