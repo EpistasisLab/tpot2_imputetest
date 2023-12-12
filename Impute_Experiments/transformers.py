@@ -606,10 +606,7 @@ class GAINImputer(BaseEstimator, TransformerMixin):
         return self.gain(X, self.params)
 
     def fit_transform(self, X, y=None, **fit_params):
-        print(fit_params)
-        if fit_params != {}:
-            self.params = fit_params
-        return self.transform(X)
+        return self.fit(X).transform(X)
     
     
     def gain(self, data_x, gain_parameters):

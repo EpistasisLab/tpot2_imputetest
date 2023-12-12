@@ -60,7 +60,7 @@ normal_params =  {
                 'root_config_dict':["classifiers"],
                 'leaf_config_dict': None,
                 'inner_config_dict': ["selectors", "transformers"],
-                'max_size' : np.inf,
+                'max_size' : 2,
                 'linear_pipeline' : True,
 
                 'scorers':['neg_log_loss', tpot2.objectives.complexity_scorer],
@@ -71,7 +71,7 @@ normal_params =  {
                 'population_size' : n_jobs,
                 'survival_percentage':1, 
                 'initial_population_size' : n_jobs,
-                'generations' : 50, 
+                'generations' : 5, 
                 'n_jobs':n_jobs,
                 'cv': sklearn.model_selection.StratifiedKFold(n_splits=10, shuffle=True, random_state=42),
                 'verbose':5, 
