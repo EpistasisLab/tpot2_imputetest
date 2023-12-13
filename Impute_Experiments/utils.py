@@ -316,7 +316,6 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
 
                 print("running experiment 1/3 - Does large hyperparameter space improve reconstruction accuracy over simple")
 
-                '''
                 #Simple Impute 
                 all_scores = {}
                 if exp['exp_name'] == 'tpot2_base_normal':
@@ -402,7 +401,6 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
                     pickle.dump(all_scores, f)
 
                 print('EXP2 Finished')
-                '''
                 
                 print("running experiment 3/3 - What is the best automl settings?")
 
