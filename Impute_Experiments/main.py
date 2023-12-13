@@ -71,7 +71,7 @@ def main():
                     'root_config_dict': {"Recursive" : normal_params},
                     'leaf_config_dict': {"Recursive" : imputation_params},
                     'inner_config_dict': None,
-                    'max_size' : 2,
+                    'max_size' : 1,
                     'linear_pipeline' : True,
 
                     'scorers':['neg_log_loss', tpot2.objectives.complexity_scorer],
@@ -104,7 +104,7 @@ def main():
                     'root_config_dict': {"Recursive" : normal_params},
                     'leaf_config_dict': {"Recursive" : simple_params},
                     'inner_config_dict': None,
-                    'max_size' : 2,
+                    'max_size' : 1,
                     'linear_pipeline' : True,
 
                     'scorers':['neg_log_loss', tpot2.objectives.complexity_scorer],
