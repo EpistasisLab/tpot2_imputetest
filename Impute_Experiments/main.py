@@ -32,7 +32,7 @@ def main():
     total_duration = 360000
 
     imputation_config_dict = {
-                SimpleImputer: params_SimpleImpute, 
+                #SimpleImputer: params_SimpleImpute, 
                 #IterativeImputer: params_IterativeImpute,
                 #KNNImputer: params_KNNImpute,
                 #RandomForestImputer: params_RandomForestImpute,
@@ -137,13 +137,13 @@ def main():
     experiments = [
             {
             'automl': tpot2.TPOTEstimator,
-            'exp_name' : 'tpot2_base_normal',
-            'params': simple_and_normal_params,
+            'exp_name' : 'tpot2_base_imputation',
+            'params': imputation_params_and_normal_params,
             },
             {
             'automl': tpot2.TPOTEstimator,
-            'exp_name' : 'tpot2_base_imputation',
-            'params': imputation_params_and_normal_params,
+            'exp_name' : 'tpot2_base_normal',
+            'params': simple_and_normal_params,
             },
             ]
     #try with 67 / 69 benchmark sets
