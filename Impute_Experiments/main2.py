@@ -157,7 +157,7 @@ def main():
                     41671, 42183, 42192, 42225, 42477, 42493, 42545, 42636, 42688,
                     42712]
     '''
-    task_id_lists = [26, 30, 32]
+    task_id_lists = [32, 137, 151]
     print('starting loops')
     start = time.time()
     utils.loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs)
