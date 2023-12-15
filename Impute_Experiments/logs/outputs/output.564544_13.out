@@ -1,0 +1,47 @@
+Run: 13
+/cm/local/apps/slurm/var/spool/job564544/slurm_script: line 23: /common/ketrong/minconda3/etc/profile.d/conda.sh: No such file or directory
+/cm/local/apps/slurm/var/spool/job564544/slurm_script: line 26: $'\nconda create --name tpot2devenv -c conda-forge python=3.10\n': command not found
+/cm/local/apps/slurm/var/spool/job564544/slurm_script: line 31: $'\npip install -r requirements.txt\n': command not found
+RunStart
+2023-12-15 11:49:28.085702: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2023-12-15 11:49:28.120708: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2023-12-15 11:49:28.120734: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2023-12-15 11:49:28.121854: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2023-12-15 11:49:28.127301: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-12-15 11:49:29.639146: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+starting loops
+working on 
+logs/32/tpot2_base_normal_MNAR_0.3
+2.570960760116577
+loading data
+data/32_True.pkl
+failed on 
+logs/32/tpot2_base_normal_MNAR_0.3
+[Errno 116] Stale file handle
+Traceback (most recent call last):
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/utils.py", line 309, in loop_through_tasks
+    X_train, y_train, X_test, y_test = load_task(taskid, preprocess=True)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/utils.py", line 199, in load_task
+    task = openml.tasks.get_task(task_id)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/tasks/functions.py", line 415, in get_task
+    raise e
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/tasks/functions.py", line 399, in get_task
+    dataset = get_dataset(task.dataset_id, *dataset_args, **get_dataset_kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/datasets/functions.py", line 498, in get_dataset
+    parquet_file = _get_dataset_parquet(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/datasets/functions.py", line 1098, in _get_dataset_parquet
+    openml._api_calls._download_minio_file(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/_api_calls.py", line 151, in _download_minio_file
+    client.fget_object(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/minio/api.py", line 1074, in fget_object
+    with open(tmp_file_path, "wb") as tmp_file:
+OSError: [Errno 116] Stale file handle
+
+one dataset takes
+0.0025467481878068713
+hours
+DONE
