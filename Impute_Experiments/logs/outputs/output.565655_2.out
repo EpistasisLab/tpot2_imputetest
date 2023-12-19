@@ -1040,4 +1040,72 @@ Best complexity_scorer score: 1.0
 Generation:  80%|████████  | 40/50 [58:55<10:03, 60.38s/it]Generation:  41
 Best log_loss score: -0.00021798648476888702
 Best complexity_scorer score: 1.0
-Generation:  82%|████████▏ | 41/50 [59:56<09:03, 60.44s/it]
+Generation:  82%|████████▏ | 41/50 [59:56<09:03, 60.44s/it]Generation:  42
+Best log_loss score: -0.00021798648476888702
+Best complexity_scorer score: 1.0
+Generation:  84%|████████▍ | 42/50 [1:00:38<07:19, 55.00s/it]Generation:  43
+Best log_loss score: -0.00021798648476888702
+Best complexity_scorer score: 1.0
+Generation:  86%|████████▌ | 43/50 [1:01:39<06:38, 56.94s/it]Generation:  44
+Best log_loss score: -0.00021798648476888702
+Best complexity_scorer score: 1.0
+Generation:  88%|████████▊ | 44/50 [1:01:55<04:27, 44.52s/it]Generation:  45
+Best log_loss score: -0.00021798648476888702
+Best complexity_scorer score: 1.0
+Generation:  90%|█████████ | 45/50 [1:02:21<03:14, 38.84s/it]Generation:  46
+Best log_loss score: -0.00021798648476888702
+Best complexity_scorer score: 1.0
+Generation:  92%|█████████▏| 46/50 [1:03:23<03:03, 45.93s/it]Generation:  47
+Best log_loss score: -0.00021798648476888702
+Best complexity_scorer score: 1.0
+Generation:  94%|█████████▍| 47/50 [1:04:25<02:32, 50.72s/it]Generation:  48
+Best log_loss score: -0.00021798648476888702
+Best complexity_scorer score: 1.0
+Generation:  96%|█████████▌| 48/50 [1:05:27<01:48, 54.01s/it]Generation:  49
+Best log_loss score: -0.00021798648476888702
+Best complexity_scorer score: 1.0
+Generation:  98%|█████████▊| 49/50 [1:06:28<00:56, 56.26s/it]Generation:  50
+Best log_loss score: -0.00021798648476888702
+Best complexity_scorer score: 1.0
+Generation: 100%|██████████| 50/50 [1:07:30<00:00, 57.97s/it]Generation: 100%|██████████| 50/50 [1:07:30<00:00, 81.01s/it]
+Fitted
+['MLPClassifier_1']
+score start
+train score: {'auroc': 1.0, 'accuracy': 1.0, 'balanced_accuracy': 1.0, 'logloss': 5.5788986904333804e-05}
+failed on 
+logs/26/tpot2_base_normal_MCAR_0.1
+Number of classes in y_true not equal to the number of columns in 'y_score'
+Traceback (most recent call last):
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/utils.py", line 165, in score
+    this_auroc_score = sklearn.metrics.get_scorer("roc_auc_ovr")(est, X, y)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 266, in __call__
+    return self._score(partial(_cached_call, None), estimator, X, y_true, **_kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 401, in _score
+    return self._sign * self._score_func(y, y_pred, **scoring_kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 214, in wrapper
+    return func(*args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/metrics/_ranking.py", line 621, in roc_auc_score
+    return _multiclass_roc_auc_score(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/metrics/_ranking.py", line 738, in _multiclass_roc_auc_score
+    raise ValueError(
+ValueError: Number of classes in y_true not equal to the number of columns in 'y_score'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/utils.py", line 375, in loop_through_tasks
+    ori_test_score = score(est, X_test, y_test)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/utils.py", line 169, in score
+    this_auroc_score = roc_auc_score(y, y_preds_onehot, multi_class="ovr")
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 214, in wrapper
+    return func(*args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/metrics/_ranking.py", line 621, in roc_auc_score
+    return _multiclass_roc_auc_score(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/metrics/_ranking.py", line 738, in _multiclass_roc_auc_score
+    raise ValueError(
+ValueError: Number of classes in y_true not equal to the number of columns in 'y_score'
+
+full run takes
+1.1522534756528007
+hours
+DONE

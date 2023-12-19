@@ -389,6 +389,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
                 all_scores["name"] = openml.datasets.get_dataset(openml.tasks.get_task(taskid).dataset_id).name
                 all_scores["duration"] = duration
                 all_scores["run"] = num_runs
+                all_scores["fit_model"] = est.fitted_pipeline_
 
                 if exp['automl'] is tpot2.TPOTClassifier or exp['automl'] is tpot2.TPOTEstimator or exp['automl'] is  tpot2.TPOTEstimatorSteadyState:
                     with open(f"{save_folder}/est_evaluated_individuals.pkl", "wb") as f:
@@ -435,6 +436,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
                 tpot_space_scores["name"] = openml.datasets.get_dataset(openml.tasks.get_task(taskid).dataset_id).name
                 tpot_space_scores["duration"] = duration
                 tpot_space_scores["run"] = num_runs
+                tpot_space_scores["fit_model"] = tpot_space.fitted_pipeline_
 
                 if exp['automl'] is tpot2.TPOTClassifier or exp['automl'] is tpot2.TPOTEstimator or exp['automl'] is  tpot2.TPOTEstimatorSteadyState:
                     with open(f"{save_folder}/tpot_space_evaluated_individuals.pkl", "wb") as f:
