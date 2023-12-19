@@ -307,6 +307,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
             try: 
                 print("loading data")
                 X_train, y_train, X_test, y_test = load_task(taskid, preprocess=True)
+                '''
                 X_train_pandas = pd.DataFrame(X_train)
                 X_test_pandas = pd.DataFrame(X_test)
                 X_train_missing_p, mask_train = add_missing(X_train_pandas, add_missing=level, missing_type=type)
@@ -446,6 +447,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
                     pickle.dump(tpot_space_scores, f)
                 
                 #return
+                '''
             except Exception as e:
                 trace =  traceback.format_exc() 
                 pipeline_failure_dict = {"taskid": taskid, "exp_name": exp['exp_name'], "run": num_runs, "error": str(e), "trace": trace, "level": level, "type": type}
@@ -458,6 +460,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
                     pickle.dump(pipeline_failure_dict, f)
 
                 return
+                
         print(taskid)
         print('finished')
     print("all finished")
