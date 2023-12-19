@@ -1,0 +1,104 @@
+Run: 11
+/cm/local/apps/slurm/var/spool/job565601/slurm_script: line 23: /common/ketrong/minconda3/etc/profile.d/conda.sh: No such file or directory
+/cm/local/apps/slurm/var/spool/job565601/slurm_script: line 26: $'\nconda create --name tpot2devenv -c conda-forge python=3.10\n': command not found
+/cm/local/apps/slurm/var/spool/job565601/slurm_script: line 31: $'\npip install -r requirements.txt\n': command not found
+RunStart
+2023-12-19 13:27:29.798972: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2023-12-19 13:27:29.833403: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2023-12-19 13:27:29.833427: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2023-12-19 13:27:29.834530: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2023-12-19 13:27:29.840082: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-12-19 13:27:31.853506: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+starting loops
+working on 
+logs/6/tpot2_base_normal_MNAR_0.01
+4.919149398803711
+loading data
+logs/6/tpot2_base_normal_MNAR_0.01/data/6_True.pkl
+working on 
+logs/6/tpot2_base_imputation_MNAR_0.01
+4.844202756881714
+loading data
+logs/6/tpot2_base_imputation_MNAR_0.01/data/6_True.pkl
+6
+finished
+working on 
+logs/26/tpot2_base_normal_MNAR_0.01
+0.9337623119354248
+loading data
+logs/26/tpot2_base_normal_MNAR_0.01/data/26_True.pkl
+working on 
+logs/26/tpot2_base_imputation_MNAR_0.01
+2.7141973972320557
+loading data
+logs/26/tpot2_base_imputation_MNAR_0.01/data/26_True.pkl
+26
+finished
+working on 
+logs/30/tpot2_base_normal_MNAR_0.01
+1.5369482040405273
+loading data
+logs/30/tpot2_base_normal_MNAR_0.01/data/30_True.pkl
+working on 
+logs/30/tpot2_base_imputation_MNAR_0.01
+2.708064556121826
+loading data
+logs/30/tpot2_base_imputation_MNAR_0.01/data/30_True.pkl
+30
+finished
+working on 
+logs/32/tpot2_base_normal_MNAR_0.01
+2.911552667617798
+loading data
+logs/32/tpot2_base_normal_MNAR_0.01/data/32_True.pkl
+working on 
+logs/32/tpot2_base_imputation_MNAR_0.01
+2.2016820907592773
+loading data
+logs/32/tpot2_base_imputation_MNAR_0.01/data/32_True.pkl
+32
+finished
+working on 
+logs/151/tpot2_base_normal_MNAR_0.01
+3.23382306098938
+loading data
+logs/151/tpot2_base_normal_MNAR_0.01/data/151_True.pkl
+failed on 
+logs/151/tpot2_base_normal_MNAR_0.01
+Cannot remove faulty datasets cache directory /home/ketrong/.cache/openml/org/openml/www/datasets/125.Please do this manually!
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/utils.py", line 375, in _remove_cache_dir_for_id
+    shutil.rmtree(cache_dir)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/shutil.py", line 725, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/shutil.py", line 681, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/shutil.py", line 679, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+FileNotFoundError: [Errno 2] No such file or directory: 'qualities.xml'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/utils.py", line 310, in loop_through_tasks
+    X_train, y_train, X_test, y_test = load_task(base_save_folder=base_save_folder, exp=exp, type=type, levelstr=levelstr, task_id=taskid, preprocess=True)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/utils.py", line 200, in load_task
+    task = openml.tasks.get_task(task_id, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/tasks/functions.py", line 415, in get_task
+    raise e
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/tasks/functions.py", line 399, in get_task
+    dataset = get_dataset(task.dataset_id, *dataset_args, **get_dataset_kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/datasets/functions.py", line 477, in get_dataset
+    _remove_cache_dir_for_id(DATASETS_CACHE_DIR_NAME, did_cache_dir)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/utils.py", line 377, in _remove_cache_dir_for_id
+    raise ValueError(
+ValueError: Cannot remove faulty datasets cache directory /home/ketrong/.cache/openml/org/openml/www/datasets/125.Please do this manually!
+
+full run takes
+0.0182506036096149
+hours
+DONE

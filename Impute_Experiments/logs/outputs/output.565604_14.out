@@ -1,0 +1,111 @@
+Run: 14
+/cm/local/apps/slurm/var/spool/job565604/slurm_script: line 23: /common/ketrong/minconda3/etc/profile.d/conda.sh: No such file or directory
+/cm/local/apps/slurm/var/spool/job565604/slurm_script: line 26: $'\nconda create --name tpot2devenv -c conda-forge python=3.10\n': command not found
+/cm/local/apps/slurm/var/spool/job565604/slurm_script: line 31: $'\npip install -r requirements.txt\n': command not found
+RunStart
+2023-12-19 13:27:31.448756: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2023-12-19 13:27:31.483471: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2023-12-19 13:27:31.483495: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2023-12-19 13:27:31.484632: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2023-12-19 13:27:31.490337: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-12-19 13:27:32.681834: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+starting loops
+working on 
+logs/6/tpot2_base_normal_MNAR_0.5
+3.6968510150909424
+loading data
+logs/6/tpot2_base_normal_MNAR_0.5/data/6_True.pkl
+working on 
+logs/6/tpot2_base_imputation_MNAR_0.5
+2.7248034477233887
+loading data
+logs/6/tpot2_base_imputation_MNAR_0.5/data/6_True.pkl
+6
+finished
+working on 
+logs/26/tpot2_base_normal_MNAR_0.5
+2.674643039703369
+loading data
+logs/26/tpot2_base_normal_MNAR_0.5/data/26_True.pkl
+working on 
+logs/26/tpot2_base_imputation_MNAR_0.5
+3.4823405742645264
+loading data
+logs/26/tpot2_base_imputation_MNAR_0.5/data/26_True.pkl
+26
+finished
+working on 
+logs/30/tpot2_base_normal_MNAR_0.5
+1.036909818649292
+loading data
+logs/30/tpot2_base_normal_MNAR_0.5/data/30_True.pkl
+working on 
+logs/30/tpot2_base_imputation_MNAR_0.5
+2.8350393772125244
+loading data
+logs/30/tpot2_base_imputation_MNAR_0.5/data/30_True.pkl
+30
+finished
+working on 
+logs/32/tpot2_base_normal_MNAR_0.5
+3.1974546909332275
+loading data
+logs/32/tpot2_base_normal_MNAR_0.5/data/32_True.pkl
+working on 
+logs/32/tpot2_base_imputation_MNAR_0.5
+1.8812925815582275
+loading data
+logs/32/tpot2_base_imputation_MNAR_0.5/data/32_True.pkl
+32
+finished
+working on 
+logs/151/tpot2_base_normal_MNAR_0.5
+1.4546871185302734
+loading data
+logs/151/tpot2_base_normal_MNAR_0.5/data/151_True.pkl
+failed on 
+logs/151/tpot2_base_normal_MNAR_0.5
+Cannot remove faulty tasks cache directory /home/ketrong/.cache/openml/org/openml/www/tasks/151.Please do this manually!
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/tasks/functions.py", line 399, in get_task
+    dataset = get_dataset(task.dataset_id, *dataset_args, **get_dataset_kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/datasets/functions.py", line 495, in get_dataset
+    arff_file = _get_dataset_arff(description) if download_data else None
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/datasets/functions.py", line 1148, in _get_dataset_arff
+    openml._api_calls._download_text_file(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/_api_calls.py", line 252, in _download_text_file
+    with open(output_path, "w", encoding=encoding) as fh:
+OSError: [Errno 5] Input/output error: '/home/ketrong/.cache/openml/org/openml/www/datasets/125/dataset.arff'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/utils.py", line 375, in _remove_cache_dir_for_id
+    shutil.rmtree(cache_dir)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/shutil.py", line 737, in rmtree
+    onerror(os.path.islink, path, sys.exc_info())
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/shutil.py", line 735, in rmtree
+    raise OSError("Cannot call rmtree on a symbolic link")
+OSError: Cannot call rmtree on a symbolic link
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/utils.py", line 310, in loop_through_tasks
+    X_train, y_train, X_test, y_test = load_task(base_save_folder=base_save_folder, exp=exp, type=type, levelstr=levelstr, task_id=taskid, preprocess=True)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/utils.py", line 200, in load_task
+    task = openml.tasks.get_task(task_id, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/tasks/functions.py", line 411, in get_task
+    openml.utils._remove_cache_dir_for_id(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/utils.py", line 377, in _remove_cache_dir_for_id
+    raise ValueError(
+ValueError: Cannot remove faulty tasks cache directory /home/ketrong/.cache/openml/org/openml/www/tasks/151.Please do this manually!
+
+full run takes
+0.01939028130637275
+hours
+DONE

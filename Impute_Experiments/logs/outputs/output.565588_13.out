@@ -1,0 +1,128 @@
+Run: 13
+/cm/local/apps/slurm/var/spool/job565588/slurm_script: line 23: /common/ketrong/minconda3/etc/profile.d/conda.sh: No such file or directory
+/cm/local/apps/slurm/var/spool/job565588/slurm_script: line 26: $'\nconda create --name tpot2devenv -c conda-forge python=3.10\n': command not found
+/cm/local/apps/slurm/var/spool/job565588/slurm_script: line 31: $'\npip install -r requirements.txt\n': command not found
+RunStart
+2023-12-19 13:23:37.532928: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2023-12-19 13:23:37.568835: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2023-12-19 13:23:37.568861: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2023-12-19 13:23:37.570235: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2023-12-19 13:23:37.577515: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-12-19 13:23:38.676846: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+starting loops
+working on 
+logs/6/tpot2_base_normal_MNAR_0.3
+3.6127541065216064
+loading data
+logs/6/tpot2_base_normal_MNAR_0.3/data/6_True.pkl
+working on 
+logs/6/tpot2_base_imputation_MNAR_0.3
+1.9161691665649414
+loading data
+logs/6/tpot2_base_imputation_MNAR_0.3/data/6_True.pkl
+6
+finished
+working on 
+logs/26/tpot2_base_normal_MNAR_0.3
+2.246208429336548
+loading data
+logs/26/tpot2_base_normal_MNAR_0.3/data/26_True.pkl
+working on 
+logs/26/tpot2_base_imputation_MNAR_0.3
+3.479907751083374
+loading data
+logs/26/tpot2_base_imputation_MNAR_0.3/data/26_True.pkl
+26
+finished
+working on 
+logs/30/tpot2_base_normal_MNAR_0.3
+3.875776767730713
+loading data
+logs/30/tpot2_base_normal_MNAR_0.3/data/30_True.pkl
+working on 
+logs/30/tpot2_base_imputation_MNAR_0.3
+1.6684622764587402
+loading data
+logs/30/tpot2_base_imputation_MNAR_0.3/data/30_True.pkl
+30
+finished
+working on 
+logs/32/tpot2_base_normal_MNAR_0.3
+4.346493721008301
+loading data
+logs/32/tpot2_base_normal_MNAR_0.3/data/32_True.pkl
+working on 
+logs/32/tpot2_base_imputation_MNAR_0.3
+0.873436689376831
+loading data
+logs/32/tpot2_base_imputation_MNAR_0.3/data/32_True.pkl
+32
+finished
+working on 
+logs/137/tpot2_base_normal_MNAR_0.3
+1.87538480758667
+loading data
+logs/137/tpot2_base_normal_MNAR_0.3/data/137_True.pkl
+failed on 
+logs/137/tpot2_base_normal_MNAR_0.3
+Cannot remove faulty tasks cache directory /home/ketrong/.cache/openml/org/openml/www/tasks/137.Please do this manually!
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/tasks/task.py", line 157, in download_split
+    split = OpenMLSplit._from_arff_file(cached_split_file)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/tasks/split.py", line 87, in _from_arff_file
+    raise FileNotFoundError("Split arff %s does not exist!" % filename)
+FileNotFoundError: Split arff /home/ketrong/.cache/openml/org/openml/www/tasks/137/datasplits.arff does not exist!
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/tasks/functions.py", line 409, in get_task
+    task.download_split()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/tasks/task.py", line 161, in download_split
+    split = OpenMLSplit._from_arff_file(cached_split_file)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/tasks/split.py", line 88, in _from_arff_file
+    file_data = arff.load(open(filename), return_type=arff.DENSE_GEN)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/arff.py", line 1059, in load
+    return decoder.decode(fp, encode_nominal=encode_nominal,
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/arff.py", line 896, in decode
+    raise e
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/arff.py", line 892, in decode
+    return self._decode(s, encode_nominal=encode_nominal,
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/arff.py", line 813, in _decode
+    obj['relation'] = self._decode_relation(row)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/arff.py", line 706, in _decode_relation
+    raise BadRelationFormat()
+arff.BadRelationFormat: Bad @RELATION format, at line 1.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/utils.py", line 375, in _remove_cache_dir_for_id
+    shutil.rmtree(cache_dir)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/shutil.py", line 731, in rmtree
+    onerror(os.rmdir, path, sys.exc_info())
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/shutil.py", line 729, in rmtree
+    os.rmdir(path)
+OSError: [Errno 39] Directory not empty: '/home/ketrong/.cache/openml/org/openml/www/tasks/137'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/utils.py", line 310, in loop_through_tasks
+    X_train, y_train, X_test, y_test = load_task(base_save_folder=base_save_folder, exp=exp, type=type, levelstr=levelstr, task_id=taskid, preprocess=True)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/utils.py", line 200, in load_task
+    task = openml.tasks.get_task(task_id, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/tasks/functions.py", line 411, in get_task
+    openml.utils._remove_cache_dir_for_id(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/utils.py", line 377, in _remove_cache_dir_for_id
+    raise ValueError(
+ValueError: Cannot remove faulty tasks cache directory /home/ketrong/.cache/openml/org/openml/www/tasks/137.Please do this manually!
+
+full run takes
+0.03750111858050029
+hours
+DONE

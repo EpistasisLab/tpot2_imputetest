@@ -1,0 +1,109 @@
+Run: 8
+/cm/local/apps/slurm/var/spool/job565567/slurm_script: line 23: /common/ketrong/minconda3/etc/profile.d/conda.sh: No such file or directory
+/cm/local/apps/slurm/var/spool/job565567/slurm_script: line 26: $'\nconda create --name tpot2devenv -c conda-forge python=3.10\n': command not found
+/cm/local/apps/slurm/var/spool/job565567/slurm_script: line 31: $'\npip install -r requirements.txt\n': command not found
+RunStart
+2023-12-19 13:09:11.483020: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2023-12-19 13:09:11.517284: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2023-12-19 13:09:11.517308: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2023-12-19 13:09:11.518212: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2023-12-19 13:09:11.523337: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-12-19 13:09:14.618780: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+starting loops
+working on 
+logs/6/tpot2_base_normal_MAR_0.3
+3.026944637298584
+loading data
+logs/6/tpot2_base_normal_MAR_0.3/data/6_True.pkl
+working on 
+logs/6/tpot2_base_imputation_MAR_0.3
+2.550687313079834
+loading data
+logs/6/tpot2_base_imputation_MAR_0.3/data/6_True.pkl
+6
+finished
+working on 
+logs/26/tpot2_base_normal_MAR_0.3
+0.10474085807800293
+loading data
+logs/26/tpot2_base_normal_MAR_0.3/data/26_True.pkl
+working on 
+logs/26/tpot2_base_imputation_MAR_0.3
+1.218613624572754
+loading data
+logs/26/tpot2_base_imputation_MAR_0.3/data/26_True.pkl
+26
+finished
+working on 
+logs/30/tpot2_base_normal_MAR_0.3
+4.897526741027832
+loading data
+logs/30/tpot2_base_normal_MAR_0.3/data/30_True.pkl
+working on 
+logs/30/tpot2_base_imputation_MAR_0.3
+4.267001152038574
+loading data
+logs/30/tpot2_base_imputation_MAR_0.3/data/30_True.pkl
+30
+finished
+working on 
+logs/32/tpot2_base_normal_MAR_0.3
+4.637550354003906
+loading data
+logs/32/tpot2_base_normal_MAR_0.3/data/32_True.pkl
+working on 
+logs/32/tpot2_base_imputation_MAR_0.3
+2.015967845916748
+loading data
+logs/32/tpot2_base_imputation_MAR_0.3/data/32_True.pkl
+32
+finished
+working on 
+logs/137/tpot2_base_normal_MAR_0.3
+1.1689932346343994
+loading data
+logs/137/tpot2_base_normal_MAR_0.3/data/137_True.pkl
+failed on 
+logs/137/tpot2_base_normal_MAR_0.3
+[Errno 5] Input/output error: '/home/ketrong/.cache/openml/org/openml/www/tasks/137/datasplits.arff'
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/tasks/task.py", line 157, in download_split
+    split = OpenMLSplit._from_arff_file(cached_split_file)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/tasks/split.py", line 87, in _from_arff_file
+    raise FileNotFoundError("Split arff %s does not exist!" % filename)
+FileNotFoundError: Split arff /home/ketrong/.cache/openml/org/openml/www/tasks/137/datasplits.arff does not exist!
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/tasks/task.py", line 140, in _download_split
+    with io.open(cache_file, encoding="utf8"):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ketrong/.cache/openml/org/openml/www/tasks/137/datasplits.arff'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/utils.py", line 309, in loop_through_tasks
+    X_train, y_train, X_test, y_test = load_task(base_save_folder=base_save_folder, exp=exp, type=type, levelstr=levelstr, task_id=taskid, preprocess=True)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/utils.py", line 199, in load_task
+    task = openml.tasks.get_task(task_id)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/tasks/functions.py", line 415, in get_task
+    raise e
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/tasks/functions.py", line 409, in get_task
+    task.download_split()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/tasks/task.py", line 160, in download_split
+    self._download_split(cached_split_file)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/tasks/task.py", line 144, in _download_split
+    openml._api_calls._download_text_file(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/_api_calls.py", line 252, in _download_text_file
+    with open(output_path, "w", encoding=encoding) as fh:
+OSError: [Errno 5] Input/output error: '/home/ketrong/.cache/openml/org/openml/www/tasks/137/datasplits.arff'
+
+full run takes
+0.025171970195240444
+hours
+DONE
