@@ -225,8 +225,8 @@ def load_task(base_save_folder, exp,type, levelstr, task_id, preprocess=True):
                 X_train = np.append(X_train, X_train[indices], axis=0)
 
             d = {"X_train": X_train, "y_train": y_train, "X_test": X_test, "y_test": y_test}
-            if not os.path.exists("data"):
-                os.makedirs("data")
+            if not os.path.exists(f"{base_save_folder}/{task_id}/{exp['exp_name']}_{type}_{levelstr}/data/"):
+                os.makedirs(f"{base_save_folder}/{task_id}/{exp['exp_name']}_{type}_{levelstr}/data/")
             with open(cached_data_path, "wb") as f:
                 pickle.dump(d, f)
 
@@ -306,7 +306,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
 
             try: 
                 print("loading data")
-                X_train, y_train, X_test, y_test = load_task(base_save_folder=base_save_folder, exp=exp type=type, levelstr=levelstr, task_id=taskid, preprocess=True)
+                X_train, y_train, X_test, y_test = load_task(base_save_folder=base_save_folder, exp=exp, type=type, levelstr=levelstr, task_id=taskid, preprocess=True)
                 '''
                 X_train_pandas = pd.DataFrame(X_train)
                 X_test_pandas = pd.DataFrame(X_test)
