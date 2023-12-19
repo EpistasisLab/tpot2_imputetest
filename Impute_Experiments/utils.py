@@ -306,7 +306,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
 
             try: 
                 print("loading data")
-                X_train, y_train, X_test, y_test = load_task(base_save_folder=base_save_folder, type=type, levelstr=levelstr, task_id=taskid, preprocess=True)
+                X_train, y_train, X_test, y_test = load_task(base_save_folder=base_save_folder, exp=exp type=type, levelstr=levelstr, task_id=taskid, preprocess=True)
                 '''
                 X_train_pandas = pd.DataFrame(X_train)
                 X_test_pandas = pd.DataFrame(X_test)
