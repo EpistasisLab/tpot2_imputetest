@@ -188,9 +188,9 @@ def score(est, X, y):
 
 
 #https://github.com/automl/ASKL2.0_experiments/blob/84a9c0b3af8f7ac6e2a003d4dea5e6dce97d4315/experiment_scripts/utils.py
-def load_task(task_id, preprocess=True):
+def load_task(base_save_folder, exp,type, levelstr, task_id, preprocess=True):
     
-    cached_data_path = f"data/{task_id}_{preprocess}.pkl"
+    cached_data_path = f"{base_save_folder}/{task_id}/{exp['exp_name']}_{type}_{levelstr}/data/{task_id}_{preprocess}.pkl"
     print(cached_data_path)
     if os.path.exists(cached_data_path):
         d = pickle.load(open(cached_data_path, "rb"))
@@ -306,7 +306,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
 
             try: 
                 print("loading data")
-                X_train, y_train, X_test, y_test = load_task(taskid, preprocess=True)
+                X_train, y_train, X_test, y_test = load_task(base_save_folder=base_save_folder, type=type, levelstr=levelstr, task_id=taskid, preprocess=True)
                 '''
                 X_train_pandas = pd.DataFrame(X_train)
                 X_test_pandas = pd.DataFrame(X_test)

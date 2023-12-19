@@ -10,3 +10,91 @@ RunStart
 2023-12-19 12:50:53.870506: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
 To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
 2023-12-19 12:51:03.251225: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+starting loops
+working on 
+logs/6/tpot2_base_normal_MCAR_0.1
+2.7135894298553467
+loading data
+data/6_True.pkl
+working on 
+logs/6/tpot2_base_imputation_MCAR_0.1
+4.961068868637085
+loading data
+data/6_True.pkl
+6
+finished
+working on 
+logs/26/tpot2_base_normal_MCAR_0.1
+0.1087338924407959
+loading data
+data/26_True.pkl
+working on 
+logs/26/tpot2_base_imputation_MCAR_0.1
+0.7362833023071289
+loading data
+data/26_True.pkl
+26
+finished
+working on 
+logs/30/tpot2_base_normal_MCAR_0.1
+4.559582471847534
+loading data
+data/30_True.pkl
+working on 
+logs/30/tpot2_base_imputation_MCAR_0.1
+1.9815466403961182
+loading data
+data/30_True.pkl
+30
+finished
+working on 
+logs/32/tpot2_base_normal_MCAR_0.1
+2.6409823894500732
+loading data
+data/32_True.pkl
+working on 
+logs/32/tpot2_base_imputation_MCAR_0.1
+2.814784049987793
+loading data
+data/32_True.pkl
+32
+finished
+working on 
+logs/137/tpot2_base_normal_MCAR_0.1
+0.5087721347808838
+loading data
+data/137_True.pkl
+failed on 
+logs/137/tpot2_base_normal_MCAR_0.1
+Split arff /home/ketrong/.cache/openml/org/openml/www/tasks/137/datasplits.arff does not exist!
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/tasks/task.py", line 157, in download_split
+    split = OpenMLSplit._from_arff_file(cached_split_file)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/tasks/split.py", line 87, in _from_arff_file
+    raise FileNotFoundError("Split arff %s does not exist!" % filename)
+FileNotFoundError: Split arff /home/ketrong/.cache/openml/org/openml/www/tasks/137/datasplits.arff does not exist!
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/utils.py", line 309, in loop_through_tasks
+    X_train, y_train, X_test, y_test = load_task(taskid, preprocess=True)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/utils.py", line 199, in load_task
+    task = openml.tasks.get_task(task_id)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/tasks/functions.py", line 415, in get_task
+    raise e
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/tasks/functions.py", line 409, in get_task
+    task.download_split()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/tasks/task.py", line 161, in download_split
+    split = OpenMLSplit._from_arff_file(cached_split_file)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/tasks/split.py", line 87, in _from_arff_file
+    raise FileNotFoundError("Split arff %s does not exist!" % filename)
+FileNotFoundError: Split arff /home/ketrong/.cache/openml/org/openml/www/tasks/137/datasplits.arff does not exist!
+
+full run takes
+0.030264200899336072
+hours
+DONE
