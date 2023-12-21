@@ -1,0 +1,52 @@
+Run: 12
+/cm/local/apps/slurm/var/spool/job565766/slurm_script: line 23: /common/ketrong/minconda3/etc/profile.d/conda.sh: No such file or directory
+/cm/local/apps/slurm/var/spool/job565766/slurm_script: line 26: $'\nconda create --name tpot2devenv -c conda-forge python=3.10\n': command not found
+/cm/local/apps/slurm/var/spool/job565766/slurm_script: line 31: $'\npip install -r requirements.txt\n': command not found
+RunStart
+2023-12-20 12:12:07.176946: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2023-12-20 12:12:07.212328: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2023-12-20 12:12:07.212353: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2023-12-20 12:12:07.213728: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2023-12-20 12:12:07.219777: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-12-20 12:12:08.371160: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+starting loops
+working on 
+logs/14953/tpot2_base_normal_MNAR_0.1
+3.912358283996582
+loading data
+logs/14953/tpot2_base_normal_MNAR_0.1/data/14953_True.pkl
+failed on 
+logs/14953/tpot2_base_normal_MNAR_0.1
+y contains previously unseen labels: ' Ebd'
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_encode.py", line 225, in _encode
+    return _map_to_integer(values, uniques)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_encode.py", line 165, in _map_to_integer
+    return np.array([table[v] for v in values])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_encode.py", line 165, in <listcomp>
+    return np.array([table[v] for v in values])
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_encode.py", line 159, in __missing__
+    raise KeyError(key)
+KeyError: ' Ebd'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/utils.py", line 310, in loop_through_tasks
+    X_train, y_train, X_test, y_test = load_task(base_save_folder=base_save_folder, exp=exp, type=type, levelstr=levelstr, task_id=taskid, preprocess=True)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/utils.py", line 218, in load_task
+    y_test = le.transform(y_test)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/preprocessing/_label.py", line 137, in transform
+    return _encode(y, uniques=self.classes_)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_encode.py", line 227, in _encode
+    raise ValueError(f"y contains previously unseen labels: {str(e)}")
+ValueError: y contains previously unseen labels: ' Ebd'
+
+full run takes
+0.0022734216186735363
+hours
+DONE

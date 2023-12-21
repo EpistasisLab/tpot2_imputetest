@@ -1041,4 +1041,93 @@ Best complexity_scorer score: 1.0
 Generation:  66%|██████▌   | 33/50 [53:11<14:54, 52.62s/it]Generation:  34
 Best log_loss score: -0.0001891332347696899
 Best complexity_scorer score: 1.0
-Generation:  68%|██████▊   | 34/50 [53:51<12:58, 48.67s/it]
+Generation:  68%|██████▊   | 34/50 [53:51<12:58, 48.67s/it]Generation:  35
+Best log_loss score: -0.0001891332347696899
+Best complexity_scorer score: 1.0
+Generation:  70%|███████   | 35/50 [54:46<12:40, 50.67s/it]Generation:  36
+Best log_loss score: -0.0001891332347696899
+Best complexity_scorer score: 1.0
+Generation:  72%|███████▏  | 36/50 [55:47<12:33, 53.80s/it]Generation:  37
+Best log_loss score: -0.0001891332347696899
+Best complexity_scorer score: 1.0
+Generation:  74%|███████▍  | 37/50 [56:13<09:50, 45.40s/it]Generation:  38
+Best log_loss score: -0.0001891332347696899
+Best complexity_scorer score: 1.0
+Generation:  76%|███████▌  | 38/50 [56:53<08:44, 43.71s/it]Generation:  39
+Best log_loss score: -0.0001891332347696899
+Best complexity_scorer score: 1.0
+Generation:  78%|███████▊  | 39/50 [57:55<09:01, 49.21s/it]Generation:  40
+Best log_loss score: -0.0001891332347696899
+Best complexity_scorer score: 1.0
+Generation:  80%|████████  | 40/50 [58:56<08:47, 52.74s/it]Generation:  41
+Best log_loss score: -0.0001891332347696899
+Best complexity_scorer score: 1.0
+Generation:  82%|████████▏ | 41/50 [59:58<08:21, 55.68s/it]Generation:  42
+Best log_loss score: -0.0001891332347696899
+Best complexity_scorer score: 1.0
+Generation:  84%|████████▍ | 42/50 [1:01:03<07:47, 58.38s/it]Generation:  43
+Best log_loss score: -0.0001891332347696899
+Best complexity_scorer score: 1.0
+Generation:  86%|████████▌ | 43/50 [1:02:05<06:56, 59.43s/it]Generation:  44
+Best log_loss score: -0.0001891332347696899
+Best complexity_scorer score: 1.0
+Generation:  88%|████████▊ | 44/50 [1:03:07<06:00, 60.15s/it]Generation:  45
+Best log_loss score: -0.0001891332347696899
+Best complexity_scorer score: 1.0
+Generation:  90%|█████████ | 45/50 [1:04:08<05:03, 60.65s/it]Generation:  46
+Best log_loss score: -0.0001891332347696899
+Best complexity_scorer score: 1.0
+Generation:  92%|█████████▏| 46/50 [1:05:10<04:04, 61.07s/it]Generation:  47
+Best log_loss score: -0.0001891332347696899
+Best complexity_scorer score: 1.0
+Generation:  94%|█████████▍| 47/50 [1:06:12<03:04, 61.35s/it]Generation:  48
+Best log_loss score: -0.0001891332347696899
+Best complexity_scorer score: 1.0
+Generation:  96%|█████████▌| 48/50 [1:06:59<01:53, 56.87s/it]Generation:  49
+Best log_loss score: -0.0001891332347696899
+Best complexity_scorer score: 1.0
+Generation:  98%|█████████▊| 49/50 [1:08:01<00:58, 58.52s/it]Generation:  50
+Best log_loss score: -0.0001891332347696899
+Best complexity_scorer score: 1.0
+Generation: 100%|██████████| 50/50 [1:09:03<00:00, 59.52s/it]Generation: 100%|██████████| 50/50 [1:09:03<00:00, 82.87s/it]
+Fitted
+['MLPClassifier_1']
+score start
+train score: {'auroc': 0.9999936570886655, 'accuracy': 0.991340877914952, 'balanced_accuracy': 0.994738213076322, 'logloss': 0.03886406192886107}
+failed on 
+logs/26/tpot2_base_normal_MNAR_0.1
+Number of classes in y_true not equal to the number of columns in 'y_score'
+Traceback (most recent call last):
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/utils.py", line 165, in score
+    this_auroc_score = sklearn.metrics.get_scorer("roc_auc_ovr")(est, X, y)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 266, in __call__
+    return self._score(partial(_cached_call, None), estimator, X, y_true, **_kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 401, in _score
+    return self._sign * self._score_func(y, y_pred, **scoring_kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 214, in wrapper
+    return func(*args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/metrics/_ranking.py", line 621, in roc_auc_score
+    return _multiclass_roc_auc_score(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/metrics/_ranking.py", line 738, in _multiclass_roc_auc_score
+    raise ValueError(
+ValueError: Number of classes in y_true not equal to the number of columns in 'y_score'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/utils.py", line 375, in loop_through_tasks
+    ori_test_score = score(est, X_test, y_test)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/utils.py", line 169, in score
+    this_auroc_score = roc_auc_score(y, y_preds_onehot, multi_class="ovr")
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 214, in wrapper
+    return func(*args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/metrics/_ranking.py", line 621, in roc_auc_score
+    return _multiclass_roc_auc_score(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/metrics/_ranking.py", line 738, in _multiclass_roc_auc_score
+    raise ValueError(
+ValueError: Number of classes in y_true not equal to the number of columns in 'y_score'
+
+full run takes
+1.1817695427603192
+hours
+DONE
