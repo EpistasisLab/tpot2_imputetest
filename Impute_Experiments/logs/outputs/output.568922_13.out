@@ -3727,3 +3727,133 @@ KNeighborsClassifier does not accept missing values encoded as NaN natively. For
 ValueError: Input X contains NaN.
 KNeighborsClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
 
+Generation:  9
+Best log_loss score: -0.456579031858945
+Best complexity_scorer score: 2.0
+Generation:  18%|█▊        | 9/50 [42:13<3:15:33, 286.19s/it]Generation:  10
+Best log_loss score: -0.456579031858945
+Best complexity_scorer score: 2.0
+Generation:  20%|██        | 10/50 [43:00<2:21:26, 212.17s/it]2023-12-28 22:28:47.153293: E external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:274] failed call to cuInit: CUDA_ERROR_NO_DEVICE: no CUDA-capable device is detected
+2023-12-28 22:28:47.162214: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:388] MLIR V1 optimization pass is not enabled
+2023-12-28 22:28:47.253831: E external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:274] failed call to cuInit: CUDA_ERROR_NO_DEVICE: no CUDA-capable device is detected
+2023-12-28 22:28:47.267201: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:388] MLIR V1 optimization pass is not enabled
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ [('KNeighborsClassifier_1', 'GAINImputer_1')] 
+ operands could not be broadcast together with shapes (280,6) (460,6)  
+ Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/estimator.py", line 702, in objective_function
+    return objective_function_generator(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/estimator_utils.py", line 117, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/cross_val_utils.py", line 31, in cross_val_score_objective
+    this_fold_scores = [sklearn.metrics.get_scorer(scorer)(this_fold_pipeline, X_test, y_test) for scorer in scorers]
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/cross_val_utils.py", line 31, in <listcomp>
+    this_fold_scores = [sklearn.metrics.get_scorer(scorer)(this_fold_pipeline, X_test, y_test) for scorer in scorers]
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 266, in __call__
+    return self._score(partial(_cached_call, None), estimator, X, y_true, **_kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 399, in _score
+    y_pred = method_caller(clf, "predict_proba", X, pos_label=self._get_pos_label())
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 86, in _cached_call
+    result, _ = _get_response_values(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_response.py", line 194, in _get_response_values
+    y_pred = prediction_method(X)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 409, in predict_proba
+    this_X = get_inputs_to_node(self.graph,
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 219, in get_inputs_to_node
+    transformed_steps = transform_sklearn_digraph(graph,
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 196, in transform_sklearn_digraph
+    transformed = instance.transform(this_X)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 715, in gain
+    H_mb = M_mb * H_mb_temp
+ValueError: operands could not be broadcast together with shapes (280,6) (460,6) 
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ [('KNeighborsClassifier_1', 'GAINImputer_1')] 
+ operands could not be broadcast together with shapes (280,6) (283,6)  
+ Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/estimator.py", line 702, in objective_function
+    return objective_function_generator(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/estimator_utils.py", line 117, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/cross_val_utils.py", line 31, in cross_val_score_objective
+    this_fold_scores = [sklearn.metrics.get_scorer(scorer)(this_fold_pipeline, X_test, y_test) for scorer in scorers]
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/cross_val_utils.py", line 31, in <listcomp>
+    this_fold_scores = [sklearn.metrics.get_scorer(scorer)(this_fold_pipeline, X_test, y_test) for scorer in scorers]
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 266, in __call__
+    return self._score(partial(_cached_call, None), estimator, X, y_true, **_kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 399, in _score
+    y_pred = method_caller(clf, "predict_proba", X, pos_label=self._get_pos_label())
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 86, in _cached_call
+    result, _ = _get_response_values(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_response.py", line 194, in _get_response_values
+    y_pred = prediction_method(X)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 409, in predict_proba
+    this_X = get_inputs_to_node(self.graph,
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 219, in get_inputs_to_node
+    transformed_steps = transform_sklearn_digraph(graph,
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 196, in transform_sklearn_digraph
+    transformed = instance.transform(this_X)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 715, in gain
+    H_mb = M_mb * H_mb_temp
+ValueError: operands could not be broadcast together with shapes (280,6) (283,6) 
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ [('KNeighborsClassifier_1', 'GAINImputer_1')] 
+ operands could not be broadcast together with shapes (280,6) (463,6)  
+ Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/estimator.py", line 702, in objective_function
+    return objective_function_generator(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/estimator_utils.py", line 117, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/cross_val_utils.py", line 31, in cross_val_score_objective
+    this_fold_scores = [sklearn.metrics.get_scorer(scorer)(this_fold_pipeline, X_test, y_test) for scorer in scorers]
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/cross_val_utils.py", line 31, in <listcomp>
+    this_fold_scores = [sklearn.metrics.get_scorer(scorer)(this_fold_pipeline, X_test, y_test) for scorer in scorers]
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 266, in __call__
+    return self._score(partial(_cached_call, None), estimator, X, y_true, **_kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 399, in _score
+    y_pred = method_caller(clf, "predict_proba", X, pos_label=self._get_pos_label())
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 86, in _cached_call
+    result, _ = _get_response_values(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_response.py", line 194, in _get_response_values
+    y_pred = prediction_method(X)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 409, in predict_proba
+    this_X = get_inputs_to_node(self.graph,
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 219, in get_inputs_to_node
+    transformed_steps = transform_sklearn_digraph(graph,
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 196, in transform_sklearn_digraph
+    transformed = instance.transform(this_X)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 606, in transform
+    return self.gain(X, self.params)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/transformers.py", line 715, in gain
+    H_mb = M_mb * H_mb_temp
+ValueError: operands could not be broadcast together with shapes (280,6) (463,6) 
+
