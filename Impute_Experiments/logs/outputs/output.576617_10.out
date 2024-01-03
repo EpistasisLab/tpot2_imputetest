@@ -1,0 +1,81 @@
+Run: 10
+/cm/local/apps/slurm/var/spool/job576617/slurm_script: line 23: /common/ketrong/minconda3/etc/profile.d/conda.sh: No such file or directory
+/cm/local/apps/slurm/var/spool/job576617/slurm_script: line 26: $'\nconda create --name tpot2devenv -c conda-forge python=3.10\n': command not found
+/cm/local/apps/slurm/var/spool/job576617/slurm_script: line 31: $'\npip install -r requirements.txt\n': command not found
+RunStart
+2024-01-03 12:28:11.620462: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-01-03 12:28:11.656494: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-01-03 12:28:11.656519: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-01-03 12:28:11.657889: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-01-03 12:28:11.664085: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-01-03 12:28:13.175908: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+starting loops
+working on 
+logs/2309/tpot2_base_normal_MAR_0.9
+1.6926662921905518
+loading data
+logs/2309/tpot2_base_normal_MAR_0.9/data/2309_True.pkl
+WARNING:openml.datasets.functions:Could not download file from http://openml1.win.tue.nl/dataset218/dataset_218.pq: [Errno 2] No such file or directory: '/home/ketrong/.cache/openml/org/openml/www/datasets/218/dataset_218.pq.ec6abcb510cc7f7375c7f3a156d25f4f.part.minio' -> '/home/ketrong/.cache/openml/org/openml/www/datasets/218/dataset_218.pq'
+WARNING:openml.datasets.functions:Failed to download parquet, fallback on ARFF.
+failed on 
+logs/2309/tpot2_base_normal_MAR_0.9
+Cannot remove faulty tasks cache directory /home/ketrong/.cache/openml/org/openml/www/tasks/2309.Please do this manually!
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/tasks/task.py", line 157, in download_split
+    split = OpenMLSplit._from_arff_file(cached_split_file)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/tasks/split.py", line 87, in _from_arff_file
+    raise FileNotFoundError("Split arff %s does not exist!" % filename)
+FileNotFoundError: Split arff /home/ketrong/.cache/openml/org/openml/www/tasks/2309/datasplits.arff does not exist!
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/tasks/task.py", line 140, in _download_split
+    with io.open(cache_file, encoding="utf8"):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ketrong/.cache/openml/org/openml/www/tasks/2309/datasplits.arff'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/tasks/functions.py", line 409, in get_task
+    task.download_split()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/tasks/task.py", line 160, in download_split
+    self._download_split(cached_split_file)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/tasks/task.py", line 144, in _download_split
+    openml._api_calls._download_text_file(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/_api_calls.py", line 252, in _download_text_file
+    with open(output_path, "w", encoding=encoding) as fh:
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ketrong/.cache/openml/org/openml/www/tasks/2309/datasplits.arff'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/utils.py", line 375, in _remove_cache_dir_for_id
+    shutil.rmtree(cache_dir)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/shutil.py", line 715, in rmtree
+    onerror(os.lstat, path, sys.exc_info())
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/shutil.py", line 713, in rmtree
+    orig_st = os.lstat(path)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ketrong/.cache/openml/org/openml/www/tasks/2309'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/utils.py", line 310, in loop_through_tasks
+    X_train, y_train, X_test, y_test = load_task(base_save_folder=base_save_folder, exp=exp, type=type, levelstr=levelstr, task_id=taskid, preprocess=True)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/utils.py", line 200, in load_task
+    task = openml.tasks.get_task(task_id)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/tasks/functions.py", line 411, in get_task
+    openml.utils._remove_cache_dir_for_id(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/utils.py", line 377, in _remove_cache_dir_for_id
+    raise ValueError(
+ValueError: Cannot remove faulty tasks cache directory /home/ketrong/.cache/openml/org/openml/www/tasks/2309.Please do this manually!
+
+full run takes
+0.003488167325655619
+hours
+DONE

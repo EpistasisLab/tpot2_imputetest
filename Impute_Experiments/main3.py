@@ -60,7 +60,7 @@ def main():
                 }
 
     normal_params =  {
-                    'root_config_dict':["classifiers"],
+                    'root_config_dict':["classifiers", "regressors"],
                     'leaf_config_dict': None,
                     'inner_config_dict': ["selectors", "transformers"],
                     'max_size' : 1,
