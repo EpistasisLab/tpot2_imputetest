@@ -58,7 +58,7 @@ imputation_params =  {
             }
 '''
 normal_params =  {
-                'root_config_dict':["regressors"],
+                'root_config_dict':["classifiers"],
                 'leaf_config_dict': None,
                 'inner_config_dict': ["selectors", "transformers"],
                 'max_size' : 1,

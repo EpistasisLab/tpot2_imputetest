@@ -60,7 +60,7 @@ def main():
                 }
 
     normal_params =  {
-                    'root_config_dict':["regressors"],
+                    'root_config_dict':["classifiers"],
                     'leaf_config_dict': None,
                     'inner_config_dict': ["selectors", "transformers"],
                     'max_size' : 1,
@@ -182,7 +182,7 @@ def main():
                     ]
                 218, 251, 4552 wrong, need new task list for all.  isnt the right data set. Need to process these from the dataset pull. 
     '''
-    task_id_lists = [2306]
+    task_id_lists = [3764]
     
     print('starting loops')
     start = time.time()
