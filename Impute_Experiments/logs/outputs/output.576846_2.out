@@ -1,0 +1,74 @@
+Run: 2
+/cm/local/apps/slurm/var/spool/job576846/slurm_script: line 23: /common/ketrong/minconda3/etc/profile.d/conda.sh: No such file or directory
+/cm/local/apps/slurm/var/spool/job576846/slurm_script: line 26: $'\nconda create --name tpot2devenv -c conda-forge python=3.10\n': command not found
+/cm/local/apps/slurm/var/spool/job576846/slurm_script: line 31: $'\npip install -r requirements.txt\n': command not found
+RunStart
+2024-01-03 13:17:13.890835: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-01-03 13:17:13.924239: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-01-03 13:17:13.924262: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-01-03 13:17:13.925085: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-01-03 13:17:13.930024: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-01-03 13:17:15.457601: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+starting loops
+working on 
+logs/3764/tpot2_base_normal_MCAR_0.1
+3.9042580127716064
+loading data
+logs/3764/tpot2_base_normal_MCAR_0.1/data/3764_True.pkl
+Could not download file from http://openml1.win.tue.nl/dataset901/dataset_901.pq: [Errno 2] No such file or directory: '/home/ketrong/.cache/openml/org/openml/www/datasets/901/dataset_901.pq.ea79047bc946f709596901e738b3bb63.part.minio'
+Failed to download parquet, fallback on ARFF.
+failed on 
+logs/3764/tpot2_base_normal_MCAR_0.1
+Cannot remove faulty tasks cache directory /home/ketrong/.cache/openml/org/openml/www/tasks/3764.Please do this manually!
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/datasets/dataset.py", line 999, in _read_features
+    with open(features_pickle_file, "rb") as fh_binary:
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ketrong/.cache/openml/org/openml/www/datasets/901/features.xml.pkl'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/tasks/functions.py", line 399, in get_task
+    dataset = get_dataset(task.dataset_id, *dataset_args, **get_dataset_kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/datasets/functions.py", line 519, in get_dataset
+    dataset = _create_dataset_from_description(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/datasets/functions.py", line 1289, in _create_dataset_from_description
+    return OpenMLDataset(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/datasets/dataset.py", line 220, in __init__
+    self._features = _read_features(features_file)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/datasets/dataset.py", line 1002, in _read_features
+    with open(features_file, encoding="utf8") as fh:
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ketrong/.cache/openml/org/openml/www/datasets/901/features.xml'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/utils.py", line 375, in _remove_cache_dir_for_id
+    shutil.rmtree(cache_dir)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/shutil.py", line 721, in rmtree
+    onerror(os.open, path, sys.exc_info())
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/shutil.py", line 718, in rmtree
+    fd = os.open(path, os.O_RDONLY)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ketrong/.cache/openml/org/openml/www/tasks/3764'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/utils.py", line 310, in loop_through_tasks
+    X_train, y_train, X_test, y_test = load_task(base_save_folder=base_save_folder, exp=exp, type=type, levelstr=levelstr, task_id=taskid, preprocess=True)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/utils.py", line 200, in load_task
+    task = openml.tasks.get_task(task_id)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/tasks/functions.py", line 411, in get_task
+    openml.utils._remove_cache_dir_for_id(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/utils.py", line 377, in _remove_cache_dir_for_id
+    raise ValueError(
+ValueError: Cannot remove faulty tasks cache directory /home/ketrong/.cache/openml/org/openml/www/tasks/3764.Please do this manually!
+
+full run takes
+0.0036850294801923965
+hours
+DONE
