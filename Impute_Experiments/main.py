@@ -157,7 +157,7 @@ def main():
                     42712}
     completed : 6, 26, 30, 32, 2142, 14953, 206, 219,2075, 2076, 2280,
                     3483, 3510, 3591, 3594, 3603, 3668, 3688, 3712, 3735, 3745, 
-                     3764, 3786, 3899, 3954, 7295
+                     3764, 3786, 3899, 3954, 7295, 14964, 9983, 9972, 9952, 9959, 9943
     new_task_list_class = [
                     6, 26, 30, 32, 2142, 14953, 206, 219, 2075, 2076, 2280,
                     3483, 3510, 3591, 3594, 3603, 3668, 3688, 3712, 3735, 3745, 
@@ -183,7 +183,7 @@ def main():
                     ]
                 218, 251, 4552 wrong, need new task list for all.  isnt the right data set. Need to process these from the dataset pull. 
     '''
-    task_id_lists = [9983]
+    task_id_lists = [9942]
     
     print('starting loops')
     start = time.time()
