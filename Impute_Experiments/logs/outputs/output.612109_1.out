@@ -1,0 +1,58 @@
+Run: 1
+/cm/local/apps/slurm/var/spool/job612109/slurm_script: line 23: /common/ketrong/minconda3/etc/profile.d/conda.sh: No such file or directory
+/cm/local/apps/slurm/var/spool/job612109/slurm_script: line 26: $'\nconda create --name tpot2devenv -c conda-forge python=3.10\n': command not found
+/cm/local/apps/slurm/var/spool/job612109/slurm_script: line 31: $'\npip install -r requirements.txt\n': command not found
+RunStart
+2024-01-15 22:19:16.688283: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-01-15 22:19:16.724879: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-01-15 22:19:16.724905: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-01-15 22:19:16.726358: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-01-15 22:19:16.732634: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-01-15 22:19:18.957689: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+starting loops
+working on 
+logs/146204/tpot2_base_normal_MCAR_0.01
+1.4357225894927979
+loading data
+logs/146204/tpot2_base_normal_MCAR_0.01/data/146204_True.pkl
+failed on 
+logs/146204/tpot2_base_normal_MCAR_0.01
+File: /home/ketrong/.cache/openml/org/openml/www/datasets/40677/dataset_40677.pq
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/datasets/dataset.py", line 518, in _cache_compressed_file_from_file
+    data = pd.read_parquet(data_file)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/io/parquet.py", line 503, in read_parquet
+    return impl.read(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/io/parquet.py", line 244, in read
+    path_or_handle, handles, kwargs["filesystem"] = _get_path_or_handle(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/io/parquet.py", line 102, in _get_path_or_handle
+    handles = get_handle(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/pandas/io/common.py", line 865, in get_handle
+    handle = open(handle, ioargs.mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ketrong/.cache/openml/org/openml/www/datasets/40677/dataset_40677.pq'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/utils.py", line 310, in loop_through_tasks
+    X_train, y_train, X_test, y_test = load_task(base_save_folder=base_save_folder, exp=exp, type=type, levelstr=levelstr, task_id=taskid, preprocess=True)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/utils.py", line 203, in load_task
+    X, y = task.get_X_and_y(dataset_format="dataframe")
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/tasks/task.py", line 276, in get_X_and_y
+    X, y, _, _ = dataset.get_data(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/datasets/dataset.py", line 745, in get_data
+    data, categorical, attribute_names = self._load_data()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/datasets/dataset.py", line 558, in _load_data
+    return self._cache_compressed_file_from_file(file_to_load)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/openml/datasets/dataset.py", line 520, in _cache_compressed_file_from_file
+    raise Exception(f"File: {data_file}") from e
+Exception: File: /home/ketrong/.cache/openml/org/openml/www/datasets/40677/dataset_40677.pq
+
+full run takes
+0.004181304242875841
+hours
+DONE
