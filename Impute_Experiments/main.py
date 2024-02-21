@@ -60,7 +60,7 @@ def main():
                 }
 
     normal_params =  {
-                    'root_config_dict':["classifiers"],
+                    'root_config_dict':["regressors"],
                     'leaf_config_dict': None,
                     'inner_config_dict': ["selectors", "transformers"],
                     'max_size' : 1,
@@ -74,7 +74,7 @@ def main():
                     'max_size' : 1,
                     'linear_pipeline' : True,
 
-                    'scorers':['neg_log_loss', tpot2.objectives.complexity_scorer],
+                    'scorers':['neg_root_mean_squared_error', tpot2.objectives.complexity_scorer],
                     'scorers_weights':[1,-1],
                     'other_objective_functions':[],
                     'other_objective_functions_weights':[],
@@ -97,7 +97,7 @@ def main():
 
                     'memory_limit':None,  
                     'preprocessing':False,
-                    'classification' : True,
+                    'classification' : False,
                 }
     
     simple_and_normal_params = {
@@ -107,7 +107,7 @@ def main():
                     'max_size' : 1,
                     'linear_pipeline' : True,
 
-                    'scorers':['neg_log_loss', tpot2.objectives.complexity_scorer],
+                    'scorers':['neg_root_mean_squared_error', tpot2.objectives.complexity_scorer],
                     'scorers_weights':[1,-1],
                     'other_objective_functions':[],
                     'other_objective_functions_weights':[],
@@ -130,7 +130,7 @@ def main():
 
                     'memory_limit':None,  
                     'preprocessing':False,
-                    'classification' : True,
+                    'classification' : False,
 
     }
     
@@ -158,18 +158,17 @@ def main():
     completed : 6, 26, 30, 32, 2142, 14953, 206, 219,2075, 2076, 2280,
                     3483, 3510, 3591, 3594, 3603, 3668, 3688, 3712, 3735, 3745, 
                      3764, 3786, 3899, 3954, 7295, 14964, 9983, 9972, 9952, 9959, 9943,
-                     9942, 9899, 34539, 167120, 145943, 145681, '146204', '146212', '167141', '167212', '146820', '167119'
+                     9942, 9899, 34539, 167120, 145943, 145681, '146204', '146212', '167141', '167212', '146820', '167119', 189865, 189773
     new_task_list_class = [
                     6, 26, 30, 32, 2142, 14953, 206, 219, 2075, 2076, 2280,
                     3483, 3510, 3591, 3594, 3603, 3668, 3688, 3712, 3735, 3745, 
                     3764, 3786, 3899, 3954, 7295, 14964, 9983, 9972, 9952, 9959, 9943, 9942, 
                     9899, 34539, 167120, 145943, 145681, 146204, 146212, 167141, 167212, 146820, 
-                    167119, 189865, 189773, 
-                    ]
+                    167119, 189865, 189773, ]
     Ran: 6, 26, 30, 32, 2142, 14953, 206, 219 
 
     215, 218, 197, 216, 287, 1193, 1199, 42225, 42688, 42712
-    new_task_list_regression = [   2306, 2309, 2288, 2289, 2307, 359935, 7320, 7323,
+    new_task_list_regression = [2306, 2309, 2288, 2289, 2307, 359935, 7320, 7323,
                                 233211, 359938, 317615
 
                             ]
@@ -184,7 +183,7 @@ def main():
                     ]
                 218, 251, 4552 wrong, need new task list for all.  isnt the right data set. Need to process these from the dataset pull. 
     '''
-    task_id_lists = [189865]
+    task_id_lists = [2306]
     
     print('starting loops')
     start = time.time()

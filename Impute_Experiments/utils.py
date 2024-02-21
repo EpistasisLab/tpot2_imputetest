@@ -58,13 +58,13 @@ imputation_params =  {
             }
 '''
 normal_params =  {
-                'root_config_dict':["classifiers"],
+                'root_config_dict':["regressors"],
                 'leaf_config_dict': None,
                 'inner_config_dict': ["selectors", "transformers"],
                 'max_size' : 1,
                 'linear_pipeline' : True,
 
-                'scorers':['neg_log_loss', tpot2.objectives.complexity_scorer],
+                'scorers':['neg_root_mean_squared_error', tpot2.objectives.complexity_scorer],
                 'scorers_weights':[1,-1],
                 'other_objective_functions':[],
                 'other_objective_functions_weights':[],
@@ -87,7 +87,7 @@ normal_params =  {
 
                 'memory_limit':None,  
                 'preprocessing':False,
-                'classification' : True,
+                'classification' : False,
                 }
 '''
 imputation_params_and_normal_params = {
