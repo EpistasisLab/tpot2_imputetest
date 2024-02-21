@@ -169,7 +169,7 @@ def score(est, X, y):
         this_auroc_score = roc_auc_score(y, y_preds_onehot, multi_class="ovr")
     
     try:
-        this_logloss = sklearn.metrics.get_scorer("neg_log_loss")(est, X, y)*-1
+        this_rmse = sklearn.metrics.get_scorer("neg_root_mean_squared_error")(est, X, y)*-1
     except:
         y_preds = est.predict(X)
         y_preds_onehot = sklearn.preprocessing.label_binarize(y_preds, classes=est.fitted_pipeline_.classes_)
@@ -182,7 +182,7 @@ def score(est, X, y):
     return { "auroc": this_auroc_score,
             "accuracy": this_accuracy_score,
             "balanced_accuracy": this_balanced_accuracy_score,
-            "logloss": this_logloss,
+            "rmse": this_rmse,
     }
 
 
@@ -212,10 +212,11 @@ def load_task(base_save_folder, exp,type, levelstr, task_id, preprocess=True):
             X_train = preprocessing_pipeline.fit_transform(X_train)
             X_test = preprocessing_pipeline.transform(X_test)
 
-            
+            '''
             le = sklearn.preprocessing.LabelEncoder()
             y_train = le.fit_transform(y_train)
             y_test = le.transform(y_test)
+            '''
 
             X_train = X_train.to_numpy()
             X_test = X_test.to_numpy()
