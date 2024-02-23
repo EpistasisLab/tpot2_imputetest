@@ -74,7 +74,7 @@ normal_params =  {
                 'initial_population_size' : n_jobs,
                 'generations' : 50, 
                 'n_jobs':n_jobs,
-                'cv': sklearn.model_selection.StratifiedKFold(n_splits=10, shuffle=True, random_state=42),
+                'cv': sklearn.model_selection.KFold(n_splits=10, shuffle=True, random_state=42),
                 'verbose':5, 
                 'max_time_seconds': total_duration,
                 'max_eval_time_seconds':60*10, 
@@ -107,7 +107,7 @@ imputation_params_and_normal_params = {
                 'initial_population_size' : n_jobs,
                 'generations' : 75, 
                 'n_jobs':n_jobs,
-                'cv': sklearn.model_selection.StratifiedKFold(n_splits=10, shuffle=True, random_state=42),
+                'cv': sklearn.model_selection.KFold(n_splits=10, shuffle=True, random_state=42),
                 'verbose':5, 
                 'max_time_seconds': total_duration,
                 'max_eval_time_seconds':60*10, 
@@ -140,7 +140,7 @@ simple_and_normal_params = {
                 'initial_population_size' : n_jobs,
                 'generations' : 75, 
                 'n_jobs':n_jobs,
-                'cv': sklearn.model_selection.StratifiedKFold(n_splits=10, shuffle=True, random_state=42),
+                'cv': sklearn.model_selection.KFold(n_splits=10, shuffle=True, random_state=42),
                 'verbose':5, 
                 'max_time_seconds': total_duration,
                 'max_eval_time_seconds':60*10, 
@@ -169,7 +169,7 @@ def score(est, X, y):
         this_auroc_score = roc_auc_score(y, y_preds_onehot, multi_class="ovr")
     
     try:
-        this_rmse = sklearn.metrics.get_scorer("neg_root_mean_squared_error")(est, X, y)*-1
+        this_rmse = sklearn.metrics.get_scorer("neg_root_mean_squared_error")(est, X, y)
     except:
         y_preds = est.predict(X)
         y_preds_onehot = sklearn.preprocessing.label_binarize(y_preds, classes=est.fitted_pipeline_.classes_)
@@ -309,8 +309,11 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
             try: 
                 print("loading data")
                 X_train, y_train, X_test, y_test = load_task(base_save_folder=base_save_folder, exp=exp, type=type, levelstr=levelstr, task_id=taskid, preprocess=True)
+                print(y_train)
                 X_train_pandas = pd.DataFrame(X_train)
+                print(X_train_pandas)
                 X_test_pandas = pd.DataFrame(X_test)
+                print(X_test_pandas)
                 X_train_missing_p, mask_train = add_missing(X_train_pandas, add_missing=level, missing_type=type)
                 X_test_missing_p, mask_test = add_missing(X_test_pandas, add_missing=level, missing_type=type)
                 X_train_missing_n = X_train_missing_p.to_numpy()
@@ -320,6 +323,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
                 
                 #Simple Impute 
                 all_scores = {}
+                """
                 if exp['exp_name'] == 'tpot2_base_normal':
                     SimpleImputeSpace = autoimpute.AutoImputer(missing_type=type, model_names=['SimpleImputer'], n_jobs=48, show_progress=False, random_state=num_runs)
                     SimpleImputeSpace.fit(X_train_missing_p)
@@ -351,13 +355,13 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
                     all_scores['impute_rmse'] = auto_rmse
                     all_scores['impute_space'] = auto_space
                     imputed = auto_impute
-
+                
                 print("running experiment 2/3 - Does reconstruction give good automl predictions")
                 #this section trains off of original train data, and then tests on the original, the simpleimputed,
                 #  and the autoimpute test data. This section uses the normal params since it is checking just for predictive preformance, 
                 # not the role of various imputers in the tpot optimization space. 
 
-                exp['params']['cv'] = sklearn.model_selection.StratifiedKFold(n_splits=10, shuffle=True, random_state=num_runs)
+                exp['params']['cv'] = sklearn.model_selection.KFold(n_splits=10, shuffle=True, random_state=num_runs)
                 exp['params']['periodic_checkpoint_folder'] = checkpoint_folder
                 est = exp['automl'](**normal_params)
 
@@ -404,10 +408,11 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
                     pickle.dump(all_scores, f)
 
                 print('EXP2 Finished')
+                """
 
                 print("running experiment 3/3 - What is the best automl settings?")
 
-                exp['params']['cv'] = sklearn.model_selection.StratifiedKFold(n_splits=10, shuffle=True, random_state=num_runs)
+                exp['params']['cv'] = sklearn.model_selection.KFold(n_splits=10, shuffle=True, random_state=num_runs)
                 exp['params']['periodic_checkpoint_folder'] = checkpoint_folder
                 tpot_space = exp['automl'](**exp['params'])
                 print(exp['automl'])
