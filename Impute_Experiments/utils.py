@@ -169,7 +169,7 @@ def score(est, X, y):
         this_auroc_score = roc_auc_score(y, y_preds_onehot, multi_class="ovr")
     
     try:
-        this_rmse = sklearn.metrics.get_scorer("neg_root_mean_squared_error")(est, X, y)
+        this_rmse = sklearn.metrics.get_scorer("neg_root_mean_squared_error")(est, X, y)*-1
     except:
         y_preds = est.predict(X)
         y_preds_onehot = sklearn.preprocessing.label_binarize(y_preds, classes=est.fitted_pipeline_.classes_)
