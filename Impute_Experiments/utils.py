@@ -323,7 +323,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
                 
                 #Simple Impute 
                 all_scores = {}
-                """
+            
                 if exp['exp_name'] == 'tpot2_base_normal':
                     SimpleImputeSpace = autoimpute.AutoImputer(missing_type=type, model_names=['SimpleImputer'], n_jobs=48, show_progress=False, random_state=num_runs)
                     SimpleImputeSpace.fit(X_train_missing_p)
@@ -408,7 +408,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs):
                     pickle.dump(all_scores, f)
 
                 print('EXP2 Finished')
-                """
+            
 
                 print("running experiment 3/3 - What is the best automl settings?")
 
