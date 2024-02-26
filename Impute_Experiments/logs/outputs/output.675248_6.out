@@ -1,0 +1,1604 @@
+Run: 6
+/cm/local/apps/slurm/var/spool/job675248/slurm_script: line 23: /common/ketrong/minconda3/etc/profile.d/conda.sh: No such file or directory
+/cm/local/apps/slurm/var/spool/job675248/slurm_script: line 26: $'\nconda create --name tpot2devenv -c conda-forge python=3.10\n': command not found
+/cm/local/apps/slurm/var/spool/job675248/slurm_script: line 31: $'\npip install -r requirements.txt\n': command not found
+RunStart
+2024-02-23 03:20:11.718425: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:20:11.754765: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:20:11.754787: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:20:11.755928: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:20:11.761971: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:20:13.510330: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+starting loops
+working on 
+logs/2309/tpot2_base_normal_MAR_0.01
+3.0773043632507324
+loading data
+logs/2309/tpot2_base_normal_MAR_0.01/data/2309_True.pkl
+12783     16100.0
+20118     42800.0
+20745     15000.0
+8610      28300.0
+12579    194200.0
+           ...   
+16095     26400.0
+49       169500.0
+11743    142200.0
+2238     500001.0
+14896     74800.0
+Name: price, Length: 20505, dtype: float64
+            0  ...         7
+0       146.0  ...  0.666667
+1       137.0  ...  1.000000
+2        38.0  ...  1.000000
+3      4805.0  ...  0.596491
+4      2047.0  ...  0.500000
+...       ...  ...       ...
+20500    86.0  ...  0.000000
+20501   670.0  ...  0.222222
+20502   408.0  ...  0.812500
+20503  2606.0  ...  0.282051
+20504  6580.0  ...  0.285714
+
+[20505 rows x 8 columns]
+           0  ...         7
+0      161.0  ...  1.000000
+1       87.0  ...  0.500000
+2      123.0  ...  1.000000
+3     1775.0  ...  0.428571
+4      478.0  ...  0.250000
+...      ...  ...       ...
+2274  1017.0  ...  0.538462
+2275   182.0  ...  0.875000
+2276  1058.0  ...  1.000000
+2277    74.0  ...  0.000000
+2278   509.0  ...  0.777778
+
+[2279 rows x 8 columns]
+running experiment 1/3 - Does large hyperparameter space improve reconstruction accuracy over simple
+[I 2024-02-23 03:20:25,724] A new study created in memory with name: no-name-c4ddd46e-2caa-4f2a-bd75-d6f4d8683a34
+[I 2024-02-23 03:20:26,522] Trial 3 finished with value: 10071.570376942132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 3 with value: 10071.570376942132.
+[I 2024-02-23 03:20:27,094] Trial 11 finished with value: 10071.570376942132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 3 with value: 10071.570376942132.
+[I 2024-02-23 03:20:27,650] Trial 12 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:27,882] Trial 21 finished with value: 10071.570376942132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:28,067] Trial 2 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:28,484] Trial 26 finished with value: 10071.570376942132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:28,782] Trial 27 finished with value: 10071.570376942132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:29,073] Trial 41 finished with value: 10071.570376942132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:29,354] Trial 38 finished with value: 10071.570376942132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:29,561] Trial 16 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:29,808] Trial 19 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:30,073] Trial 15 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:30,336] Trial 31 finished with value: 10071.570376942132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:30,592] Trial 42 finished with value: 10071.570376942132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:30,825] Trial 34 finished with value: 10071.570376942132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:31,167] Trial 33 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:31,416] Trial 32 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:31,638] Trial 39 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:31,948] Trial 30 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:32,161] Trial 25 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:32,691] Trial 40 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:32,931] Trial 13 finished with value: 10009.403855458488 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:33,229] Trial 46 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:33,473] Trial 43 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:33,702] Trial 14 finished with value: 10009.403855458488 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:33,965] Trial 7 finished with value: 10009.403855458488 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:34,296] Trial 36 finished with value: 10009.403855458488 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:34,490] Trial 28 finished with value: 10009.403855458488 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:34,673] Trial 20 finished with value: 10009.403855458488 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:34,878] Trial 51 finished with value: 10071.570376942132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:35,081] Trial 49 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:35,365] Trial 35 finished with value: 10009.403855458488 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:35,613] Trial 10 finished with value: 10009.403855458488 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:35,826] Trial 48 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:36,106] Trial 18 finished with value: 10009.403855458488 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:36,324] Trial 50 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:36,660] Trial 24 finished with value: 10009.403855458488 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:37,033] Trial 55 finished with value: 10071.570376942132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:37,365] Trial 22 finished with value: 10009.403855458488 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:37,609] Trial 52 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:38,884] Trial 66 finished with value: 10009.403855458488 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:39,251] Trial 58 finished with value: 10009.403855458488 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:39,634] Trial 54 finished with value: 10009.403855458488 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:39,965] Trial 60 finished with value: 10009.403855458488 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:40,173] Trial 65 finished with value: 10009.403855458488 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:40,343] Trial 62 finished with value: 10009.403855458488 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:40,595] Trial 0 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:40,892] Trial 63 finished with value: 10009.403855458488 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:41,206] Trial 77 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:41,580] Trial 6 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:41,827] Trial 5 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:42,264] Trial 4 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:42,649] Trial 1 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:43,009] Trial 9 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:43,433] Trial 23 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:43,702] Trial 8 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:44,293] Trial 45 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:44,654] Trial 17 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:44,930] Trial 37 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:45,474] Trial 91 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:45,784] Trial 89 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:46,136] Trial 29 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:46,550] Trial 44 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:46,814] Trial 47 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:47,692] Trial 56 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:47,950] Trial 102 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:48,259] Trial 57 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:48,665] Trial 103 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:48,924] Trial 53 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:49,226] Trial 104 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:49,481] Trial 64 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:49,716] Trial 59 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:49,976] Trial 61 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:50,278] Trial 105 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:50,557] Trial 106 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:50,957] Trial 74 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:51,338] Trial 68 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:51,554] Trial 75 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:51,762] Trial 69 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:52,113] Trial 85 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:52,358] Trial 111 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:52,533] Trial 107 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:52,739] Trial 72 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:52,918] Trial 67 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:53,170] Trial 73 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:53,489] Trial 70 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:53,699] Trial 76 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:53,891] Trial 109 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:54,127] Trial 108 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:54,372] Trial 82 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:54,606] Trial 87 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:54,833] Trial 110 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:55,087] Trial 71 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:55,305] Trial 80 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:55,521] Trial 83 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:55,903] Trial 112 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:56,114] Trial 81 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:56,450] Trial 86 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:56,698] Trial 84 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:57,367] Trial 78 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:57,563] Trial 88 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:57,845] Trial 116 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:58,018] Trial 79 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:58,244] Trial 113 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:58,513] Trial 118 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:58,948] Trial 114 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:59,256] Trial 122 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:59,578] Trial 123 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:20:59,816] Trial 121 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:00,017] Trial 115 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:00,275] Trial 117 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:00,599] Trial 119 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:00,843] Trial 120 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:01,181] Trial 124 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:01,636] Trial 125 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:01,858] Trial 127 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:02,088] Trial 129 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:02,329] Trial 128 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:02,576] Trial 92 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:02,796] Trial 132 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:03,049] Trial 130 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:03,279] Trial 90 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:03,494] Trial 98 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:03,731] Trial 133 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:03,944] Trial 95 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:04,151] Trial 134 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:04,366] Trial 136 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:04,599] Trial 94 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:04,880] Trial 93 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:05,122] Trial 126 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:05,382] Trial 139 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:05,593] Trial 140 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:05,822] Trial 138 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:06,102] Trial 137 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:06,326] Trial 96 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:06,556] Trial 131 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:06,816] Trial 101 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:07,056] Trial 141 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:07,323] Trial 142 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:07,740] Trial 135 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:08,070] Trial 145 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:08,311] Trial 99 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:08,589] Trial 143 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:08,791] Trial 152 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:08,996] Trial 97 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:09,334] Trial 150 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:09,543] Trial 149 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:09,773] Trial 144 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:10,034] Trial 156 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:10,355] Trial 146 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:10,712] Trial 155 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:10,957] Trial 147 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:11,269] Trial 151 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:11,613] Trial 160 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:11,861] Trial 148 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:12,054] Trial 154 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:12,229] Trial 153 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:12,426] Trial 158 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:12,743] Trial 157 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:13,040] Trial 161 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:13,290] Trial 159 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:13,507] Trial 100 finished with value: 10071.57035634132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:13,821] Trial 165 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:14,066] Trial 174 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:14,327] Trial 164 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:14,643] Trial 167 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:14,839] Trial 172 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:15,040] Trial 162 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:15,225] Trial 166 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:15,467] Trial 171 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:15,720] Trial 176 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:15,930] Trial 163 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:16,227] Trial 175 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:16,430] Trial 181 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:16,601] Trial 182 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:16,768] Trial 173 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:17,023] Trial 169 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:17,250] Trial 178 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:17,463] Trial 168 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:17,721] Trial 180 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:17,942] Trial 177 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:18,173] Trial 185 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:18,419] Trial 194 finished with value: 10071.570376942132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:18,663] Trial 196 finished with value: 10071.570376942132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:18,880] Trial 183 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:19,109] Trial 184 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:19,311] Trial 179 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:19,541] Trial 188 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:19,745] Trial 197 finished with value: 10071.570376942132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:19,923] Trial 170 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:20,151] Trial 190 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:20,382] Trial 187 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:20,567] Trial 189 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:20,734] Trial 195 finished with value: 10071.570376942132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:20,965] Trial 191 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:21,183] Trial 198 finished with value: 10071.570376942132 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:21,370] Trial 192 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:21,538] Trial 186 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:21,767] Trial 193 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+[I 2024-02-23 03:21:21,953] Trial 199 finished with value: 9969.277282116778 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 12 with value: 9969.277282116778.
+simple fit
+simple transform
+           0  ...         7
+0      161.0  ...  1.000000
+1       87.0  ...  0.500000
+2      123.0  ...  1.000000
+3     1775.0  ...  0.428571
+4      478.0  ...  0.250000
+...      ...  ...       ...
+2274  1017.0  ...  0.538462
+2275   182.0  ...  0.875000
+2276  1058.0  ...  1.000000
+2277    74.0  ...  0.000000
+2278   509.0  ...  0.492367
+
+[2279 rows x 8 columns]
+9969.277282116778
+{'model_name': 'SimpleImputer', 'strategy': 'mean'}
+running experiment 2/3 - Does reconstruction give good automl predictions
+Start est fit
+2024-02-23 03:21:36.894496: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.894545: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.894564: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.894568: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.894569: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.894570: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.894572: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.894565: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.894572: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.894570: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.894579: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.894578: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.894578: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.894578: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.894593: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.894595: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.894600: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.894604: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.894605: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.894610: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.894619: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.894614: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.894618: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.894626: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.894626: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.894626: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.894639: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.894636: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.894640: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.894642: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.894645: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.894660: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.894664: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.894671: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.894672: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.894670: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.894670: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.894682: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.894687: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.894688: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.894688: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.894691: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.894692: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.894693: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.894701: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.894606: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.895557: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.897630: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 03:21:36.932875: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.932999: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.933000: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.933045: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.933046: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.933045: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.933040: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.933048: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.933039: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.933047: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.933048: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.933041: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.933047: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.933045: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.933040: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.933046: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.933038: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.933073: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.933039: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.933071: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.933071: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.933078: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.933078: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.933071: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.933074: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.933078: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.933084: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.933078: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.933079: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.933080: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.933081: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.933083: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.933084: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.933080: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.933081: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.933081: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.933103: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.933103: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.933106: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.933096: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.933098: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.933101: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.933117: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.933117: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.933107: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.933110: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.933110: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.933110: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.933124: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.933128: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.933129: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.933131: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.933133: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.933131: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.933131: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.933132: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.933132: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.933152: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.933142: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.933141: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.933143: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.933143: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.933148: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.933145: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.933149: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.933156: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.933158: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.933145: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.933160: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.933149: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.933154: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.933167: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.933166: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.933166: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.933157: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.933156: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.933169: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.933169: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.933170: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.933173: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.933171: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.933159: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.933179: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.933180: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.933182: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.933184: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.933185: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.933184: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.933207: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.933243: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.933567: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.933614: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.933658: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.933703: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.934147: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.934149: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.934369: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.934371: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.934372: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.934372: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.934372: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.934375: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.934375: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.934375: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.934374: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.934378: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.934375: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.934378: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.934376: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.934376: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.934376: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.934376: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.934376: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.934384: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.934385: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.934385: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.934399: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.934399: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.934399: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.934402: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.934415: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.934417: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.934441: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.934442: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.934442: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.934448: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.934477: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.934478: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.934480: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.934481: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.934481: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.934482: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.934482: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.934484: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.934485: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.934490: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.934491: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.934491: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.934491: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.934497: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.934532: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.936960: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-23 03:21:36.937015: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-23 03:21:36.937968: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-23 03:21:36.940180: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.940181: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.940181: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.940181: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.940369: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.940368: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.940370: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.940369: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.940369: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.940369: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.940370: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.940369: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.940371: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.940383: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.940385: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.940386: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.940388: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.940403: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.940405: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.940406: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.940406: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.940407: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.940408: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.940411: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.940410: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.940413: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.940414: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.940420: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.940422: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.940422: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.940422: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.940425: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.940433: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.940441: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.940444: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.940458: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.940568: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.940581: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.940589: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.940592: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.940605: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.940616: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.940616: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.940622: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.940634: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.942057: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.943788: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:36.943796: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 03:21:39.671747: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.671750: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.672042: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.672053: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.672371: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.672536: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.672542: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.672537: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.672542: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.672543: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.672545: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.672555: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.672561: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.672571: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.672571: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.672572: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.672581: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.672581: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.672585: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.672585: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.672586: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.672605: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.672617: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.672620: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.672627: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.672627: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.672631: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.672633: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.672635: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.672638: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.672667: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.672672: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.672691: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.672699: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.672704: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.672711: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.672720: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.672719: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.672721: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.672731: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.672738: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.672928: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.672949: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.672957: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.672965: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.672969: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.673140: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-23 03:21:39.674844: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+  0%|          | 0/50 [00:00<?, ?it/s]Generation:   0%|          | 0/50 [00:00<?, ?it/s]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ ['GradientBoostingRegressor_1'] 
+ The 'loss' parameter of GradientBoostingRegressor must be a str among {'quantile', 'huber', 'absolute_error', 'squared_error'}. Got 'lad' instead. 
+ Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/estimator.py", line 702, in objective_function
+    return objective_function_generator(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/estimator_utils.py", line 117, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 354, in fit
+    fit_sklearn_digraph(   graph=self.graph,
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 153, in fit_sklearn_digraph
+    transformed, instance = estimator_fit_transform_override_cross_val_predict_cached(instance, this_X, y, cv=cross_val_predict_cv, method=method,subset_indexes=subset_indexes)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/joblib/memory.py", line 353, in __call__
+    return self.func(*args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 77, in estimator_fit_transform_override_cross_val_predict
+    estimator.fit(X,y, **fit_params)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 1145, in wrapper
+    estimator._validate_params()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 638, in _validate_params
+    validate_parameter_constraints(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 96, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'loss' parameter of GradientBoostingRegressor must be a str among {'quantile', 'huber', 'absolute_error', 'squared_error'}. Got 'lad' instead.
+
+Generation:  1
+Best mean_squared_error score: -29688.957074648344
+Best complexity_scorer score: 1.0
+Generation:   2%|▏         | 1/50 [01:18<1:03:53, 78.24s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ ['GradientBoostingRegressor_1'] 
+ The 'loss' parameter of GradientBoostingRegressor must be a str among {'quantile', 'absolute_error', 'huber', 'squared_error'}. Got 'ls' instead. 
+ Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/estimator.py", line 702, in objective_function
+    return objective_function_generator(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/estimator_utils.py", line 117, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 354, in fit
+    fit_sklearn_digraph(   graph=self.graph,
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 153, in fit_sklearn_digraph
+    transformed, instance = estimator_fit_transform_override_cross_val_predict_cached(instance, this_X, y, cv=cross_val_predict_cv, method=method,subset_indexes=subset_indexes)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/joblib/memory.py", line 353, in __call__
+    return self.func(*args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 77, in estimator_fit_transform_override_cross_val_predict
+    estimator.fit(X,y, **fit_params)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 1145, in wrapper
+    estimator._validate_params()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 638, in _validate_params
+    validate_parameter_constraints(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 96, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'loss' parameter of GradientBoostingRegressor must be a str among {'quantile', 'absolute_error', 'huber', 'squared_error'}. Got 'ls' instead.
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ ['GradientBoostingRegressor_1'] 
+ The 'loss' parameter of GradientBoostingRegressor must be a str among {'huber', 'absolute_error', 'squared_error', 'quantile'}. Got 'lad' instead. 
+ Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/estimator.py", line 702, in objective_function
+    return objective_function_generator(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/estimator_utils.py", line 117, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 354, in fit
+    fit_sklearn_digraph(   graph=self.graph,
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 153, in fit_sklearn_digraph
+    transformed, instance = estimator_fit_transform_override_cross_val_predict_cached(instance, this_X, y, cv=cross_val_predict_cv, method=method,subset_indexes=subset_indexes)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/joblib/memory.py", line 353, in __call__
+    return self.func(*args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 77, in estimator_fit_transform_override_cross_val_predict
+    estimator.fit(X,y, **fit_params)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 1145, in wrapper
+    estimator._validate_params()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 638, in _validate_params
+    validate_parameter_constraints(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 96, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'loss' parameter of GradientBoostingRegressor must be a str among {'huber', 'absolute_error', 'squared_error', 'quantile'}. Got 'lad' instead.
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ ['GradientBoostingRegressor_1'] 
+ The 'loss' parameter of GradientBoostingRegressor must be a str among {'squared_error', 'quantile', 'huber', 'absolute_error'}. Got 'lad' instead. 
+ Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/estimator.py", line 702, in objective_function
+    return objective_function_generator(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/estimator_utils.py", line 117, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 354, in fit
+    fit_sklearn_digraph(   graph=self.graph,
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 153, in fit_sklearn_digraph
+    transformed, instance = estimator_fit_transform_override_cross_val_predict_cached(instance, this_X, y, cv=cross_val_predict_cv, method=method,subset_indexes=subset_indexes)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/joblib/memory.py", line 353, in __call__
+    return self.func(*args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 77, in estimator_fit_transform_override_cross_val_predict
+    estimator.fit(X,y, **fit_params)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 1145, in wrapper
+    estimator._validate_params()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 638, in _validate_params
+    validate_parameter_constraints(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 96, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'loss' parameter of GradientBoostingRegressor must be a str among {'squared_error', 'quantile', 'huber', 'absolute_error'}. Got 'lad' instead.
+
+Generation:  2
+Best mean_squared_error score: -29679.297328993405
+Best complexity_scorer score: 1.0
+Generation:   4%|▍         | 2/50 [03:30<1:28:14, 110.30s/it]Generation:  3
+Best mean_squared_error score: -29679.297328993405
+Best complexity_scorer score: 1.0
+Generation:   6%|▌         | 3/50 [05:01<1:19:10, 101.07s/it]Generation:  4
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation:   8%|▊         | 4/50 [06:44<1:18:07, 101.90s/it]Generation:  5
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation:  10%|█         | 5/50 [08:56<1:24:37, 112.83s/it]Generation:  6
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation:  12%|█▏        | 6/50 [11:27<1:32:14, 125.79s/it]Generation:  7
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation:  14%|█▍        | 7/50 [13:42<1:32:16, 128.76s/it]Generation:  8
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation:  16%|█▌        | 8/50 [16:20<1:36:42, 138.16s/it]Generation:  9
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation:  18%|█▊        | 9/50 [18:30<1:32:33, 135.45s/it]Generation:  10
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation:  20%|██        | 10/50 [20:50<1:31:19, 137.00s/it]Generation:  11
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation:  22%|██▏       | 11/50 [23:25<1:32:32, 142.38s/it]Generation:  12
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation:  24%|██▍       | 12/50 [26:03<1:33:13, 147.20s/it]Generation:  13
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation:  26%|██▌       | 13/50 [28:11<1:27:15, 141.49s/it]Generation:  14
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation:  28%|██▊       | 14/50 [30:28<1:24:04, 140.12s/it]Generation:  15
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation:  30%|███       | 15/50 [32:57<1:23:15, 142.73s/it]Generation:  16
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation:  32%|███▏      | 16/50 [35:29<1:22:29, 145.57s/it]Generation:  17
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation:  34%|███▍      | 17/50 [38:06<1:21:57, 149.02s/it]Generation:  18
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation:  36%|███▌      | 18/50 [40:21<1:17:08, 144.64s/it]Generation:  19
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation:  38%|███▊      | 19/50 [43:16<1:19:33, 153.97s/it]Generation:  20
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation:  40%|████      | 20/50 [46:05<1:19:14, 158.48s/it]Generation:  21
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation:  42%|████▏     | 21/50 [48:34<1:15:09, 155.51s/it]Generation:  22
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation:  44%|████▍     | 22/50 [51:10<1:12:37, 155.62s/it]Generation:  23
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation:  46%|████▌     | 23/50 [53:53<1:11:07, 158.04s/it]Generation:  24
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation:  48%|████▊     | 24/50 [56:26<1:07:43, 156.28s/it]Generation:  25
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation:  50%|█████     | 25/50 [58:27<1:00:46, 145.86s/it]Generation:  26
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation:  52%|█████▏    | 26/50 [1:00:36<56:18, 140.78s/it]Generation:  27
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation:  54%|█████▍    | 27/50 [1:03:21<56:42, 147.95s/it]Generation:  28
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation:  56%|█████▌    | 28/50 [1:05:16<50:40, 138.20s/it]Generation:  29
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation:  58%|█████▊    | 29/50 [1:07:50<50:02, 142.98s/it]Generation:  30
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation:  60%|██████    | 30/50 [1:10:04<46:41, 140.07s/it]Generation:  31
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation:  62%|██████▏   | 31/50 [1:12:45<46:24, 146.58s/it]Generation:  32
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation:  64%|██████▍   | 32/50 [1:15:20<44:40, 148.89s/it]Generation:  33
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation:  66%|██████▌   | 33/50 [1:17:20<39:44, 140.27s/it]Generation:  34
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation:  68%|██████▊   | 34/50 [1:20:04<39:19, 147.48s/it]Generation:  35
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation:  70%|███████   | 35/50 [1:22:19<35:54, 143.63s/it]Generation:  36
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation:  72%|███████▏  | 36/50 [1:24:53<34:13, 146.70s/it]Generation:  37
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation:  74%|███████▍  | 37/50 [1:27:08<31:02, 143.30s/it]Generation:  38
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation:  76%|███████▌  | 38/50 [1:30:05<30:41, 153.44s/it]Generation:  39
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation:  78%|███████▊  | 39/50 [1:32:49<28:43, 156.72s/it]Generation:  40
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation:  80%|████████  | 40/50 [1:35:00<24:48, 148.82s/it]Generation:  41
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation:  82%|████████▏ | 41/50 [1:37:27<22:13, 148.20s/it]Generation:  42
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation:  84%|████████▍ | 42/50 [1:39:42<19:15, 144.39s/it]Generation:  43
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation:  86%|████████▌ | 43/50 [1:42:06<16:48, 144.12s/it]Generation:  44
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation:  88%|████████▊ | 44/50 [1:44:21<14:08, 141.38s/it]Generation:  45
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation:  90%|█████████ | 45/50 [1:46:47<11:54, 142.96s/it]Generation:  46
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation:  92%|█████████▏| 46/50 [1:49:05<09:25, 141.35s/it]Generation:  47
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation:  94%|█████████▍| 47/50 [1:51:11<06:50, 136.85s/it]Generation:  48
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation:  96%|█████████▌| 48/50 [1:53:26<04:32, 136.19s/it]Generation:  49
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation:  98%|█████████▊| 49/50 [1:55:45<02:16, 136.95s/it]Generation:  50
+Best mean_squared_error score: -29231.275373528122
+Best complexity_scorer score: 1.0
+Generation: 100%|██████████| 50/50 [1:58:26<00:00, 144.43s/it]Generation: 100%|██████████| 50/50 [1:58:27<00:00, 142.14s/it]
+2024-02-23 05:20:11,760 - distributed.worker - ERROR - Failed to communicate with scheduler during heartbeat.
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 225, in read
+    frames_nosplit_nbytes_bin = await stream.read_bytes(fmt_size)
+tornado.iostream.StreamClosedError: Stream is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/worker.py", line 1255, in heartbeat
+    response = await retry_operation(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/utils_comm.py", line 455, in retry_operation
+    return await retry(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/utils_comm.py", line 434, in retry
+    return await coro()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/core.py", line 1396, in send_recv_from_rpc
+    return await send_recv(comm=comm, op=key, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/core.py", line 1155, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 237, in read
+    convert_stream_closed_error(self, e)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 142, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed) ConnectionPool.heartbeat_worker local=tcp://127.0.0.1:47470 remote=tcp://127.0.0.1:45049>: Stream is closed
+2024-02-23 05:20:11,761 - distributed.worker - ERROR - Failed to communicate with scheduler during heartbeat.
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 225, in read
+    frames_nosplit_nbytes_bin = await stream.read_bytes(fmt_size)
+tornado.iostream.StreamClosedError: Stream is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/worker.py", line 1255, in heartbeat
+    response = await retry_operation(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/utils_comm.py", line 455, in retry_operation
+    return await retry(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/utils_comm.py", line 434, in retry
+    return await coro()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/core.py", line 1396, in send_recv_from_rpc
+    return await send_recv(comm=comm, op=key, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/core.py", line 1155, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 237, in read
+    convert_stream_closed_error(self, e)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 142, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed) ConnectionPool.heartbeat_worker local=tcp://127.0.0.1:47466 remote=tcp://127.0.0.1:45049>: Stream is closed
+2024-02-23 05:20:11,761 - distributed.worker - ERROR - Failed to communicate with scheduler during heartbeat.
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 225, in read
+    frames_nosplit_nbytes_bin = await stream.read_bytes(fmt_size)
+tornado.iostream.StreamClosedError: Stream is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/worker.py", line 1255, in heartbeat
+    response = await retry_operation(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/utils_comm.py", line 455, in retry_operation
+    return await retry(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/utils_comm.py", line 434, in retry
+    return await coro()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/core.py", line 1396, in send_recv_from_rpc
+    return await send_recv(comm=comm, op=key, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/core.py", line 1155, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 237, in read
+    convert_stream_closed_error(self, e)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 142, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed) ConnectionPool.heartbeat_worker local=tcp://127.0.0.1:47474 remote=tcp://127.0.0.1:45049>: Stream is closed
+2024-02-23 05:20:11,762 - distributed.worker - ERROR - Failed to communicate with scheduler during heartbeat.
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 225, in read
+    frames_nosplit_nbytes_bin = await stream.read_bytes(fmt_size)
+tornado.iostream.StreamClosedError: Stream is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/worker.py", line 1255, in heartbeat
+    response = await retry_operation(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/utils_comm.py", line 455, in retry_operation
+    return await retry(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/utils_comm.py", line 434, in retry
+    return await coro()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/core.py", line 1396, in send_recv_from_rpc
+    return await send_recv(comm=comm, op=key, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/core.py", line 1155, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 237, in read
+    convert_stream_closed_error(self, e)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 142, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed) ConnectionPool.heartbeat_worker local=tcp://127.0.0.1:47468 remote=tcp://127.0.0.1:45049>: Stream is closed
+2024-02-23 05:20:11,763 - distributed.worker - ERROR - Failed to communicate with scheduler during heartbeat.
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 225, in read
+    frames_nosplit_nbytes_bin = await stream.read_bytes(fmt_size)
+tornado.iostream.StreamClosedError: Stream is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/worker.py", line 1255, in heartbeat
+    response = await retry_operation(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/utils_comm.py", line 455, in retry_operation
+    return await retry(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/utils_comm.py", line 434, in retry
+    return await coro()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/core.py", line 1396, in send_recv_from_rpc
+    return await send_recv(comm=comm, op=key, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/core.py", line 1155, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 237, in read
+    convert_stream_closed_error(self, e)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 142, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed) ConnectionPool.heartbeat_worker local=tcp://127.0.0.1:47456 remote=tcp://127.0.0.1:45049>: Stream is closed
+2024-02-23 05:20:11,765 - distributed.worker - ERROR - Failed to communicate with scheduler during heartbeat.
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 225, in read
+    frames_nosplit_nbytes_bin = await stream.read_bytes(fmt_size)
+tornado.iostream.StreamClosedError: Stream is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/worker.py", line 1255, in heartbeat
+    response = await retry_operation(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/utils_comm.py", line 455, in retry_operation
+    return await retry(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/utils_comm.py", line 434, in retry
+    return await coro()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/core.py", line 1396, in send_recv_from_rpc
+    return await send_recv(comm=comm, op=key, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/core.py", line 1155, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 237, in read
+    convert_stream_closed_error(self, e)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 142, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed) ConnectionPool.heartbeat_worker local=tcp://127.0.0.1:47476 remote=tcp://127.0.0.1:45049>: Stream is closed
+2024-02-23 05:20:11,764 - distributed.worker - ERROR - Failed to communicate with scheduler during heartbeat.
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 225, in read
+    frames_nosplit_nbytes_bin = await stream.read_bytes(fmt_size)
+tornado.iostream.StreamClosedError: Stream is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/worker.py", line 1255, in heartbeat
+    response = await retry_operation(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/utils_comm.py", line 455, in retry_operation
+    return await retry(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/utils_comm.py", line 434, in retry
+    return await coro()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/core.py", line 1396, in send_recv_from_rpc
+    return await send_recv(comm=comm, op=key, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/core.py", line 1155, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 237, in read
+    convert_stream_closed_error(self, e)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 142, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed) ConnectionPool.heartbeat_worker local=tcp://127.0.0.1:47458 remote=tcp://127.0.0.1:45049>: Stream is closed
+2024-02-23 05:20:11,765 - distributed.worker - ERROR - Failed to communicate with scheduler during heartbeat.
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 225, in read
+    frames_nosplit_nbytes_bin = await stream.read_bytes(fmt_size)
+tornado.iostream.StreamClosedError: Stream is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/worker.py", line 1255, in heartbeat
+    response = await retry_operation(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/utils_comm.py", line 455, in retry_operation
+    return await retry(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/utils_comm.py", line 434, in retry
+    return await coro()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/core.py", line 1396, in send_recv_from_rpc
+    return await send_recv(comm=comm, op=key, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/core.py", line 1155, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 237, in read
+    convert_stream_closed_error(self, e)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 142, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed) ConnectionPool.heartbeat_worker local=tcp://127.0.0.1:47480 remote=tcp://127.0.0.1:45049>: Stream is closed
+2024-02-23 05:20:11,767 - distributed.worker - ERROR - Failed to communicate with scheduler during heartbeat.
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 225, in read
+    frames_nosplit_nbytes_bin = await stream.read_bytes(fmt_size)
+tornado.iostream.StreamClosedError: Stream is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/worker.py", line 1255, in heartbeat
+    response = await retry_operation(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/utils_comm.py", line 455, in retry_operation
+    return await retry(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/utils_comm.py", line 434, in retry
+    return await coro()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/core.py", line 1396, in send_recv_from_rpc
+    return await send_recv(comm=comm, op=key, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/core.py", line 1155, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 237, in read
+    convert_stream_closed_error(self, e)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 142, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed) ConnectionPool.heartbeat_worker local=tcp://127.0.0.1:47488 remote=tcp://127.0.0.1:45049>: Stream is closed
+2024-02-23 05:20:11,767 - distributed.worker - ERROR - Failed to communicate with scheduler during heartbeat.
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 225, in read
+    frames_nosplit_nbytes_bin = await stream.read_bytes(fmt_size)
+tornado.iostream.StreamClosedError: Stream is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/worker.py", line 1255, in heartbeat
+    response = await retry_operation(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/utils_comm.py", line 455, in retry_operation
+    return await retry(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/utils_comm.py", line 434, in retry
+    return await coro()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/core.py", line 1396, in send_recv_from_rpc
+    return await send_recv(comm=comm, op=key, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/core.py", line 1155, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 237, in read
+    convert_stream_closed_error(self, e)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 142, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed) ConnectionPool.heartbeat_worker local=tcp://127.0.0.1:47464 remote=tcp://127.0.0.1:45049>: Stream is closed
+2024-02-23 05:20:11,770 - distributed.worker - ERROR - Failed to communicate with scheduler during heartbeat.
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 225, in read
+    frames_nosplit_nbytes_bin = await stream.read_bytes(fmt_size)
+tornado.iostream.StreamClosedError: Stream is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/worker.py", line 1255, in heartbeat
+    response = await retry_operation(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/utils_comm.py", line 455, in retry_operation
+    return await retry(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/utils_comm.py", line 434, in retry
+    return await coro()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/core.py", line 1396, in send_recv_from_rpc
+    return await send_recv(comm=comm, op=key, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/core.py", line 1155, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 237, in read
+    convert_stream_closed_error(self, e)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 142, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed) ConnectionPool.heartbeat_worker local=tcp://127.0.0.1:47498 remote=tcp://127.0.0.1:45049>: Stream is closed
+2024-02-23 05:20:11,770 - distributed.worker - ERROR - Failed to communicate with scheduler during heartbeat.
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 225, in read
+    frames_nosplit_nbytes_bin = await stream.read_bytes(fmt_size)
+tornado.iostream.StreamClosedError: Stream is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/worker.py", line 1255, in heartbeat
+    response = await retry_operation(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/utils_comm.py", line 455, in retry_operation
+    return await retry(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/utils_comm.py", line 434, in retry
+    return await coro()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/core.py", line 1396, in send_recv_from_rpc
+    return await send_recv(comm=comm, op=key, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/core.py", line 1155, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 237, in read
+    convert_stream_closed_error(self, e)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 142, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed) ConnectionPool.heartbeat_worker local=tcp://127.0.0.1:47486 remote=tcp://127.0.0.1:45049>: Stream is closed
+2024-02-23 05:20:11,770 - distributed.worker - ERROR - Failed to communicate with scheduler during heartbeat.
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 225, in read
+    frames_nosplit_nbytes_bin = await stream.read_bytes(fmt_size)
+tornado.iostream.StreamClosedError: Stream is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/worker.py", line 1255, in heartbeat
+    response = await retry_operation(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/utils_comm.py", line 455, in retry_operation
+    return await retry(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/utils_comm.py", line 434, in retry
+    return await coro()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/core.py", line 1396, in send_recv_from_rpc
+    return await send_recv(comm=comm, op=key, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/core.py", line 1155, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 237, in read
+    convert_stream_closed_error(self, e)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 142, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed) ConnectionPool.heartbeat_worker local=tcp://127.0.0.1:47492 remote=tcp://127.0.0.1:45049>: Stream is closed
+2024-02-23 05:20:11,771 - distributed.worker - ERROR - Failed to communicate with scheduler during heartbeat.
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 225, in read
+    frames_nosplit_nbytes_bin = await stream.read_bytes(fmt_size)
+tornado.iostream.StreamClosedError: Stream is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/worker.py", line 1255, in heartbeat
+    response = await retry_operation(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/utils_comm.py", line 455, in retry_operation
+    return await retry(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/utils_comm.py", line 434, in retry
+    return await coro()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/core.py", line 1396, in send_recv_from_rpc
+    return await send_recv(comm=comm, op=key, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/core.py", line 1155, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 237, in read
+    convert_stream_closed_error(self, e)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 142, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed) ConnectionPool.heartbeat_worker local=tcp://127.0.0.1:47478 remote=tcp://127.0.0.1:45049>: Stream is closed
+2024-02-23 05:20:11,771 - distributed.worker - ERROR - Failed to communicate with scheduler during heartbeat.
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 225, in read
+    frames_nosplit_nbytes_bin = await stream.read_bytes(fmt_size)
+tornado.iostream.StreamClosedError: Stream is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/worker.py", line 1255, in heartbeat
+    response = await retry_operation(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/utils_comm.py", line 455, in retry_operation
+    return await retry(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/utils_comm.py", line 434, in retry
+    return await coro()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/core.py", line 1396, in send_recv_from_rpc
+    return await send_recv(comm=comm, op=key, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/core.py", line 1155, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 237, in read
+    convert_stream_closed_error(self, e)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 142, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed) ConnectionPool.heartbeat_worker local=tcp://127.0.0.1:47494 remote=tcp://127.0.0.1:45049>: Stream is closed
+2024-02-23 05:20:11,769 - distributed.worker - ERROR - Failed to communicate with scheduler during heartbeat.
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 225, in read
+    frames_nosplit_nbytes_bin = await stream.read_bytes(fmt_size)
+tornado.iostream.StreamClosedError: Stream is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/worker.py", line 1255, in heartbeat
+    response = await retry_operation(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/utils_comm.py", line 455, in retry_operation
+    return await retry(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/utils_comm.py", line 434, in retry
+    return await coro()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/core.py", line 1396, in send_recv_from_rpc
+    return await send_recv(comm=comm, op=key, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/core.py", line 1155, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 237, in read
+    convert_stream_closed_error(self, e)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 142, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed) ConnectionPool.heartbeat_worker local=tcp://127.0.0.1:47462 remote=tcp://127.0.0.1:45049>: Stream is closed
+2024-02-23 05:20:11,772 - distributed.worker - ERROR - Failed to communicate with scheduler during heartbeat.
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 225, in read
+    frames_nosplit_nbytes_bin = await stream.read_bytes(fmt_size)
+tornado.iostream.StreamClosedError: Stream is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/worker.py", line 1255, in heartbeat
+    response = await retry_operation(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/utils_comm.py", line 455, in retry_operation
+    return await retry(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/utils_comm.py", line 434, in retry
+    return await coro()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/core.py", line 1396, in send_recv_from_rpc
+    return await send_recv(comm=comm, op=key, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/core.py", line 1155, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 237, in read
+    convert_stream_closed_error(self, e)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 142, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed) ConnectionPool.heartbeat_worker local=tcp://127.0.0.1:47504 remote=tcp://127.0.0.1:45049>: Stream is closed
+2024-02-23 05:20:11,773 - distributed.worker - ERROR - Failed to communicate with scheduler during heartbeat.
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 225, in read
+    frames_nosplit_nbytes_bin = await stream.read_bytes(fmt_size)
+tornado.iostream.StreamClosedError: Stream is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/worker.py", line 1255, in heartbeat
+    response = await retry_operation(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/utils_comm.py", line 455, in retry_operation
+    return await retry(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/utils_comm.py", line 434, in retry
+    return await coro()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/core.py", line 1396, in send_recv_from_rpc
+    return await send_recv(comm=comm, op=key, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/core.py", line 1155, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 237, in read
+    convert_stream_closed_error(self, e)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 142, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed) ConnectionPool.heartbeat_worker local=tcp://127.0.0.1:47472 remote=tcp://127.0.0.1:45049>: Stream is closed
+2024-02-23 05:20:11,773 - distributed.worker - ERROR - Failed to communicate with scheduler during heartbeat.
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 225, in read
+    frames_nosplit_nbytes_bin = await stream.read_bytes(fmt_size)
+tornado.iostream.StreamClosedError: Stream is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/worker.py", line 1255, in heartbeat
+    response = await retry_operation(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/utils_comm.py", line 455, in retry_operation
+    return await retry(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/utils_comm.py", line 434, in retry
+    return await coro()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/core.py", line 1396, in send_recv_from_rpc
+    return await send_recv(comm=comm, op=key, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/core.py", line 1155, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 237, in read
+    convert_stream_closed_error(self, e)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 142, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed) ConnectionPool.heartbeat_worker local=tcp://127.0.0.1:47508 remote=tcp://127.0.0.1:45049>: Stream is closed
+2024-02-23 05:20:11,774 - distributed.worker - ERROR - Failed to communicate with scheduler during heartbeat.
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 225, in read
+    frames_nosplit_nbytes_bin = await stream.read_bytes(fmt_size)
+tornado.iostream.StreamClosedError: Stream is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/worker.py", line 1255, in heartbeat
+    response = await retry_operation(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/utils_comm.py", line 455, in retry_operation
+    return await retry(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/utils_comm.py", line 434, in retry
+    return await coro()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/core.py", line 1396, in send_recv_from_rpc
+    return await send_recv(comm=comm, op=key, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/core.py", line 1155, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 237, in read
+    convert_stream_closed_error(self, e)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 142, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed) ConnectionPool.heartbeat_worker local=tcp://127.0.0.1:47500 remote=tcp://127.0.0.1:45049>: Stream is closed
+2024-02-23 05:20:11,773 - distributed.worker - ERROR - Failed to communicate with scheduler during heartbeat.
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 225, in read
+    frames_nosplit_nbytes_bin = await stream.read_bytes(fmt_size)
+tornado.iostream.StreamClosedError: Stream is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/worker.py", line 1255, in heartbeat
+    response = await retry_operation(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/utils_comm.py", line 455, in retry_operation
+    return await retry(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/utils_comm.py", line 434, in retry
+    return await coro()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/core.py", line 1396, in send_recv_from_rpc
+    return await send_recv(comm=comm, op=key, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/core.py", line 1155, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 237, in read
+    convert_stream_closed_error(self, e)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 142, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed) ConnectionPool.heartbeat_worker local=tcp://127.0.0.1:47484 remote=tcp://127.0.0.1:45049>: Stream is closed
+2024-02-23 05:20:11,778 - distributed.worker - ERROR - Failed to communicate with scheduler during heartbeat.
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 225, in read
+    frames_nosplit_nbytes_bin = await stream.read_bytes(fmt_size)
+tornado.iostream.StreamClosedError: Stream is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/worker.py", line 1255, in heartbeat
+    response = await retry_operation(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/utils_comm.py", line 455, in retry_operation
+    return await retry(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/utils_comm.py", line 434, in retry
+    return await coro()
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/core.py", line 1396, in send_recv_from_rpc
+    return await send_recv(comm=comm, op=key, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/core.py", line 1155, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 237, in read
+    convert_stream_closed_error(self, e)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/distributed/comm/tcp.py", line 142, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed) ConnectionPool.heartbeat_worker local=tcp://127.0.0.1:47510 remote=tcp://127.0.0.1:45049>: Stream is closed
+Fitted
+['XGBRegressor_1']
+score start
+failed on 
+logs/2309/tpot2_base_normal_MAR_0.01
+'XGBRegressor' object has no attribute 'classes_'
+Traceback (most recent call last):
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/utils.py", line 165, in score
+    this_auroc_score = sklearn.metrics.get_scorer("roc_auc_ovr")(est, X, y)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 266, in __call__
+    return self._score(partial(_cached_call, None), estimator, X, y_true, **_kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 399, in _score
+    y_pred = method_caller(clf, "predict_proba", X, pos_label=self._get_pos_label())
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 86, in _cached_call
+    result, _ = _get_response_values(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_response.py", line 212, in _get_response_values
+    raise ValueError(
+ValueError: TPOTEstimator should either be a classifier to be used with response_method=predict_proba or the response_method should be 'predict'. Got a regressor with response_method=predict_proba instead.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/utils.py", line 378, in loop_through_tasks
+    train_score = score(est, X_train, y_train)
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/utils.py", line 168, in score
+    y_preds_onehot = sklearn.preprocessing.label_binarize(y_preds, classes=est.fitted_pipeline_.classes_)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 452, in classes_
+    return self.graph.nodes[self.root]["instance"].classes_
+AttributeError: 'XGBRegressor' object has no attribute 'classes_'
+
+full run takes
+1.9996341468890508
+hours
+DONE
