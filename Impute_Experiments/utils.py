@@ -3,7 +3,7 @@ import tpot2
 import sklearn.metrics
 import sklearn
 from sklearn.metrics import (roc_auc_score, roc_curve, precision_score, auc, recall_score, precision_recall_curve, \
-                             roc_auc_score, accuracy_score, balanced_accuracy_score, f1_score, log_loss,
+                             roc_auc_score, accuracy_score, balanced_accuracy_score, f1_score, log_loss, root_mean_squared_error,
                              f1_score)
 from sklearn.model_selection import train_test_split
 import traceback
@@ -165,15 +165,15 @@ def score(est, X, y):
         this_auroc_score = sklearn.metrics.get_scorer("roc_auc_ovr")(est, X, y)
     except:
         y_preds = est.predict(X)
-        y_preds_onehot = sklearn.preprocessing.label_binarize(y_preds, classes=est.fitted_pipeline_.classes_)
-        this_auroc_score = roc_auc_score(y, y_preds_onehot, multi_class="ovr")
+        #y_preds_onehot = sklearn.preprocessing.label_binarize(y_preds, classes=est.fitted_pipeline_.classes_)
+        this_auroc_score = roc_auc_score(y, y_preds)
     
     try:
         this_rmse = sklearn.metrics.get_scorer("neg_root_mean_squared_error")(est, X, y)*-1
     except:
         y_preds = est.predict(X)
-        y_preds_onehot = sklearn.preprocessing.label_binarize(y_preds, classes=est.fitted_pipeline_.classes_)
-        this_logloss = log_loss(y, y_preds_onehot)
+        #y_preds_onehot = sklearn.preprocessing.label_binarize(y_preds, classes=est.fitted_pipeline_.classes_)
+        this_rmse = root_mean_squared_error(y, y_preds)
 
     this_accuracy_score = sklearn.metrics.get_scorer("accuracy")(est, X, y)
     this_balanced_accuracy_score = sklearn.metrics.get_scorer("balanced_accuracy")(est, X, y)
