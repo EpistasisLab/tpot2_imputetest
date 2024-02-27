@@ -162,26 +162,25 @@ simple_and_normal_params = {
 def score(est, X, y):
 
     try:
-        this_auroc_score = sklearn.metrics.get_scorer("roc_auc_ovr")(est, X, y)
+        this_explained_score = sklearn.metrics.get_scorer("explained_variance")(est, X, y)
     except:
         y_preds = est.predict(X)
         #y_preds_onehot = sklearn.preprocessing.label_binarize(y_preds, classes=est.fitted_pipeline_.classes_)
-        this_auroc_score = roc_auc_score(y, y_preds)
+        this_explained_score = sklearn.metrics.explained_variance_score(y, y_preds)
     
     try:
-        this_rmse = sklearn.metrics.get_scorer("neg_root_mean_squared_error")(est, X, y)*-1
+        this_rmse = sklearn.metrics.get_scorer("neg_mean_squared_error")(est, X, y)*-1
     except:
         y_preds = est.predict(X)
         #y_preds_onehot = sklearn.preprocessing.label_binarize(y_preds, classes=est.fitted_pipeline_.classes_)
         this_rmse = sklearn.metrics.mean_squared_error(y, y_preds)*-1
 
-    this_accuracy_score = sklearn.metrics.get_scorer("accuracy")(est, X, y)
-    this_balanced_accuracy_score = sklearn.metrics.get_scorer("balanced_accuracy")(est, X, y)
+    this_r2_score = sklearn.metrics.get_scorer("r2")(est, X, y)
 
 
-    return { "auroc": this_auroc_score,
-            "accuracy": this_accuracy_score,
-            "balanced_accuracy": this_balanced_accuracy_score,
+
+    return { "explained_var": this_explained_score,
+            "r2": this_r2_score,
             "rmse": this_rmse,
     }
 
