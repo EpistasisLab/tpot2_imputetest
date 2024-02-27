@@ -5,7 +5,6 @@ import sklearn
 from sklearn.metrics import (roc_auc_score, roc_curve, precision_score, auc, recall_score, precision_recall_curve, \
                              roc_auc_score, accuracy_score, balanced_accuracy_score, f1_score, log_loss,
                              f1_score)
-from sklearn.metrics import root_mean_squared_error
 from sklearn.model_selection import train_test_split
 import traceback
 import dill as pickle
@@ -174,7 +173,7 @@ def score(est, X, y):
     except:
         y_preds = est.predict(X)
         #y_preds_onehot = sklearn.preprocessing.label_binarize(y_preds, classes=est.fitted_pipeline_.classes_)
-        this_rmse = root_mean_squared_error(y, y_preds)*-1
+        this_rmse = sklearn.metrics.mean_squared_error(y, y_preds)*-1
 
     this_accuracy_score = sklearn.metrics.get_scorer("accuracy")(est, X, y)
     this_balanced_accuracy_score = sklearn.metrics.get_scorer("balanced_accuracy")(est, X, y)
