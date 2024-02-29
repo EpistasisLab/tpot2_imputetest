@@ -1,0 +1,619 @@
+Run: 1
+/cm/local/apps/slurm/var/spool/job692127/slurm_script: line 23: /common/ketrong/minconda3/etc/profile.d/conda.sh: No such file or directory
+/cm/local/apps/slurm/var/spool/job692127/slurm_script: line 26: $'\nconda create --name tpot2devenv -c conda-forge python=3.10\n': command not found
+/cm/local/apps/slurm/var/spool/job692127/slurm_script: line 31: $'\npip install -r requirements.txt\n': command not found
+RunStart
+2024-02-29 11:12:58.208371: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:12:58.244208: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:12:58.244230: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:12:58.245621: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:12:58.251672: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:13:00.272249: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+starting loops
+working on 
+logs/7320/tpot2_base_normal_MCAR_0.01
+2.231968879699707
+loading data
+logs/7320/tpot2_base_normal_MCAR_0.01/data/7320_True.pkl
+23184    3183.577755
+12153    3491.023257
+15241    3442.861790
+25405    3038.209937
+9061     2396.275542
+            ...     
+8115     2704.214817
+10880    1631.511533
+6013     3177.954146
+7130     2019.041123
+15792    2893.909249
+Name: class, Length: 27993, dtype: float64
+              0   ...   22
+0      19.479052  ...  0.0
+1      17.049215  ...  0.0
+2      30.918546  ...  0.0
+3      26.781630  ...  0.0
+4      19.249913  ...  0.0
+...          ...  ...  ...
+27988  17.479747  ...  0.0
+27989  20.138694  ...  0.0
+27990  22.398782  ...  0.0
+27991  20.378255  ...  0.0
+27992  31.043061  ...  0.0
+
+[27993 rows x 23 columns]
+             0   ...   22
+0     21.370901  ...  0.0
+1     19.273567  ...  0.0
+2     19.984778  ...  1.0
+3     32.125706  ...  0.0
+4     17.874533  ...  0.0
+...         ...  ...  ...
+3106  27.464962  ...  0.0
+3107  21.173686  ...  0.0
+3108  17.548754  ...  0.0
+3109  21.066971  ...  0.0
+3110  19.569906  ...  0.0
+
+[3111 rows x 23 columns]
+running experiment 1/3 - Does large hyperparameter space improve reconstruction accuracy over simple
+[I 2024-02-29 11:13:19,524] A new study created in memory with name: no-name-c7a81416-a98c-445f-987f-e467aa3c82d7
+[I 2024-02-29 11:13:21,926] Trial 7 finished with value: 28.020650368313955 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 7 with value: 28.020650368313955.
+[I 2024-02-29 11:13:22,374] Trial 2 finished with value: 28.020650368313955 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 7 with value: 28.020650368313955.
+[I 2024-02-29 11:13:22,681] Trial 16 finished with value: 28.020650368313955 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 7 with value: 28.020650368313955.
+[I 2024-02-29 11:13:22,905] Trial 5 finished with value: 28.020650368313955 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 7 with value: 28.020650368313955.
+[I 2024-02-29 11:13:23,231] Trial 6 finished with value: 28.020650368313955 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 7 with value: 28.020650368313955.
+[I 2024-02-29 11:13:23,671] Trial 9 finished with value: 28.020650368313955 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 7 with value: 28.020650368313955.
+[I 2024-02-29 11:13:23,964] Trial 25 finished with value: 28.020650368313955 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 7 with value: 28.020650368313955.
+[I 2024-02-29 11:13:24,315] Trial 27 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:24,547] Trial 26 finished with value: 28.020650368313955 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:25,202] Trial 32 finished with value: 28.020650368313955 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:25,454] Trial 42 finished with value: 28.020650368313955 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:25,744] Trial 18 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:25,967] Trial 11 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:26,397] Trial 17 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:26,711] Trial 36 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:27,269] Trial 46 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:27,873] Trial 38 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:28,244] Trial 40 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:28,525] Trial 0 finished with value: 6.777241249246946 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:28,862] Trial 14 finished with value: 6.777241249246946 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:29,303] Trial 44 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:29,544] Trial 20 finished with value: 6.777241249246946 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:29,845] Trial 21 finished with value: 6.777241249246946 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:30,129] Trial 35 finished with value: 6.777241249246946 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:30,404] Trial 51 finished with value: 28.020650368313955 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:30,639] Trial 34 finished with value: 6.777241249246946 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:30,837] Trial 37 finished with value: 6.777241249246946 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:30,845] Trial 28 finished with value: 6.777241249246946 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:31,276] Trial 47 finished with value: 6.777241249246946 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:31,568] Trial 45 finished with value: 6.777241249246946 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:31,840] Trial 29 finished with value: 6.777241249246946 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:32,205] Trial 33 finished with value: 6.777241249246946 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:32,493] Trial 48 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:32,708] Trial 43 finished with value: 6.777241249246946 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:33,164] Trial 39 finished with value: 6.777241249246946 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:33,445] Trial 55 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:33,884] Trial 50 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:34,320] Trial 56 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:34,715] Trial 58 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:34,943] Trial 49 finished with value: 6.777241249246946 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:35,255] Trial 57 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:35,575] Trial 60 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:35,949] Trial 59 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:36,417] Trial 54 finished with value: 6.777241249246946 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:36,646] Trial 53 finished with value: 6.777241249246946 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:38,167] Trial 62 finished with value: 6.777241249246946 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:38,675] Trial 61 finished with value: 6.777241249246946 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:39,141] Trial 64 finished with value: 6.777241249246946 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:39,350] Trial 78 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:39,655] Trial 65 finished with value: 6.777241249246946 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:43,875] Trial 13 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:44,171] Trial 1 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:44,527] Trial 4 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:44,781] Trial 8 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:45,183] Trial 24 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:45,745] Trial 23 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:45,926] Trial 3 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:46,332] Trial 12 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:46,592] Trial 22 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:46,901] Trial 10 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:47,435] Trial 19 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:47,883] Trial 31 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:48,281] Trial 30 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:48,607] Trial 15 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:48,963] Trial 41 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:50,490] Trial 98 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:51,194] Trial 102 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:51,500] Trial 104 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:51,799] Trial 105 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:52,206] Trial 103 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:52,784] Trial 52 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:53,025] Trial 106 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:53,282] Trial 111 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:53,595] Trial 107 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:54,062] Trial 108 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:54,714] Trial 110 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:55,051] Trial 112 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:55,245] Trial 66 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:55,531] Trial 63 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:55,784] Trial 109 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:55,991] Trial 74 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:56,318] Trial 73 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:56,561] Trial 70 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:56,886] Trial 72 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:57,292] Trial 67 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:57,697] Trial 81 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:57,985] Trial 69 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:58,240] Trial 68 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:58,572] Trial 71 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:58,819] Trial 84 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:59,061] Trial 83 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:59,269] Trial 75 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:59,468] Trial 79 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:13:59,854] Trial 115 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:00,214] Trial 90 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:00,500] Trial 113 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:00,734] Trial 116 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:00,940] Trial 76 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:01,332] Trial 87 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:01,563] Trial 77 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:01,860] Trial 114 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:02,209] Trial 88 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:02,632] Trial 85 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:02,947] Trial 80 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:03,343] Trial 91 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:03,599] Trial 117 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:03,878] Trial 122 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:04,150] Trial 89 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:04,470] Trial 120 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:04,761] Trial 118 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:05,020] Trial 119 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:05,294] Trial 93 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:05,525] Trial 92 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:05,872] Trial 123 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:06,285] Trial 82 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:06,680] Trial 121 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:07,110] Trial 124 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:07,331] Trial 95 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:07,653] Trial 128 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:07,844] Trial 126 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:08,077] Trial 125 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:08,453] Trial 130 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:08,751] Trial 127 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:09,012] Trial 129 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:09,315] Trial 132 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:09,629] Trial 136 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:09,881] Trial 131 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:10,250] Trial 135 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:10,462] Trial 86 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:10,785] Trial 133 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:11,041] Trial 94 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:11,294] Trial 144 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:11,500] Trial 138 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:11,679] Trial 134 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:12,077] Trial 97 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:12,289] Trial 96 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:12,473] Trial 137 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:12,666] Trial 143 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:12,915] Trial 145 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:13,218] Trial 148 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:13,543] Trial 142 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:13,747] Trial 139 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:14,011] Trial 149 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:14,201] Trial 141 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:14,389] Trial 140 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:14,575] Trial 150 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:14,942] Trial 146 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:15,457] Trial 152 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:16,019] Trial 154 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:16,315] Trial 147 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:16,614] Trial 151 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:16,863] Trial 155 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:17,147] Trial 153 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:17,596] Trial 157 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:17,831] Trial 159 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:18,151] Trial 161 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:18,384] Trial 160 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:18,749] Trial 158 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:19,172] Trial 162 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:19,409] Trial 156 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:19,652] Trial 173 finished with value: 28.020650368313955 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:19,953] Trial 166 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:20,211] Trial 165 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:20,457] Trial 177 finished with value: 28.020650368313955 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:20,709] Trial 174 finished with value: 28.020650368313955 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:20,948] Trial 168 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:21,265] Trial 169 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:21,615] Trial 164 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:21,827] Trial 181 finished with value: 28.020650368313955 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:22,028] Trial 170 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:22,325] Trial 167 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:22,513] Trial 163 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:22,686] Trial 172 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:22,918] Trial 171 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:23,176] Trial 175 finished with value: 28.020650368313955 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:23,373] Trial 178 finished with value: 28.020650368313955 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:23,575] Trial 184 finished with value: 28.020650368313955 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:23,831] Trial 180 finished with value: 28.020650368313955 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:24,071] Trial 187 finished with value: 28.020650368313955 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:24,285] Trial 193 finished with value: 28.020650368313955 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:24,571] Trial 194 finished with value: 28.020650368313955 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:24,830] Trial 176 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:25,020] Trial 185 finished with value: 28.020650368313955 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:25,261] Trial 188 finished with value: 28.020650368313955 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:25,501] Trial 195 finished with value: 28.020650368313955 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:25,688] Trial 179 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:25,867] Trial 189 finished with value: 28.020650368313955 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:26,041] Trial 192 finished with value: 28.020650368313955 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:26,221] Trial 190 finished with value: 28.020650368313955 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:26,427] Trial 191 finished with value: 28.020650368313955 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:26,669] Trial 186 finished with value: 28.020650368313955 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:27,015] Trial 182 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:27,285] Trial 183 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:27,497] Trial 198 finished with value: 28.020650368313955 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:27,761] Trial 196 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:27,982] Trial 100 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:28,204] Trial 199 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:28,410] Trial 197 finished with value: 6.558535864613772 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:28,607] Trial 101 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+[I 2024-02-29 11:14:28,796] Trial 99 finished with value: 28.018489577611994 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 27 with value: 6.558535864613772.
+simple fit
+simple transform
+             0   ...        22
+0     21.370901  ...  0.017835
+1     19.273567  ...  0.000000
+2     19.984778  ...  1.000000
+3     32.125706  ...  0.000000
+4     17.874533  ...  0.000000
+...         ...  ...       ...
+3106  27.464962  ...  0.000000
+3107  21.173686  ...  0.000000
+3108  17.548754  ...  0.000000
+3109  21.066971  ...  0.000000
+3110  19.569906  ...  0.000000
+
+[3111 rows x 23 columns]
+6.558535864613772
+{'model_name': 'SimpleImputer', 'strategy': 'mean'}
+running experiment 2/3 - Does reconstruction give good automl predictions
+Start est fit
+2024-02-29 11:14:40.282705: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.282776: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.282776: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.282778: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.282786: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.282776: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.282791: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.282784: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.282788: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.282786: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.282788: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.282793: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.282793: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.282797: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.282799: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.282804: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.282806: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.282809: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.282809: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.282811: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.282808: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.282812: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.282813: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.282815: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.282837: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.282838: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.282837: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.282839: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.282838: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.282840: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.282843: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.282840: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.282845: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.282854: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.282857: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.282919: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.282919: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.282925: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.282932: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.282964: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.283297: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.284655: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.285547: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.289022: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.290445: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.320818: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.320817: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.320815: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.320822: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.320816: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.320820: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.320816: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.320816: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.320816: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.320829: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.320816: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.320822: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.320817: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.320816: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.320832: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.320835: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.320837: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.320858: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.320835: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.320839: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.320835: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.320832: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.320841: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.320852: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.320868: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.320857: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.320857: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.320846: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.320848: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.320859: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.320850: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.320850: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.320862: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.320862: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.320862: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.320866: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.320862: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.320880: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.320863: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.320862: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.320865: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.320862: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.320855: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.320851: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.320853: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.320856: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.320867: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.320856: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.320856: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.320866: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.320859: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.320857: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.320871: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.320857: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.320860: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.320872: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.320873: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.320874: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.320875: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.320883: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.320885: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.320886: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.320896: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.320896: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.320897: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.320898: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.320899: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.320909: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.320912: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.320912: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.320913: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.320912: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.320912: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.320932: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.320953: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.321049: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.321626: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.321704: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.322153: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.322308: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.322311: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.322309: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.322311: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.322311: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.322313: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.322312: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.322311: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.322314: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.322315: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.322317: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.322316: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.322316: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.322318: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.322341: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.322342: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.322342: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.322348: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.322351: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.322357: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.322357: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.322358: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.322357: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.322358: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.322361: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.322362: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.322402: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.322402: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.322394: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.322402: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.322402: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.322402: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.322402: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.322424: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.322422: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.322424: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.322426: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.322427: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.322427: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.322649: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.322678: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.322740: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.323207: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.323275: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.323365: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.323715: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.324259: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.326570: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.326632: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.327561: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.327977: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.328001: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.328080: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.328081: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.328083: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.328486: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.328486: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.328489: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.328488: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.328488: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.328491: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.328493: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.328493: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.328500: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.328506: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.328507: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.328509: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.328525: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.328527: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.328535: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.328536: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.328541: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.328559: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.328561: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.328566: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.328568: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.328570: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.328570: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.328572: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.328579: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.328689: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.328703: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.328708: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.328745: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.328748: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.328759: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.328805: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.328814: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.328819: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.328885: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.329329: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.329995: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.330003: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.330019: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.330619: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.330975: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.331003: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.331882: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.333142: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.334312: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.337770: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.353884: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.353884: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.368243: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-29 11:14:40.391103: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.391103: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.391137: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.391137: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.392453: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.392453: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.398777: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.398777: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:40.403975: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-02-29 11:14:40.404007: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-02-29 11:14:40.404986: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-02-29 11:14:40.410447: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-29 11:14:42.760890: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.760891: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.761027: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.761040: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.761037: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.761092: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.761096: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.761114: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.761117: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.761129: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.761137: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.761196: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.761221: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.761246: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.761254: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.761276: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.761310: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.761332: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.761365: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.761379: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.761381: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.761395: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.761411: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.761503: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.761509: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.761523: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.761619: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.761621: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.761622: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.761624: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.761660: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.761757: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.761757: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.761804: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.761817: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.761825: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.761838: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.761842: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.761857: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.761900: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.762008: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.762054: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.762148: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.762499: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.762845: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.763824: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.763888: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-29 11:14:42.763915: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT

@@ -4639,3 +4639,430 @@ SGDRegressor does not accept missing values encoded as NaN natively. For supervi
 ValueError: Input X contains NaN.
 SGDRegressor does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
 
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ [('RidgeCV_1', 'GAINImputer_1')] 
+ Input X contains NaN.
+_RidgeGCV does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values 
+ Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/estimator.py", line 702, in objective_function
+    return objective_function_generator(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/estimator_utils.py", line 117, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 354, in fit
+    fit_sklearn_digraph(   graph=self.graph,
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 153, in fit_sklearn_digraph
+    transformed, instance = estimator_fit_transform_override_cross_val_predict_cached(instance, this_X, y, cv=cross_val_predict_cv, method=method,subset_indexes=subset_indexes)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/joblib/memory.py", line 353, in __call__
+    return self.func(*args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 77, in estimator_fit_transform_override_cross_val_predict
+    estimator.fit(X,y, **fit_params)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 1152, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/linear_model/_ridge.py", line 2369, in fit
+    super().fit(X, y, sample_weight=sample_weight)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/linear_model/_ridge.py", line 2171, in fit
+    estimator.fit(X, y, sample_weight=sample_weight)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/linear_model/_ridge.py", line 1948, in fit
+    X, y = self._validate_data(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 622, in _validate_data
+    X, y = check_X_y(X, y, **check_params)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1146, in check_X_y
+    X = check_array(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/validation.py", line 957, in check_array
+    _assert_all_finite(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/validation.py", line 122, in _assert_all_finite
+    _assert_all_finite_element_wise(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/validation.py", line 171, in _assert_all_finite_element_wise
+    raise ValueError(msg_err)
+ValueError: Input X contains NaN.
+_RidgeGCV does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ [('GradientBoostingRegressor_1', 'KNNImputer_1')] 
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ [('ExtraTreesRegressor_1', 'KNNImputer_1')] 
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ [('RidgeCV_1', 'KNNImputer_1')] 
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ [('RidgeCV_1', 'KNNImputer_1')] 
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ [('DecisionTreeRegressor_1', 'KNNImputer_1')] 
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ [('SVR_1', 'KNNImputer_1')] 
+
+Generation:  1
+Best mean_squared_error score: -4.238809279999428
+Best complexity_scorer score: 2.0
+Generation:   2%|▏         | 1/50 [10:01<8:10:49, 601.00s/it]2024-02-28 00:04:41.914312: E external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:274] failed call to cuInit: CUDA_ERROR_NO_DEVICE: no CUDA-capable device is detected
+2024-02-28 00:04:41.925890: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:388] MLIR V1 optimization pass is not enabled
+2024-02-28 00:04:41.985151: E external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:274] failed call to cuInit: CUDA_ERROR_NO_DEVICE: no CUDA-capable device is detected
+2024-02-28 00:04:41.997082: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:388] MLIR V1 optimization pass is not enabled
+2024-02-28 00:04:42.061452: E external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:274] failed call to cuInit: CUDA_ERROR_NO_DEVICE: no CUDA-capable device is detected
+2024-02-28 00:04:42.071440: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:388] MLIR V1 optimization pass is not enabled
+2024-02-28 00:04:42.098695: E external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:274] failed call to cuInit: CUDA_ERROR_NO_DEVICE: no CUDA-capable device is detected
+2024-02-28 00:04:42.108660: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:388] MLIR V1 optimization pass is not enabled
+2024-02-28 00:04:42.548411: E external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:274] failed call to cuInit: CUDA_ERROR_NO_DEVICE: no CUDA-capable device is detected
+2024-02-28 00:04:42.565438: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:388] MLIR V1 optimization pass is not enabled
+WARNING AN INDIVIDUAL TIMED OUT: 
+ [('DecisionTreeRegressor_1', 'GAINImputer_1')] 
+
+Generation:  2
+Best mean_squared_error score: -4.234868109450235
+Best complexity_scorer score: 2.0
+Generation:   4%|▍         | 2/50 [20:01<8:00:42, 600.89s/it]2024-02-28 00:14:43.028689: E external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:274] failed call to cuInit: CUDA_ERROR_NO_DEVICE: no CUDA-capable device is detected
+2024-02-28 00:14:43.041185: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:388] MLIR V1 optimization pass is not enabled
+Generation:  3
+Best mean_squared_error score: -4.220696971724205
+Best complexity_scorer score: 2.0
+Generation:   6%|▌         | 3/50 [22:38<5:11:57, 398.24s/it]2024-02-28 00:17:20.702215: E external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:274] failed call to cuInit: CUDA_ERROR_NO_DEVICE: no CUDA-capable device is detected
+2024-02-28 00:17:20.712450: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:388] MLIR V1 optimization pass is not enabled
+2024-02-28 00:17:20.784537: E external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:274] failed call to cuInit: CUDA_ERROR_NO_DEVICE: no CUDA-capable device is detected
+2024-02-28 00:17:20.789931: E external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:274] failed call to cuInit: CUDA_ERROR_NO_DEVICE: no CUDA-capable device is detected
+2024-02-28 00:17:20.798178: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:388] MLIR V1 optimization pass is not enabled
+2024-02-28 00:17:20.811755: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:388] MLIR V1 optimization pass is not enabled
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ [('ExtraTreesRegressor_1', 'GAINImputer_1')] 
+ Input X contains NaN.
+ExtraTreesRegressor does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values 
+ Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/estimator.py", line 702, in objective_function
+    return objective_function_generator(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/estimator_utils.py", line 117, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 354, in fit
+    fit_sklearn_digraph(   graph=self.graph,
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 153, in fit_sklearn_digraph
+    transformed, instance = estimator_fit_transform_override_cross_val_predict_cached(instance, this_X, y, cv=cross_val_predict_cv, method=method,subset_indexes=subset_indexes)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/joblib/memory.py", line 353, in __call__
+    return self.func(*args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 77, in estimator_fit_transform_override_cross_val_predict
+    estimator.fit(X,y, **fit_params)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 1152, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/ensemble/_forest.py", line 348, in fit
+    X, y = self._validate_data(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 622, in _validate_data
+    X, y = check_X_y(X, y, **check_params)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1146, in check_X_y
+    X = check_array(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/validation.py", line 957, in check_array
+    _assert_all_finite(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/validation.py", line 122, in _assert_all_finite
+    _assert_all_finite_element_wise(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/validation.py", line 171, in _assert_all_finite_element_wise
+    raise ValueError(msg_err)
+ValueError: Input X contains NaN.
+ExtraTreesRegressor does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+
+Generation:  4
+Best mean_squared_error score: -4.220696971724205
+Best complexity_scorer score: 2.0
+Generation:   8%|▊         | 4/50 [25:00<3:47:38, 296.91s/it]2024-02-28 00:19:41.851109: E external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:274] failed call to cuInit: CUDA_ERROR_NO_DEVICE: no CUDA-capable device is detected
+2024-02-28 00:19:41.861984: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:388] MLIR V1 optimization pass is not enabled
+2024-02-28 00:19:41.945030: E external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:274] failed call to cuInit: CUDA_ERROR_NO_DEVICE: no CUDA-capable device is detected
+2024-02-28 00:19:41.972336: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:388] MLIR V1 optimization pass is not enabled
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ [('ExtraTreesRegressor_1', 'GAINImputer_1')] 
+ Input X contains NaN.
+ExtraTreesRegressor does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values 
+ Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/estimator.py", line 702, in objective_function
+    return objective_function_generator(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/estimator_utils.py", line 117, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 354, in fit
+    fit_sklearn_digraph(   graph=self.graph,
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 153, in fit_sklearn_digraph
+    transformed, instance = estimator_fit_transform_override_cross_val_predict_cached(instance, this_X, y, cv=cross_val_predict_cv, method=method,subset_indexes=subset_indexes)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/joblib/memory.py", line 353, in __call__
+    return self.func(*args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 77, in estimator_fit_transform_override_cross_val_predict
+    estimator.fit(X,y, **fit_params)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 1152, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/ensemble/_forest.py", line 348, in fit
+    X, y = self._validate_data(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 622, in _validate_data
+    X, y = check_X_y(X, y, **check_params)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1146, in check_X_y
+    X = check_array(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/validation.py", line 957, in check_array
+    _assert_all_finite(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/validation.py", line 122, in _assert_all_finite
+    _assert_all_finite_element_wise(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/validation.py", line 171, in _assert_all_finite_element_wise
+    raise ValueError(msg_err)
+ValueError: Input X contains NaN.
+ExtraTreesRegressor does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+
+Generation:  5
+Best mean_squared_error score: -4.220696971724205
+Best complexity_scorer score: 2.0
+Generation:  10%|█         | 5/50 [27:15<2:58:59, 238.66s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ [('ExtraTreesRegressor_1', 'GAINImputer_1')] 
+ Input X contains NaN.
+ExtraTreesRegressor does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values 
+ Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/estimator.py", line 702, in objective_function
+    return objective_function_generator(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/estimator_utils.py", line 117, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/cross_val_utils.py", line 31, in cross_val_score_objective
+    this_fold_scores = [sklearn.metrics.get_scorer(scorer)(this_fold_pipeline, X_test, y_test) for scorer in scorers]
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/cross_val_utils.py", line 31, in <listcomp>
+    this_fold_scores = [sklearn.metrics.get_scorer(scorer)(this_fold_pipeline, X_test, y_test) for scorer in scorers]
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 266, in __call__
+    return self._score(partial(_cached_call, None), estimator, X, y_true, **_kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 353, in _score
+    y_pred = method_caller(estimator, "predict", X)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 86, in _cached_call
+    result, _ = _get_response_values(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_response.py", line 218, in _get_response_values
+    y_pred, pos_label = estimator.predict(X), None
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 389, in predict
+    this_X = get_inputs_to_node(self.graph,
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 219, in get_inputs_to_node
+    transformed_steps = transform_sklearn_digraph(graph,
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 194, in transform_sklearn_digraph
+    transformed = getattr(instance, this_method)(this_X)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/ensemble/_forest.py", line 984, in predict
+    X = self._validate_X_predict(X)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/ensemble/_forest.py", line 599, in _validate_X_predict
+    X = self._validate_data(X, dtype=DTYPE, accept_sparse="csr", reset=False)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 605, in _validate_data
+    out = check_array(X, input_name="X", **check_params)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/validation.py", line 957, in check_array
+    _assert_all_finite(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/validation.py", line 122, in _assert_all_finite
+    _assert_all_finite_element_wise(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/validation.py", line 171, in _assert_all_finite_element_wise
+    raise ValueError(msg_err)
+ValueError: Input X contains NaN.
+ExtraTreesRegressor does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+
+Generation:  6
+Best mean_squared_error score: -4.220494821988475
+Best complexity_scorer score: 2.0
+Generation:  12%|█▏        | 6/50 [29:13<2:24:48, 197.47s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ [('ExtraTreesRegressor_1', 'GAINImputer_1')] 
+ Input X contains NaN.
+ExtraTreesRegressor does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values 
+ Traceback (most recent call last):
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/estimator.py", line 702, in objective_function
+    return objective_function_generator(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/estimator_utils.py", line 117, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 354, in fit
+    fit_sklearn_digraph(   graph=self.graph,
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 153, in fit_sklearn_digraph
+    transformed, instance = estimator_fit_transform_override_cross_val_predict_cached(instance, this_X, y, cv=cross_val_predict_cv, method=method,subset_indexes=subset_indexes)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/joblib/memory.py", line 353, in __call__
+    return self.func(*args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tpot2/graphsklearn.py", line 77, in estimator_fit_transform_override_cross_val_predict
+    estimator.fit(X,y, **fit_params)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 1152, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/ensemble/_forest.py", line 348, in fit
+    X, y = self._validate_data(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/base.py", line 622, in _validate_data
+    X, y = check_X_y(X, y, **check_params)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1146, in check_X_y
+    X = check_array(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/validation.py", line 957, in check_array
+    _assert_all_finite(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/validation.py", line 122, in _assert_all_finite
+    _assert_all_finite_element_wise(
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/validation.py", line 171, in _assert_all_finite_element_wise
+    raise ValueError(msg_err)
+ValueError: Input X contains NaN.
+ExtraTreesRegressor does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+
+Generation:  7
+Best mean_squared_error score: -4.220494821988475
+Best complexity_scorer score: 2.0
+Generation:  14%|█▍        | 7/50 [31:49<2:11:48, 183.92s/it]Generation:  8
+Best mean_squared_error score: -4.220481371882327
+Best complexity_scorer score: 2.0
+Generation:  16%|█▌        | 8/50 [34:13<1:59:59, 171.40s/it]Generation:  9
+Best mean_squared_error score: -4.220481371882327
+Best complexity_scorer score: 2.0
+Generation:  18%|█▊        | 9/50 [36:50<1:53:57, 166.77s/it]Generation:  10
+Best mean_squared_error score: -4.220481371882327
+Best complexity_scorer score: 2.0
+Generation:  20%|██        | 10/50 [39:04<1:44:27, 156.70s/it]Generation:  11
+Best mean_squared_error score: -4.2200695565320805
+Best complexity_scorer score: 2.0
+Generation:  22%|██▏       | 11/50 [41:38<1:41:16, 155.80s/it]Generation:  12
+Best mean_squared_error score: -4.2200695565320805
+Best complexity_scorer score: 2.0
+Generation:  24%|██▍       | 12/50 [44:05<1:36:59, 153.14s/it]Generation:  13
+Best mean_squared_error score: -4.2200695565320805
+Best complexity_scorer score: 2.0
+Generation:  26%|██▌       | 13/50 [46:33<1:33:31, 151.67s/it]Generation:  14
+Best mean_squared_error score: -4.21997331592291
+Best complexity_scorer score: 2.0
+Generation:  28%|██▊       | 14/50 [48:39<1:26:12, 143.69s/it]Generation:  15
+Best mean_squared_error score: -4.21997331592291
+Best complexity_scorer score: 2.0
+Generation:  30%|███       | 15/50 [50:55<1:22:30, 141.44s/it]Generation:  16
+Best mean_squared_error score: -4.21997331592291
+Best complexity_scorer score: 2.0
+Generation:  32%|███▏      | 16/50 [53:33<1:23:01, 146.52s/it]Generation:  17
+Best mean_squared_error score: -4.219948301339955
+Best complexity_scorer score: 2.0
+Generation:  34%|███▍      | 17/50 [56:08<1:22:00, 149.11s/it]Generation:  18
+Best mean_squared_error score: -4.219948301339955
+Best complexity_scorer score: 2.0
+Generation:  36%|███▌      | 18/50 [58:41<1:20:02, 150.07s/it]Generation:  19
+Best mean_squared_error score: -4.219948301339955
+Best complexity_scorer score: 2.0
+Generation:  38%|███▊      | 19/50 [1:00:51<1:14:29, 144.18s/it]Generation:  20
+Best mean_squared_error score: -4.219948301339955
+Best complexity_scorer score: 2.0
+Generation:  40%|████      | 20/50 [1:03:23<1:13:17, 146.59s/it]Generation:  21
+Best mean_squared_error score: -4.219948301339955
+Best complexity_scorer score: 2.0
+Generation:  42%|████▏     | 21/50 [1:06:04<1:12:57, 150.96s/it]Generation:  22
+Best mean_squared_error score: -4.219948301339955
+Best complexity_scorer score: 2.0
+Generation:  44%|████▍     | 22/50 [1:08:33<1:10:06, 150.22s/it]Generation:  23
+Best mean_squared_error score: -4.219948301339955
+Best complexity_scorer score: 2.0
+Generation:  46%|████▌     | 23/50 [1:11:03<1:07:31, 150.06s/it]Generation:  24
+Best mean_squared_error score: -4.219948301339955
+Best complexity_scorer score: 2.0
+Generation:  48%|████▊     | 24/50 [1:13:35<1:05:23, 150.91s/it]Generation:  25
+Best mean_squared_error score: -4.219948301339955
+Best complexity_scorer score: 2.0
+Generation:  50%|█████     | 25/50 [1:16:23<1:04:56, 155.88s/it]Generation:  26
+Best mean_squared_error score: -4.219948301339955
+Best complexity_scorer score: 2.0
+Generation:  52%|█████▏    | 26/50 [1:18:37<59:44, 149.37s/it]  Generation:  27
+Best mean_squared_error score: -4.219948301339955
+Best complexity_scorer score: 2.0
+Generation:  54%|█████▍    | 27/50 [1:21:16<58:18, 152.12s/it]Generation:  28
+Best mean_squared_error score: -4.219948301339955
+Best complexity_scorer score: 2.0
+Generation:  56%|█████▌    | 28/50 [1:23:32<54:03, 147.43s/it]Generation:  29
+Best mean_squared_error score: -4.219948301339955
+Best complexity_scorer score: 2.0
+Generation:  58%|█████▊    | 29/50 [1:25:38<49:18, 140.86s/it]Generation:  30
+Best mean_squared_error score: -4.219948301339955
+Best complexity_scorer score: 2.0
+Generation:  60%|██████    | 30/50 [1:28:06<47:39, 142.97s/it]Generation:  31
+Best mean_squared_error score: -4.219948301339955
+Best complexity_scorer score: 2.0
+Generation:  62%|██████▏   | 31/50 [1:30:47<47:01, 148.50s/it]Generation:  32
+Best mean_squared_error score: -4.219948301339955
+Best complexity_scorer score: 2.0
+Generation:  64%|██████▍   | 32/50 [1:32:20<39:34, 131.92s/it]Generation:  33
+Best mean_squared_error score: -4.219703268592411
+Best complexity_scorer score: 2.0
+Generation:  66%|██████▌   | 33/50 [1:35:05<40:09, 141.72s/it]Generation:  34
+Best mean_squared_error score: -4.219703268592411
+Best complexity_scorer score: 2.0
+Generation:  68%|██████▊   | 34/50 [1:37:15<36:52, 138.29s/it]Generation:  35
+Best mean_squared_error score: -4.219703268592411
+Best complexity_scorer score: 2.0
+Generation:  70%|███████   | 35/50 [1:39:54<36:06, 144.40s/it]Generation:  36
+Best mean_squared_error score: -4.219703268592411
+Best complexity_scorer score: 2.0
+Generation:  72%|███████▏  | 36/50 [1:42:25<34:08, 146.35s/it]Generation:  37
+Best mean_squared_error score: -4.219703268592411
+Best complexity_scorer score: 2.0
+Generation:  74%|███████▍  | 37/50 [1:45:00<32:18, 149.14s/it]Generation:  38
+Best mean_squared_error score: -4.219703268592411
+Best complexity_scorer score: 2.0
+Generation:  76%|███████▌  | 38/50 [1:47:34<30:06, 150.54s/it]Generation:  39
+Best mean_squared_error score: -4.219703268592411
+Best complexity_scorer score: 2.0
+Generation:  78%|███████▊  | 39/50 [1:49:58<27:15, 148.67s/it]Generation:  40
+Best mean_squared_error score: -4.219703268592411
+Best complexity_scorer score: 2.0
+Generation:  80%|████████  | 40/50 [1:52:42<25:31, 153.18s/it]Generation:  41
+Best mean_squared_error score: -4.219703268592411
+Best complexity_scorer score: 2.0
+Generation:  82%|████████▏ | 41/50 [1:55:27<23:29, 156.65s/it]Generation:  42
+Best mean_squared_error score: -4.219703268592411
+Best complexity_scorer score: 2.0
+Generation:  84%|████████▍ | 42/50 [1:57:37<19:49, 148.71s/it]Generation:  43
+Best mean_squared_error score: -4.219703268592411
+Best complexity_scorer score: 2.0
+Generation:  86%|████████▌ | 43/50 [1:59:55<16:58, 145.57s/it]Generation:  44
+Best mean_squared_error score: -4.219703268592411
+Best complexity_scorer score: 2.0
+Generation:  88%|████████▊ | 44/50 [2:02:09<14:12, 142.03s/it]Generation:  45
+Best mean_squared_error score: -4.219703268592411
+Best complexity_scorer score: 2.0
+Generation:  90%|█████████ | 45/50 [2:05:02<12:36, 151.24s/it]Generation:  46
+Best mean_squared_error score: -4.219703268592411
+Best complexity_scorer score: 2.0
+Generation:  92%|█████████▏| 46/50 [2:07:41<10:14, 153.60s/it]Generation:  47
+Best mean_squared_error score: -4.219703268592411
+Best complexity_scorer score: 2.0
+Generation:  94%|█████████▍| 47/50 [2:10:14<07:40, 153.43s/it]Generation:  48
+Best mean_squared_error score: -4.219703268592411
+Best complexity_scorer score: 2.0
+Generation:  96%|█████████▌| 48/50 [2:12:30<04:56, 148.09s/it]Generation:  49
+Best mean_squared_error score: -4.219703268592411
+Best complexity_scorer score: 2.0
+Generation:  98%|█████████▊| 49/50 [2:15:06<02:30, 150.64s/it]Generation:  50
+Best mean_squared_error score: -4.219703268592411
+Best complexity_scorer score: 2.0
+Generation: 100%|██████████| 50/50 [2:18:14<00:00, 161.69s/it]Generation: 100%|██████████| 50/50 [2:18:15<00:00, 165.90s/it]
+Fitted
+[('ExtraTreesRegressor_1', 'SimpleImputer_1')]
+score start
+train score: {'explained_var': 0.08445029371883761, 'r2': 0.08445015475044793, 'rmse': 17.695055531847064}
+test score: {'explained_var': 0.08029836388626432, 'r2': 0.08028557652605939, 'rmse': 17.47482222704615}
+score end
+2306
+finished
+all finished
+full run takes
+5.618830322424571
+hours
+DONE

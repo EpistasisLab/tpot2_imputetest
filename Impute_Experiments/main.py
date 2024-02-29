@@ -167,7 +167,9 @@ def main():
                     167119, 189865, 189773, ]
     Ran: 6, 26, 30, 32, 2142, 14953, 206, 219 
 
-    215, 218, 197, 216, 287, 1193, 1199, 42225, 42688, 42712
+    215, 218, 197, 216, 287, 1193, 1199, 42225, 42688, 42712,
+
+    Completed: 2306, 2309, 2288, 2289, 2307, 359935 
     new_task_list_regression = [2306, 2309, 2288, 2289, 2307, 359935, 7320, 7323,
                                 233211, 359938, 317615
 
@@ -183,7 +185,7 @@ def main():
                     ]
                 218, 251, 4552 wrong, need new task list for all.  isnt the right data set. Need to process these from the dataset pull. 
     '''
-    task_id_lists = [2306]
+    task_id_lists = [7320]
     
     print('starting loops')
     start = time.time()
