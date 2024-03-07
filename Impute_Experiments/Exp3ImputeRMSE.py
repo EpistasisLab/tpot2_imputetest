@@ -106,7 +106,7 @@ def main():
                     print('try transform')
                     X_test_transform = pls_work.graph.nodes[pls_work.topo_sorted_nodes[0]]["instance"].transform(X_test_missing_n)
                     print('transform worked')
-                    rmse_loss = autoutils.rmse_loss(ori_data=X_test.to_numpy(), imputed_data=X_test_transform.to_numpy(), data_m=np.multiply(mask_test.to_numpy(),1))
+                    rmse_loss = autoutils.rmse_loss(ori_data=X_test, imputed_data=X_test_transform, data_m=np.multiply(mask_test.to_numpy(),1))
                     print(rmse_loss+' =rmse:'+taskid + exp + item + lvl)
                     csvout.loc[exp+item+lvl] = pd.Series({'Exp3ImputeRMSE': rmse_loss})
                     #except:
