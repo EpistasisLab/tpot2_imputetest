@@ -1,0 +1,31 @@
+Run: 1
+/cm/local/apps/slurm/var/spool/job702647/slurm_script: line 23: /common/ketrong/minconda3/etc/profile.d/conda.sh: No such file or directory
+/cm/local/apps/slurm/var/spool/job702647/slurm_script: line 26: $'\nconda create --name tpot2devenv -c conda-forge python=3.10\n': command not found
+/cm/local/apps/slurm/var/spool/job702647/slurm_script: line 31: $'\npip install -r requirements.txt\n': command not found
+RunStart
+2024-03-07 12:52:08.801166: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-03-07 12:52:08.837692: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-03-07 12:52:08.837715: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-03-07 12:52:08.839133: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-03-07 12:52:08.845333: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-03-07 12:52:10.450596: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+WARNING:tensorflow:From /home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+starting loops
+[('XGBRegressor_1', 'SimpleImputer_1')]
+<class 'tpot2.graphsklearn.GraphPipeline'>
+loading data
+/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/logs/2306/tpot2_base_normal_MAR_0.01/data/2306_True.pkl
+fitting
+try transform
+Traceback (most recent call last):
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/Exp3ImputeRMSE.py", line 188, in <module>
+    main()
+  File "/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/Exp3ImputeRMSE.py", line 107, in main
+    X_test_transform = pls_work.transform(X_test_missing_n)
+  File "/home/ketrong/miniconda3/envs/tpot2devenv/lib/python3.10/site-packages/sklearn/utils/_available_if.py", line 32, in __get__
+    raise attr_err
+AttributeError: This 'GraphPipeline' has no attribute 'transform'
+srun: error: esplhpc-cp007: task 0: Exited with exit code 1

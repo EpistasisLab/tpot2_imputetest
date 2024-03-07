@@ -88,6 +88,7 @@ def main():
                     #try:
                     with open(imputepath + 'tpot_space_fitted_pipeline.pkl', 'rb') as file:
                         my_run_pipeline = pickle.load(file)
+                        print(my_run_pipeline)
                     print(type(my_run_pipeline))
                     print("loading data")
                     levelstr = lvl.replace("/", "")
@@ -101,9 +102,9 @@ def main():
                     X_train_missing_n = X_train_missing_p.to_numpy()
                     X_test_missing_n = X_test_missing_p.to_numpy()
                     print('fitting')
-                    my_run_pipeline.fit(X_train)
+                    pls_work = my_run_pipeline.fit(X_train, y_train)
                     print('try transform')
-                    X_test_transform = my_run_pipeline.transform(X_test_missing_n)
+                    X_test_transform = pls_work.graph.nodes[pls_work.topo_sorted_nodes[0]]["instance"].transform(X_test_missing_n)
                     print('transform worked')
                     rmse_loss = autoutils.rmse_loss(ori_data=X_test.to_numpy(), imputed_data=X_test_transform.to_numpy(), data_m=np.multiply(mask_test.to_numpy(),1))
                     print(rmse_loss+' =rmse:'+taskid + exp + item + lvl)
