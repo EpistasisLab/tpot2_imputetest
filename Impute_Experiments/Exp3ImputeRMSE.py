@@ -93,21 +93,22 @@ def main():
                         level = float(levelstr)
                         type = item.replace("_", "")
                         X_train, y_train, X_test, y_test = load_task(imputepath=imputepath, task_id=taskid, preprocess=True)
-                        print(y_train)
                         X_train_pandas = pd.DataFrame(X_train)
-                        print(X_train_pandas)
                         X_test_pandas = pd.DataFrame(X_test)
-                        print(X_test_pandas)
                         X_train_missing_p, mask_train = utils.add_missing(X_train_pandas, add_missing=level, missing_type=type)
                         X_test_missing_p, mask_test = utils.add_missing(X_test_pandas, add_missing=level, missing_type=type)
                         X_train_missing_n = X_train_missing_p.to_numpy()
                         X_test_missing_n = X_test_missing_p.to_numpy()
+                        print('try transform')
                         X_test_transform = my_run_pipeline.transform(X_test_missing_n)
+                        print('transform worked')
                         rmse_loss = autoutils.rmse_loss(ori_data=X_test.to_numpy(), imputed_data=X_test_transform.to_numpy(), data_m=np.multiply(mask_test.to_numpy(),1))
+                        print(rmse_loss+' =rmse:'+taskid + exp + item + lvl)
                         csvout.loc[exp+item+lvl] = pd.Series({'Exp3ImputeRMSE': rmse_loss})
                     except:
                         print(taskid+item+lvl+' failed')
         output = csvout.to_csv(fileoutput+taskid+'_3rmse.csv')
+        print(taskid + ' Complete')
 
     stop = time.time()
     duration = stop - start
@@ -117,7 +118,7 @@ def main():
 
 def load_task(imputepath, task_id, preprocess=True):
     
-    cached_data_path = imputepath + f"/data/{task_id}_{preprocess}.pkl"
+    cached_data_path = imputepath + f"data/{task_id}_{preprocess}.pkl"
     print(cached_data_path)
     if os.path.exists(cached_data_path):
         d = pickle.load(open(cached_data_path, "rb"))
@@ -154,8 +155,8 @@ def load_task(imputepath, task_id, preprocess=True):
                 X_train = np.append(X_train, X_train[indices], axis=0)
 
             d = {"X_train": X_train, "y_train": y_train, "X_test": X_test, "y_test": y_test}
-            if not os.path.exists(imputepath + f"/data/"):
-                os.makedirs(imputepath + f"/data/")
+            if not os.path.exists(imputepath + f"data/"):
+                os.makedirs(imputepath + f"data/")
             with open(cached_data_path, "wb") as f:
                 pickle.dump(d, f)
 
