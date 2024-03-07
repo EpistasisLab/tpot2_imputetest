@@ -85,32 +85,32 @@ def main():
             for item in ['MAR_', 'MCAR_', 'MNAR_']:
                 for lvl in ['0.01/', '0.1/', '0.3/', '0.5/', '0.9/']:
                     imputepath = '/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/logs/'+ taskid + exp + item + lvl
-                    #try:
-                    with open(imputepath + 'tpot_space_fitted_pipeline.pkl', 'rb') as file:
-                        my_run_pipeline = pickle.load(file)
-                        print(my_run_pipeline)
-                    print(type(my_run_pipeline))
-                    print("loading data")
-                    levelstr = lvl.replace("/", "")
-                    level = float(levelstr)
-                    typical = item.replace("_", "")
-                    X_train, y_train, X_test, y_test = load_task(imputepath=imputepath, task_id=taskid, preprocess=True)
-                    X_train_pandas = pd.DataFrame(X_train)
-                    X_test_pandas = pd.DataFrame(X_test)
-                    X_train_missing_p, mask_train = utils.add_missing(X_train_pandas, add_missing=level, missing_type=typical)
-                    X_test_missing_p, mask_test = utils.add_missing(X_test_pandas, add_missing=level, missing_type=typical)
-                    X_train_missing_n = X_train_missing_p.to_numpy()
-                    X_test_missing_n = X_test_missing_p.to_numpy()
-                    print('fitting')
-                    pls_work = my_run_pipeline.fit(X_train, y_train)
-                    print('try transform')
-                    X_test_transform = pls_work.graph.nodes[pls_work.topo_sorted_nodes[0]]["instance"].transform(X_test_missing_n)
-                    print('transform worked')
-                    rmse_loss = autoutils.rmse_loss(ori_data=X_test, imputed_data=X_test_transform, data_m=np.multiply(mask_test.to_numpy(),1))
-                    print(rmse_loss+' =rmse:'+taskid + exp + item + lvl)
-                    csvout.loc[exp+item+lvl] = pd.Series({'Exp3ImputeRMSE': rmse_loss})
-                    #except:
-                        #print(taskid+item+lvl+' failed')
+                    try:
+                        with open(imputepath + 'tpot_space_fitted_pipeline.pkl', 'rb') as file:
+                            my_run_pipeline = pickle.load(file)
+                            print(my_run_pipeline)
+                        print(type(my_run_pipeline))
+                        print("loading data")
+                        levelstr = lvl.replace("/", "")
+                        level = float(levelstr)
+                        typical = item.replace("_", "")
+                        X_train, y_train, X_test, y_test = load_task(imputepath=imputepath, task_id=taskid, preprocess=True)
+                        X_train_pandas = pd.DataFrame(X_train)
+                        X_test_pandas = pd.DataFrame(X_test)
+                        X_train_missing_p, mask_train = utils.add_missing(X_train_pandas, add_missing=level, missing_type=typical)
+                        X_test_missing_p, mask_test = utils.add_missing(X_test_pandas, add_missing=level, missing_type=typical)
+                        X_train_missing_n = X_train_missing_p.to_numpy()
+                        X_test_missing_n = X_test_missing_p.to_numpy()
+                        print('fitting')
+                        pls_work = my_run_pipeline.fit(X_train, y_train)
+                        print('try transform')
+                        X_test_transform = pls_work.graph.nodes[pls_work.topo_sorted_nodes[0]]["instance"].transform(X_test_missing_n)
+                        print('transform worked')
+                        rmse_loss = autoutils.rmse_loss(ori_data=X_test, imputed_data=X_test_transform, data_m=np.multiply(mask_test.to_numpy(),1))
+                        print(rmse_loss)
+                        csvout.loc[exp+item+lvl] = pd.Series({'Exp3ImputeRMSE': rmse_loss})
+                    except:
+                        print(taskid+item+lvl+' failed')
         output = csvout.to_csv(fileoutput+taskid+'_3rmse.csv')
         print(taskid + ' Complete')
 
