@@ -100,6 +100,8 @@ def main():
                     X_test_missing_p, mask_test = utils.add_missing(X_test_pandas, add_missing=level, missing_type=typical)
                     X_train_missing_n = X_train_missing_p.to_numpy()
                     X_test_missing_n = X_test_missing_p.to_numpy()
+                    print('fitting')
+                    my_run_pipeline.fit(X_train)
                     print('try transform')
                     X_test_transform = my_run_pipeline.transform(X_test_missing_n)
                     print('transform worked')
