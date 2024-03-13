@@ -63,10 +63,7 @@ def main():
     
     print('starting loops')
     start = time.time()
-    for taskid in ['6', '26', '30', '32', '2142', '14953', '206', '219','2075', '2076', '2280',
-                    '3483', '3510', '3591', '3594', '3603', '3668', '3688', '3712', '3735',
-                    '3745', '3764', '3786', '3899', '3954', '7295', '14964', '9983', '9972',
-                    '9952', '9959', '9943', '9942', '9899', '34539', '167120', '145943', '145681']:
+    for taskid in ['146204', '146212', '167141', '167212', '146820', '167119', '189865', '189773']:
         fileoutput = '/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/data/'
         csvout = pd.DataFrame(columns=['Exp3ImputeRMSE'], 
                                 index=['/tpot2_base_normal_MAR_0.01/','/tpot2_base_normal_MAR_0.1/',
