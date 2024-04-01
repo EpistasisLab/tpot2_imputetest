@@ -178,7 +178,8 @@ def main():
     1200, 1213, 23395, 23515, 42183, 42192, 42477, 42493, 42636, 
     clustering? = [127098, 127111, 128649, 128681, 295876, 295886, 296301, 296308,
                     296351, 296476,  ]
-                            
+    
+    additional_regression = [359946, 4774, 359952, 4769, 7393, 360969, 190419, 233169, 360966]
     
 
     task_id_lists = [
@@ -186,7 +187,7 @@ def main():
                     ]
                 218, 251, 4552 wrong, need new task list for all.  isnt the right data set. Need to process these from the dataset pull. 
     '''
-    task_id_lists = [7320]
+    task_id_lists = [359946]
     
     print('starting loops')
     start = time.time()
