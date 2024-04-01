@@ -32,7 +32,7 @@ pip install -r requirements.txt
 
 echo RunStart
 
-srun -u /home/ketrong/miniconda3/envs/tpot2devenv/bin/python main6.py \
+srun -u /home/ketrong/miniconda3/envs/tpot2devenv/bin/python main8.py \
 --n_jobs 48 \
 --savepath logs \
 --num_runs ${RUN} \
