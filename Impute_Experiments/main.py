@@ -180,6 +180,9 @@ def main():
                     296351, 296476,  ]
     
     additional_regression = [359946, 4774, 359952, 4769, 7393, 360969, 190419, 233169, 360966]
+
+    Top priority reg: [190419, 317615]
+    Top priority class:
     
 
     task_id_lists = [
@@ -187,7 +190,7 @@ def main():
                     ]
                 218, 251, 4552 wrong, need new task list for all.  isnt the right data set. Need to process these from the dataset pull. 
     '''
-    task_id_lists = [359946]
+    task_id_lists = [190419]
     
     print('starting loops')
     start = time.time()
