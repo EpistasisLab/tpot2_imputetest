@@ -58,13 +58,13 @@ imputation_params =  {
             }
 '''
 normal_params =  {
-                'root_config_dict':["regressors"],
+                'root_config_dict':["classifiers"],
                 'leaf_config_dict': None,
                 'inner_config_dict': ["selectors", "transformers"],
                 'max_size' : 1,
                 'linear_pipeline' : True,
 
-                'scorers':['neg_root_mean_squared_error', tpot2.objectives.complexity_scorer],
+                'scorers':['neg_log_loss', tpot2.objectives.complexity_scorer],
                 'scorers_weights':[1,-1],
                 'other_objective_functions':[],
                 'other_objective_functions_weights':[],
@@ -74,7 +74,7 @@ normal_params =  {
                 'initial_population_size' : n_jobs,
                 'generations' : 50, 
                 'n_jobs':n_jobs,
-                'cv': sklearn.model_selection.KFold(n_splits=10, shuffle=True, random_state=42),
+                'cv': sklearn.model_selection.StratifiedKFold(n_splits=10, shuffle=True, random_state=42),
                 'verbose':5, 
                 'max_time_seconds': total_duration,
                 'max_eval_time_seconds':60*10, 
@@ -87,7 +87,7 @@ normal_params =  {
 
                 'memory_limit':None,  
                 'preprocessing':False,
-                'classification' : False,
+                'classification' : True,
                 }
 '''
 imputation_params_and_normal_params = {
@@ -162,29 +162,35 @@ simple_and_normal_params = {
 def score(est, X, y):
 
     try:
-        this_explained_score = sklearn.metrics.get_scorer("explained_variance")(est, X, y)
+        this_auroc_score = sklearn.metrics.get_scorer("roc_auc_ovr")(est, X, y)
     except:
         y_preds = est.predict(X)
-        #y_preds_onehot = sklearn.preprocessing.label_binarize(y_preds, classes=est.fitted_pipeline_.classes_)
-        this_explained_score = sklearn.metrics.explained_variance_score(y, y_preds)
+        y_preds_onehot = sklearn.preprocessing.label_binarize(y_preds, classes=est.fitted_pipeline_.classes_)
+        this_explained_score = sklearn.metrics.explained_variance_score(y, y_preds_onehot, multi_class="ovr")
     
     try:
-        this_rmse = sklearn.metrics.get_scorer("neg_mean_squared_error")(est, X, y)*-1
+        this_logloss = sklearn.metrics.get_scorer("neg_log_loss")(est, X, y)*-1
     except:
         y_preds = est.predict(X)
-        #y_preds_onehot = sklearn.preprocessing.label_binarize(y_preds, classes=est.fitted_pipeline_.classes_)
-        this_rmse = sklearn.metrics.mean_squared_error(y, y_preds)*-1
+        y_preds_onehot = sklearn.preprocessing.label_binarize(y_preds, classes=est.fitted_pipeline_.classes_)
+        this_logloss = log_loss(y, y_preds_onehot)
 
-    this_r2_score = sklearn.metrics.get_scorer("r2")(est, X, y)
+    this_accuracy_score = sklearn.metrics.get_scorer("accuracy")(est, X, y)
+    this_balanced_accuracy_score = sklearn.metrics.get_scorer("balanced_accuracy")(est, X, y)
+
+    return { "auroc": this_auroc_score,
+            "accuracy": this_accuracy_score,
+            "balanced_accuracy": this_balanced_accuracy_score,
+            "logloss": this_logloss,
+            }
 
 
-
+'''
     return { "explained_var": this_explained_score,
             "r2": this_r2_score,
             "rmse": this_rmse,
     }
-
-
+'''
 
 #https://github.com/automl/ASKL2.0_experiments/blob/84a9c0b3af8f7ac6e2a003d4dea5e6dce97d4315/experiment_scripts/utils.py
 def load_task(base_save_folder, exp,type, levelstr, task_id, preprocess=True):
@@ -211,11 +217,11 @@ def load_task(base_save_folder, exp,type, levelstr, task_id, preprocess=True):
             X_train = preprocessing_pipeline.fit_transform(X_train)
             X_test = preprocessing_pipeline.transform(X_test)
 
-            '''
+            
             le = sklearn.preprocessing.LabelEncoder()
             y_train = le.fit_transform(y_train)
             y_test = le.transform(y_test)
-            '''
+            
 
             X_train = X_train.to_numpy()
             X_test = X_test.to_numpy()
