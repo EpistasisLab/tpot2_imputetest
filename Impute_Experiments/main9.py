@@ -59,7 +59,7 @@ def main():
                 'linear_pipeline' : True
                 }
     normal_params =  {
-                    'root_config_dict':["regressors"],
+                    'root_config_dict':["classifiers"],
                     'leaf_config_dict': None,
                     'inner_config_dict': ["selectors", "transformers"],
                     'max_size' : 1,
@@ -73,7 +73,7 @@ def main():
                     'max_size' : 1,
                     'linear_pipeline' : True,
 
-                    'scorers':['neg_root_mean_squared_error', tpot2.objectives.complexity_scorer],
+                    'scorers':['neg_log_loss', tpot2.objectives.complexity_scorer],
                     'scorers_weights':[1,-1],
                     'other_objective_functions':[],
                     'other_objective_functions_weights':[],
@@ -83,7 +83,7 @@ def main():
                     'initial_population_size' : n_jobs,
                     'generations' : 50, 
                     'n_jobs':n_jobs,
-                    'cv': sklearn.model_selection.KFold(n_splits=10, shuffle=True, random_state=42),
+                    'cv': sklearn.model_selection.StratifiedKFold(n_splits=10, shuffle=True, random_state=42),
                     'verbose':5, 
                     'max_time_seconds': total_duration,
                     'max_eval_time_seconds':60*10, 
@@ -96,7 +96,7 @@ def main():
 
                     'memory_limit':None,  
                     'preprocessing':False,
-                    'classification' : False,
+                    'classification' : True,
                 }
     
     simple_and_normal_params = {
@@ -106,7 +106,7 @@ def main():
                     'max_size' : 1,
                     'linear_pipeline' : True,
 
-                    'scorers':['neg_root_mean_squared_error', tpot2.objectives.complexity_scorer],
+                    'scorers':['neg_log_loss', tpot2.objectives.complexity_scorer],
                     'scorers_weights':[1,-1],
                     'other_objective_functions':[],
                     'other_objective_functions_weights':[],
@@ -116,7 +116,7 @@ def main():
                     'initial_population_size' : n_jobs,
                     'generations' : 50, 
                     'n_jobs':n_jobs,
-                    'cv': sklearn.model_selection.KFold(n_splits=10, shuffle=True, random_state=42),
+                    'cv': sklearn.model_selection.StratifiedKFold(n_splits=10, shuffle=True, random_state=42),
                     'verbose':5, 
                     'max_time_seconds': total_duration,
                     'max_eval_time_seconds':60*10, 
@@ -129,7 +129,7 @@ def main():
 
                     'memory_limit':None,  
                     'preprocessing':False,
-                    'classification' : False,
+                    'classification' : True,
 
     }
     
@@ -156,7 +156,7 @@ def main():
                     41671, 42183, 42192, 42225, 42477, 42493, 42545, 42636, 42688,
                     42712]
     '''
-    task_id_lists = [360966]
+    task_id_lists = [2075]
     print('starting loops')
     start = time.time()
     utils.loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs)

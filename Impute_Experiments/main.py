@@ -190,7 +190,7 @@ def main():
                     ]
                 218, 251, 4552 wrong, need new task list for all.  isnt the right data set. Need to process these from the dataset pull. 
     '''
-    task_id_lists = [26]
+    task_id_lists = [146806]
     
     print('starting loops')
     start = time.time()
