@@ -2,7 +2,7 @@ import tpot2
 import dill as pickle
 import pandas as pd
 
-for taskid in ['26', '2280', '190419', '233211', '360966']:
+for taskid in ['233169']:
     fileoutput = '/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/regression_data/'
     csvout = pd.DataFrame(columns=['Exp1ImputeRMSE','Exp2ImputeModel','Exp2train_explained_var','Exp2train_r2', 
                                    'Exp2train_rmse', 'Exp2test_explained_var', 'Exp2test_r2', 
