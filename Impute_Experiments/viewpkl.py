@@ -51,7 +51,10 @@ for taskid in ['26', '2280', '190419', '233211', '360966']:
                                         'Exp3ImputeModel': my_run_pipeline, 'Exp3train_explained_var': my_run['train_score']['train_explained_var'], 'Exp3train_r2': my_run['train_score']['train_r2'], 'Exp3train_rmse': my_run['train_score']['train_rmse'], 
                                         'Exp3impute_explained_var': my_run['ori_test_score']['explained_var'], 'Exp3impute_r2': my_run['ori_test_score']['r2'], 'Exp3impute_rmse': my_run['ori_test_score']['rmse'], 
                                         'Exp3impute_pipe': my_run_pipeline, 'Exp3duration': my_run['duration']})
-                    
+                    print(taskid+item+lvl+' passed')
+
                 except:
                     print(taskid+item+lvl+' failed')
+                
     output = csvout.to_csv(fileoutput+taskid+'.csv')
+    print(taskid + 'complete')
