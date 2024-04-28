@@ -63,8 +63,8 @@ def main():
     
     print('starting loops')
     start = time.time()
-    for taskid in ['26']:
-        fileoutput = '/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/regression_data/'
+    for taskid in ['146806', '190424', '189865', '317615', '145681', '14953', '2075', '32']:
+        fileoutput = '/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/data/'
         csvout = pd.DataFrame(columns=['Exp3ImputeRMSE'], 
                                 index=['/tpot2_base_normal_MAR_0.01/','/tpot2_base_normal_MAR_0.1/',
                                     '/tpot2_base_normal_MAR_0.3/','/tpot2_base_normal_MAR_0.5/',
