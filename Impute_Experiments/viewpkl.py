@@ -2,7 +2,7 @@ import tpot2
 import dill as pickle
 import pandas as pd
 
-for taskid in ['146806', '190424', '189865', '317615', '145681', '14953', '2075', '32']:
+for taskid in ['34539', '3764', '3786']:
     fileoutput = '/common/ketrong/AutoImputeExp/tpot2_imputetest/Impute_Experiments/data/'
     csvout = pd.DataFrame(columns=['Exp1ImputeRMSE','Exp2ImputeModel','Exp2train_auroc','Exp2train_acc','Exp2train_bal_acc', 
                                     'Exp2train_logloss', 'Exp2test_auroc', 'Exp2test_acc',
